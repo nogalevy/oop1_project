@@ -19,6 +19,7 @@ add_executable (${CMAKE_PROJECT_NAME} ) # add here 'WIN32' to run without termin
 
 add_subdirectory (include)
 add_subdirectory (src)
+add_subdirectory (images)
 
 set (SFML_STATIC_LIBRARIES TRUE)
 set (SFML_DIR "C:/SFML/SFML-2.5.1/lib/cmake/SFML")
