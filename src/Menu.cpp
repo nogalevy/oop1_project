@@ -5,7 +5,7 @@ Menu::Menu()
 {
     short size = 3;
     m_bgTexture.loadFromFile("2.jpg");
-    m_bgRect = sf::RectangleShape(sf::Vector2f(1280.f, 870.f));
+    m_bgRect = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
     m_bgRect.setTexture(&m_bgTexture);
 
     //------- create btns vector -----------

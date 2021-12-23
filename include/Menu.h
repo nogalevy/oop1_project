@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+#include "view_constants.h"
+
 //sf::Vector2f bg_size = sf::Vector2f(1280.f, 870.f);
 
 class Menu {

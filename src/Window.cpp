@@ -3,7 +3,7 @@
 sf::VideoMode window_size = sf::VideoMode(1280, 870);
 
 Window::Window()
-	: m_window(sf::RenderWindow(window_size, "AHHHHHHHHHHHHHHHHHHHH")),
+	: m_window(sf::RenderWindow(sf::VideoMode(WINDOW_W, WINDOW_H), TITLE)),
 	m_menu(),
 	m_board(),
 	m_bgTexture(),
@@ -33,6 +33,7 @@ void Window::startGame()
 
         m_window.clear(sf::Color(sf::Color(14, 45, 32)));
 
+        //TODO: move to draw function
         m_menu.draw(m_window);
        // m_window.draw(bg_rect);
         //window.draw();

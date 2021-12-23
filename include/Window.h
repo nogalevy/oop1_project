@@ -1,5 +1,7 @@
 #pragma once
 
+#include "view_constants.h"
+
 #include "Menu.h"
 #include "Board.h"
 #include "DataDisplay.h"
