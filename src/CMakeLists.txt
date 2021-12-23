@@ -1,3 +1,6 @@
 ﻿target_sources (${CMAKE_PROJECT_NAME} PRIVATE "main.cpp"
-                                              "window.cpp"
+                                              "Window.cpp"
+                                              "Menu.cpp"
+                                              "Board.cpp"
+                                              "DataDisplay.cpp"
                                              )

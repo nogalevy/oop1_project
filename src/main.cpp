@@ -4,40 +4,34 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-sf::VideoMode window_size = sf::VideoMode(1280, 870);
-sf::Vector2f bg_size = sf::Vector2f(1280.f, 870.f);
-
-void drawBtns(sf::RenderWindow &window, std::vector<sf::RectangleShape> btns)
-{
-    //calc center:
-    sf::Vector2f size = sf::Vector2f(200.f, 100.f);
-    for (int i = 0; i < 3; i++)
-    {
-        btns[i].setSize(size);
-        btns[i].setFillColor(sf::Color(sf::Color(122, 209, 226)));
-        btns[i].setPosition(sf::Vector2f(70, 200 * (i + 1) + 20));
-
-        window.draw(btns[i]);
-    }
-}
 
 int main()
 {
-	/* 
+
+    auto my_window = Window();
+    my_window.startGame();
+
+    return EXIT_SUCCESS;
+}
+/*
+
+int main()
+{
+	
     auto my_window = window();
 	my_window.run();
-    */
+    
 
     //------ fullscreen option ---------------
     // App.create(sf::VideoMode(800, 600, 32), "SFML Window", sf::Style::Fullscreen);
    
     //----- create window ----------------
-    auto window = sf::RenderWindow(window_size, "AHHHHHHHHHHHHHHHHHHHH" /*, sf::Style::Titlebar | sf::Style::Fullscreen | sf::Style::Close) */);
+    auto window = sf::RenderWindow(window_sizee, "AHHHHHHHHHHHHHHHHHHHH" , sf::Style::Titlebar | sf::Style::Fullscreen | sf::Style::Close) );
 
     //----- create background image ---------
     auto bg = sf::Texture();
     bg.loadFromFile("2.jpg");
-    auto bg_rect = sf::RectangleShape(bg_size);
+    auto bg_rect = sf::RectangleShape(bg_sizee);
     bg_rect.setTexture(&bg);
    
     //------- create btns vector -----------
@@ -61,7 +55,7 @@ int main()
         {
             window.close();
         }
-        /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
             window.close();
         }
@@ -72,7 +66,7 @@ int main()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
             window.close();
-        }*/
+        }
         if (auto event = sf::Event{}; window.pollEvent(event)  )
         {
             switch (event.type)
@@ -89,3 +83,4 @@ int main()
 
 	return EXIT_SUCCESS;
 }
+*/
