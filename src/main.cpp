@@ -7,7 +7,6 @@
 
 int main()
 {
-
     auto my_window = Window();
     my_window.startGame();
 
