@@ -9,6 +9,8 @@ Window::Window()
 	m_bgTexture(),
 	m_image()
 {
+    //#fontexample
+    //m_font.loadFromFile("font2.ttf");
     m_window.setFramerateLimit(60);
 }
 
@@ -28,6 +30,19 @@ void Window::startGame()
 
     while (m_window.isOpen())
     {
+        //#fontexample
+        //sf::Text text;
+        //// select the font
+        //text.setFont(m_font); // font is a sf::Font
+        //// set the string to display
+        //text.setString("Hello world");
+        //// set the character size
+        //text.setCharacterSize(44); // in pixels, not points!
+        //// set the color
+        //text.setFillColor(sf::Color::Black);
+        //// set the text style
+        //text.setStyle(sf::Text::Bold);
+
         //sf::Event event;
         sf::Vector2f location;
 
@@ -35,6 +50,10 @@ void Window::startGame()
 
         //TODO: move to draw function
         m_menu.draw(m_window);
+
+        //#fontexample
+        //m_window.draw(text);
+        // 
        // m_window.draw(bg_rect);
         //window.draw();
         m_window.display();

@@ -33,4 +33,7 @@ private:
 	//game background
 	sf::Texture m_bgTexture;
 
+	//#fontexample
+	//sf::Font m_font;
+
 };
