@@ -16,6 +16,20 @@ Window::Window()
 
 void Window::startGame()
 {
+    /*
+        Noga: 
+        Two options to display pages:
+            1. Like the 'LodeRunner' game - one main loop that first send us to other loop in
+                'startScreen' class and display the first page (menu), and when click on start game 
+                send exit from that loop and return to the main loop in our 'window'
+            2. while loop in window that decide to draw page by some enum - 
+                the enum will update for exxample by clicking the 'start game' button (thats good if we want 
+                to give access to the menu while playing the game) 
+
+    
+    */
+
+
     /* 
     //move to menu
     auto bg = sf::Texture();
@@ -82,6 +96,9 @@ void Window::startGame()
                 m_window.close();
                 break;
                 // Add more cases to handle other events
+            case sf::Event::MouseButtonReleased:		// stopping and resuming background music
+                handleClick(event);
+                break;
             default:
                 break;
             }
@@ -89,3 +106,29 @@ void Window::startGame()
     }
 }
 
+void Window::handleClick(const sf::Event& event)
+{
+    if (1 /*m_curr_page == MENU */ )
+    {
+        handleMenuClick(event);
+    }
+}
+
+void Window::handleMenuClick(const sf::Event& event)
+{
+    int btn_num = m_menu.handleClick(event);
+    switch (btn_num)
+    {
+    case START:
+        //openGamePage();
+        break;
+    case HELP:
+        //m_menu.openHelpWindow();
+        break;
+    case EXIT:
+        m_window.close();
+        break;
+    default:
+        break;
+    }
+}

@@ -18,6 +18,8 @@ public:
 	Window();
 	void startGame();
 	void draw() const;
+	void handleClick(const sf::Event& event);
+	void handleMenuClick(const sf::Event& event);
 
 private:
 	//window
@@ -33,7 +35,7 @@ private:
 	//game background
 	sf::Texture m_bgTexture;
 
-	//#fontexample
+	//#fontexample		
 	//sf::Font m_font;
 
 };

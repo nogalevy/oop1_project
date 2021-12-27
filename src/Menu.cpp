@@ -26,6 +26,16 @@ void Menu::draw(sf::RenderWindow& window) const
     }
 }
 
+int Menu::handleClick(const sf::Event& event) const
+{
+    for (int i = 0; i < 3; i++)
+    {
+        if (this->m_btns[i].getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+            return i;
+    }
+
+}
+
 
 void Menu::setBtns()
 {

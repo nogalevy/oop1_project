@@ -12,8 +12,8 @@ class Menu {
 public:
     Menu();
     void draw(sf::RenderWindow& window) const;
-    void handleClick() const;
-    void handleHover() const;
+    int handleClick(const sf::Event& event) const;
+    void handleHover(const sf::Event& event) const;
 
 private:
     sf::RectangleShape m_bgRect;
