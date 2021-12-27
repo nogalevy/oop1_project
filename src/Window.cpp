@@ -5,7 +5,7 @@ sf::VideoMode window_size = sf::VideoMode(1280, 870);
 Window::Window()
     : m_window(sf::RenderWindow(sf::VideoMode(WINDOW_W, WINDOW_H), TITLE)),
     m_menu(),
-    m_board(100, 100),
+    m_board(/*100, 100*/),
     m_bgTexture(),
     m_image(),
     m_currPage(MENU),
@@ -14,6 +14,10 @@ Window::Window()
     //#fontexample
     //m_font.loadFromFile("font2.ttf");
     m_window.setFramerateLimit(60);
+}
+
+Window::~Window()
+{
 }
 
 void Window::startGame()

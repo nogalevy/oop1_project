@@ -3,4 +3,7 @@
                                               "Menu.cpp"
                                               "Board.cpp"
                                               "DataDisplay.cpp"
+                                              "DynamicObject.cpp"
+                                              "GameObject.cpp"
+                                              "StaticObject.cpp" 
                                              )

@@ -2,6 +2,19 @@
 configure_file ("images/fuya.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/1.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/2.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/brickwall_2.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/fire.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/gate.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/key.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/king.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/orc.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/portal.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/thief.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/throne.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/warrior.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/wizard.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 
 # fonts
 configure_file ("fonts/font.ttf" ${CMAKE_BINARY_DIR} COPYONLY)

@@ -6,7 +6,7 @@
 class StaticObject : public GameObject
 {
 public:
-	StaticObject();
+	StaticObject(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
 	~StaticObject();
 
 };
