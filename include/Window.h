@@ -18,12 +18,15 @@ public:
 	Window();
 	void startGame();
 	void draw() const;
+	void drawCurrPage();
 	void handleClick(const sf::Event& event);
+	void isKeyPressed();
 	void handleMenuClick(const sf::Event& event);
 
 private:
 	//window
 	sf::RenderWindow m_window;
+
 	//menu - first page
 	Menu m_menu;
 	//board game
@@ -35,6 +38,8 @@ private:
 	//game background
 	sf::Texture m_bgTexture;
 
+	int m_currPage;
+	int m_activePlayer;
 	//#fontexample		
 	//sf::Font m_font;
 
