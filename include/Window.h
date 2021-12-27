@@ -22,6 +22,7 @@ public:
 	void handleClick(const sf::Event& event);
 	void isKeyPressed();
 	void handleMenuClick(const sf::Event& event);
+	void handleHover(const sf::Vector2f location);
 
 private:
 	//window

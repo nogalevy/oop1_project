@@ -1,6 +1,8 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
 
+const int NUM_OF_MENU_BTNS = 3;
 const int NUM_OF_ICONS = 11;
 //const int GAME_BTN_NUM = 3;
 
@@ -13,6 +15,7 @@ const std::string PIC_NAMES[NUM_OF_ICONS /* + GAME_BTN_NUM*/] = {"king", "wizard
 											"gate", "fire", "orc", "portal", "throne", "key"/*, "clear", "delete", "save"*/ };
 
 std::vector<sf::Texture> m_textures;
+
 
 void initTextures()
 {
