@@ -5,6 +5,7 @@
 #include <string>
 
 enum Menu_buttons { START, HELP, EXIT };
+enum Pages { MENU, BOARD };
 
 const std::string TITLE = "Save The King"; //window title
 
