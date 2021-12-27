@@ -10,8 +10,8 @@ class Board
 public:
 	Board();
 	void draw(sf::RenderWindow& window);
-	void move(int direction, int activePlayer);
-	void moveRect(int dir);
+	void move(sf::Vector2f direction, sf::Time timer, int activePlayer);
+	void moveRect(sf::Vector2f direction, sf::Time deltaTime);
 	void readLevel();
 private:
 	void readLevelSize();
