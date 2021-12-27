@@ -16,6 +16,7 @@
 class Window {
 public:
 	Window();
+	~Window();
 	void startGame();
 	void draw() const;
 	void drawCurrPage();

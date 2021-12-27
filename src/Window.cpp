@@ -14,6 +14,10 @@ Window::Window()
     m_window.setFramerateLimit(60);
 }
 
+Window::~Window()
+{
+}
+
 void Window::startGame()
 {
     /*

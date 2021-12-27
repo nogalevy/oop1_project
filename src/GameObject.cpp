@@ -3,7 +3,10 @@
 
 GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth, int mapHeight)
 {
-	m_icon.setTexture(&m_textures[symbol]);
+	//m_icon.setTexture(&textures[symbol]);
+	sf::Texture texture;
+	texture.loadFromFile("king.png");
+	m_icon.setTexture(texture);
 
 	//set the correct scale to fill the board according to map size
 	auto xScaleValue = (float)WINDOW_W / ((float)ICON_SIZE * (float)mapWidth);
@@ -17,7 +20,7 @@ GameObject::~GameObject()
 {
 }
 
-void GameObject::draw(sf::RenderWindow&)
+void GameObject::draw(sf::RenderWindow& window)
 {
 	window.draw(m_icon);
 }
