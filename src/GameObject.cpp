@@ -12,7 +12,7 @@ GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth,
 	auto xScaleValue = (float)WINDOW_W / ((float)ICON_SIZE * (float)mapWidth);
 	auto yScaleValue = (float)WINDOW_H / ((float)ICON_SIZE * (float)mapHeight);
 
-	m_icon.scale(xScaleValue, yScaleValue);
+	m_icon.scale(0.9, 0.9);
 	m_icon.setPosition(location);
 }
 
@@ -22,5 +22,6 @@ GameObject::~GameObject()
 
 void GameObject::draw(sf::RenderWindow& window)
 {
+	std::cout << "draw icon\n";
 	window.draw(m_icon);
 }

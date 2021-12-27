@@ -72,7 +72,8 @@ void Window::startGame()
             {
                 sf::Vector2f location = m_window.mapPixelToCoords(
                     { event.mouseMove.x, event.mouseMove.y });
-                handleHover(location);
+                if(m_currPage == MENU)
+                    handleHover(location);
                 break;
             }
             default:
@@ -90,6 +91,7 @@ void Window::drawCurrPage()
         m_menu.draw(m_window);
         break;
     case BOARD:
+        std::cout << "board page\n";
         m_board.draw(m_window);
         break;
     default:

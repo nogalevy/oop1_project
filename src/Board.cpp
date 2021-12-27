@@ -2,9 +2,9 @@
 
 Board::Board(	) : m_height(0), m_width(0), rect(sf::Vector2f(30.f, 30.f))
 {
-	rect.setFillColor(sf::Color::Green);
-	m_levelFile.open("Level1.txt", std::ios_base::in);
-	readLevel();
+	//rect.setFillColor(sf::Color::Green);
+	//m_levelFile.open("Level1.txt", std::ios_base::in);
+	//readLevel();
 	createObjects();
 }
 
@@ -14,7 +14,26 @@ Board::~Board()
 
 void Board::draw(sf::RenderWindow& window)
 {
-	window.draw(rect);
+	sf::Vector2f position;
+	float xPos, yPos;
+
+	xPos = ((float)WINDOW_W / (float)(m_width) * 5);
+	yPos = ((float)WINDOW_H / (float)(m_height) * 5);
+	position = { xPos, yPos };
+
+	m_staticObj.push_back(std::make_unique<StaticObject>(WALL, position, m_width, m_height));
+
+	xPos = ((float)WINDOW_W / (float)(m_width) * 7);
+	yPos = ((float)WINDOW_H / (float)(m_height) * 7);
+	position = { xPos, yPos };
+
+	m_movingObj.push_back(std::make_unique<DynamicObject>(KING, position, m_width, m_height));
+
+
+	/*
+	//window.draw(rect);
+	m_staticObj[0]->draw(window);
+	m_movingObj[0]->draw(window);
 }
 
 void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
@@ -98,7 +117,7 @@ void Board::readLevelSize()
 void Board::createObjects()
 {
 	//Icons symbol;
-	sf::Vector2f position;
+	/*sf::Vector2f position;
 	float xPos, yPos;
 	
 	xPos = ((float)WINDOW_W / (float)(m_width)*5);
@@ -111,7 +130,7 @@ void Board::createObjects()
 	yPos = ((float)WINDOW_H / (float)(m_height)*7);
 	position = { xPos, yPos };
 
-	m_movingObj.push_back(std::make_unique<DynamicObject>(KING, position, m_width, m_height));
+	m_movingObj.push_back(std::make_unique<DynamicObject>(KING, position, m_width, m_height));*/
 
 
 	/*

@@ -10,6 +10,7 @@ public:
 	//virtual void move(sf::Time&) = 0;
 
 
+
 protected:
 
 
