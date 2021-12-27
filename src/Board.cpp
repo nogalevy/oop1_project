@@ -1,9 +1,9 @@
 #include "Board.h"
 
-Board::Board(int width, int height)
-	: rect(sf::Vector2f(30.f, 30.f))
+Board::Board() : m_height(0), m_width(0), rect(sf::Vector2f(30.f, 30.f))
 {
 	rect.setFillColor(sf::Color::Green);
+	m_levelFile.open("Level1.txt", std::ios_base::in);
 }
 
 void Board::draw(sf::RenderWindow& window)
@@ -46,4 +46,29 @@ void Board::moveRect(int dir)
 	default:
 		break;
 	}
+}
+
+void Board::readLevel()
+{
+	readLevelSize();
+
+	auto line = std::string();
+	for (int row = 0; row < m_height; row++)
+	{
+		getline(m_levelFile, line);
+		m_boardMat.push_back(line);
+	}
+}
+
+void Board::readLevelSize()
+{
+	std::string number;
+
+	// reading height
+	m_levelFile >> number;
+	m_height = std::stoi(number, nullptr);
+
+	// reading width
+	m_levelFile >> number;
+	m_width = std::stoi(number, nullptr);
 }
