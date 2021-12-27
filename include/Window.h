@@ -41,6 +41,7 @@ private:
 
 	int m_currPage;
 	int m_activePlayer;
+	sf::Clock m_timer;
 	//#fontexample		
 	//sf::Font m_font;
 

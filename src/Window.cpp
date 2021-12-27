@@ -5,7 +5,7 @@ sf::VideoMode window_size = sf::VideoMode(1280, 870);
 Window::Window()
     : m_window(sf::RenderWindow(sf::VideoMode(WINDOW_W, WINDOW_H), TITLE)),
     m_menu(),
-    m_board(/*100, 100*/),
+    m_board(),
     m_bgTexture(),
     m_image(),
     m_currPage(MENU),
@@ -115,21 +115,22 @@ void Window::handleClick(const sf::Event& event)
 
 void Window::isKeyPressed()
 {
+    sf::Time deltaTime = m_timer.restart();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        m_board.move(LEFT, m_activePlayer);
+        m_board.move(sf::Vector2f(-1, 0), deltaTime, m_activePlayer);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        m_board.move(RIGHT, m_activePlayer);
+        m_board.move(sf::Vector2f(1, 0), deltaTime, m_activePlayer);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        m_board.move(UP, m_activePlayer);
+        m_board.move(sf::Vector2f(0, -1), deltaTime, m_activePlayer);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        m_board.move(DOWN, m_activePlayer);
+        m_board.move(sf::Vector2f(0, 1), deltaTime, m_activePlayer);
     }
 }
 

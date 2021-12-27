@@ -17,9 +17,9 @@ void Board::draw(sf::RenderWindow& window)
 	window.draw(rect);
 }
 
-void Board::move(int direction, int activePlayer)
+void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
-	moveRect(direction);
+	moveRect(direction, deltaTime);
 	//m_dynamicPlayers[activePlayer].move(direction);
 
 	/*
@@ -32,26 +32,29 @@ void Board::move(int direction, int activePlayer)
 	*/
 }
 
-void Board::moveRect(int dir)
+void Board::moveRect(sf::Vector2f direction, sf::Time deltaTime)
 {
-	int m_movementSpeed = 10; // TODO: move to macros
-	switch (dir)
-	{
-	case LEFT:
-		rect.move(-m_movementSpeed, 0.f); //left
-		break;
-	case RIGHT:
-		rect.move(m_movementSpeed, 0.f); //right
-		break;
-	case UP:
-		rect.move(0.f, -m_movementSpeed); //up
-		break;
-	case DOWN:
-		rect.move(0.f, m_movementSpeed); //down
-		break;
-	default:
-		break;
-	}
+	auto speedPerSecond = 100.f;
+	rect.move(direction * speedPerSecond * deltaTime.asSeconds());
+
+	//int m_movementSpeed = 10; // TODO: move to macros
+	//switch (dir)
+	//{
+	//case LEFT:
+	//	rect.move(-m_movementSpeed, 0.f); //left
+	//	break;
+	//case RIGHT:
+	//	rect.move(m_movementSpeed, 0.f); //right
+	//	break;
+	//case UP:
+	//	rect.move(0.f, -m_movementSpeed); //up
+	//	break;
+	//case DOWN:
+	//	rect.move(0.f, m_movementSpeed); //down
+	//	break;
+	//default:
+	//	break;
+	//}
 }
 
 void Board::readLevel()
