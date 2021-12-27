@@ -3,6 +3,7 @@
 #include "utilities.h"
 #include "view_constants.h"
 
+
 class GameObject {
 public:
 	/*
@@ -15,7 +16,7 @@ public:
 	GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth, int mapHeight);
 	~GameObject();
 
-	virtual void draw(sf::RenderWindow&);
+	virtual void draw(sf::RenderWindow& window);
 
 
 protected:
@@ -25,7 +26,8 @@ protected:
 	- symbol
 	- texture
 	*/
-
-	sf::Sprite m_icon;
+	sf::RectangleShape m_icon;
+	sf::Texture m_texture;
+	//sf::Sprite m_icon;
 
 };

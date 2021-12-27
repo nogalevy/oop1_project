@@ -1,3 +1,4 @@
+#include "..\include\DynamicObject.h"
 #include "DynamicObject.h"
 
 
@@ -9,4 +10,10 @@ DynamicObject::DynamicObject(Icons symbol, const sf::Vector2f& position, int map
 
 DynamicObject::~DynamicObject()
 {
+}
+
+void DynamicObject::move(sf::Vector2f direction, sf::Time deltaTime)
+{
+	auto speedPerSecond = 100.f;
+	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
 }
