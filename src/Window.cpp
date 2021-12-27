@@ -3,12 +3,13 @@
 sf::VideoMode window_size = sf::VideoMode(1280, 870);
 
 Window::Window()
-	: m_window(sf::RenderWindow(sf::VideoMode(WINDOW_W, WINDOW_H), TITLE)),
-	m_menu(),
-	m_board(),
-	m_bgTexture(),
-	m_image(),
-    m_currPage(MENU)
+    : m_window(sf::RenderWindow(sf::VideoMode(WINDOW_W, WINDOW_H), TITLE)),
+    m_menu(),
+    m_board(100, 100),
+    m_bgTexture(),
+    m_image(),
+    m_currPage(MENU),
+    m_activePlayer(0/*KING*/)
 {
     //#fontexample
     //m_font.loadFromFile("font2.ttf");
@@ -86,17 +87,13 @@ void Window::startGame()
 
 void Window::drawCurrPage()
 {
-    sf::RectangleShape rect;
     switch (m_currPage)
     {
     case MENU:
         m_menu.draw(m_window);
         break;
     case BOARD:
-        rect = sf::RectangleShape(sf::Vector2f(100.f, 100.f));
-        rect.setFillColor(sf::Color::Green);
-        //m_board.draw(m_menu);
-        m_window.draw(rect);
+        m_board.draw(m_window);
         break;
     default:
         break;
@@ -116,20 +113,20 @@ void Window::isKeyPressed()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        m_window.close();
+        m_board.move(LEFT, m_activePlayer);
     }
-    /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        window.close();
+        m_board.move(RIGHT, m_activePlayer);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        window.close();
+        m_board.move(UP, m_activePlayer);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        window.close();
-    }*/
+        m_board.move(DOWN, m_activePlayer);
+    }
 }
 
 void Window::handleMenuClick(const sf::Event& event)

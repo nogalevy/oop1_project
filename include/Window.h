@@ -39,6 +39,7 @@ private:
 	sf::Texture m_bgTexture;
 
 	int m_currPage;
+	int m_activePlayer;
 	//#fontexample		
 	//sf::Font m_font;
 
