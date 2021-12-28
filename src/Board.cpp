@@ -1,8 +1,9 @@
 #include "Board.h"
 
-Board::Board(	) : m_height(0), m_width(0), rect(sf::Vector2f(30.f, 30.f))
+Board::Board(	) : m_height(0), m_width(0), rect(sf::Vector2f(30.f, 30.f)), m_staticObj(WALL, (sf::Vector2f(40.f, 40.f)), m_width, m_height),
+m_movingObj(KING, (sf::Vector2f(80.f, 80.f)), m_width, m_height)
 {
-	//rect.setFillColor(sf::Color::Green);
+	rect.setFillColor(sf::Color::Green);
 	//m_levelFile.open("Level1.txt", std::ios_base::in);
 	//readLevel();
 	createObjects();
@@ -14,31 +15,22 @@ Board::~Board()
 
 void Board::draw(sf::RenderWindow& window)
 {
-	sf::Vector2f position;
-	float xPos, yPos;
 
-	xPos = ((float)WINDOW_W / (float)(m_width) * 5);
-	yPos = ((float)WINDOW_H / (float)(m_height) * 5);
-	position = { xPos, yPos };
-
-	m_staticObj.push_back(std::make_unique<StaticObject>(WALL, position, m_width, m_height));
-
-	xPos = ((float)WINDOW_W / (float)(m_width) * 7);
-	yPos = ((float)WINDOW_H / (float)(m_height) * 7);
-	position = { xPos, yPos };
-
-	m_movingObj.push_back(std::make_unique<DynamicObject>(KING, position, m_width, m_height));
+	//m_movingObj.push_back(std::make_unique<DynamicObject>(KING, position, m_width, m_height));
 
 
-	/*
 	//window.draw(rect);
-	m_staticObj[0]->draw(window);
-	m_movingObj[0]->draw(window);
+	m_staticObj.draw(window);
+	m_movingObj.draw(window);
+	//m_staticObj[0]->draw(window);
+	//m_movingObj[0]->draw(window);
+
 }
 
 void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
-	moveRect(direction, deltaTime);
+	m_movingObj.move(direction, deltaTime);
+	//moveRect(direction, deltaTime);
 	//m_dynamicPlayers[activePlayer].move(direction);
 
 	/*

@@ -91,7 +91,7 @@ void Window::drawCurrPage()
         m_menu.draw(m_window);
         break;
     case BOARD:
-        std::cout << "board page\n";
+        //std::cout << "board page\n";
         m_board.draw(m_window);
         break;
     default:

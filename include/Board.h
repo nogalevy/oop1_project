@@ -38,8 +38,9 @@ private:
 	std::ifstream m_levelFile;
 	std::vector<std::string> m_boardMat;
 
-	std::vector<std::unique_ptr<DynamicObject>> m_movingObj;
-	std::vector<std::unique_ptr<StaticObject>> m_staticObj;
-
+	//std::vector<std::unique_ptr<DynamicObject>> m_movingObj;
+	//std::vector<std::unique_ptr<StaticObject>> m_staticObj;
+	DynamicObject m_movingObj;
+	StaticObject m_staticObj;
 
 };
