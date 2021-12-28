@@ -24,6 +24,8 @@ public:
 	void moveRect(sf::Vector2f direction, sf::Time deltaTime);
 	void readLevel();
 	Icons getSymbol(int, int);
+	int getHeight();
+	int getWidth();
 
 private:
 	void readLevelSize();

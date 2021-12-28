@@ -101,6 +101,17 @@ Icons Board::getSymbol(int row, int col)
 	return SPACE;
 }
 
+int Board::getHeight()
+{
+	return m_height;
+}
+
+
+int Board::getWidth()
+{
+	return m_width;
+}
+
 void Board::readLevelSize()
 {
 	std::string number;
