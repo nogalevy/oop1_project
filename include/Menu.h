@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
+#include "Resources.h"
 
 //#include "utilities.h"
 #include "view_constants.h"
@@ -23,9 +24,6 @@ private:
     sf::Texture m_bgTexture;
     //std::vector<sf::RectangleShape> m_btns;
     std::vector<sf::Text> m_btns;
-
-    //#fontexample		
-    sf::Font m_font;
 
     void setBtns();
 };
