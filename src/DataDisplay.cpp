@@ -2,7 +2,7 @@
 
 DataDisplay::DataDisplay()
 	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
-	m_clock()
+	m_timeCounter(5)
 {
 	if (!m_font.loadFromFile("font2.ttf"));
 	{
@@ -12,18 +12,50 @@ DataDisplay::DataDisplay()
 	setBgRectangle();
 }
 
+DataDisplay::DataDisplay(float time)
+	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
+	m_timeCounter(time)
+{
+	if (!m_font.loadFromFile("font2.ttf"));
+	{
+
+	}
+	m_timerTxt.setFont(m_font);
+	setBgRectangle();
+}
+
+
+
 void DataDisplay::draw(sf::RenderWindow& window)
 {
-	sf::Time elapsed = m_clock.getElapsedTime();
-	window.draw(m_bgRectangle);
+	//sf::Clock m_clock;
+	
+	//sf::Time elapsed = m_clock.getElapsedTime();
+	//window.draw(m_bgRectangle);
 
 	m_timerTxt.setPosition(sf::Vector2f(0, BOARD_H + 10));
 	m_timerTxt.setColor(sf::Color::White);
 	m_timerTxt.setCharacterSize(20);
-	//auto el = (elapsed.asSeconds() )* 10;
-	m_timerTxt.setString(std::to_string(elapsed.asSeconds()));
+	////auto el = (elapsed.asSeconds() )* 10;
+	
+	//m_timerTxt.setString(std::to_string(elapsed.asSeconds()));
+	m_timerTxt.setString(std::to_string(m_timeCounter.getTime()));
+
+	if (int(m_timeCounter.getTime()) == 0)
+	{
+		std::cout << " here\n";
+		m_timeCounter.addTime(10);
+	}
+	//sf::Time t3 = sf::seconds(60);
+	//m_timerTxt.setString(std::to_string(t3.asSeconds() - elapsed.asSeconds()));
+
 
 	window.draw(m_timerTxt);
+}
+
+void DataDisplay::resetClock()
+{
+	m_timeCounter.startClock();
 }
 
 void DataDisplay::setBgRectangle()
@@ -31,3 +63,4 @@ void DataDisplay::setBgRectangle()
 	m_bgRectangle.setFillColor(sf::Color::Color(41, 54, 37));
 	m_bgRectangle.setPosition(sf::Vector2f(0, BOARD_H));
 }
+

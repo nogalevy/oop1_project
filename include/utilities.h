@@ -15,6 +15,8 @@ const char SYMBOLS[NUM_OF_ICONS] = { 'K', 'M', 'W', 'T', '=', '#', '*', '!', 'X'
 const std::string PIC_NAMES[NUM_OF_ICONS /* + GAME_BTN_NUM*/] = {"king", "wizard", "warrior", "thief", "brickwall_2",
 											"gate", "fire", "orc", "portal", "throne", "key"/*, "clear", "delete", "save"*/ };
 
+enum timer_type { TIMER = 0, COUNTDOWN };
+
 /*
 std::vector<sf::Texture> textures;
 
