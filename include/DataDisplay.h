@@ -1,6 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <string.h>
 #include "view_constants.h"
 
 class DataDisplay {
@@ -14,8 +16,10 @@ public:
 private:
 	void setBgRectangle();
 
+	sf::Font m_font;
 	sf::RectangleShape m_bgRectangle;
-	// timer/countdown
+	sf::Clock m_clock;
+	sf::Text m_timerTxt;
 	// key ?
 	// current player ? or get this data from board? 
 };
