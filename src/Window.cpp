@@ -6,6 +6,7 @@ Window::Window()
     : m_window(sf::RenderWindow(sf::VideoMode(WINDOW_W, WINDOW_H), TITLE)),
     m_menu(),
     m_board(),
+    m_dataDisplay(),
     m_bgTexture(),
     m_image(),
     m_currPage(MENU),
@@ -93,6 +94,7 @@ void Window::drawCurrPage()
     case BOARD:
         //std::cout << "board page\n";
         m_board.draw(m_window);
+        m_dataDisplay.draw(m_window);
         break;
     default:
         break;

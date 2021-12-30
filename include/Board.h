@@ -31,8 +31,10 @@ private:
 	void readLevelSize();
 	void createObjects();
 	bool isStaticObj(Icons symbol);
+	void setBgRectangle();
 
 	sf::RectangleShape rect;
+	
 	int m_width;
 	int m_height;
 	std::ifstream m_levelFile;
@@ -42,5 +44,7 @@ private:
 	//std::vector<std::unique_ptr<StaticObject>> m_staticObj;
 	DynamicObject m_movingObj;
 	StaticObject m_staticObj;
+
+	sf::RectangleShape m_bgRectangle;
 
 };

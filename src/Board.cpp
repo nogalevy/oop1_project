@@ -1,9 +1,15 @@
 #include "Board.h"
 
-Board::Board(	) : m_height(0), m_width(0), rect(sf::Vector2f(30.f, 30.f)), m_staticObj(WALL, (sf::Vector2f(40.f, 40.f)), m_width, m_height),
-m_movingObj(KING, (sf::Vector2f(80.f, 80.f)), m_width, m_height)
+Board::Board(	) 
+	: m_height(0), m_width(0), 
+	rect(sf::Vector2f(30.f, 30.f)), 
+	m_staticObj(WALL, (sf::Vector2f(40.f, 40.f)), m_width, m_height),
+	m_movingObj(KING, (sf::Vector2f(80.f, 80.f)), m_width, m_height),
+	m_bgRectangle(sf::Vector2f(BOARD_W, BOARD_H))
+
 {
 	rect.setFillColor(sf::Color::Green);
+	setBgRectangle();
 	//m_levelFile.open("Level1.txt", std::ios_base::in);
 	//readLevel();
 	createObjects();
@@ -18,7 +24,7 @@ void Board::draw(sf::RenderWindow& window)
 
 	//m_movingObj.push_back(std::make_unique<DynamicObject>(KING, position, m_width, m_height));
 
-
+	window.draw(m_bgRectangle);
 	//window.draw(rect);
 	m_staticObj.draw(window);
 	m_movingObj.draw(window);
@@ -167,4 +173,9 @@ void Board::createObjects()
 bool Board::isStaticObj(Icons symbol)
 {
 	return (symbol > 3 && symbol < NUM_OF_ICONS);
+}
+
+void Board::setBgRectangle()
+{
+	m_bgRectangle.setFillColor(sf::Color::Color(142, 204, 124));
 }
