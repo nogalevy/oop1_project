@@ -3,9 +3,9 @@
 Menu::Menu()
     : m_bgRect()
 {
-    m_bgTexture.loadFromFile("2.jpg");
+    //m_bgTexture.loadFromFile("2.jpg");
     m_bgRect = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
-    m_bgRect.setTexture(&m_bgTexture);
+    m_bgRect.setTexture(Resources::instance().getMenuBackground());
 
     //------- create btns vector -----------
     //#fontexample
