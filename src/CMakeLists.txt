@@ -6,4 +6,5 @@
                                               "DynamicObject.cpp"
                                               "GameObject.cpp"
                                               "StaticObject.cpp" 
+                                              "Resources.cpp"
                                              )

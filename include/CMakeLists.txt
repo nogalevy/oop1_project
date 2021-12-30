@@ -22,4 +22,5 @@ target_sources (${CMAKE_PROJECT_NAME} PRIVATE "Board.h"
                                               "Throne.h"
                                               "Clock.h"
                                               "Audio.h"
+                                              "Resources.h"
                                              )
