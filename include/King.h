@@ -5,7 +5,7 @@
 class King : public DynamicObject
 {
 public:
-	King();
+	King(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
 	~King();
 
 	virtual void move(/*sf::Time&*/) override;

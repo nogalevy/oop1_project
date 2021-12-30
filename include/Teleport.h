@@ -1,9 +1,13 @@
-#pragma once
-#include "GameObject.h"
+#pragma onceS
+#include "StaticObject.h"
+
 
 //NEED TO CHANGE TO INHERIT FROM STATIC CLASS
-class Teleport : GameObject {
+class Teleport : public StaticObject
+{
 public:
+	using StaticObject::StaticObject;
+	~Teleport();
 private:
 	/*
 	Members:
