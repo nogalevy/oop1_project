@@ -16,6 +16,7 @@ public:
 	// draw (key , timer, current player, level num)
 	void draw(sf::RenderWindow & window);
 	void resetClock();
+	void drawTime(sf::RenderWindow& window);
 	// hasKey
 	// updaeCurrPlayer ?
 private:
