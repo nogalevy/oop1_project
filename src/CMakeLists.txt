@@ -5,6 +5,7 @@
                                               "DataDisplay.cpp"
                                               "DynamicObject.cpp"
                                               "GameObject.cpp"
-                                              "StaticObject.cpp" 
+                                              "StaticObject.cpp"
+                                              "Timer.cpp" 
                                               "Resources.cpp"
                                              )

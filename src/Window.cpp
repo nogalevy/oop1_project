@@ -139,6 +139,7 @@ void Window::handleMenuClick(const sf::Event& event)
     case START:
         //openGamePage();
         m_currPage = BOARD;
+        m_dataDisplay.resetClock();
         break;
     case HELP:
         //m_menu.openHelpWindow();
@@ -154,4 +155,9 @@ void Window::handleMenuClick(const sf::Event& event)
 void Window::handleHover(const sf::Vector2f location)
 {
     m_menu.handleHover(location, m_window);
+}
+
+void Window::resetClock()
+{
+    m_dataDisplay.resetClock();
 }

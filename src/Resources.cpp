@@ -5,6 +5,8 @@ Resources::Resources()
 	//load evvverrryyythinngggg
 	loadImagesForObjects();
 	loadFonts();
+	loadMenuBackground();
+
 }
 
 void Resources::loadImagesForObjects()
@@ -15,15 +17,28 @@ void Resources::loadImagesForObjects()
 
 	for (int i = 0; i < NUM_OF_ICONS - 1; i++)
 	{
-		image.loadFromFile(PIC_NAMES[i] + ".png");
+		if (!image.loadFromFile(PIC_NAMES[i] + ".png"))
+		{
+			std::cerr << "error load from file";
+		}
 		m_textures.push_back(image);
 	}
-
 }
 
 void Resources::loadFonts()
 {
-	m_font.loadFromFile("font3.ttf");
+	if (!m_font.loadFromFile("font3.ttf"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
+void Resources::loadMenuBackground()
+{
+	if (!m_menuBackgroundTexture.loadFromFile("2.jpg"))
+	{
+		std::cerr << "error load from file";
+	}
 }
 
 Resources::~Resources()
@@ -45,4 +60,9 @@ sf::Texture* Resources::getIcon(const Icons symbol)
 sf::Font* Resources::getFont()
 {
 	return &m_font;
+}
+
+sf::Texture* Resources::getMenuBackground()
+{
+	return &m_menuBackgroundTexture;
 }

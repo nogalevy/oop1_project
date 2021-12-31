@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <iostream>
 #include "utilities.h"
 
 class Resources
@@ -14,6 +15,7 @@ public:
 
 	sf::Texture* getIcon(const Icons symbol);
 	sf::Font* getFont();
+	sf::Texture* getMenuBackground();
 
 private:
 	Resources();
@@ -23,9 +25,12 @@ private:
 	//Load Functions
 	void loadImagesForObjects();
 	void loadFonts();
+	void loadMenuBackground();
 
 	//Members
 	std::vector<sf::Texture> m_textures;
 	sf::Font m_font;
+	sf::Texture m_menuBackgroundTexture;
+
 
 };

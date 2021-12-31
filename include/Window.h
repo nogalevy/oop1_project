@@ -24,7 +24,7 @@ public:
 	void isKeyPressed();
 	void handleMenuClick(const sf::Event& event);
 	void handleHover(const sf::Vector2f location);
-
+	void resetClock();
 private:
 	//window
 	sf::RenderWindow m_window;

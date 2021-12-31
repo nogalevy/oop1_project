@@ -3,13 +3,13 @@
 Menu::Menu()
     : m_bgRect()
 {
-    m_bgTexture.loadFromFile("2.jpg");
+    //m_bgTexture.loadFromFile("2.jpg");
     m_bgRect = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
-    m_bgRect.setTexture(&m_bgTexture);
+    m_bgRect.setTexture(Resources::instance().getMenuBackground());
 
     //------- create btns vector -----------
     //#fontexample
-    m_font.loadFromFile("font3.ttf");
+    //m_font.loadFromFile("font3.ttf");
 
     m_btns.resize(NUM_OF_MENU_BTNS); //TODO: change to const 
     setBtns();
@@ -77,7 +77,7 @@ void Menu::setBtns()
     sf::Vector2f size = sf::Vector2f(200.f, 100.f);
     for (int i = 0; i < NUM_OF_MENU_BTNS; i++)
     {
-        m_btns[i].setFont(m_font);
+        m_btns[i].setFont(*(Resources::instance().getFont()));
         m_btns[i].setString(btn_text[i]);
         m_btns[i].setCharacterSize(74); // in pixels, not points!
         m_btns[i].setFillColor(sf::Color::Black);
