@@ -6,8 +6,11 @@ GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth,
 {
 	//m_icon.setTexture(&textures[symbol]);
 	//sf::Texture texture;
-	m_texture.loadFromFile(symbol == KING ?  "king.png" : "brickwall_2.png");
-	m_icon.setTexture(&m_texture);
+	
+	//m_texture.loadFromFile(symbol == KING ?  "king.png" : "brickwall_2.png");
+	//m_icon.setTexture(&m_texture);
+
+	m_icon.setTexture(Resources::instance().getIcon(symbol));
 
 	//set the correct scale to fill the board according to map size
 	auto xScaleValue = (float)WINDOW_W / ((float)ICON_SIZE * (float)mapWidth);

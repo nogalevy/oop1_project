@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "utilities.h"
 #include "view_constants.h"
+#include "Resources.h"
 
 
 class GameObject {
