@@ -117,15 +117,15 @@ void Window::isKeyPressed()
     {
         m_board.move(sf::Vector2f(-1, 0), deltaTime, m_activePlayer);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
         m_board.move(sf::Vector2f(1, 0), deltaTime, m_activePlayer);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
         m_board.move(sf::Vector2f(0, -1), deltaTime, m_activePlayer);
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
         m_board.move(sf::Vector2f(0, 1), deltaTime, m_activePlayer);
     }

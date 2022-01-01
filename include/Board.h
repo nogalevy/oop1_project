@@ -52,7 +52,7 @@ private:
 	bool isStaticObj(Icons symbol);
 	void setBgRectangle();
 	void createMat();
-
+	bool checkCollision(int activePlayer);
 	sf::RectangleShape rect;
 	
 	int m_width;

@@ -2,7 +2,7 @@
 
 DataDisplay::DataDisplay()
 	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
-	m_timeCounter(5)
+	m_timeCounter()
 {
 	if (!m_font.loadFromFile("font2.ttf"));
 	{

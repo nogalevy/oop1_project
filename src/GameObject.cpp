@@ -29,3 +29,8 @@ void GameObject::draw(sf::RenderWindow& window)
 	//std::cout << "draw icon\n";
 	window.draw(m_icon);
 }
+
+bool GameObject::checkColisionWith(const GameObject& obj) const
+{
+	return m_icon.getGlobalBounds().intersects(obj.m_icon.getGlobalBounds());
+}

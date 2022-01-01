@@ -2,7 +2,7 @@
 //#include "King.h"
 
 
-Board::Board(	) 
+Board::Board() 
 	: m_height(0), m_width(0), 
 	rect(sf::Vector2f(30.f, 30.f)), 
 	/*m_staticObj(WALL, (sf::Vector2f(40.f, 40.f)), m_width, m_height),
@@ -67,6 +67,12 @@ void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 	//m_MOVETEST.move(direction, deltaTime);
 	
 	m_movingObj[activePlayer]->move(direction, deltaTime);
+
+	if (checkCollision(activePlayer))
+	{
+		std::cout << "Ewww i touched something\n";
+			//handleColision(activePlayer);
+	}
 	
 	//moveRect(direction, deltaTime);
 	//m_dynamicPlayers[activePlayer].move(direction);
@@ -179,6 +185,7 @@ void Board::createObjects()
 			yPos = (float)(row * (square_size + 7) + 15);
 			position = { xPos, yPos };
 
+			//Noga: I think we can delete this "if-else" 
 			if (isStaticObj(symbol))
 			{
 				//m_staticObj.emplace_back(std::make_unique<StaticObject>(symbol, position, m_width, m_height));
@@ -258,6 +265,27 @@ void Board::createMat()
 			m_mat[i][j].setFillColor(sf::Color::White);
 		}
 	}
+}
+
+bool Board::checkCollision(int activePlayer)
+{
+	int i;
+	for (i = 0; i < m_movingObj.size(); i++)
+	{	
+		if(i != activePlayer && m_movingObj[activePlayer]->checkColisionWith(*m_movingObj[i]))
+		{
+			return true;
+		}
+	}
+
+	for (i = 0 ; i < NUM_OF_ICONS; i++)
+	{
+		if (i != SPACE && m_movingObj[activePlayer]->checkColisionWith(*m_staticObj[i]))
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 std::vector<std::vector<sf::RectangleShape>> Board::initMat(int size, int square_size)

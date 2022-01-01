@@ -18,6 +18,7 @@ public:
 	virtual ~GameObject();
 
 	virtual void draw(sf::RenderWindow& window);
+	bool checkColisionWith(const GameObject &obj) const;// = 0;
 
 
 protected:
