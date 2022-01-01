@@ -66,7 +66,7 @@ void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
 	//m_MOVETEST.move(direction, deltaTime);
 	
-	m_movingObj[0]->move(direction, deltaTime);
+	m_movingObj[activePlayer]->move(direction, deltaTime);
 	
 	//moveRect(direction, deltaTime);
 	//m_dynamicPlayers[activePlayer].move(direction);

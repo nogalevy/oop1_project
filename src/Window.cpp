@@ -129,6 +129,37 @@ void Window::isKeyPressed()
     {
         m_board.move(sf::Vector2f(0, 1), deltaTime, m_activePlayer);
     }
+
+    //This Way: movement is not smooth but transition between characters is?
+    /*
+    else
+    {
+        std::cout << m_activePlayer << "\n";
+        sf::Event event;
+        
+        if(event = sf::Event{}; m_window.waitEvent(event))
+            if(event.type == sf::Event::KeyPressed)
+                if(event.key.code == sf::Keyboard::P)
+                    m_activePlayer = (m_activePlayer + 1) % 4;
+
+        //auto c = _getch();
+
+       // if (c == 'p')
+
+        std::cout << m_activePlayer << "\n";
+
+    }
+    */
+
+    //This Way: movement is smooth, transition between characters isnt
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+    {
+        std::cout << m_activePlayer << "\n";
+
+        m_activePlayer = (m_activePlayer + 1) % 4;
+        std::cout << m_activePlayer << "\n";
+
+    }
 }
 
 void Window::handleMenuClick(const sf::Event& event)
