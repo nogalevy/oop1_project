@@ -9,13 +9,27 @@
 #include "StaticObject.h"
 #include <vector>
 
+#include "Thief.h"
+#include "Mage.h"
+#include "Warrior.h"
 #include "King.h"
+#include "Wall.h"
+#include "Gate.h"
+#include "Fire.h"
+#include "Teleport.h"
+#include "Throne.h"
+#include "Orc.h"
+#include "Key.h"
+
 
 
 //class DynamicObject;
 //class StaticObject;
 //class Wall;
 //class King;
+//class Thief;
+//class Warrior;
+//class Mage;
 
 
 

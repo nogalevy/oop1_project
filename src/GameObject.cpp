@@ -2,23 +2,17 @@
 
 
 GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth, int mapHeight)
-	: m_icon(sf::Vector2f(40.f, 40.f))
+	//: m_icon(sf::Vector2f(40.f, 40.f))
 {
-	//m_icon.setTexture(&textures[symbol]);
-	//sf::Texture texture;
-	
-	//m_texture.loadFromFile(symbol == KING ?  "king.png" : "brickwall_2.png");
-	//m_icon.setTexture(&m_texture);
-
-	m_icon.setTexture(Resources::instance().getIcon(symbol));
+	m_icon.setTexture(*(Resources::instance().getIcon(symbol)));
 
 	//set the correct scale to fill the board according to map size
-	auto xScaleValue = (float)WINDOW_W / ((float)ICON_SIZE * (float)mapWidth);
-	auto yScaleValue = (float)WINDOW_H / ((float)ICON_SIZE * (float)mapHeight);
+	auto xScaleValue = (float)BOARD_W / ((float)ICON_SIZE * (float)mapWidth);
+	auto yScaleValue = (float)BOARD_W / ((float)ICON_SIZE * (float)mapHeight);
 
-	//m_icon.scale(0.9, 0.9);
-	
-	//m_icon.setTexture(&m_texture);
+	//m_icon.scale(xScaleValue, yScaleValue);
+	m_icon.scale(0.1, 0.1);
+
 	m_icon.setPosition(location);
 }
 

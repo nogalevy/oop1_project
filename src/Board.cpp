@@ -1,4 +1,5 @@
 #include "Board.h"
+//#include "King.h"
 
 
 Board::Board(	) 
@@ -19,7 +20,7 @@ Board::Board(	)
 
 	readLevel();
 	createObjects();
-	createMat();
+	//createMat();
 	
 }
 
@@ -40,7 +41,7 @@ void Board::draw(sf::RenderWindow& window)
 	for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 10; j++)
 		{
-			window.draw(m_mat[i][j]);
+			//window.draw(m_mat[i][j]);
 		}
 
 	//m_staticObj.draw(window);
@@ -180,11 +181,54 @@ void Board::createObjects()
 
 			if (isStaticObj(symbol))
 			{
-				m_staticObj.emplace_back(std::make_unique<StaticObject>(symbol, position, m_width, m_height));
+				//m_staticObj.emplace_back(std::make_unique<StaticObject>(symbol, position, m_width, m_height));
+
+				switch (symbol)
+				{
+				case WALL:
+					m_staticObj.emplace_back(std::make_unique<Wall>(symbol, position, m_width, m_height));
+					break;
+				case GATE:
+					m_staticObj.emplace_back(std::make_unique<Gate>(symbol, position, m_width, m_height));
+					break;
+				case FIRE:
+					m_staticObj.emplace_back(std::make_unique<Fire>(symbol, position, m_width, m_height));
+					break;
+				case ORC:
+					m_staticObj.emplace_back(std::make_unique<Orc>(symbol, position, m_width, m_height));
+					break;
+				case PORTAL:
+					m_staticObj.emplace_back(std::make_unique<Teleport>(symbol, position, m_width, m_height));
+					break;
+				case THRONE:
+					m_staticObj.emplace_back(std::make_unique<Throne>(symbol, position, m_width, m_height));
+					break;
+				case KEY:
+					m_staticObj.emplace_back(std::make_unique<Key>(symbol, position, m_width, m_height));
+					break;
+				default:
+					break;
+				}
 			}
 			else 
 			{
-				m_movingObj.emplace_back(std::make_unique<DynamicObject>(symbol, position, m_width, m_height));
+				switch (symbol)
+				{
+				case KING:
+					m_movingObj.emplace_back(std::make_unique<King>(symbol, position, m_width, m_height));
+					break;
+				case WARRIOR:
+					m_movingObj.emplace_back(std::make_unique<Warrior>(symbol, position, m_width, m_height));
+					break;
+				case MAGE:
+					m_movingObj.emplace_back(std::make_unique<Mage>(symbol, position, m_width, m_height));
+					break;
+				case THIEF:
+					m_movingObj.emplace_back(std::make_unique<Thief>(symbol, position, m_width, m_height));
+					break;
+				default:
+					break;
+				}
 			}
 		}
 	}

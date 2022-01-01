@@ -19,4 +19,4 @@ const int BOARD_H = WINDOW_H * 4 / 5;
 const int DATA_DISPLAY_W = WINDOW_W;
 const int DATA_DISPLAY_H = WINDOW_H / 5;
 
-const float ICON_SIZE = 512;
+const float ICON_SIZE = 1048; //before 512

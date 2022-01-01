@@ -9,6 +9,8 @@ King::~King()
 {
 }
 
-void King::move(/*sf::Time&*/)
+void King::move(sf::Vector2f direction, sf::Time deltaTime)
 {
+	auto speedPerSecond = 100.f;
+	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
 }
