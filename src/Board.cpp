@@ -1,19 +1,29 @@
 #include "Board.h"
 
+
 Board::Board(	) 
 	: m_height(0), m_width(0), 
 	rect(sf::Vector2f(30.f, 30.f)), 
-	m_staticObj(WALL, (sf::Vector2f(40.f, 40.f)), m_width, m_height),
-	m_movingObj(KING, (sf::Vector2f(80.f, 80.f)), m_width, m_height),
+	/*m_staticObj(WALL, (sf::Vector2f(40.f, 40.f)), m_width, m_height),
+	/*m_MOVETEST(KING, (sf::Vector2f(80.f, 80.f)), m_width, m_height),*/
 	m_bgRectangle(sf::Vector2f(BOARD_W, BOARD_H))
 
 {
 	rect.setFillColor(sf::Color::Green);
-	setBgRectangle();
-	//m_levelFile.open("Level1.txt", std::ios_base::in);
-	//readLevel();
+	setBgRectangle();	
+
+	//const char* fileName = "Level.txt";
+	m_levelFile.open("Level.txt");
+	if (!m_levelFile.is_open())
+		std::cout << "nope\n";
+
+	readLevel();
 	createObjects();
+	createMat();
+	
 }
+
+
 
 Board::~Board()
 {
@@ -26,16 +36,37 @@ void Board::draw(sf::RenderWindow& window)
 
 	window.draw(m_bgRectangle);
 	//window.draw(rect);
-	m_staticObj.draw(window);
-	m_movingObj.draw(window);
+
+	for (int i = 0; i < 10; i++)
+		for (int j = 0; j < 10; j++)
+		{
+			window.draw(m_mat[i][j]);
+		}
+
+	//m_staticObj.draw(window);
+	//m_MOVETEST.draw(window);
+
 	//m_staticObj[0]->draw(window);
 	//m_movingObj[0]->draw(window);
+
+	for (int i = 0; i < m_staticObj.size() ; i++)
+	{
+		m_staticObj[i]->draw(window);
+	}
+
+	for (int i = 0; i < m_movingObj.size(); i++)
+	{
+		m_movingObj[i]->draw(window);
+	}
 
 }
 
 void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
-	m_movingObj.move(direction, deltaTime);
+	//m_MOVETEST.move(direction, deltaTime);
+	
+	m_movingObj[0]->move(direction, deltaTime);
+	
 	//moveRect(direction, deltaTime);
 	//m_dynamicPlayers[activePlayer].move(direction);
 
@@ -77,6 +108,9 @@ void Board::moveRect(sf::Vector2f direction, sf::Time deltaTime)
 void Board::readLevel()
 {
 	readLevelSize();
+	char c;
+
+	m_levelFile.get(c);
 
 	auto line = std::string();
 	for (int row = 0; row < m_height; row++)
@@ -112,62 +146,49 @@ int Board::getWidth()
 
 void Board::readLevelSize()
 {
-	std::string number;
+	m_levelFile.seekg(0);
+	int num;
 
 	// reading height
-	m_levelFile >> number;
-	m_height = std::stoi(number, nullptr);
+	m_levelFile >> num;
+	m_height = num;
 
 	// reading width
-	m_levelFile >> number;
-	m_width = std::stoi(number, nullptr);
+	m_levelFile >> num;
+	m_width = num;
 }
 
 void Board::createObjects()
 {
-	//Icons symbol;
-	/*sf::Vector2f position;
+	sf::Vector2f position;
 	float xPos, yPos;
 	
-	xPos = ((float)WINDOW_W / (float)(m_width)*5);
-	yPos = ((float)WINDOW_H / (float)(m_height)*5);
-	position = { xPos, yPos };
-
-	m_staticObj.push_back(std::make_unique<StaticObject>(WALL, position, m_width, m_height));
-
-	xPos = ((float)WINDOW_W / (float)(m_width)*7);
-	yPos = ((float)WINDOW_H / (float)(m_height)*7);
-	position = { xPos, yPos };
-
-	m_movingObj.push_back(std::make_unique<DynamicObject>(KING, position, m_width, m_height));*/
-
-
-	/*
 	for (int row = 0; row < m_height; row++)
 	{
 		for (int col = 0; col < m_width; col++)
 		{
-			symbol = getSymbol(row, col);
+			Icons symbol = getSymbol(row, col);
 			if (symbol == SPACE)
 				continue;
-			xPos = ((float)WINDOW_W / (float)(m_width) * col);
-			yPos = ((float)WINDOW_H / (float)(m_height) * row);
+			
+
+			int square_size = ((BOARD_H) / 10) - 10; //set 500 to const
+			int col_offset = (WINDOW_W - BOARD_H) / 2;
+			xPos = (float)(col * (square_size + 7) + col_offset);
+			yPos = (float)(row * (square_size + 7) + 15);
 			position = { xPos, yPos };
 
 			if (isStaticObj(symbol))
 			{
-				//std::unique_ptr<Wall> staticObj = std::make_unique<Wall>(symbol, position, m_width, m_height);
-				m_staticObj.push_back(std::make_unique<Wall>(symbol, position, m_width, m_height));
+				m_staticObj.emplace_back(std::make_unique<StaticObject>(symbol, position, m_width, m_height));
 			}
 			else 
 			{
-				std::unique_ptr<King> dynObj = std::make_unique<King>(symbol, position, m_width, m_height);
-				m_movingObj.push_back(dynObj);
-				return; //for now 
-
+				m_movingObj.emplace_back(std::make_unique<DynamicObject>(symbol, position, m_width, m_height));
 			}
 		}
-	}*/
+	}
+
 }
 
 bool Board::isStaticObj(Icons symbol)
@@ -179,3 +200,42 @@ void Board::setBgRectangle()
 {
 	m_bgRectangle.setFillColor(sf::Color::Color(142, 204, 124));
 }
+
+void Board::createMat()
+{
+	int square_size = ((BOARD_H) / 10) - 10; //set 500 to const
+	m_mat = initMat(10, square_size);
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			initSquare(i, j, square_size);
+			m_mat[i][j].setTexture(NULL);
+			m_mat[i][j].setFillColor(sf::Color::White);
+		}
+	}
+}
+
+std::vector<std::vector<sf::RectangleShape>> Board::initMat(int size, int square_size)
+{
+	sf::RectangleShape rect1(sf::Vector2f(square_size, square_size));
+	std::vector<std::vector<sf::RectangleShape>> mat(size, std::vector<sf::RectangleShape>(size, rect1));
+	return mat;
+}
+
+void Board::initSquare(int row, int col, int square_size)
+{
+	//int board_size = BOARD_H;
+	int col_offset = (WINDOW_W - BOARD_H) / 2;
+	m_mat[row][col].setPosition(col * (square_size + 7) + col_offset, row * (square_size + 7) + 15);
+}
+
+/*
+sf::Vector2f Board::getPosition(int row, int col)
+{
+	return m_mat[row][col].getPosition();
+}
+
+*/
+
+

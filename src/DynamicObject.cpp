@@ -12,6 +12,7 @@ DynamicObject::~DynamicObject()
 {
 }
 
+
 void DynamicObject::move(sf::Vector2f direction, sf::Time deltaTime)
 {
 	auto speedPerSecond = 100.f;

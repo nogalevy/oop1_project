@@ -17,18 +17,3 @@ const std::string PIC_NAMES[NUM_OF_ICONS /* + GAME_BTN_NUM*/] = {"king", "wizard
 
 enum timer_type { TIMER = 0, COUNTDOWN };
 
-/*
-std::vector<sf::Texture> textures;
-
-
-void initTextures()
-{
-	textures.resize(NUM_OF_ICONS - 1);
-	for (int i = 0; i < NUM_OF_ICONS - 1; i++)
-	{
-		textures[i].loadFromFile(PIC_NAMES[i] + ".png");
-			//std::cout << "help\n";
-
-		//textures[i].setSmooth(true);
-	}
-}*/

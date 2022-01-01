@@ -7,12 +7,17 @@
 #include <memory>
 #include "DynamicObject.h"
 #include "StaticObject.h"
+#include <vector>
+
+#include "King.h"
 
 
 //class DynamicObject;
 //class StaticObject;
 //class Wall;
 //class King;
+
+
 
 class Board 
 {
@@ -32,6 +37,7 @@ private:
 	void createObjects();
 	bool isStaticObj(Icons symbol);
 	void setBgRectangle();
+	void createMat();
 
 	sf::RectangleShape rect;
 	
@@ -40,11 +46,19 @@ private:
 	std::ifstream m_levelFile;
 	std::vector<std::string> m_boardMat;
 
-	//std::vector<std::unique_ptr<DynamicObject>> m_movingObj;
-	//std::vector<std::unique_ptr<StaticObject>> m_staticObj;
-	DynamicObject m_movingObj;
-	StaticObject m_staticObj;
+	std::vector<std::unique_ptr<DynamicObject>> m_movingObj;
+	std::vector<std::unique_ptr<StaticObject>> m_staticObj;
+
+	//DynamicObject m_MOVETEST;
+	//StaticObject m_staticObj;
 
 	sf::RectangleShape m_bgRectangle;
 
+
+	//Trial
+	std::vector<std::vector<sf::RectangleShape>>m_mat;
+	std::vector<std::vector<sf::RectangleShape>> initMat(int size, int square_size);
+
+	void initSquare(int row, int col, int square_size);
+	//sf::Vector2f getPosition(int row, int col);
 };

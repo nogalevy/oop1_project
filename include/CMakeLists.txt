@@ -1,4 +1,5 @@
 ﻿target_include_directories (${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR} )
+configure_file("Level.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 target_sources (${CMAKE_PROJECT_NAME} PRIVATE "Board.h"
                                               "DynamicObject.h"
                                               "GameObject.h"
