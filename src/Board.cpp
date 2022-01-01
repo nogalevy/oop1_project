@@ -278,13 +278,14 @@ bool Board::checkCollision(int activePlayer)
 		}
 	}
 
-	for (i = 0 ; i < NUM_OF_ICONS; i++)
+	for (i = 0 ; i < m_staticObj.size(); i++)
 	{
-		if (i != SPACE && m_movingObj[activePlayer]->checkColisionWith(*m_staticObj[i]))
+		if (m_movingObj[activePlayer]->checkColisionWith(*m_staticObj[i]))
 		{
 			return true;
 		}
 	}
+
 	return false;
 }
 
