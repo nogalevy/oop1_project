@@ -9,7 +9,8 @@ public:
 
 	virtual void move(sf::Vector2f direction, sf::Time deltaTime);// = 0;
 
-
+	void moveToPrevPos();
+	
 
 protected:
 
@@ -20,6 +21,7 @@ protected:
 	*/
 
 	sf::Vector2f m_location;
+	sf::Vector2f m_prevPos;
 	//sf::Vector2f m_prevPos;
 	//sf::Vector2f m_direction;
 };

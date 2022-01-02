@@ -47,12 +47,14 @@ void Board::draw(sf::RenderWindow& window)
 void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
 	m_movingObj[activePlayer]->move(direction, deltaTime);
-
+	handleCollisions(activePlayer);
+	/*
 	if (checkCollision(activePlayer))
 	{
 		std::cout << "Ewww i touched something\n";
 			//handleColision(activePlayer);
 	}
+	*/
 	
 	//moveRect(direction, deltaTime);
 	//m_dynamicPlayers[activePlayer].move(direction);
@@ -246,26 +248,42 @@ void Board::createMat()
 	}
 }
 
-bool Board::checkCollision(int activePlayer)
+void Board::handleCollisions(int activePlayer)
 {
-	int i;
-	for (i = 0; i < m_movingObj.size(); i++)
-	{	
-		if(i != activePlayer && m_movingObj[activePlayer]->checkColisionWith(*m_movingObj[i]))
-		{
-			return true;
-		}
-	}
-
-	for (i = 0 ; i < m_staticObj.size(); i++)
+	for (auto& unmovable : m_staticObj)
 	{
-		if (m_movingObj[activePlayer]->checkColisionWith(*m_staticObj[i]))
+		if (m_movingObj[activePlayer]->checkColisionWith(*unmovable))
 		{
-			return true;
+			m_movingObj[activePlayer]->handleCollision(*unmovable);
 		}
 	}
 
-	return false;
+	for (auto& movable : m_movingObj)
+	{
+		if (m_movingObj[activePlayer]->checkColisionWith(*movable))
+		{
+			m_movingObj[activePlayer]->handleCollision(*movable);
+		}
+	}
+
+	//int i;
+	//for (i = 0; i < m_movingObj.size(); i++)
+	//{	
+	//	if(i != activePlayer && m_movingObj[activePlayer]->checkColisionWith(*m_movingObj[i]))
+	//	{
+	//		return true;
+	//	}
+	//}
+
+	//for (i = 0 ; i < m_staticObj.size(); i++)
+	//{
+	//	if (m_movingObj[activePlayer]->checkColisionWith(*m_staticObj[i]))
+	//	{
+	//		return true;
+	//	}
+	//}
+
+	//return false;
 }
 
 std::vector<std::vector<sf::RectangleShape>> Board::initMat(int size, int square_size)

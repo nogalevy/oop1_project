@@ -28,39 +28,11 @@ DataDisplay::DataDisplay(float time)
 
 void DataDisplay::draw(sf::RenderWindow& window)
 {
-	//sf::Clock m_clock;
-	
-	//sf::Time elapsed = m_clock.getElapsedTime();
-	//window.draw(m_bgRectangle);
-
 	m_timerTxt.setPosition(sf::Vector2f(0, BOARD_H + 10));
 	m_timerTxt.setColor(sf::Color::White);
 	m_timerTxt.setCharacterSize(20);
-	////auto el = (elapsed.asSeconds() )* 10;
 	
-	//m_timerTxt.setString(std::to_string(elapsed.asSeconds()));
-	/*int sec = int(m_timeCounter.getTime());
-	int minutes = 0;
-	
-	if (sec >= 60)
-	{
-		minutes = sec / 60;
-		sec = sec % 60;
-	}
-
-	m_timerTxt.setString(std::to_string(minutes)+ ":" + (sec < 10 ? "0" : "") + std::to_string(sec));
-
-	if (int(m_timeCounter.getTime()) == 0)
-	{
-		std::cout << " here\n";
-		m_timeCounter.addTime(10);
-	}*/
 	drawTime(window);
-	//sf::Time t3 = sf::seconds(60);
-	//m_timerTxt.setString(std::to_string(t3.asSeconds() - elapsed.asSeconds()));
-
-
-	window.draw(m_timerTxt);
 }
 
 void DataDisplay::drawTime(sf::RenderWindow& window)
@@ -85,6 +57,8 @@ void DataDisplay::drawTime(sf::RenderWindow& window)
 	{
 		m_timeCounter.addTime(10);
 	}
+
+	window.draw(m_timerTxt);
 }
 
 void DataDisplay::resetClock()
