@@ -21,7 +21,7 @@ void King::handleCollision(GameObject& gameObject)
 {
 	if (&gameObject == this) return;
 	//double dispatch
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*(this));
 }
 
 void King::handleCollision(King& gameObject)
@@ -31,6 +31,7 @@ void King::handleCollision(King& gameObject)
 
 void King::handleCollision(Warrior& gameObject)
 {
+
 }
 
 void King::handleCollision(Mage& gameObject)

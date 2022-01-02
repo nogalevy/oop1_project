@@ -21,6 +21,7 @@ void Mage::handleCollision(GameObject& gameObject)
 
 void Mage::handleCollision(King& gameObject)
 {
+
 }
 
 void Mage::handleCollision(Warrior& gameObject)
