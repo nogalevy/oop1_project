@@ -20,3 +20,8 @@ configure_file ("images/wizard.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("fonts/font.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("fonts/font2.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("fonts/font3.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
+
+# audio
+
+configure_file ("toward-the-mountains.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+

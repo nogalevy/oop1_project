@@ -87,10 +87,12 @@ Window::~Window()
 void Window::startGame()
 {
 
+    m_audio.playMusic();
+
     while (m_window.isOpen())
     {
         sf::Vector2f location;
-
+    
         m_window.clear(sf::Color(sf::Color(14, 45, 32)));
 
         drawCurrPage();
@@ -107,8 +109,8 @@ void Window::startGame()
             else
                 handleMenuEvent(event);
         }
-
-        movePlayer();
+        if(m_currPage == BOARD)
+            movePlayer();
     }
 }
 void Window::handleBoardEvent(const sf::Event& event)

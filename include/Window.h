@@ -1,14 +1,14 @@
 #pragma once
 
 #include "view_constants.h"
-
+#include "Audio.h"
 #include "Menu.h"
 #include "Board.h"
 #include "DataDisplay.h"
-
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
-#include <conio.h>
+//#include <conio.h>
 
 
 //sf::VideoMode window_size = sf::VideoMode(1280, 870);
@@ -39,6 +39,9 @@ private:
 	//window
 	sf::RenderWindow m_window;
 
+	
+
+	Audio m_audio;
 	//menu - first page
 	Menu m_menu;
 	//board game
@@ -53,6 +56,7 @@ private:
 	int m_currPage;
 	int m_activePlayer;
 	sf::Clock m_timer;
+	
 	//#fontexample		
 	//sf::Font m_font;
 

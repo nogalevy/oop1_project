@@ -4,6 +4,8 @@
 #include <vector>
 #include <iostream>
 #include "utilities.h"
+#include <SFML/Audio.hpp>
+
 
 class Resources
 {
@@ -16,6 +18,7 @@ public:
 	sf::Texture* getIcon(const Icons symbol);
 	sf::Font* getFont();
 	sf::Texture* getMenuBackground();
+	sf::SoundBuffer* getMusic();
 
 private:
 	Resources();
@@ -26,11 +29,13 @@ private:
 	void loadImagesForObjects();
 	void loadFonts();
 	void loadMenuBackground();
+	void loadAudio();
 
 	//Members
 	std::vector<sf::Texture> m_textures;
 	sf::Font m_font;
 	sf::Texture m_menuBackgroundTexture;
+	sf::SoundBuffer m_buffer;
 
 
 };

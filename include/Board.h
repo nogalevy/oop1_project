@@ -63,8 +63,6 @@ private:
 	std::vector<std::unique_ptr<DynamicObject>> m_movingObj;
 	std::vector<std::unique_ptr<StaticObject>> m_staticObj;
 
-	//DynamicObject m_MOVETEST;
-	//StaticObject m_staticObj;
 
 	sf::RectangleShape m_bgRectangle;
 

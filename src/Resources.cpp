@@ -6,7 +6,7 @@ Resources::Resources()
 	loadImagesForObjects();
 	loadFonts();
 	loadMenuBackground();
-
+	loadAudio();
 }
 
 void Resources::loadImagesForObjects()
@@ -41,6 +41,15 @@ void Resources::loadMenuBackground()
 	}
 }
 
+void Resources::loadAudio()
+{
+	std::cout << "hello\n";
+	if (!m_buffer.loadFromFile("toward-the-mountains.ogg"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
 Resources::~Resources()
 {
 }
@@ -65,4 +74,9 @@ sf::Font* Resources::getFont()
 sf::Texture* Resources::getMenuBackground()
 {
 	return &m_menuBackgroundTexture;
+}
+
+sf::SoundBuffer* Resources::getMusic()
+{
+	return &m_buffer;;
 }

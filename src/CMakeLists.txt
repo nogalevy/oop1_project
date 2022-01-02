@@ -19,4 +19,5 @@
                                               "Throne.cpp"
                                               "Orc.cpp"
                                               "Key.cpp"
+                                              "Audio.cpp"
                                              )

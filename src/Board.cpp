@@ -5,10 +5,7 @@
 Board::Board() 
 	: m_height(0), m_width(0), 
 	rect(sf::Vector2f(30.f, 30.f)), 
-	/*m_staticObj(WALL, (sf::Vector2f(40.f, 40.f)), m_width, m_height),
-	/*m_MOVETEST(KING, (sf::Vector2f(80.f, 80.f)), m_width, m_height),*/
 	m_bgRectangle(sf::Vector2f(BOARD_W, BOARD_H))
-
 {
 	rect.setFillColor(sf::Color::Green);
 	setBgRectangle();	
@@ -33,22 +30,7 @@ Board::~Board()
 void Board::draw(sf::RenderWindow& window)
 {
 
-	//m_movingObj.push_back(std::make_unique<DynamicObject>(KING, position, m_width, m_height));
-
 	window.draw(m_bgRectangle);
-	//window.draw(rect);
-
-	for (int i = 0; i < 10; i++)
-		for (int j = 0; j < 10; j++)
-		{
-			//window.draw(m_mat[i][j]);
-		}
-
-	//m_staticObj.draw(window);
-	//m_MOVETEST.draw(window);
-
-	//m_staticObj[0]->draw(window);
-	//m_movingObj[0]->draw(window);
 
 	for (int i = 0; i < m_staticObj.size() ; i++)
 	{
@@ -64,8 +46,6 @@ void Board::draw(sf::RenderWindow& window)
 
 void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
-	//m_MOVETEST.move(direction, deltaTime);
-	
 	m_movingObj[activePlayer]->move(direction, deltaTime);
 
 	if (checkCollision(activePlayer))
@@ -185,11 +165,10 @@ void Board::createObjects()
 			yPos = (float)(row * (square_size + 7) + 15);
 			position = { xPos, yPos };
 
-			//Noga: I think we can delete this "if-else" 
+			//Noga: I think we can delete this "if-else" T: you are probably right
 			if (isStaticObj(symbol))
 			{
-				//m_staticObj.emplace_back(std::make_unique<StaticObject>(symbol, position, m_width, m_height));
-
+				
 				switch (symbol)
 				{
 				case WALL:
@@ -298,7 +277,6 @@ std::vector<std::vector<sf::RectangleShape>> Board::initMat(int size, int square
 
 void Board::initSquare(int row, int col, int square_size)
 {
-	//int board_size = BOARD_H;
 	int col_offset = (WINDOW_W - BOARD_H) / 2;
 	m_mat[row][col].setPosition(col * (square_size + 7) + col_offset, row * (square_size + 7) + 15);
 }
