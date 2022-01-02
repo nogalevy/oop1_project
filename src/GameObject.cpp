@@ -35,7 +35,3 @@ bool GameObject::checkColisionWith(const GameObject& obj) const
 	return m_icon.getGlobalBounds().intersects(obj.m_icon.getGlobalBounds());
 }
 
-void GameObject::handleCollision(GameObject& gameObject)
-{
-	std::cout << "here\n";
-}
