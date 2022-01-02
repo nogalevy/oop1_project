@@ -8,10 +8,12 @@
                                               "StaticObject.cpp"
                                               "Timer.cpp" 
                                               "Resources.cpp"
+                                              
                                               "King.cpp"
                                               "Mage.cpp"
                                               "Warrior.cpp"
                                               "Thief.cpp"
+                                              
                                               "Wall.cpp"
                                               "Gate.cpp"
                                               "Fire.cpp"

@@ -53,6 +53,8 @@ private:
 	void setBgRectangle();
 	void createMat();
 	bool checkCollision(int activePlayer);
+	void handleCollisions(int activePlayer);
+	
 	sf::RectangleShape rect;
 	
 	int m_width;

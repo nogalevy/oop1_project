@@ -14,3 +14,52 @@ void Mage::move(sf::Vector2f direction, sf::Time deltaTime)
 	auto speedPerSecond = 100.f;
 	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
 }
+
+void Mage::handleCollision(GameObject& gameObject)
+{
+}
+
+void Mage::handleCollision(King& gameObject)
+{
+}
+
+void Mage::handleCollision(Warrior& gameObject)
+{
+}
+
+void Mage::handleCollision(Mage& gameObject)
+{
+}
+
+void Mage::handleCollision(Thief& gameObject)
+{
+}
+
+void Mage::handleCollision(Fire& gameObject)
+{
+}
+
+void Mage::handleCollision(Gate& gameObject)
+{
+}
+
+void Mage::handleCollision(Key& gameObject)
+{
+}
+
+void Mage::handleCollision(Orc& gameObject)
+{
+}
+
+void Mage::handleCollision(Teleport& gameObject)
+{
+}
+
+void Mage::handleCollision(Throne& gameObject)
+{
+}
+
+void Mage::handleCollision(Wall& gameObject)
+{
+}
+
