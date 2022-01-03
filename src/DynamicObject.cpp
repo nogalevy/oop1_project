@@ -15,8 +15,8 @@ DynamicObject::~DynamicObject()
 
 void DynamicObject::move(sf::Vector2f direction, sf::Time deltaTime)
 {
+	m_prevPos = m_icon.getPosition();
 	auto speedPerSecond = 100.f;
-	//handle collision ?
 	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
 }
 
