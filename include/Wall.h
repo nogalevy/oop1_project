@@ -1,7 +1,7 @@
 #pragma once
 
 #include "StaticObject.h"
-#include "King.h"
+//#include "King.h"
 //class King;
 
 class Wall : public StaticObject

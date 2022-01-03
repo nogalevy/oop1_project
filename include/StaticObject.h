@@ -3,6 +3,8 @@
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
 
+#include "King.h"
+
 class StaticObject : public GameObject
 {
 public:
