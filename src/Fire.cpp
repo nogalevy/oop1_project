@@ -9,6 +9,7 @@ void Fire::handleCollision(GameObject& gameObject)
 }
 void Fire::handleCollision(King& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
 
 void Fire::handleCollision(Warrior& gameObject)

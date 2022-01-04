@@ -19,8 +19,7 @@ void Wall::handleCollision(GameObject& gameObject)
 
 void Wall::handleCollision(King& gameObject)
 {
-	gameObject.handleCollision(*this); //added #include king in Wall (???)
-	//gameObject.handleCollision(*this); // LAMA ZE LO OVED???????????????????
+	gameObject.handleCollision(*this); 
 	std::cout << "in Wall. handle King \n";
 }
 

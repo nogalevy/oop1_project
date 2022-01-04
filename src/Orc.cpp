@@ -9,6 +9,7 @@ void Orc::handleCollision(GameObject& gameObject)
 }
 void Orc::handleCollision(King& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
 
 void Orc::handleCollision(Warrior& gameObject)

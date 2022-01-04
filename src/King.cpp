@@ -43,11 +43,13 @@ void King::handleCollision(Thief& gameObject)
 
 void King::handleCollision(Fire& gameObject)
 {
+	moveToPrevPos();
 	// not allowed to move
 }
 
 void King::handleCollision(Gate& gameObject)
 {
+	moveToPrevPos();
 	//no
 }
 
@@ -58,6 +60,7 @@ void King::handleCollision(Key& gameObject)
 
 void King::handleCollision(Orc& gameObject)
 {
+	moveToPrevPos();
 	//no ?
 }
 
@@ -74,7 +77,6 @@ void King::handleCollision(Throne& gameObject)
 void King::handleCollision(Wall& gameObject)
 {
 	//no
-	std::cout << "here\n";
 	moveToPrevPos();
 }
 
