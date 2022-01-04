@@ -44,6 +44,7 @@ public:
 	Icons getSymbol(int, int);
 	int getHeight();
 	int getWidth();
+	bool getHasKey() const;
 
 private:
 	void readLevelSize();

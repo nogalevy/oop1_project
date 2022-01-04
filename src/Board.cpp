@@ -86,6 +86,11 @@ int Board::getWidth()
 	return m_width;
 }
 
+//bool Board::getHasKey() const
+//{
+//	return m_movingObj[THIEF]->getHasKey();
+//}
+
 void Board::readLevelSize()
 {
 	m_levelFile.seekg(0);
@@ -207,7 +212,7 @@ void Board::handleCollisions(int activePlayer)
 	{
 		if (m_movingObj[activePlayer]->checkColisionWith(*unmovable))
 		{
-			m_movingObj[activePlayer]->handleCollision(*unmovable);
+			m_movingObj[activePlayer]->handleCollision(*unmovable);	
 		}
 	}
 

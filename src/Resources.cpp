@@ -31,6 +31,10 @@ void Resources::loadFonts()
 	{
 		std::cerr << "error load from file";
 	}
+	if (!m_font2.loadFromFile("font2.ttf"));
+	{
+
+	}
 }
 
 void Resources::loadMenuBackground()
@@ -69,6 +73,10 @@ sf::Texture* Resources::getIcon(const Icons symbol)
 sf::Font* Resources::getFont()
 {
 	return &m_font;
+}
+sf::Font* Resources::getDataFont()
+{
+	return &m_font2;
 }
 
 sf::Texture* Resources::getMenuBackground()

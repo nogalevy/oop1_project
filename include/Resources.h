@@ -17,6 +17,7 @@ public:
 
 	sf::Texture* getIcon(const Icons symbol);
 	sf::Font* getFont();
+	sf::Font* getDataFont();
 	sf::Texture* getMenuBackground();
 	sf::SoundBuffer* getMusic();
 
@@ -34,6 +35,7 @@ private:
 	//Members
 	std::vector<sf::Texture> m_textures;
 	sf::Font m_font;
+	sf::Font m_font2;
 	sf::Texture m_menuBackgroundTexture;
 	sf::SoundBuffer m_buffer;
 

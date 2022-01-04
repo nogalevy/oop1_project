@@ -124,8 +124,12 @@ void Window::drawCurrPage()
         m_menu.draw(m_window);
         break;
     case BOARD:
+        //bool key;
         //std::cout << "board page\n";
         m_board.draw(m_window);
+
+        //key = m_board.getHasKey(); //Noga : not sure (?)
+
         m_dataDisplay.draw(m_window);
         break;
     default:

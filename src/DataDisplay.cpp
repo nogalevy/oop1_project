@@ -4,11 +4,7 @@ DataDisplay::DataDisplay()
 	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
 	m_timeCounter()
 {
-	if (!m_font.loadFromFile("font2.ttf"));
-	{
-		
-	}
-	m_timerTxt.setFont(m_font);
+	m_timerTxt.setFont(*(Resources::instance().getDataFont()));
 	setBgRectangle();
 }
 
@@ -16,23 +12,18 @@ DataDisplay::DataDisplay(float time)
 	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
 	m_timeCounter(time)
 {
-	if (!m_font.loadFromFile("font2.ttf"));
-	{
-
-	}
-	m_timerTxt.setFont(m_font);
+	m_timerTxt.setFont(*(Resources::instance().getDataFont()));
 	setBgRectangle();
 }
 
 
 
 void DataDisplay::draw(sf::RenderWindow& window)
-{
-	m_timerTxt.setPosition(sf::Vector2f(0, BOARD_H + 10));
-	m_timerTxt.setColor(sf::Color::White);
-	m_timerTxt.setCharacterSize(20);
-	
+{	
 	drawTime(window);
+	drawHasKey(window);
+	drawLevelNum(window);
+	drawActivePlayer(window);
 }
 
 void DataDisplay::drawTime(sf::RenderWindow& window)
@@ -59,6 +50,21 @@ void DataDisplay::drawTime(sf::RenderWindow& window)
 	}
 
 	window.draw(m_timerTxt);
+}
+
+void DataDisplay::drawHasKey(sf::RenderWindow& window)
+{
+	//m_hasKeyTxt.setString("Key: ");
+}
+
+void DataDisplay::drawLevelNum(sf::RenderWindow& window)
+{
+	//m_levelNumTxt.setString("Level: ");
+}
+
+void DataDisplay::drawActivePlayer(sf::RenderWindow& window)
+{
+	//m_levelNumTxt.setString("Player: ");
 }
 
 void DataDisplay::resetClock()

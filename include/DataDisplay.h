@@ -6,6 +6,7 @@
 #include "Timer.h"
 #include "view_constants.h"
 #include "utilities.h"
+#include "Resources.h"
 
 class DataDisplay {
 public:
@@ -17,12 +18,14 @@ public:
 	void draw(sf::RenderWindow & window);
 	void resetClock();
 	void drawTime(sf::RenderWindow& window);
+	void drawHasKey(sf::RenderWindow& window);
+	void drawLevelNum(sf::RenderWindow& window);
+	void drawActivePlayer(sf::RenderWindow& window);
 	// hasKey
 	// updaeCurrPlayer ?
 private:
 	void setBgRectangle();
 
-	sf::Font m_font;
 	sf::RectangleShape m_bgRectangle;
 	sf::Text m_timerTxt;
 	

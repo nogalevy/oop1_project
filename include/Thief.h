@@ -9,10 +9,9 @@ public:
 
 	//virtual void move(sf::Vector2f direction, sf::Time deltaTime) override;
 
-
 	//// Colisions:
 	virtual void handleCollision(GameObject& gameObject) override;
-	// make them one - dynamic type ? 
+
 	virtual void handleCollision(King& gameObject) override;
 	virtual void handleCollision(Warrior& gameObject) override;
 	virtual void handleCollision(Mage& gameObject) override;
@@ -28,7 +27,11 @@ public:
 
 	//virtual void handleCollision(Dwarf& gameObject) override;
 	//virtual void handleCollision(Bonus& gameObject) override;
+
+	//bool getHasKey()const;
 private:
+	//void setHasKey(bool hasKey);
+	//bool m_hasKey;
 };
 	/*
 	bool m_hasKey;

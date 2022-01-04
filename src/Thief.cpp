@@ -49,6 +49,7 @@ void Thief::handleCollision(Gate& gameObject)
 
 void Thief::handleCollision(Key& gameObject)
 {
+	//setHasKey(true);
 }
 
 void Thief::handleCollision(Orc& gameObject)
@@ -69,3 +70,13 @@ void Thief::handleCollision(Wall&)
 {
 	moveToPrevPos();
 }
+
+//bool Thief::getHasKey() const
+//{
+//	return m_hasKey;
+//}
+
+//void Thief::setKey(bool hasKey)
+//{
+//	m_hasKey = hasKey;
+//}
