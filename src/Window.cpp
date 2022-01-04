@@ -44,7 +44,7 @@ void Window::startGame()
             else
                 handleMenuEvent(event);
         }
-        //add keyboard function ?
+        //Noga: add keyboard function ?
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
             m_window.close();
         if(m_currPage == BOARD)
@@ -60,9 +60,7 @@ void Window::handleBoardEvent(const sf::Event& event)
     {
         if (event.key.code == sf::Keyboard::P)
         {
-            std::cout << m_activePlayer << "\n";
             m_activePlayer = (m_activePlayer + 1) % 4;;
-            std::cout << m_activePlayer << "\n";
         }
         break;
     }
