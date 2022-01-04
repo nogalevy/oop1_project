@@ -41,37 +41,3 @@ void Wall::handleCollision(Thief& gameObject)
 	std::cout << "in Wall. handle Thief \n";
 }
 
-void Wall::handleCollision(Fire& gameObject)
-{
-	std::cout << "in Wall. handle Fire \n";
-}
-
-void Wall::handleCollision(Gate& gameObject)
-{
-	std::cout << "in Wall. handle Gate \n";
-}
-
-void Wall::handleCollision(Key& gameObject)
-{
-	std::cout << "in Wall. handle Key \n";
-}
-
-void Wall::handleCollision(Orc& gameObject)
-{
-	std::cout << "in Wall. handle Orc \n";
-}
-
-void Wall::handleCollision(Teleport& gameObject)
-{
-	std::cout << "in Wall. handle Teleport \n";
-}
-
-void Wall::handleCollision(Throne& gameObject)
-{
-	std::cout << "in Wall. handle Throne \n";
-}
-
-void Wall::handleCollision(Wall& gameObject)
-{
-	std::cout << "in Wall. handle Wall \n";
-}
