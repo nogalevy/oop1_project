@@ -13,4 +13,13 @@ class StaticObject : public GameObject
 public:
 	StaticObject(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
 	~StaticObject() = default;
+
+	//no meaning of colision with two static objects
+	virtual void handleCollision(Fire&) override {};
+	virtual void handleCollision(Gate&) override {};
+	virtual void handleCollision(Key&) override {};
+	virtual void handleCollision(Orc&) override {};
+	virtual void handleCollision(Teleport&) override {};
+	virtual void handleCollision(Throne&) override {};
+	virtual void handleCollision(Wall&) override {};
 };
