@@ -53,25 +53,22 @@ void King::handleCollision(Gate& gameObject)
 	//no
 }
 
-void King::handleCollision(Key& gameObject)
-{
-	// no?
-}
-
 void King::handleCollision(Orc& gameObject)
 {
 	moveToPrevPos();
 	//no ?
 }
 
-void King::handleCollision(Teleport& gameObject)
+void King::handleCollision(Teleport& gameObject) //more data ? next pos?
 {
 	//move to other teleport
+	//teleportToNewPos(nextPos);
 }
 
 void King::handleCollision(Throne& gameObject)
 {
 	//step on it and end level
+	//nextLevel(); //howwwwww???
 }
 
 void King::handleCollision(Wall& gameObject)

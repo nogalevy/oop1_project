@@ -22,4 +22,5 @@ void Fire::handleCollision(Mage& gameObject)
 
 void Fire::handleCollision(Thief& gameObject)
 {
+	gameObject.handleCollision(*this);
 }

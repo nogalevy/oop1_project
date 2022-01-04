@@ -40,6 +40,7 @@ void Thief::handleCollision(Thief& gameObject)
 
 void Thief::handleCollision(Fire& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Thief::handleCollision(Gate& gameObject)
@@ -52,6 +53,7 @@ void Thief::handleCollision(Key& gameObject)
 
 void Thief::handleCollision(Orc& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Thief::handleCollision(Teleport& gameObject)
@@ -60,6 +62,7 @@ void Thief::handleCollision(Teleport& gameObject)
 
 void Thief::handleCollision(Throne& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Thief::handleCollision(Wall&)

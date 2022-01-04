@@ -22,4 +22,5 @@ void Orc::handleCollision(Mage& gameObject)
 
 void Orc::handleCollision(Thief& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
