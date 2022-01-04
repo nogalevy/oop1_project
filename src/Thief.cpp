@@ -9,14 +9,17 @@ Thief::~Thief()
 {
 }
 
-void Thief::move(sf::Vector2f direction, sf::Time deltaTime)
-{
-	auto speedPerSecond = 100.f;
-	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
-}
+//void Thief::move(sf::Vector2f direction, sf::Time deltaTime)
+//{
+//	auto speedPerSecond = 100.f;
+//	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
+//}
 
 void Thief::handleCollision(GameObject& gameObject)
 {
+	if (&gameObject == this) return;
+	//double dispatch
+	gameObject.handleCollision(*(this));
 }
 
 void Thief::handleCollision(King& gameObject)
@@ -59,6 +62,7 @@ void Thief::handleCollision(Throne& gameObject)
 {
 }
 
-void Thief::handleCollision(Wall& gameObject)
+void Thief::handleCollision(Wall&)
 {
+	moveToPrevPos();
 }

@@ -26,16 +26,19 @@ void Wall::handleCollision(King& gameObject)
 
 void Wall::handleCollision(Warrior& gameObject)
 {
+	gameObject.handleCollision(*this);
 	std::cout << "in Wall. handle Warrior \n";
 }
 
 void Wall::handleCollision(Mage& gameObject)
 {
+	gameObject.handleCollision(*this);
 	std::cout << "in Wall. handle Mage \n";
 }
 
 void Wall::handleCollision(Thief& gameObject)
 {
+	gameObject.handleCollision(*this);
 	std::cout << "in Wall. handle Thief \n";
 }
 

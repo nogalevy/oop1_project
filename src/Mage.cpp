@@ -9,14 +9,17 @@ Mage::~Mage()
 {
 }
 
-void Mage::move(sf::Vector2f direction, sf::Time deltaTime)
-{
-	auto speedPerSecond = 100.f;
-	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
-}
+//void Mage::move(sf::Vector2f direction, sf::Time deltaTime)
+//{
+//	auto speedPerSecond = 100.f;
+//	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
+//}
 
 void Mage::handleCollision(GameObject& gameObject)
 {
+	if (&gameObject == this) return;
+	//double dispatch
+	gameObject.handleCollision(*(this));
 }
 
 void Mage::handleCollision(King& gameObject)
@@ -62,5 +65,6 @@ void Mage::handleCollision(Throne& gameObject)
 
 void Mage::handleCollision(Wall& gameObject)
 {
+	moveToPrevPos();
 }
 

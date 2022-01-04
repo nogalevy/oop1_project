@@ -20,8 +20,6 @@ Board::Board()
 	
 }
 
-
-
 Board::~Board()
 {
 }
@@ -235,13 +233,4 @@ void Board::initSquare(int row, int col, int square_size)
 	int col_offset = (WINDOW_W - BOARD_H) / 2;
 	m_mat[row][col].setPosition(col * (square_size + 7) + col_offset, row * (square_size + 7) + 15);
 }
-
-/*
-sf::Vector2f Board::getPosition(int row, int col)
-{
-	return m_mat[row][col].getPosition();
-}
-
-*/
-
 
