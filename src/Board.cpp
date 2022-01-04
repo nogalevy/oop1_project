@@ -3,8 +3,7 @@
 
 
 Board::Board() 
-	: m_height(0), m_width(0), 
-	rect(sf::Vector2f(30.f, 30.f)), 
+	: m_height(0), m_width(0),  
 	m_bgRectangle(sf::Vector2f(BOARD_W, BOARD_H))
 {
 	rect.setFillColor(sf::Color::Green);
@@ -48,51 +47,8 @@ void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
 	m_movingObj[activePlayer]->move(direction, deltaTime);
 	handleCollisions(activePlayer);
-	/*
-	if (checkCollision(activePlayer))
-	{
-		std::cout << "Ewww i touched something\n";
-			//handleColision(activePlayer);
-	}
-	*/
-	
-	//moveRect(direction, deltaTime);
-	//m_dynamicPlayers[activePlayer].move(direction);
-
-	/*
-		in dynamic:
-			m_icon-> move(0.f, -m_movementSpeed)
-			m_icon-> move(0.f, m_movementSpeed)
-			m_icon-> move(m_movementSpeed, 0.f)
-			m_icon-> move(-m_movementSpeed, 0.f)
-			
-	*/
 }
 
-void Board::moveRect(sf::Vector2f direction, sf::Time deltaTime)
-{
-	auto speedPerSecond = 100.f;
-	rect.move(direction * speedPerSecond * deltaTime.asSeconds());
-
-	//int m_movementSpeed = 10; // TODO: move to macros
-	//switch (dir)
-	//{
-	//case LEFT:
-	//	rect.move(-m_movementSpeed, 0.f); //left
-	//	break;
-	//case RIGHT:
-	//	rect.move(m_movementSpeed, 0.f); //right
-	//	break;
-	//case UP:
-	//	rect.move(0.f, -m_movementSpeed); //up
-	//	break;
-	//case DOWN:
-	//	rect.move(0.f, m_movementSpeed); //down
-	//	break;
-	//default:
-	//	break;
-	//}
-}
 
 void Board::readLevel()
 {
@@ -265,25 +221,6 @@ void Board::handleCollisions(int activePlayer)
 			m_movingObj[activePlayer]->handleCollision(*movable);
 		}
 	}
-
-	//int i;
-	//for (i = 0; i < m_movingObj.size(); i++)
-	//{	
-	//	if(i != activePlayer && m_movingObj[activePlayer]->checkColisionWith(*m_movingObj[i]))
-	//	{
-	//		return true;
-	//	}
-	//}
-
-	//for (i = 0 ; i < m_staticObj.size(); i++)
-	//{
-	//	if (m_movingObj[activePlayer]->checkColisionWith(*m_staticObj[i]))
-	//	{
-	//		return true;
-	//	}
-	//}
-
-	//return false;
 }
 
 std::vector<std::vector<sf::RectangleShape>> Board::initMat(int size, int square_size)

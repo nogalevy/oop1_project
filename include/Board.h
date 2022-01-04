@@ -40,7 +40,6 @@ public:
 	~Board();
 	void draw(sf::RenderWindow& window);
 	void move(sf::Vector2f direction, sf::Time timer, int activePlayer);
-	void moveRect(sf::Vector2f direction, sf::Time deltaTime);
 	void readLevel();
 	Icons getSymbol(int, int);
 	int getHeight();
@@ -52,10 +51,8 @@ private:
 	bool isStaticObj(Icons symbol);
 	void setBgRectangle();
 	void createMat();
-	bool checkCollision(int activePlayer);
 	void handleCollisions(int activePlayer);
 	
-	sf::RectangleShape rect;
 	
 	int m_width;
 	int m_height;

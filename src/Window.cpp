@@ -19,71 +19,6 @@ Window::~Window()
 {
 }
 
-//void Window::startGame()
-//{
-//    /*
-//        Noga: 
-//        Two options to display pages:
-//            1. Like the 'LodeRunner' game - one main loop that first send us to other loop in
-//                'startScreen' class and display the first page (menu), and when click on start game 
-//                send exit from that loop and return to the main loop in our 'window'
-//            2. while loop in window that decide to draw page by some enum - 
-//                the enum will update for exxample by clicking the 'start game' button (thats good if we want 
-//                to give access to the menu while playing the game) 
-//
-//    
-//    */
-//
-//    while (m_window.isOpen())
-//    {
-//        
-//        //sf::Event event;
-//        sf::Vector2f location;
-//
-//        m_window.clear(sf::Color(sf::Color(14, 45, 32)));
-//
-//        //TODO: move to draw function
-//        drawCurrPage();
-//        
-//
-//        //#fontexample
-//        //m_window.draw(text);
-//        // 
-//       // m_window.draw(bg_rect);
-//        //window.draw();
-//        m_window.display();
-//
-//        if (m_currPage == BOARD)
-//        {
-//            isKeyPressed();
-//        }
-//
-//        if (auto event = sf::Event{}; m_window.pollEvent(event))
-//        {
-//            switch (event.type)
-//            {
-//            case sf::Event::Closed:
-//                m_window.close();
-//                break;
-//                // Add more cases to handle other events
-//            case sf::Event::MouseButtonReleased:		// stopping and resuming background music
-//                handleClick(event);
-//                break;
-//            case sf::Event::MouseMoved:
-//            {
-//                sf::Vector2f location = m_window.mapPixelToCoords(
-//                    { event.mouseMove.x, event.mouseMove.y });
-//                if(m_currPage == MENU)
-//                    handleHover(location);
-//                break;
-//            }
-//            default:
-//                break;
-//            }
-//        }
-//    }
-//}
-//#####################################################################################################
 void Window::startGame()
 {
 
@@ -113,6 +48,7 @@ void Window::startGame()
             movePlayer();
     }
 }
+
 void Window::handleBoardEvent(const sf::Event& event)
 {
     switch (event.type)
