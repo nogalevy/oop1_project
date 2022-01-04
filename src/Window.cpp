@@ -44,6 +44,9 @@ void Window::startGame()
             else
                 handleMenuEvent(event);
         }
+        //add keyboard function ?
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+            m_window.close();
         if(m_currPage == BOARD)
             movePlayer();
     }
