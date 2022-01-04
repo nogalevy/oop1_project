@@ -45,10 +45,7 @@ void Window::startGame()
                 handleMenuEvent(event);
         }
         //Noga: add keyboard function ?
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-            m_window.close();
-        if(m_currPage == BOARD)
-            movePlayer();
+        handleKeyboardClick();
     }
 }
 
@@ -87,6 +84,14 @@ void Window::handleMenuEvent(const sf::Event& event)
     default:
         break;
     }
+}
+
+void Window::handleKeyboardClick()
+{
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        m_window.close();
+    if (m_currPage == BOARD)
+        movePlayer();
 }
 
 void Window::movePlayer()

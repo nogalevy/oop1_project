@@ -31,6 +31,7 @@ private:
 
 	void handleBoardEvent(const sf::Event& event);
 	void handleMenuEvent(const sf::Event& event);
+	void handleKeyboardClick();
 	void movePlayer();
 
 
