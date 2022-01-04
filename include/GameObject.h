@@ -31,7 +31,7 @@ public:
 	*/
 
 	GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth, int mapHeight);
-	virtual ~GameObject();
+	virtual ~GameObject() = default;
 
 	virtual void draw(sf::RenderWindow& window);
 	bool checkColisionWith(const GameObject &obj) const;// = 0;

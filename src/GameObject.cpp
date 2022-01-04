@@ -7,8 +7,8 @@ GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth,
 	m_icon.setTexture(*(Resources::instance().getIcon(symbol)));
 
 	//set the correct scale to fill the board according to map size
-	auto xScaleValue = (float)BOARD_W / ((float)ICON_SIZE * (float)mapWidth);
-	auto yScaleValue = (float)BOARD_W / ((float)ICON_SIZE * (float)mapHeight);
+	//auto xScaleValue = (float)BOARD_W / ((float)ICON_SIZE * (float)mapWidth);
+	//auto yScaleValue = (float)BOARD_W / ((float)ICON_SIZE * (float)mapHeight);
 
 	//m_icon.scale(xScaleValue, yScaleValue);
 	m_icon.scale(0.1, 0.1);
@@ -16,17 +16,13 @@ GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth,
 	m_icon.setPosition(location);
 }
 
-GameObject::~GameObject()
-{
-}
+
+//GameObject::~GameObject()
+//{
+//}
 
 void GameObject::draw(sf::RenderWindow& window)
 {
-	//m_icon.setTexture(&m_texture);
-	//m_icon.setFillColor(sf::Color::Color(181, 147, 43));
-	//m_icon.setPosition(location);
-
-	//std::cout << "draw icon\n";
 	window.draw(m_icon);
 }
 

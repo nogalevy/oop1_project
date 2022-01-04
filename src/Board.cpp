@@ -6,7 +6,6 @@ Board::Board()
 	: m_height(0), m_width(0),  
 	m_bgRectangle(sf::Vector2f(BOARD_W, BOARD_H))
 {
-	rect.setFillColor(sf::Color::Green);
 	setBgRectangle();	
 
 	//const char* fileName = "Level.txt";

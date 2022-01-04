@@ -8,9 +8,9 @@ DynamicObject::DynamicObject(Icons symbol, const sf::Vector2f& position, int map
 {
 }
 
-DynamicObject::~DynamicObject()
-{
-}
+//DynamicObject::~DynamicObject()
+//{
+//}
 
 
 void DynamicObject::move(sf::Vector2f direction, sf::Time deltaTime)

@@ -5,6 +5,6 @@ StaticObject::StaticObject(Icons symbol, const sf::Vector2f& position, int mapW,
 {
 }
 
-StaticObject::~StaticObject()
-{
-}
+//StaticObject::~StaticObject()
+//{
+//}

@@ -5,13 +5,14 @@ class DynamicObject : public GameObject
 {
 public:
 	DynamicObject(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
-	virtual ~DynamicObject();
+	virtual ~DynamicObject() = default;
 
+	//TODO: put move functions in king mage etc
 	void move(sf::Vector2f direction, sf::Time deltaTime);// = 0;
 
 	void moveToPrevPos();
 	
-
+	//make it abstract
 
 protected:
 
