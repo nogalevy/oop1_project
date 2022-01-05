@@ -1,7 +1,7 @@
 #include "King.h"
 
 King::King(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	: MovingObject(symbol, position, mapW, mapH)
+	: Player(symbol, position, mapW, mapH)
 {
 }
 

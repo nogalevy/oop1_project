@@ -1,8 +1,8 @@
 #pragma once
 
-#include "MovingObject.h"
+#include "Player.h"
 
-class Mage : public MovingObject
+class Mage : public Player
 {
 public:
 	Mage(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);

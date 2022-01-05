@@ -8,6 +8,7 @@
                                               "StaticObject.cpp"
                                               "Timer.cpp" 
                                               "Resources.cpp"
+                                              "Player.cpp"
                                               
                                               "King.cpp"
                                               "Mage.cpp"

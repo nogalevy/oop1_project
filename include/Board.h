@@ -7,6 +7,7 @@
 #include <memory>
 #include "MovingObject.h"
 #include "StaticObject.h"
+#include "Player.h"
 #include <vector>
 
 #include "Thief.h"
@@ -60,7 +61,7 @@ private:
 	std::ifstream m_levelFile;
 	std::vector<std::string> m_boardMat;
 
-	std::vector<std::unique_ptr<MovingObject>> m_movingObj;
+	std::vector<std::unique_ptr<Player>> m_movingObj;
 	std::vector<std::unique_ptr<StaticObject>> m_staticObj;
 
 

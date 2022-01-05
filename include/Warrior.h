@@ -1,8 +1,8 @@
 #pragma once
 
-#include "MovingObject.h"
+#include "Player.h"
 
-class Warrior : public MovingObject
+class Warrior : public Player
 {
 public:
 	Warrior(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);

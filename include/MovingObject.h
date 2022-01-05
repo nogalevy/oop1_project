@@ -7,8 +7,6 @@ public:
 	MovingObject(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
 	virtual ~MovingObject() = default;
 
-	//TODO: put move functions in king mage etc
-	void move(sf::Vector2f direction, sf::Time deltaTime);// = 0;
 
 	void moveToPrevPos();
 	

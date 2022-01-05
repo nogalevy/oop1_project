@@ -1,8 +1,8 @@
 #pragma once
 
-#include "MovingObject.h"
+#include "Player.h"
 
-class King : public MovingObject
+class King : public Player
 {
 public:
 	King(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
