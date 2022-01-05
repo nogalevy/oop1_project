@@ -12,7 +12,7 @@ enum Icons { KING, MAGE, WARRIOR, THIEF, WALL, GATE, FIRE, ORC, PORTAL, THRONE, 
 
 const char SYMBOLS[NUM_OF_ICONS] = { 'K', 'M', 'W', 'T', '=', '#', '*', '!', 'X', '@', 'F', ' '};
 
-const std::string PIC_NAMES[NUM_OF_ICONS /* + GAME_BTN_NUM*/] = {"king", "wizard", "warrior", "thief", "brickwall_2",
+const std::string PIC_NAMES[NUM_OF_ICONS /* + GAME_BTN_NUM*/] = {"king", "wizard", "warrior", "thief", "wall",
 											"gate", "fire", "orc", "portal", "throne", "key"/*, "clear", "delete", "save"*/ };
 
 enum timer_type { TIMER = 0, COUNTDOWN };

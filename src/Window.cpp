@@ -10,7 +10,8 @@ Window::Window()
     m_bgTexture(),
     m_image(),
     m_currPage(MENU),
-    m_activePlayer(0/*KING*/)
+    m_activePlayer(0/*KING*/),
+    m_audio(Resources::instance().getMusic())
 {
     m_window.setFramerateLimit(60);
 }
