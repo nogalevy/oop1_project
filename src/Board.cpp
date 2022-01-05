@@ -118,7 +118,6 @@ void Board::createObjects()
 			if (symbol == SPACE)
 				continue;
 			
-
 			int square_size = ((BOARD_H) / 10) - 10; //set 500 to const
 			int col_offset = (WINDOW_W - BOARD_H) / 2;
 			xPos = (float)(col * (square_size + 7) + col_offset);
