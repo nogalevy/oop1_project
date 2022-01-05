@@ -17,16 +17,12 @@ public:
 	void startClock();
 	sf::Time getElapsed();
 	void addTime(float time_to_add);
-	void draw(sf::RenderWindow& window);
+	//void draw(sf::RenderWindow& window);
 	float getTime();
-
-
-	//void getTimeLeft?
-
 
 private:
 	sf::Clock m_clock;
 	sf::Time m_time;
 	timer_type m_timerType; // true = timer | false = countdown
-
 };
+

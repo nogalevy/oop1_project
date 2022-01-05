@@ -86,6 +86,20 @@ int Board::getWidth()
 	return m_width;
 }
 
+bool Board::getHasKey() const
+{
+	for(auto &movable : m_movingObj)
+	{
+		//auto movingPtr = movable.get();
+		if (auto playerPtr = dynamic_cast<Thief*>(movable.get()))
+		{
+			return playerPtr->getHasKey();	// extract the life member from player before deleting it
+		}
+	}
+
+	return false;
+}
+
 //bool Board::getHasKey() const
 //{
 //	return m_movingObj[THIEF]->getHasKey();

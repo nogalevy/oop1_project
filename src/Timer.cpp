@@ -2,15 +2,11 @@
 
 //create timer
 Timer::Timer() 
-	: m_time(), m_clock(), m_timerType(TIMER)
-{
-}
+	: m_time(), m_clock(), m_timerType(TIMER) {}
 
 //create countdown
 Timer::Timer(int time)
-	: m_time(sf::seconds(time)), m_clock(), m_timerType(COUNTDOWN)
-{
-}
+	: m_time(sf::seconds(time)), m_clock(), m_timerType(COUNTDOWN) {}
 
 void Timer::setTime(int time)
 {
@@ -35,5 +31,6 @@ void Timer::addTime(float time_to_add)
 
 float Timer::getTime()
 {
-	return m_timerType == TIMER ? m_clock.getElapsedTime().asSeconds() : (m_time.asSeconds() - m_clock.getElapsedTime().asSeconds())  ;
+	return m_timerType == TIMER ? m_clock.getElapsedTime().asSeconds() :
+		(m_time.asSeconds() - m_clock.getElapsedTime().asSeconds())  ;
 }

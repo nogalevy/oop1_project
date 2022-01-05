@@ -22,5 +22,6 @@ void Key::handleCollision(Mage& gameObject)
 
 void Key::handleCollision(Thief& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
 

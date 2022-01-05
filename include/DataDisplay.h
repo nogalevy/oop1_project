@@ -21,6 +21,7 @@ public:
 	void drawHasKey(sf::RenderWindow& window);
 	void drawLevelNum(sf::RenderWindow& window);
 	void drawActivePlayer(sf::RenderWindow& window);
+	void setHasKey(bool hasKey);
 	// hasKey
 	// updaeCurrPlayer ?
 private:
@@ -31,6 +32,8 @@ private:
 	
 	timer_type m_timerType; // 
 	Timer m_timeCounter;
+
+	bool m_hasKey;
 	// key ?
 	// current player ? or get this data from board? 
 };

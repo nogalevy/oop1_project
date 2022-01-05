@@ -28,10 +28,11 @@ public:
 	//virtual void handleCollision(Dwarf& gameObject) override;
 	//virtual void handleCollision(Bonus& gameObject) override;
 
-	//bool getHasKey()const;
+	bool getHasKey()const;
 private:
-	//void setHasKey(bool hasKey);
-	//bool m_hasKey;
+	void setHasKey(bool hasKey);
+
+	bool m_hasKey;
 };
 	/*
 	bool m_hasKey;

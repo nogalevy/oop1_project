@@ -74,4 +74,8 @@ private:
 
 	void initSquare(int row, int col, int square_size);
 	//sf::Vector2f getPosition(int row, int col);
+
+
+	//data from players:
+	bool m_hasKey;
 };

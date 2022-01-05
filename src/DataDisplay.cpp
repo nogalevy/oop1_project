@@ -67,6 +67,15 @@ void DataDisplay::drawActivePlayer(sf::RenderWindow& window)
 	//m_levelNumTxt.setString("Player: ");
 }
 
+void DataDisplay::setHasKey(bool hasKey)
+{
+	m_hasKey = hasKey;
+	/*if (hasKey)
+	{
+		std::cout << "HAS KEY!" << std::endl;
+	}*/
+}
+
 void DataDisplay::resetClock()
 {
 	m_timeCounter.startClock();

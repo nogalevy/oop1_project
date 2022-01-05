@@ -1,7 +1,7 @@
 #include "Thief.h"
 
 Thief::Thief(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	: Player(symbol, position, mapW, mapH)
+	: Player(symbol, position, mapW, mapH), m_hasKey(false)
 {
 }
 
@@ -49,7 +49,8 @@ void Thief::handleCollision(Gate& gameObject)
 
 void Thief::handleCollision(Key& gameObject)
 {
-	//setHasKey(true);
+
+	setHasKey(true);
 }
 
 void Thief::handleCollision(Orc& gameObject)
@@ -69,6 +70,16 @@ void Thief::handleCollision(Throne& gameObject)
 void Thief::handleCollision(Wall&)
 {
 	moveToPrevPos();
+}
+
+bool Thief::getHasKey() const
+{
+	return m_hasKey;
+}
+
+void Thief::setHasKey(bool hasKey)
+{
+	m_hasKey = hasKey;
 }
 
 //bool Thief::getHasKey() const

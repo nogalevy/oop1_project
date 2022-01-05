@@ -33,7 +33,7 @@ private:
 	void handleMenuEvent(const sf::Event& event);
 	void handleKeyboardClick();
 	void movePlayer();
-
+	void updateGameData();
 
 
 
