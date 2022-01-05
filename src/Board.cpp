@@ -126,8 +126,7 @@ void Board::createObjects()
 
 			//Noga: I think we can delete this "if-else" T: you are probably right
 			if (isStaticObj(symbol))
-			{
-				
+			{	
 				switch (symbol)
 				{
 				case WALL:

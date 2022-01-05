@@ -7,7 +7,7 @@
 
 class Audio {
 public:
-	Audio();
+	Audio(sf::SoundBuffer* suondBuffer);
 	~Audio();
 
 
@@ -15,7 +15,7 @@ public:
 
 private:
 	//functions
-	void initMusic();
+	void initMusic(sf::SoundBuffer* suondBuffer);
 
 	//members
 	sf::SoundBuffer m_audio; //works like texture to load sound
