@@ -5,7 +5,7 @@
 #include "utilities.h"
 #include <fstream>
 #include <memory>
-#include "DynamicObject.h"
+#include "MovingObject.h"
 #include "StaticObject.h"
 #include <vector>
 
@@ -23,7 +23,7 @@
 
 
 
-//class DynamicObject;
+//class MovingObject;
 //class StaticObject;
 //class Wall;
 //class King;
@@ -60,7 +60,7 @@ private:
 	std::ifstream m_levelFile;
 	std::vector<std::string> m_boardMat;
 
-	std::vector<std::unique_ptr<DynamicObject>> m_movingObj;
+	std::vector<std::unique_ptr<MovingObject>> m_movingObj;
 	std::vector<std::unique_ptr<StaticObject>> m_staticObj;
 
 

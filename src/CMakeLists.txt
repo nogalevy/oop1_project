@@ -3,7 +3,7 @@
                                               "Menu.cpp"
                                               "Board.cpp"
                                               "DataDisplay.cpp"
-                                              "DynamicObject.cpp"
+                                              "MovingObject.cpp"
                                               "GameObject.cpp"
                                               "StaticObject.cpp"
                                               "Timer.cpp" 

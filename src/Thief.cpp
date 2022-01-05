@@ -1,7 +1,7 @@
 #include "Thief.h"
 
 Thief::Thief(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	: DynamicObject(symbol, position, mapW, mapH)
+	: MovingObject(symbol, position, mapW, mapH)
 {
 }
 

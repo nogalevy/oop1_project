@@ -1,8 +1,8 @@
 #pragma once
 
-#include "DynamicObject.h"
+#include "MovingObject.h"
 
-class Mage : public DynamicObject
+class Mage : public MovingObject
 {
 public:
 	Mage(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);

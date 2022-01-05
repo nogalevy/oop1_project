@@ -1,7 +1,7 @@
 #pragma once
-#include "DynamicObject.h"
+#include "MovingObject.h"
 
-class Thief: public DynamicObject 
+class Thief: public MovingObject 
 {
 public:
 	Thief(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);

@@ -1,9 +1,9 @@
 #pragma once
-#include "DynamicObject.h"
+#include "MovingObject.h"
 
 //NEED TO CHANGE TO INHERIT FROM STATIC CLASS
 
-class Dwarf : public DynamicObject {
+class Dwarf : public MovingObject {
 public:
 
 

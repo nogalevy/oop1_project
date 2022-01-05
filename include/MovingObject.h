@@ -1,11 +1,11 @@
 #pragma once
 #include "GameObject.h"
 
-class DynamicObject : public GameObject
+class MovingObject : public GameObject
 {
 public:
-	DynamicObject(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
-	virtual ~DynamicObject() = default;
+	MovingObject(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	virtual ~MovingObject() = default;
 
 	//TODO: put move functions in king mage etc
 	void move(sf::Vector2f direction, sf::Time deltaTime);// = 0;

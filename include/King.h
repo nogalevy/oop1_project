@@ -1,8 +1,8 @@
 #pragma once
 
-#include "DynamicObject.h"
+#include "MovingObject.h"
 
-class King : public DynamicObject
+class King : public MovingObject
 {
 public:
 	King(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
