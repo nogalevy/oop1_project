@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Player.h"
+#include "Audio.h"
 
 class King : public Player
 {
@@ -31,5 +32,5 @@ public:
 	//virtual void handleCollision(Bonus& gameObject) override;
 
 private:
-
+	Audio m_colisionSound;
 };

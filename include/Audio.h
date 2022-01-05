@@ -11,7 +11,7 @@ public:
 	~Audio();
 
 
-	void playMusic();
+	void playMusic(bool loop = false);
 
 private:
 	//functions

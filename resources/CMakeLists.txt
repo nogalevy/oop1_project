@@ -25,4 +25,6 @@ configure_file ("fonts/font3.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 # audio
 
 configure_file ("toward-the-mountains.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("audio/no.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("audio/crash1.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 

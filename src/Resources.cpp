@@ -52,6 +52,10 @@ void Resources::loadAudio()
 	{
 		std::cerr << "error load from file";
 	}
+	if (!m_colisionBuffer.loadFromFile("crash1.ogg"))
+	{
+		std::cerr << "error load from file";
+	}
 }
 
 Resources::~Resources()
@@ -87,4 +91,9 @@ sf::Texture* Resources::getMenuBackground()
 sf::SoundBuffer* Resources::getMusic()
 {
 	return &m_buffer;;
+}
+
+sf::SoundBuffer* Resources::getColisionSound()
+{
+	return &m_colisionBuffer;;
 }

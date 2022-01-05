@@ -20,6 +20,7 @@ public:
 	sf::Font* getDataFont();
 	sf::Texture* getMenuBackground();
 	sf::SoundBuffer* getMusic();
+	sf::SoundBuffer* getColisionSound();
 
 private:
 	Resources();
@@ -38,6 +39,6 @@ private:
 	sf::Font m_font2;
 	sf::Texture m_menuBackgroundTexture;
 	sf::SoundBuffer m_buffer;
-
+	sf::SoundBuffer m_colisionBuffer;
 
 };

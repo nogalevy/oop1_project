@@ -23,7 +23,7 @@ Window::~Window()
 void Window::startGame()
 {
 
-    m_audio.playMusic();
+    m_audio.playMusic(true);
 
     while (m_window.isOpen())
     {
