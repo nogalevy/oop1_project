@@ -140,7 +140,7 @@ void Window::drawCurrPage()
 
         //key = m_board.getHasKey(); //Noga : not sure (?)
 
-        m_dataDisplay.draw(m_window);
+        m_dataDisplay.draw(m_window, m_activePlayer);
         break;
     default:
         break;
