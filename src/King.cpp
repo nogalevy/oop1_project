@@ -16,64 +16,64 @@ King::~King()
 //	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
 //}
 
-void King::handleCollision(GameObject& gameObject)
+void King::handleCollision(GameObject& gameObject, Window& window)
 {
 	if (&gameObject == this) return;
 	//double dispatch
-	gameObject.handleCollision(*(this));
+	gameObject.handleCollision(*this, window);
 }
 
-void King::handleCollision(King& gameObject)
+void King::handleCollision(King& gameObject, Window& window)
 {
 	//ignore ?
 }
 
-void King::handleCollision(Warrior& gameObject)
+void King::handleCollision(Warrior& gameObject, Window& window)
 {
 	moveToPrevPos();
 }
 
-void King::handleCollision(Mage& gameObject)
+void King::handleCollision(Mage& gameObject, Window& window)
 {
 	moveToPrevPos();
 }
 
-void King::handleCollision(Thief& gameObject)
+void King::handleCollision(Thief& gameObject, Window& window)
 {
 	moveToPrevPos();
 }
 
-void King::handleCollision(Fire& gameObject)
-{
-	m_colisionSound.playMusic();
-	moveToPrevPos();
-}
-
-void King::handleCollision(Gate& gameObject)
+void King::handleCollision(Fire& gameObject, Window& window)
 {
 	m_colisionSound.playMusic();
 	moveToPrevPos();
 }
 
-void King::handleCollision(Orc& gameObject)
+void King::handleCollision(Gate& gameObject, Window& window)
 {
 	m_colisionSound.playMusic();
 	moveToPrevPos();
 }
 
-void King::handleCollision(Teleport& gameObject) //more data ? next pos?
+void King::handleCollision(Orc& gameObject, Window& window)
+{
+	m_colisionSound.playMusic();
+	moveToPrevPos();
+}
+
+void King::handleCollision(Teleport& gameObject, Window& window) //more data ? next pos?
 {
 	//move to other teleport
 	//teleportToNewPos(nextPos);
 }
 
-void King::handleCollision(Throne& gameObject)
+void King::handleCollision(Throne& gameObject, Window& window)
 {
 	//step on it and end level
 	//nextLevel(); //howwwwww???
 }
 
-void King::handleCollision(Wall& gameObject)
+void King::handleCollision(Wall& gameObject, Window& window)
 {
 	m_colisionSound.playMusic();
 	moveToPrevPos();

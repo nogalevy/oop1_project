@@ -11,33 +11,28 @@ Wall::~Wall()
 {
 }
 
-void Wall::handleCollision(GameObject& gameObject)
+void Wall::handleCollision(GameObject& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
-	std::cout << "in Wall. handle GameObject \n";
+	gameObject.handleCollision(*this, window);
 }
 
-void Wall::handleCollision(King& gameObject)
+void Wall::handleCollision(King& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this); 
-	std::cout << "in Wall. handle King \n";
+	gameObject.handleCollision(*this, window);
 }
 
-void Wall::handleCollision(Warrior& gameObject)
+void Wall::handleCollision(Warrior& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
-	std::cout << "in Wall. handle Warrior \n";
+	gameObject.handleCollision(*this, window);
 }
 
-void Wall::handleCollision(Mage& gameObject)
+void Wall::handleCollision(Mage& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
-	std::cout << "in Wall. handle Mage \n";
+	gameObject.handleCollision(*this, window);
 }
 
-void Wall::handleCollision(Thief& gameObject)
+void Wall::handleCollision(Thief& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
-	std::cout << "in Wall. handle Thief \n";
+	gameObject.handleCollision(*this, window);
 }
 

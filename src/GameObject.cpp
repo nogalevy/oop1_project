@@ -34,10 +34,10 @@ bool GameObject::checkColisionWith(const GameObject& obj) const
 	return m_icon.getGlobalBounds().intersects(obj.m_icon.getGlobalBounds());
 }
 
-void GameObject::handleCollision(GameObject& gameObject)
+void GameObject::handleCollision(GameObject& gameObject, Window& window)
 {
 	if (&gameObject == this) return;
 	//double dispatch
-	gameObject.handleCollision(*(this));
+	gameObject.handleCollision(*this, window);
 }
 

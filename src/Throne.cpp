@@ -4,27 +4,27 @@ Throne::~Throne()
 {
 }
 
-void Throne::handleCollision(GameObject& gameObject)
+void Throne::handleCollision(GameObject& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }
 
-void Throne::handleCollision(King& gameObject)
+void Throne::handleCollision(King& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }
 
-void Throne::handleCollision(Warrior& gameObject)
+void Throne::handleCollision(Warrior& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }
 
-void Throne::handleCollision(Mage& gameObject)
+void Throne::handleCollision(Mage& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this , window);
 }
 
-void Throne::handleCollision(Thief& gameObject)
+void Throne::handleCollision(Thief& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }

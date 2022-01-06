@@ -11,12 +11,12 @@ public:
 
 
 	//// Colisions:
-	virtual void handleCollision(GameObject& gameObject) override;
+	virtual void handleCollision(GameObject& gameObject, Window& window) override;
 	//// make them one - dynamic type ? 
-	virtual void handleCollision(King& gameObject) override;
-	virtual void handleCollision(Warrior& gameObject) override;
-	virtual void handleCollision(Mage& gameObject) override;
-	virtual void handleCollision(Thief& gameObject) override;
+	virtual void handleCollision(King& gameObject, Window& window) override;
+	virtual void handleCollision(Warrior& gameObject, Window& window) override;
+	virtual void handleCollision(Mage& gameObject, Window& window) override;
+	virtual void handleCollision(Thief& gameObject, Window& window) override;
 
 	//virtual void handleCollision(Dwarf& gameObject) override;
 	//virtual void handleCollision(Bonus& gameObject) override; 

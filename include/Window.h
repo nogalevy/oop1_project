@@ -35,12 +35,8 @@ private:
 	void movePlayer();
 	void updateGameData();
 
-
-
 	//window
 	sf::RenderWindow m_window;
-
-	
 
 	Audio m_audio;
 	//menu - first page

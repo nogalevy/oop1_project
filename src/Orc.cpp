@@ -4,26 +4,26 @@ Orc::~Orc()
 {
 }
 
-void Orc::handleCollision(GameObject& gameObject)
+void Orc::handleCollision(GameObject& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }
-void Orc::handleCollision(King& gameObject)
+void Orc::handleCollision(King& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
-}
-
-void Orc::handleCollision(Warrior& gameObject)
-{
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }
 
-void Orc::handleCollision(Mage& gameObject)
+void Orc::handleCollision(Warrior& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }
 
-void Orc::handleCollision(Thief& gameObject)
+void Orc::handleCollision(Mage& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
+}
+
+void Orc::handleCollision(Thief& gameObject, Window& window)
+{
+	gameObject.handleCollision(*this, window);
 }

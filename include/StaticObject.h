@@ -8,6 +8,7 @@
 #include "Warrior.h"
 #include "Thief.h"
 
+
 class StaticObject : public GameObject
 {
 public:
@@ -15,11 +16,11 @@ public:
 	~StaticObject() = default;
 
 	//no meaning of colision with two static objects
-	virtual void handleCollision(Fire&) override {};
-	virtual void handleCollision(Gate&) override {};
-	virtual void handleCollision(Key&) override {};
-	virtual void handleCollision(Orc&) override {};
-	virtual void handleCollision(Teleport&) override {};
-	virtual void handleCollision(Throne&) override {};
-	virtual void handleCollision(Wall&) override {};
+	virtual void handleCollision(Fire&, Window& window) override {};
+	virtual void handleCollision(Gate&, Window& window) override {};
+	virtual void handleCollision(Key&, Window& window) override {};
+	virtual void handleCollision(Orc&, Window& window) override {};
+	virtual void handleCollision(Teleport&, Window& window) override {};
+	virtual void handleCollision(Throne&, Window& window) override {};
+	virtual void handleCollision(Wall&, Window& window) override {};
 };

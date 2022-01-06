@@ -4,27 +4,27 @@ Teleport::~Teleport()
 {
 }
 
-void Teleport::handleCollision(GameObject& gameObject)
+void Teleport::handleCollision(GameObject& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }
 
-void Teleport::handleCollision(King& gameObject)
+void Teleport::handleCollision(King& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this); //send more data? next position or somthing?
+	gameObject.handleCollision(*this, window); //send more data? next position or somthing?
 }
 
-void Teleport::handleCollision(Warrior& gameObject)
+void Teleport::handleCollision(Warrior& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }
 
-void Teleport::handleCollision(Mage& gameObject)
+void Teleport::handleCollision(Mage& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }
 
-void Teleport::handleCollision(Thief& gameObject)
+void Teleport::handleCollision(Thief& gameObject, Window& window)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this, window);
 }

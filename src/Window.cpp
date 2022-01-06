@@ -103,19 +103,19 @@ void Window::movePlayer()
     sf::Time deltaTime = m_timer.restart();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        m_board.move(sf::Vector2f(-1, 0), deltaTime, m_activePlayer);
+        m_board.move(*this, sf::Vector2f(-1, 0), deltaTime, m_activePlayer);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        m_board.move(sf::Vector2f(1, 0), deltaTime, m_activePlayer);
+        m_board.move(*this, sf::Vector2f(1, 0), deltaTime, m_activePlayer);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        m_board.move(sf::Vector2f(0, -1), deltaTime, m_activePlayer);
+        m_board.move(*this, sf::Vector2f(0, -1), deltaTime, m_activePlayer);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        m_board.move(sf::Vector2f(0, 1), deltaTime, m_activePlayer);
+        m_board.move(*this, sf::Vector2f(0, 1), deltaTime, m_activePlayer);
     }
 }
 

@@ -12,66 +12,66 @@ Warrior::~Warrior()
 }
 
 
-void Warrior::handleCollision(GameObject& gameObject)
+void Warrior::handleCollision(GameObject& gameObject, Window& window)
 {
 	//if (&gameObject == this) return;
 	//double dispatch
-	gameObject.handleCollision(*(this));
+	gameObject.handleCollision(*(this), window);
 }
 
-void Warrior::handleCollision(King& gameObject)
+void Warrior::handleCollision(King& gameObject, Window& window)
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Warrior& gameObject)
+void Warrior::handleCollision(Warrior& gameObject, Window& window)
 {
 	//nothing
 }
 
-void Warrior::handleCollision(Mage& gameObject)
+void Warrior::handleCollision(Mage& gameObject, Window& window)
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Thief& gameObject)
+void Warrior::handleCollision(Thief& gameObject, Window& window)
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Fire& gameObject)
+void Warrior::handleCollision(Fire& gameObject, Window& window)
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Gate& gameObject)
+void Warrior::handleCollision(Gate& gameObject, Window& window)
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Key& gameObject)
+void Warrior::handleCollision(Key& gameObject, Window& window)
 {
 	//nothing
 }
 
-void Warrior::handleCollision(Orc& gameObject)
+void Warrior::handleCollision(Orc& gameObject, Window& window)
 {
 	//kills orc. orc drops key!!
 	//killOrc();
 }
 
-void Warrior::handleCollision(Teleport& gameObject)
+void Warrior::handleCollision(Teleport& gameObject, Window& window)
 {
 	//move to other teleport
 	//teleportToNewPos(nextPos);
 }
 
-void Warrior::handleCollision(Throne& gameObject)
+void Warrior::handleCollision(Throne& gameObject, Window& window)
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Wall& gameObject)
+void Warrior::handleCollision(Wall& gameObject, Window& window)
 {
 	moveToPrevPos();
 }
