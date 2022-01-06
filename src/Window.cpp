@@ -23,7 +23,7 @@ Window::~Window()
 void Window::startGame()
 {
 
-    m_audio.playMusic();
+    m_audio.playMusic(true);
 
     while (m_window.isOpen())
     {
@@ -92,7 +92,10 @@ void Window::handleKeyboardClick()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         m_window.close();
     if (m_currPage == BOARD)
+    {
         movePlayer();
+        updateGameData();
+    }
 }
 
 void Window::movePlayer()
@@ -115,6 +118,12 @@ void Window::movePlayer()
         m_board.move(sf::Vector2f(0, 1), deltaTime, m_activePlayer);
     }
 }
+
+void Window::updateGameData()
+{
+    m_dataDisplay.setHasKey(m_board.getHasKey());
+}
+
 //#####################################################################################################
 
 void Window::drawCurrPage()
@@ -131,7 +140,7 @@ void Window::drawCurrPage()
 
         //key = m_board.getHasKey(); //Noga : not sure (?)
 
-        m_dataDisplay.draw(m_window);
+        m_dataDisplay.draw(m_window, m_activePlayer);
         break;
     default:
         break;
@@ -231,4 +240,5 @@ void Window::resetClock()
 {
     m_dataDisplay.resetClock();
 }
+
 

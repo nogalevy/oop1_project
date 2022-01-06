@@ -1,7 +1,7 @@
 #include "King.h"
 
 King::King(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	: Player(symbol, position, mapW, mapH)
+	: Player(symbol, position, mapW, mapH), m_colisionSound(Resources::instance().getColisionSound())
 {
 }
 
@@ -43,20 +43,20 @@ void King::handleCollision(Thief& gameObject)
 
 void King::handleCollision(Fire& gameObject)
 {
+	m_colisionSound.playMusic();
 	moveToPrevPos();
-	// not allowed to move
 }
 
 void King::handleCollision(Gate& gameObject)
 {
+	m_colisionSound.playMusic();
 	moveToPrevPos();
-	//no
 }
 
 void King::handleCollision(Orc& gameObject)
 {
+	m_colisionSound.playMusic();
 	moveToPrevPos();
-	//no ?
 }
 
 void King::handleCollision(Teleport& gameObject) //more data ? next pos?
@@ -73,7 +73,7 @@ void King::handleCollision(Throne& gameObject)
 
 void King::handleCollision(Wall& gameObject)
 {
-	//no
+	m_colisionSound.playMusic();
 	moveToPrevPos();
 }
 

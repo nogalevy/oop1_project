@@ -9,10 +9,10 @@ Audio::~Audio()
 {
 }
 
-void Audio::playMusic()
+void Audio::playMusic(bool loop)
 {
 	m_sound.play();
-	m_sound.setLoop(true);
+	m_sound.setLoop(loop);
 	m_sound.setVolume(10);
 }
 

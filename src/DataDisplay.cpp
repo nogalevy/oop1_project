@@ -5,6 +5,9 @@ DataDisplay::DataDisplay()
 	m_timeCounter()
 {
 	m_timerTxt.setFont(*(Resources::instance().getDataFont()));
+	m_activePlayerTxt.setFont(*(Resources::instance().getDataFont()));
+	m_hasKeyTxt.setFont(*(Resources::instance().getDataFont()));
+	m_levelNumTxt.setFont(*(Resources::instance().getDataFont()));
 	setBgRectangle();
 }
 
@@ -18,17 +21,18 @@ DataDisplay::DataDisplay(float time)
 
 
 
-void DataDisplay::draw(sf::RenderWindow& window)
+void DataDisplay::draw(sf::RenderWindow& window, int activePlayer)
 {	
 	drawTime(window);
-	drawHasKey(window);
 	drawLevelNum(window);
-	drawActivePlayer(window);
+	drawActivePlayer(window, activePlayer);
+	drawHasKey(window);
 }
 
-void DataDisplay::drawTime(sf::RenderWindow& window)
+void DataDisplay::drawTime(sf::RenderWindow& window )
 {
-	m_timerTxt.setPosition(sf::Vector2f(0, BOARD_H + 10));
+	//m_timerTxt.setPosition(sf::Vector2f(0, BOARD_H + 10));
+	m_timerTxt.setPosition(sf::Vector2f(10, 10));
 	m_timerTxt.setColor(sf::Color::White);
 	m_timerTxt.setCharacterSize(20);
 
@@ -41,7 +45,7 @@ void DataDisplay::drawTime(sf::RenderWindow& window)
 		sec = sec % 60;
 	}
 
-	m_timerTxt.setString(std::to_string(minutes) + ":" + (sec < 10 ? "0" : "") + std::to_string(sec));
+	m_timerTxt.setString("Time: " + std::to_string(minutes) + ":" + (sec < 10 ? "0" : "") + std::to_string(sec));
 
 	//example how to + or - time
 	if (int(m_timeCounter.getTime()) == 0)
@@ -54,17 +58,42 @@ void DataDisplay::drawTime(sf::RenderWindow& window)
 
 void DataDisplay::drawHasKey(sf::RenderWindow& window)
 {
-	//m_hasKeyTxt.setString("Key: ");
+	//int posX = m_activePlayerTxt.getPosition().x + m_activePlayerTxt.getGlobalBounds().width + 65;
+	int posX = m_activePlayerTxt.getPosition().x + 370;
+	m_hasKeyTxt.setPosition(sf::Vector2f(posX, BOARD_H + 10));
+	m_hasKeyTxt.setColor(sf::Color::White);
+	m_hasKeyTxt.setCharacterSize(20);
+
+	m_hasKeyTxt.setString(m_hasKey ? "Key Found" : "Key Not Found");
+	window.draw(m_hasKeyTxt);
 }
 
 void DataDisplay::drawLevelNum(sf::RenderWindow& window)
 {
-	//m_levelNumTxt.setString("Level: ");
+	int levelNum = 1;
+	m_levelNumTxt.setPosition(sf::Vector2f(10, BOARD_H + 10));
+	m_levelNumTxt.setColor(sf::Color::White);
+	m_levelNumTxt.setCharacterSize(20);
+
+	m_levelNumTxt.setString("Level " + std::to_string(levelNum));
+	window.draw(m_levelNumTxt);
+
 }
 
-void DataDisplay::drawActivePlayer(sf::RenderWindow& window)
+void DataDisplay::drawActivePlayer(sf::RenderWindow& window, int activePlayer)
 {
-	//m_levelNumTxt.setString("Player: ");
+	int posX = m_levelNumTxt.getPosition().x + m_levelNumTxt.getGlobalBounds().width + 65;
+	m_activePlayerTxt.setPosition(sf::Vector2f(posX, BOARD_H + 10));
+	m_activePlayerTxt.setColor(sf::Color::White);
+	m_activePlayerTxt.setCharacterSize(20);
+
+	m_activePlayerTxt.setString("Player: " + PLAYERS_NAMES[activePlayer]);
+	window.draw(m_activePlayerTxt);
+}
+
+void DataDisplay::setHasKey(bool hasKey)
+{
+	m_hasKey = hasKey;
 }
 
 void DataDisplay::resetClock()
@@ -77,4 +106,5 @@ void DataDisplay::setBgRectangle()
 	m_bgRectangle.setFillColor(sf::Color::Color(41, 54, 37));
 	m_bgRectangle.setPosition(sf::Vector2f(0, BOARD_H));
 }
+
 
