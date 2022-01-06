@@ -31,10 +31,6 @@ void DataDisplay::draw(sf::RenderWindow& window, int activePlayer)
 
 void DataDisplay::drawTime(sf::RenderWindow& window )
 {
-	//m_timerTxt.setPosition(sf::Vector2f(0, BOARD_H + 10));
-	m_timerTxt.setPosition(sf::Vector2f(10, 10));
-	m_timerTxt.setColor(sf::Color::White);
-	m_timerTxt.setCharacterSize(20);
 
 	int sec = int(m_timeCounter.getTime());
 	int minutes = 0;
@@ -46,6 +42,14 @@ void DataDisplay::drawTime(sf::RenderWindow& window )
 	}
 
 	m_timerTxt.setString("Time: " + std::to_string(minutes) + ":" + (sec < 10 ? "0" : "") + std::to_string(sec));
+	//m_timerTxt.setPosition(sf::Vector2f(0, BOARD_H + 10));
+	m_timerTxt.setPosition(sf::Vector2f(10, 10)); //option #1 top left
+	//m_timerTxt.setPosition(sf::Vector2f(WINDOW_W - m_timerTxt.getGlobalBounds().width - 10, BOARD_H + 10)); //option #2 bottom right
+	m_timerTxt.setPosition(sf::Vector2f(WINDOW_W - m_timerTxt.getGlobalBounds().width - 10,10)); //option #3 top right
+	m_timerTxt.setColor(sf::Color::White);
+	m_timerTxt.setCharacterSize(20);
+
+
 
 	//example how to + or - time
 	if (int(m_timeCounter.getTime()) == 0)
