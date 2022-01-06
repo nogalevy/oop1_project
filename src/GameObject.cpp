@@ -28,6 +28,16 @@ void GameObject::draw(sf::RenderWindow& window)
 
 bool GameObject::checkColisionWith(const GameObject& obj) const
 {
+	if (&obj == this)
+		return false;
+
 	return m_icon.getGlobalBounds().intersects(obj.m_icon.getGlobalBounds());
+}
+
+void GameObject::handleCollision(GameObject& gameObject)
+{
+	if (&gameObject == this) return;
+	//double dispatch
+	gameObject.handleCollision(*(this));
 }
 

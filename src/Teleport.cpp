@@ -6,6 +6,7 @@ Teleport::~Teleport()
 
 void Teleport::handleCollision(GameObject& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
 
 void Teleport::handleCollision(King& gameObject)
@@ -15,12 +16,15 @@ void Teleport::handleCollision(King& gameObject)
 
 void Teleport::handleCollision(Warrior& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
 
 void Teleport::handleCollision(Mage& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
 
 void Teleport::handleCollision(Thief& gameObject)
 {
+	gameObject.handleCollision(*this);
 }

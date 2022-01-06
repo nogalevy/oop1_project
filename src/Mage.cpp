@@ -9,58 +9,63 @@ Mage::~Mage()
 {
 }
 
-//void Mage::move(sf::Vector2f direction, sf::Time deltaTime)
-//{
-//	auto speedPerSecond = 100.f;
-//	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
-//}
 
 void Mage::handleCollision(GameObject& gameObject)
 {
-	if (&gameObject == this) return;
+	//if (&gameObject == this) return;
 	//double dispatch
 	gameObject.handleCollision(*(this));
 }
 
 void Mage::handleCollision(King& gameObject)
 {
-
+	moveToPrevPos();
 }
 
 void Mage::handleCollision(Warrior& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Mage::handleCollision(Mage& gameObject)
 {
+	//nothing
 }
 
 void Mage::handleCollision(Thief& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Mage::handleCollision(Fire& gameObject)
 {
+	//puts out fire
+	//putOutFire();
 }
 
 void Mage::handleCollision(Gate& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Mage::handleCollision(Key& gameObject)
 {
+	//nothing
 }
 
 void Mage::handleCollision(Orc& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Mage::handleCollision(Teleport& gameObject)
 {
+	//nothing
 }
 
 void Mage::handleCollision(Throne& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Mage::handleCollision(Wall& gameObject)

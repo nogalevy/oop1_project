@@ -17,25 +17,29 @@ Thief::~Thief()
 
 void Thief::handleCollision(GameObject& gameObject)
 {
-	if (&gameObject == this) return;
+	//if (&gameObject == this) return;
 	//double dispatch
 	gameObject.handleCollision(*(this));
 }
 
 void Thief::handleCollision(King& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Thief::handleCollision(Warrior& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Thief::handleCollision(Mage& gameObject)
 {
+	moveToPrevPos();
 }
 
 void Thief::handleCollision(Thief& gameObject)
 {
+	//nothing
 }
 
 void Thief::handleCollision(Fire& gameObject)
@@ -45,6 +49,7 @@ void Thief::handleCollision(Fire& gameObject)
 
 void Thief::handleCollision(Gate& gameObject)
 {
+
 }
 
 void Thief::handleCollision(Key& gameObject)

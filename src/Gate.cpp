@@ -6,6 +6,7 @@ Gate::~Gate()
 
 void Gate::handleCollision(GameObject& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
 
 void Gate::handleCollision(King& gameObject)
@@ -15,12 +16,15 @@ void Gate::handleCollision(King& gameObject)
 
 void Gate::handleCollision(Warrior& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
 
 void Gate::handleCollision(Mage& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
 
 void Gate::handleCollision(Thief& gameObject)
 {
+	gameObject.handleCollision(*this);
 }
