@@ -1,5 +1,4 @@
 #include "Board.h"
-//#include "King.h"
 
 
 Board::Board() 
@@ -141,7 +140,7 @@ void Board::createObjects()
 				case ORC:
 					m_staticObj.emplace_back(std::make_unique<Orc>(symbol, position, m_width, m_height));
 					break;
-				case PORTAL:
+				case TELEPORT:
 					m_staticObj.emplace_back(std::make_unique<Teleport>(symbol, position, m_width, m_height));
 					break;
 				case THRONE:
