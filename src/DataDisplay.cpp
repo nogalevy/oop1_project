@@ -28,7 +28,8 @@ void DataDisplay::draw(sf::RenderWindow& window)
 
 void DataDisplay::drawTime(sf::RenderWindow& window)
 {
-	m_timerTxt.setPosition(sf::Vector2f(0, BOARD_H + 10));
+	//m_timerTxt.setPosition(sf::Vector2f(0, BOARD_H + 10));
+	m_timerTxt.setPosition(sf::Vector2f(10, 10));
 	m_timerTxt.setColor(sf::Color::White);
 	m_timerTxt.setCharacterSize(20);
 
@@ -41,7 +42,7 @@ void DataDisplay::drawTime(sf::RenderWindow& window)
 		sec = sec % 60;
 	}
 
-	m_timerTxt.setString(std::to_string(minutes) + ":" + (sec < 10 ? "0" : "") + std::to_string(sec));
+	m_timerTxt.setString("Time: " + std::to_string(minutes) + ":" + (sec < 10 ? "0" : "") + std::to_string(sec));
 
 	//example how to + or - time
 	if (int(m_timeCounter.getTime()) == 0)
