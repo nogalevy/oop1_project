@@ -89,19 +89,20 @@ void Window::handleMenuEvent(const sf::Event& event)
 
 void Window::handleKeyboardClick()
 {
+    sf::Time deltaTime = m_timer.restart();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         m_window.close();
     if (m_currPage == BOARD)
     {
-        movePlayer();
-        moveDwarfs();
+        movePlayer(deltaTime);
+        moveDwarfs(deltaTime);
         updateGameData();
     }
 }
 
-void Window::movePlayer()
+void Window::movePlayer(sf::Time deltaTime)
 {
-    sf::Time deltaTime = m_timer.restart();
+    //sf::Time deltaTime = m_timer.restart();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
         m_board.move(sf::Vector2f(-1, 0), deltaTime, m_activePlayer);
@@ -120,9 +121,10 @@ void Window::movePlayer()
     }
 }
 
-void Window::moveDwarfs()
+void Window::moveDwarfs(sf::Time deltaTime)
 {
-    m_board.moveDwarfs();
+    //sf::Time deltaTime = m_timer.restart();
+    m_board.moveDwarfs(deltaTime);
 }
 
 void Window::updateGameData()

@@ -79,3 +79,7 @@ void King::handleCollision(Wall& )
 	moveToPrevPos();
 }
 
+void King::handleCollision(Dwarf& gameObject)
+{
+}
+

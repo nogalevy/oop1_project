@@ -1,9 +1,7 @@
-#include "..\include\Dwarf.h"
-#include "..\include\Dwarf.h"
 #include "Dwarf.h"
 
 Dwarf::Dwarf(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	: MovingObject(symbol, position, mapW, mapH)
+	: MovingObject(symbol, position, mapW, mapH), m_direction({ -1,0 })
 {
 }
 
@@ -11,15 +9,18 @@ Dwarf::~Dwarf()
 {
 }
 
-void Dwarf::sayHello()
+void Dwarf::move(sf::Time deltaTime)
 {
+	m_prevPos = m_icon.getPosition();
+	auto speedPerSecond = 100.f;
+	m_icon.move(m_direction * speedPerSecond * deltaTime.asSeconds());
 }
 
 
 
 void Dwarf::handleCollision(GameObject& gameobject)
 {
-	if (&gameobject == this) return;
+	//if (&gameobject == this) return;
 	//double dispatch
 	gameobject.handleCollision(*this);
 }
@@ -56,7 +57,7 @@ void Dwarf::handleCollision(Gate& /*gameObject*/)
 	//moveToPrevPos();
 }
 
-void Dwarf::handleCollision(Key& gameObject)
+void Dwarf::handleCollision(Key& /*gameObject*/)
 {
 }
 
@@ -81,5 +82,13 @@ void Dwarf::handleCollision(Throne& /*gameObject*/)
 void Dwarf::handleCollision(Wall& /*gameObject*/)
 {
 	//m_colisionSound.playMusic();
-	//moveToPrevPos();
+	moveToPrevPos();
+	if (m_direction.x == -1)
+		m_direction.x = 1;
+	else
+		m_direction.x = -1;
+}
+
+void Dwarf::handleCollision(Dwarf& gameObject)
+{
 }

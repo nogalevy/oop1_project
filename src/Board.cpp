@@ -104,11 +104,12 @@ bool Board::getHasKey() const
 	return false;
 }
 
-void Board::moveDwarfs()
+void Board::moveDwarfs(sf::Time deltaTime)
 {
 	for (auto& dwarf : m_dwarfs)
 	{
-		//dwarf->sayHello();
+		dwarf->move(deltaTime);
+		handleDwarfCollisions();
 	}
 }
 
@@ -244,6 +245,7 @@ void Board::handleCollisions(int activePlayer)
 		{
 			m_movingObj[activePlayer]->handleCollision(*unmovable);	
 		}
+		
 	}
 
 	for (auto& movable : m_movingObj)
@@ -253,6 +255,19 @@ void Board::handleCollisions(int activePlayer)
 			m_movingObj[activePlayer]->handleCollision(*movable);
 		}
 	}
+}
+
+void Board::handleDwarfCollisions()
+{
+	for (auto& unmovable : m_staticObj)
+	{
+		for (int i = 0; i < m_dwarfs.size(); i++)
+		{
+			if (m_dwarfs[i]->checkColisionWith(*unmovable))
+				m_dwarfs[i]->handleCollision(*unmovable);
+		}
+	}
+	
 }
 
 void Board::updateBoard()

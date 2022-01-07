@@ -29,3 +29,7 @@ void AddTimeBonus::handleCollision(Mage& gameObject)
 void AddTimeBonus::handleCollision(Thief& gameObject)
 {
 }
+
+void AddTimeBonus::handleCollision(Dwarf& gameObject)
+{
+}

@@ -9,6 +9,7 @@ class King;
 class Mage;
 class Thief;
 class Warrior;
+class Dwarf;
 
 class Wall;
 class Gate;
@@ -52,7 +53,7 @@ public:
 	virtual void handleCollision(Throne& gameObject) = 0;
 	virtual void handleCollision(Wall& gameObject) = 0;
 
-	//virtual void handleCollision(Dwarf& gameObject) = 0;
+	virtual void handleCollision(Dwarf& gameObject) = 0;
 	//virtual void handleCollision(Bonus& gameObject) = 0;
 
 

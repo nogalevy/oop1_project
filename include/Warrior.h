@@ -27,8 +27,7 @@ public:
 	virtual void handleCollision(Teleport& ) override;
 	virtual void handleCollision(Throne& ) override;
 	virtual void handleCollision(Wall& ) override;
-
-	//virtual void handleCollision(Dwarf& gameObject) override;
+	virtual void handleCollision(Dwarf& gameObject) override;
 	//virtual void handleCollision(Bonus& gameObject) override;
 private:
 

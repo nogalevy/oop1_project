@@ -28,3 +28,7 @@ void Teleport::handleCollision(Thief& gameObject)
 {
 	gameObject.handleCollision(*this);
 }
+
+void Teleport::handleCollision(Dwarf& gameObject)
+{
+}

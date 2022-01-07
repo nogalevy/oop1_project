@@ -39,9 +39,6 @@ void Mage::handleCollision(Thief& )
 
 void Mage::handleCollision(Fire& )
 {
-
-	//puts out fire
-	//putOutFire();
 }
 
 void Mage::handleCollision(Gate& )
@@ -72,5 +69,9 @@ void Mage::handleCollision(Throne& )
 void Mage::handleCollision(Wall& )
 {
 	moveToPrevPos();
+}
+
+void Mage::handleCollision(Dwarf& gameObject)
+{
 }
 

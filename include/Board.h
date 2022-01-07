@@ -48,7 +48,7 @@ public:
 	int getWidth();
 	bool getHasKey() const;
 
-	void moveDwarfs();
+	void moveDwarfs(sf::Time);
 
 private:
 	void readLevelSize();
@@ -57,6 +57,7 @@ private:
 	void setBgRectangle();
 	void createMat();
 	void handleCollisions(int activePlayer);
+	void handleDwarfCollisions();
 	void updateBoard();
 	void removeStaticObjects();
 	void changeStatic();

@@ -76,3 +76,7 @@ void Warrior::handleCollision(Wall&  )
 {
 	moveToPrevPos();
 }
+
+void Warrior::handleCollision(Dwarf& gameObject)
+{
+}

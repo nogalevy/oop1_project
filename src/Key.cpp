@@ -33,3 +33,7 @@ void Key::handleCollision(Thief& gameObject)
 	}
 }
 
+void Key::handleCollision(Dwarf& gameObject)
+{
+}
+

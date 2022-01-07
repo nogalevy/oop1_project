@@ -28,3 +28,7 @@ void Fire::handleCollision(Thief& gameObject)
 {
 	gameObject.handleCollision(*this);
 }
+
+void Fire::handleCollision(Dwarf& gameObject)
+{
+}
