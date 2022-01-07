@@ -16,66 +16,66 @@ King::~King()
 //	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
 //}
 
-void King::handleCollision(GameObject& gameObject, Window& window)
+void King::handleCollision(GameObject& gameObject)
 {
 	if (&gameObject == this) return;
 	//double dispatch
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void King::handleCollision(King& gameObject, Window& window)
+void King::handleCollision(King& gameObject)
 {
 	//ignore ?
 }
 
-void King::handleCollision(Warrior& gameObject, Window& window)
+void King::handleCollision(Warrior& gameObject)
 {
 	moveToPrevPos();
 }
 
-void King::handleCollision(Mage& gameObject, Window& window)
+void King::handleCollision(Mage& gameObject)
 {
 	moveToPrevPos();
 }
 
-void King::handleCollision(Thief& gameObject, Window& window)
+void King::handleCollision(Thief& gameObject)
 {
 	moveToPrevPos();
 }
 
-void King::handleCollision(Fire& gameObject, Window& window)
+void King::handleCollision(Fire& gameObject)
 {
-	m_colisionSound.playMusic();
+	//m_colisionSound.playMusic();
 	moveToPrevPos();
 }
 
-void King::handleCollision(Gate& gameObject, Window& window)
+void King::handleCollision(Gate& gameObject)
 {
-	m_colisionSound.playMusic();
+	//m_colisionSound.playMusic();
 	moveToPrevPos();
 }
 
-void King::handleCollision(Orc& gameObject, Window& window)
+void King::handleCollision(Orc& gameObject)
 {
-	m_colisionSound.playMusic();
+	//m_colisionSound.playMusic();
 	moveToPrevPos();
 }
 
-void King::handleCollision(Teleport& gameObject, Window& window) //more data ? next pos?
+void King::handleCollision(Teleport& gameObject) //more data ? next pos?
 {
 	//move to other teleport
 	//teleportToNewPos(nextPos);
 }
 
-void King::handleCollision(Throne& gameObject, Window& window)
+void King::handleCollision(Throne& gameObject)
 {
 	//step on it and end level
 	//nextLevel(); //howwwwww???
 }
 
-void King::handleCollision(Wall& gameObject, Window& window)
+void King::handleCollision(Wall& gameObject)
 {
-	m_colisionSound.playMusic();
+	//m_colisionSound.playMusic();
 	moveToPrevPos();
 }
 

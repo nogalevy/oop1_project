@@ -4,26 +4,26 @@ Fire::~Fire()
 {
 }
 
-void Fire::handleCollision(GameObject& gameObject, Window& window)
+void Fire::handleCollision(GameObject& gameObject)
 {
-	gameObject.handleCollision(*this , window);
+	gameObject.handleCollision(*this );
 }
-void Fire::handleCollision(King& gameObject, Window& window)
+void Fire::handleCollision(King& gameObject)
 {
-	gameObject.handleCollision(*this, window);
-}
-
-void Fire::handleCollision(Warrior& gameObject, Window& window)
-{
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Fire::handleCollision(Mage& gameObject, Window& window)
+void Fire::handleCollision(Warrior& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Fire::handleCollision(Thief& gameObject, Window& window)
+void Fire::handleCollision(Mage& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
+}
+
+void Fire::handleCollision(Thief& gameObject)
+{
+	gameObject.handleCollision(*this);
 }

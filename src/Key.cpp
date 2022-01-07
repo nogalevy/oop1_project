@@ -4,28 +4,28 @@ Key::~Key()
 {
 }
 
-void Key::handleCollision(GameObject& gameObject, Window& window)
+void Key::handleCollision(GameObject& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Key::handleCollision(King& gameObject, Window& window)
+void Key::handleCollision(King& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Key::handleCollision(Warrior& gameObject, Window& window)
+void Key::handleCollision(Warrior& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Key::handleCollision(Mage& gameObject, Window& window)
+void Key::handleCollision(Mage& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Key::handleCollision(Thief& gameObject, Window& window)
+void Key::handleCollision(Thief& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 

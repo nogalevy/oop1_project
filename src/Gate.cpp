@@ -4,27 +4,27 @@ Gate::~Gate()
 {
 }
 
-void Gate::handleCollision(GameObject& gameObject, Window& window)
+void Gate::handleCollision(GameObject& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Gate::handleCollision(King& gameObject, Window& window)
+void Gate::handleCollision(King& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Gate::handleCollision(Warrior& gameObject, Window& window)
+void Gate::handleCollision(Warrior& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Gate::handleCollision(Mage& gameObject, Window& window)
+void Gate::handleCollision(Mage& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Gate::handleCollision(Thief& gameObject, Window& window)
+void Gate::handleCollision(Thief& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }

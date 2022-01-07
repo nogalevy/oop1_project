@@ -10,65 +10,65 @@ Mage::~Mage()
 }
 
 
-void Mage::handleCollision(GameObject& gameObject, Window& window)
+void Mage::handleCollision(GameObject& gameObject)
 {
 	//if (&gameObject == this) return;
 	//double dispatch
-	gameObject.handleCollision(*(this), window);
+	gameObject.handleCollision(*(this));
 }
 
-void Mage::handleCollision(King& gameObject, Window& window)
+void Mage::handleCollision(King& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Mage::handleCollision(Warrior& gameObject, Window& window)
+void Mage::handleCollision(Warrior& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Mage::handleCollision(Mage& gameObject, Window& window)
+void Mage::handleCollision(Mage& gameObject)
 {
 	//nothing
 }
 
-void Mage::handleCollision(Thief& gameObject, Window& window)
+void Mage::handleCollision(Thief& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Mage::handleCollision(Fire& gameObject, Window& window)
+void Mage::handleCollision(Fire& gameObject)
 {
 	//puts out fire
 	//putOutFire();
 }
 
-void Mage::handleCollision(Gate& gameObject, Window& window)
+void Mage::handleCollision(Gate& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Mage::handleCollision(Key& gameObject, Window& window)
+void Mage::handleCollision(Key& gameObject)
 {
 	//nothing
 }
 
-void Mage::handleCollision(Orc& gameObject, Window& window)
+void Mage::handleCollision(Orc& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Mage::handleCollision(Teleport& gameObject, Window& window)
+void Mage::handleCollision(Teleport& gameObject)
 {
 	//nothing
 }
 
-void Mage::handleCollision(Throne& gameObject, Window& window)
+void Mage::handleCollision(Throne& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Mage::handleCollision(Wall& gameObject, Window& window)
+void Mage::handleCollision(Wall& gameObject)
 {
 	moveToPrevPos();
 }

@@ -39,10 +39,10 @@ void Board::draw(sf::RenderWindow& window)
 
 }
 
-void Board::move(Window& window, sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
+void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
 	m_movingObj[activePlayer]->move(direction, deltaTime);
-	handleCollisions(activePlayer, window);
+	handleCollisions(activePlayer);
 }
 
 
@@ -217,13 +217,13 @@ void Board::createMat()
 	}
 }
 
-void Board::handleCollisions(int activePlayer, Window& window)
+void Board::handleCollisions(int activePlayer)
 {
 	for (auto& unmovable : m_staticObj)
 	{
 		if (m_movingObj[activePlayer]->checkColisionWith(*unmovable))
 		{
-			m_movingObj[activePlayer]->handleCollision(*unmovable, window);	
+			m_movingObj[activePlayer]->handleCollision(*unmovable);	
 		}
 	}
 
@@ -231,7 +231,7 @@ void Board::handleCollisions(int activePlayer, Window& window)
 	{
 		if (m_movingObj[activePlayer]->checkColisionWith(*movable))
 		{
-			m_movingObj[activePlayer]->handleCollision(*movable, window);
+			m_movingObj[activePlayer]->handleCollision(*movable);
 		}
 	}
 }

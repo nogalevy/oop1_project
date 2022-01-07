@@ -15,64 +15,64 @@ Thief::~Thief()
 //	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
 //}
 
-void Thief::handleCollision(GameObject& gameObject, Window& window)
+void Thief::handleCollision(GameObject& gameObject)
 {
 	//if (&gameObject == this) return;
 	//double dispatch
-	gameObject.handleCollision(*(this), window);
+	gameObject.handleCollision(*(this));
 	//window.
 }
 
-void Thief::handleCollision(King& gameObject, Window& window)
+void Thief::handleCollision(King& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Warrior& gameObject, Window& window)
+void Thief::handleCollision(Warrior& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Mage& gameObject, Window& window)
+void Thief::handleCollision(Mage& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Thief& gameObject, Window& window)
+void Thief::handleCollision(Thief& gameObject)
 {
 	//nothing
 }
 
-void Thief::handleCollision(Fire& gameObject, Window& window)
+void Thief::handleCollision(Fire& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Gate& gameObject, Window& window)
+void Thief::handleCollision(Gate& gameObject)
 {
 
 }
 
-void Thief::handleCollision(Key& gameObject, Window& window)
+void Thief::handleCollision(Key& gameObject)
 {
 	setHasKey(true);
 }
 
-void Thief::handleCollision(Orc& gameObject, Window& window)
+void Thief::handleCollision(Orc& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Teleport& gameObject, Window& window)
+void Thief::handleCollision(Teleport& gameObject)
 {
 }
 
-void Thief::handleCollision(Throne& gameObject, Window& window)
+void Thief::handleCollision(Throne& gameObject)
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Wall&, Window& window)
+void Thief::handleCollision(Wall&)
 {
 	moveToPrevPos();
 }

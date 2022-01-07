@@ -11,28 +11,28 @@ Wall::~Wall()
 {
 }
 
-void Wall::handleCollision(GameObject& gameObject, Window& window)
+void Wall::handleCollision(GameObject& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Wall::handleCollision(King& gameObject, Window& window)
+void Wall::handleCollision(King& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Wall::handleCollision(Warrior& gameObject, Window& window)
+void Wall::handleCollision(Warrior& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Wall::handleCollision(Mage& gameObject, Window& window)
+void Wall::handleCollision(Mage& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
-void Wall::handleCollision(Thief& gameObject, Window& window)
+void Wall::handleCollision(Thief& gameObject)
 {
-	gameObject.handleCollision(*this, window);
+	gameObject.handleCollision(*this);
 }
 
