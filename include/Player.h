@@ -2,6 +2,8 @@
 
 #include "MovingObject.h"
 
+//class Window;
+
 class Player : public MovingObject
 {
 public:

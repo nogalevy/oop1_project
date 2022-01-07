@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Player.h"
+//class Window;
 
 class Warrior : public Player
 {

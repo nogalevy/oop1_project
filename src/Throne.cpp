@@ -21,7 +21,7 @@ void Throne::handleCollision(Warrior& gameObject)
 
 void Throne::handleCollision(Mage& gameObject)
 {
-	gameObject.handleCollision(*this);
+	gameObject.handleCollision(*this );
 }
 
 void Throne::handleCollision(Thief& gameObject)

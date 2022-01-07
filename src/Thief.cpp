@@ -20,6 +20,7 @@ void Thief::handleCollision(GameObject& gameObject)
 	//if (&gameObject == this) return;
 	//double dispatch
 	gameObject.handleCollision(*(this));
+	//window.
 }
 
 void Thief::handleCollision(King& gameObject)
@@ -54,7 +55,6 @@ void Thief::handleCollision(Gate& gameObject)
 
 void Thief::handleCollision(Key& gameObject)
 {
-	//remove key
 	setHasKey(true);
 }
 

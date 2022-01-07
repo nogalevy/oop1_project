@@ -19,8 +19,6 @@ DataDisplay::DataDisplay(float time)
 	setBgRectangle();
 }
 
-
-
 void DataDisplay::draw(sf::RenderWindow& window, int activePlayer)
 {	
 	drawTime(window);

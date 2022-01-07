@@ -8,6 +8,7 @@
 #include "Warrior.h"
 #include "Thief.h"
 
+
 class StaticObject : public GameObject
 {
 public:

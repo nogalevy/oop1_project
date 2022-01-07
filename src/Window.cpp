@@ -121,7 +121,11 @@ void Window::movePlayer()
 
 void Window::updateGameData()
 {
+    //if (m_dataDisplay.getHasKey() != m_board.getHasKey())  m_dataDisplay.setHasKey(m_board.getHasKey());
     m_dataDisplay.setHasKey(m_board.getHasKey());
+    //if (m_board.getEndLevel())
+    //   startNextLevel();
+    //changeTiles(); // check Orc Key Fire - if we need to replace them (Orc => Key , Key => Space, Fire => Space)
 }
 
 //#####################################################################################################

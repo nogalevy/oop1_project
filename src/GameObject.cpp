@@ -38,6 +38,6 @@ void GameObject::handleCollision(GameObject& gameObject)
 {
 	if (&gameObject == this) return;
 	//double dispatch
-	gameObject.handleCollision(*(this));
+	gameObject.handleCollision(*this);
 }
 
