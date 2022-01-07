@@ -21,7 +21,8 @@
 #include "Throne.h"
 #include "Orc.h"
 #include "Key.h"
-
+#include "AddTimeBonus.h"
+#include "Dwarf.h"
 
 
 //class MovingObject;
@@ -47,6 +48,8 @@ public:
 	int getWidth();
 	bool getHasKey() const;
 
+	void moveDwarfs();
+
 private:
 	void readLevelSize();
 	void createObjects();
@@ -63,7 +66,7 @@ private:
 
 	std::vector<std::unique_ptr<Player>> m_movingObj;
 	std::vector<std::unique_ptr<StaticObject>> m_staticObj;
-
+	std::vector<std::unique_ptr<Dwarf>> m_dwarfs;
 
 	sf::RectangleShape m_bgRectangle;
 

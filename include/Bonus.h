@@ -5,13 +5,8 @@
 class Bonus : public StaticObject
 {
 public:
-	Bonus();
+	using StaticObject::StaticObject;
 	~Bonus();
-
-	void addTime();
-	void subTime();
-	void destroyDwarfs();
-
 
 	//// Colisions:
 	//virtual void handleCollision(GameObject& gameObject) override;
@@ -31,6 +26,6 @@ public:
 
 	//virtual void handleCollision(Dwarf& gameObject) override;
 	//virtual void handleCollision(Bonus& gameObject) override;
-private:
+protected:
 
 };

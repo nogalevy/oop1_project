@@ -22,5 +22,11 @@
                                               "Throne.cpp"
                                               "Orc.cpp"
                                               "Key.cpp"
+                                              "Bonus.cpp"
                                               "Audio.cpp"
+                                              
+                                              "AddTimeBonus.cpp"
+                                              "SubTimeBonus.cpp"
+                                              "RmvDwarfsBonus.cpp"
+                                              "Dwarf.cpp"
                                              )

@@ -1,8 +1,6 @@
 #pragma once
-
 #include "MovingObject.h"
 
-//class Window;
 
 class Player : public MovingObject
 {
@@ -13,6 +11,4 @@ public:
 
 	void move(sf::Vector2f direction, sf::Time deltaTime);// = 0;
 private:
-	/*sf::Vector2f m_location;
-	sf::Vector2f m_prevPos;*/
 };

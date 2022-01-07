@@ -36,6 +36,10 @@ void Board::draw(sf::RenderWindow& window)
 	{
 		m_movingObj[i]->draw(window);
 	}
+	for (int i = 0; i < m_dwarfs.size(); i++)
+	{
+		m_dwarfs[i]->draw(window);
+	}
 
 }
 
@@ -97,6 +101,14 @@ bool Board::getHasKey() const
 	}
 
 	return false;
+}
+
+void Board::moveDwarfs()
+{
+	for (auto& dwarf : m_dwarfs)
+	{
+		//dwarf->sayHello();
+	}
 }
 
 //bool Board::getHasKey() const
@@ -163,6 +175,9 @@ void Board::createObjects()
 				case KEY:
 					m_staticObj.emplace_back(std::make_unique<Key>(symbol, position, m_width, m_height));
 					break;
+				case BONUS:
+					m_staticObj.emplace_back(std::make_unique<AddTimeBonus>(symbol, position, m_width, m_height));
+					break;
 				default:
 					break;
 				}
@@ -183,6 +198,9 @@ void Board::createObjects()
 				case THIEF:
 					m_movingObj.emplace_back(std::make_unique<Thief>(symbol, position, m_width, m_height));
 					break;
+				case DWARF:
+					m_dwarfs.emplace_back(std::make_unique<Dwarf>(symbol, position, m_width, m_height));
+					break;
 				default:
 					break;
 				}
@@ -194,7 +212,7 @@ void Board::createObjects()
 
 bool Board::isStaticObj(Icons symbol)
 {
-	return (symbol > 3 && symbol < NUM_OF_ICONS);
+	return (symbol > 4 && symbol < NUM_OF_ICONS);
 }
 
 void Board::setBgRectangle()

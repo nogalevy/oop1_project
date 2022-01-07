@@ -14,6 +14,10 @@ configure_file ("images/thief.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/throne.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/warrior.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/wizard.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/dwarf.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/gift.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
 
 
 

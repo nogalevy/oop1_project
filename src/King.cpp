@@ -30,17 +30,17 @@ void King::handleCollision(King& /*gameObject*/)
 
 void King::handleCollision(Warrior& /*gameObject*/)
 {
-	moveToPrevPos();
+	//moveToPrevPos();
 }
 
 void King::handleCollision(Mage& /*gameObject*/)
 {
-	moveToPrevPos();
+	//moveToPrevPos();
 }
 
 void King::handleCollision(Thief& /*gameObject*/)
 {
-	moveToPrevPos();
+	//moveToPrevPos();
 }
 
 void King::handleCollision(Fire& /*gameObject*/)

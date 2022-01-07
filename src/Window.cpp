@@ -94,6 +94,7 @@ void Window::handleKeyboardClick()
     if (m_currPage == BOARD)
     {
         movePlayer();
+        moveDwarfs();
         updateGameData();
     }
 }
@@ -117,6 +118,11 @@ void Window::movePlayer()
     {
         m_board.move(sf::Vector2f(0, 1), deltaTime, m_activePlayer);
     }
+}
+
+void Window::moveDwarfs()
+{
+    m_board.moveDwarfs();
 }
 
 void Window::updateGameData()
