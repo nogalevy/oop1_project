@@ -43,6 +43,7 @@ void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
 	m_movingObj[activePlayer]->move(direction, deltaTime);
 	handleCollisions(activePlayer);
+	updateBoard();
 }
 
 
@@ -234,6 +235,20 @@ void Board::handleCollisions(int activePlayer)
 			m_movingObj[activePlayer]->handleCollision(*movable);
 		}
 	}
+}
+
+void Board::updateBoard()
+{
+	removeStaticObjects();
+
+}
+
+void Board::removeStaticObjects()
+{
+	std::erase_if(m_staticObj, [](auto& unmovable)
+	{
+		return unmovable->isDisposed();
+	});
 }
 
 std::vector<std::vector<sf::RectangleShape>> Board::initMat(int size, int square_size)

@@ -54,7 +54,8 @@ private:
 	void setBgRectangle();
 	void createMat();
 	void handleCollisions(int activePlayer);
-	
+	void updateBoard();
+	void removeStaticObjects();
 	
 	int m_width;
 	int m_height;

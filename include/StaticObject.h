@@ -23,4 +23,9 @@ public:
 	virtual void handleCollision(Teleport&) override {};
 	virtual void handleCollision(Throne&) override {};
 	virtual void handleCollision(Wall&) override {};
+
+	bool isDisposed() const;
+
+protected:
+	bool m_isDisposed;
 };
