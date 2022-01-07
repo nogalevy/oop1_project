@@ -7,7 +7,6 @@ public:
 	MovingObject(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
 	virtual ~MovingObject() = default;
 
-
 	void moveToPrevPos();
 	
 	//make it abstract

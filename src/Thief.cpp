@@ -54,7 +54,7 @@ void Thief::handleCollision(Gate& gameObject)
 
 void Thief::handleCollision(Key& gameObject)
 {
-
+	//remove key
 	setHasKey(true);
 }
 
