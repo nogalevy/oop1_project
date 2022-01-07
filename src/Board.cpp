@@ -47,6 +47,7 @@ void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
 	m_movingObj[activePlayer]->move(direction, deltaTime);
 	handleCollisions(activePlayer);
+	updateBoard();
 }
 
 
@@ -250,6 +251,38 @@ void Board::handleCollisions(int activePlayer)
 		if (m_movingObj[activePlayer]->checkColisionWith(*movable))
 		{
 			m_movingObj[activePlayer]->handleCollision(*movable);
+		}
+	}
+}
+
+void Board::updateBoard()
+{
+	changeStatic();
+	removeStaticObjects();
+}
+
+void Board::removeStaticObjects()
+{
+	std::erase_if(m_staticObj, [](auto& unmovable)
+	{
+		return unmovable->isDisposed();
+	});
+}
+
+void Board::changeStatic()
+{
+	sf::Vector2f pos;
+
+	for (auto& unmovable : m_staticObj)
+	{
+		//auto movingPtr = movable.get();
+		if (auto staticPtr = dynamic_cast<Orc*>(unmovable.get()))
+		{
+			if (staticPtr->getIsDied())
+			{
+				pos = staticPtr->getPosition();
+				m_staticObj.emplace_back(std::make_unique<Key>(KEY, pos, m_width, m_height));
+			}
 		}
 	}
 }

@@ -50,7 +50,8 @@ void Thief::handleCollision(Fire& gameObject)
 
 void Thief::handleCollision(Gate& gameObject)
 {
-
+	if (!m_hasKey)
+		moveToPrevPos();
 }
 
 void Thief::handleCollision(Key& gameObject)

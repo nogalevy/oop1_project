@@ -20,7 +20,8 @@ void Fire::handleCollision(Warrior& gameObject)
 
 void Fire::handleCollision(Mage& gameObject)
 {
-	gameObject.handleCollision(*this);
+	m_isDisposed = true;
+	//gameObject.handleCollision(*this);
 }
 
 void Fire::handleCollision(Thief& gameObject)

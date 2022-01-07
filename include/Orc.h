@@ -17,8 +17,10 @@ public:
 	virtual void handleCollision(Mage& gameObject) override;
 	virtual void handleCollision(Thief& gameObject) override;
 
+	bool getIsDied() const;
 	//virtual void handleCollision(Dwarf& gameObject) override;
 	//virtual void handleCollision(Bonus& gameObject) override;
 private:
+	bool m_isDied =false;
 
 };

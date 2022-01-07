@@ -39,6 +39,7 @@ void Mage::handleCollision(Thief& gameObject)
 
 void Mage::handleCollision(Fire& gameObject)
 {
+
 	//puts out fire
 	//putOutFire();
 }

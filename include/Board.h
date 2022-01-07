@@ -57,8 +57,10 @@ private:
 	void setBgRectangle();
 	void createMat();
 	void handleCollisions(int activePlayer);
-	
-	
+	void updateBoard();
+	void removeStaticObjects();
+	void changeStatic();
+
 	int m_width;
 	int m_height;
 	std::ifstream m_levelFile;
