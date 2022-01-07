@@ -56,6 +56,7 @@ void Warrior::handleCollision(Key& gameObject )
 
 void Warrior::handleCollision(Orc& gameObject )
 {
+
 	//kills orc. orc drops key!!
 	//killOrc();
 }

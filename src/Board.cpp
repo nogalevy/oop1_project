@@ -239,8 +239,8 @@ void Board::handleCollisions(int activePlayer)
 
 void Board::updateBoard()
 {
+	changeStatic();
 	removeStaticObjects();
-
 }
 
 void Board::removeStaticObjects()
@@ -249,6 +249,24 @@ void Board::removeStaticObjects()
 	{
 		return unmovable->isDisposed();
 	});
+}
+
+void Board::changeStatic()
+{
+	sf::Vector2f pos;
+
+	for (auto& unmovable : m_staticObj)
+	{
+		//auto movingPtr = movable.get();
+		if (auto staticPtr = dynamic_cast<Orc*>(unmovable.get()))
+		{
+			if (staticPtr->getIsDied())
+			{
+				pos = staticPtr->getPosition();
+				m_staticObj.emplace_back(std::make_unique<Key>(KEY, pos, m_width, m_height));
+			}
+		}
+	}
 }
 
 std::vector<std::vector<sf::RectangleShape>> Board::initMat(int size, int square_size)

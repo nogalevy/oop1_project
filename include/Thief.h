@@ -30,8 +30,8 @@ public:
 	//virtual void handleCollision(Bonus& gameObject) override;
 
 	bool getHasKey()const;
-private:
 	void setHasKey(bool hasKey);
+private:
 
 	bool m_hasKey;
 };

@@ -10,6 +10,11 @@ bool StaticObject::isDisposed() const
 	return m_isDisposed;
 }
 
+sf::Vector2f StaticObject::getPosition() const
+{
+	return m_icon.getPosition();
+}
+
 //StaticObject::~StaticObject()
 //{
 //}
