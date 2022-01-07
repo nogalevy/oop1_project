@@ -90,7 +90,7 @@ int Board::getWidth()
 	return m_width;
 }
 
-bool Board::getHasKey() const
+bool Board::checkHasKey() const
 {
 	for(auto &movable : m_movingObj)
 	{
@@ -100,7 +100,6 @@ bool Board::getHasKey() const
 			return playerPtr->getHasKey();	// extract the life member from player before deleting it
 		}
 	}
-
 	return false;
 }
 
@@ -110,6 +109,11 @@ void Board::moveDwarfs()
 	{
 		//dwarf->sayHello();
 	}
+}
+
+bool Board::getHasKey()const
+{
+	return m_hasKey;
 }
 
 //bool Board::getHasKey() const
@@ -257,6 +261,7 @@ void Board::handleCollisions(int activePlayer)
 
 void Board::updateBoard()
 {
+	m_hasKey = checkHasKey();
 	changeStatic();
 	removeStaticObjects();
 }

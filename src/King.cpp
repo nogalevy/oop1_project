@@ -69,8 +69,9 @@ void King::handleCollision(Teleport& ) //more data ? next pos?
 
 void King::handleCollision(Throne& )
 {
+	//m_reachThrone = true;
 	//step on it and end level
-	//nextLevel(); //howwwwww???
+	//nextLevel(); 
 }
 
 void King::handleCollision(Wall& )

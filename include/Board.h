@@ -46,11 +46,12 @@ public:
 	Icons getSymbol(int, int);
 	int getHeight();
 	int getWidth();
-	bool getHasKey() const;
 
 	void moveDwarfs();
+	bool getHasKey() const;
 
 private:
+	bool checkHasKey() const;
 	void readLevelSize();
 	void createObjects();
 	bool isStaticObj(Icons symbol);
