@@ -26,5 +26,6 @@ void Gate::handleCollision(Mage& gameObject)
 
 void Gate::handleCollision(Thief& gameObject)
 {
+	if (gameObject.getHasKey()) m_isDisposed = true;
 	gameObject.handleCollision(*this);
 }

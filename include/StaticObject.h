@@ -26,6 +26,7 @@ public:
 
 	bool isDisposed() const;
 
+
 protected:
 	bool m_isDisposed;
 };

@@ -35,7 +35,3 @@ private:
 
 	bool m_hasKey;
 };
-	/*
-	bool m_hasKey;
-	*/
-	//bool m_hasKey;
