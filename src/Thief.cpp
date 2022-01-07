@@ -23,52 +23,52 @@ void Thief::handleCollision(GameObject& gameObject)
 	//window.
 }
 
-void Thief::handleCollision(King& gameObject)
+void Thief::handleCollision(King& )
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Warrior& gameObject)
+void Thief::handleCollision(Warrior& )
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Mage& gameObject)
+void Thief::handleCollision(Mage& )
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Thief& gameObject)
+void Thief::handleCollision(Thief& )
 {
 	//nothing
 }
 
-void Thief::handleCollision(Fire& gameObject)
+void Thief::handleCollision(Fire& )
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Gate& gameObject)
+void Thief::handleCollision(Gate& )
 {
 	if (!m_hasKey)
 		moveToPrevPos();
 }
 
-void Thief::handleCollision(Key& gameObject)
+void Thief::handleCollision(Key& )
 {
 	setHasKey(true);
 }
 
-void Thief::handleCollision(Orc& gameObject)
+void Thief::handleCollision(Orc& )
 {
 	moveToPrevPos();
 }
 
-void Thief::handleCollision(Teleport& gameObject)
+void Thief::handleCollision(Teleport& )
 {
 }
 
-void Thief::handleCollision(Throne& gameObject)
+void Thief::handleCollision(Throne& )
 {
 	moveToPrevPos();
 }
