@@ -19,60 +19,60 @@ void Warrior::handleCollision(GameObject& gameObject)
 	gameObject.handleCollision(*(this));
 }
 
-void Warrior::handleCollision(King& gameObject )
+void Warrior::handleCollision(King&  )
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Warrior& gameObject )
+void Warrior::handleCollision(Warrior&  )
 {
 	//nothing
 }
 
-void Warrior::handleCollision(Mage& gameObject )
+void Warrior::handleCollision(Mage&  )
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Thief& gameObject )
+void Warrior::handleCollision(Thief&  )
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Fire& gameObject )
+void Warrior::handleCollision(Fire&  )
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Gate& gameObject )
+void Warrior::handleCollision(Gate&  )
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Key& gameObject )
+void Warrior::handleCollision(Key&  )
 {
 	//nothing
 }
 
-void Warrior::handleCollision(Orc& gameObject )
+void Warrior::handleCollision(Orc&  )
 {
 
 	//kills orc. orc drops key!!
 	//killOrc();
 }
 
-void Warrior::handleCollision(Teleport& gameObject )
+void Warrior::handleCollision(Teleport&  )
 {
 	//move to other teleport
 	//teleportToNewPos(nextPos);
 }
 
-void Warrior::handleCollision(Throne& gameObject )
+void Warrior::handleCollision(Throne&  )
 {
 	moveToPrevPos();
 }
 
-void Warrior::handleCollision(Wall& gameObject )
+void Warrior::handleCollision(Wall&  )
 {
 	moveToPrevPos();
 }

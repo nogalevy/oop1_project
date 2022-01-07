@@ -23,57 +23,57 @@ void King::handleCollision(GameObject& gameObject)
 	gameObject.handleCollision(*this);
 }
 
-void King::handleCollision(King& /*gameObject*/)
+void King::handleCollision(King& )
 {
 	//ignore ?
 }
 
-void King::handleCollision(Warrior& /*gameObject*/)
+void King::handleCollision(Warrior& )
 {
 	//moveToPrevPos();
 }
 
-void King::handleCollision(Mage& /*gameObject*/)
+void King::handleCollision(Mage& )
 {
 	//moveToPrevPos();
 }
 
-void King::handleCollision(Thief& /*gameObject*/)
+void King::handleCollision(Thief& )
 {
 	//moveToPrevPos();
 }
 
-void King::handleCollision(Fire& /*gameObject*/)
+void King::handleCollision(Fire& )
 {
 	//m_colisionSound.playMusic();
 	moveToPrevPos();
 }
 
-void King::handleCollision(Gate& /*gameObject*/)
+void King::handleCollision(Gate& )
 {
 	//m_colisionSound.playMusic();
 	moveToPrevPos();
 }
 
-void King::handleCollision(Orc& /*gameObject*/)
+void King::handleCollision(Orc& )
 {
 	//m_colisionSound.playMusic();
 	moveToPrevPos();
 }
 
-void King::handleCollision(Teleport& /*gameObject*/) //more data ? next pos?
+void King::handleCollision(Teleport& ) //more data ? next pos?
 {
 	//move to other teleport
 	//teleportToNewPos(nextPos);
 }
 
-void King::handleCollision(Throne& /*gameObject*/)
+void King::handleCollision(Throne& )
 {
 	//step on it and end level
 	//nextLevel(); //howwwwww???
 }
 
-void King::handleCollision(Wall& /*gameObject*/)
+void King::handleCollision(Wall& )
 {
 	//m_colisionSound.playMusic();
 	moveToPrevPos();
