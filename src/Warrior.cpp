@@ -19,9 +19,11 @@ void Warrior::handleCollision(GameObject& gameObject)
 	gameObject.handleCollision(*(this));
 }
 
-void Warrior::handleCollision(King&  )
+void Warrior::handleCollision(King& gameObject)
 {
-	moveToPrevPos();
+	//If we want for the characters not to go over eachother this works:
+	// (have to include "king.h")
+	//gameObject.moveToPrevPos(); 
 }
 
 void Warrior::handleCollision(Warrior&  )
@@ -75,4 +77,8 @@ void Warrior::handleCollision(Throne&  )
 void Warrior::handleCollision(Wall&  )
 {
 	moveToPrevPos();
+}
+
+void Warrior::handleCollision(Dwarf& gameObject)
+{
 }

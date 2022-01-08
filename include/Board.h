@@ -22,6 +22,9 @@
 #include "Orc.h"
 #include "Key.h"
 #include "AddTimeBonus.h"
+#include "SubTimeBonus.h"
+#include "RmvDwarfsBonus.h"
+
 #include "Dwarf.h"
 
 
@@ -35,22 +38,28 @@
 
 
 
-class Board 
+class Board
 {
 public:
 	Board();
 	~Board();
-	void draw(sf::RenderWindow& window);
-	void move(sf::Vector2f direction, sf::Time timer, int activePlayer);
+
 	void readLevel();
+
+	//Access Functions
 	Icons getSymbol(int, int);
 	int getHeight();
 	int getWidth();
 
-	void moveDwarfs();
 	bool getHasKey() const;
 	void loadNextLevel();
 	bool setLevelNum();
+	//Draw Function
+	void draw(sf::RenderWindow& window);
+
+	//Move Functions
+	void move(sf::Vector2f direction, sf::Time timer, int activePlayer);
+	void moveDwarfs(sf::Time);
 
 private:
 	void openLevelFile();
@@ -61,9 +70,16 @@ private:
 	void setBgRectangle();
 	void createMat();
 	void handleCollisions(int activePlayer);
+	void handleDwarfCollisions();
 	void updateBoard();
 	void removeStaticObjects();
 	void changeStatic();
+	void initPartners();
+	sf::Vector2f createPosition(int row, int col);
+	void initTeleportPartners();
+	std::unique_ptr<Bonus> selectRandomBonus(sf::Vector2f position);
+
+
 
 	int m_width;
 	int m_height;
@@ -73,6 +89,8 @@ private:
 	std::vector<std::unique_ptr<Player>> m_movingObj;
 	std::vector<std::unique_ptr<StaticObject>> m_staticObj;
 	std::vector<std::unique_ptr<Dwarf>> m_dwarfs;
+
+	std::vector<Partners> m_partners;
 
 	sf::RectangleShape m_bgRectangle;
 

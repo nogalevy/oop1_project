@@ -36,3 +36,8 @@ void Wall::handleCollision(Thief& gameObject)
 	gameObject.handleCollision(*this);
 }
 
+void Wall::handleCollision(Dwarf& gameObject)
+{
+	gameObject.handleCollision(*this);
+}
+

@@ -9,6 +9,7 @@ class King;
 class Mage;
 class Thief;
 class Warrior;
+class Dwarf;
 
 class Wall;
 class Gate;
@@ -36,6 +37,7 @@ public:
 
 	virtual void draw(sf::RenderWindow& window);
 	bool checkColisionWith(const GameObject &obj) const;// = 0;
+	sf::Vector2f getPosition()const;
 
 	virtual void handleCollision(GameObject& gameObject) = 0;
 
@@ -52,7 +54,7 @@ public:
 	virtual void handleCollision(Throne& gameObject) = 0;
 	virtual void handleCollision(Wall& gameObject) = 0;
 
-	//virtual void handleCollision(Dwarf& gameObject) = 0;
+	virtual void handleCollision(Dwarf& gameObject) = 0;
 	//virtual void handleCollision(Bonus& gameObject) = 0;
 
 

@@ -7,6 +7,7 @@
 #include "Mage.h"
 #include "Warrior.h"
 #include "Thief.h"
+#include "Dwarf.h"
 
 
 class StaticObject : public GameObject

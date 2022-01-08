@@ -34,3 +34,7 @@ bool Orc::getIsDied() const
 {
 	return m_isDied;
 }
+
+void Orc::handleCollision(Dwarf& gameObject)
+{
+}

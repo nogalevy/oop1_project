@@ -29,3 +29,7 @@ void RmvDwarfsBonus::handleCollision(Mage& gameObject)
 void RmvDwarfsBonus::handleCollision(Thief& gameObject)
 {
 }
+
+void RmvDwarfsBonus::handleCollision(Dwarf& gameObject)
+{
+}

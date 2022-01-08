@@ -28,3 +28,7 @@ void Throne::handleCollision(Thief& gameObject)
 {
 	gameObject.handleCollision(*this);
 }
+
+void Throne::handleCollision(Dwarf& gameObject)
+{
+}

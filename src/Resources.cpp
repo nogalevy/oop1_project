@@ -6,6 +6,7 @@ Resources::Resources()
 	loadImagesForObjects();
 	loadFonts();
 	loadMenuBackground();
+	loadHelpMenu();
 	loadAudio();
 }
 
@@ -40,6 +41,14 @@ void Resources::loadFonts()
 void Resources::loadMenuBackground()
 {
 	if (!m_menuBackgroundTexture.loadFromFile("2.jpg"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
+void Resources::loadHelpMenu()
+{
+	if (!m_helpMenu.loadFromFile("halp.png"))
 	{
 		std::cerr << "error load from file";
 	}
@@ -86,6 +95,11 @@ sf::Font* Resources::getDataFont()
 sf::Texture* Resources::getMenuBackground()
 {
 	return &m_menuBackgroundTexture;
+}
+
+sf::Texture* Resources::getHelpMenu()
+{
+	return &m_helpMenu;
 }
 
 sf::SoundBuffer* Resources::getMusic()

@@ -32,8 +32,8 @@ private:
 	void handleBoardEvent(const sf::Event& event);
 	void handleMenuEvent(const sf::Event& event);
 	void handleKeyboardClick();
-	void movePlayer();
-	void moveDwarfs();
+	void movePlayer(sf::Time);
+	void moveDwarfs(sf::Time);
 	void updateGameData();
 
 	//window
@@ -50,6 +50,8 @@ private:
 	sf::Image m_image;
 	//game background
 	sf::Texture m_bgTexture;
+
+	sf::RectangleShape m_helpMenu;
 
 	int m_currPage;
 	int m_activePlayer;

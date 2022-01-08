@@ -33,3 +33,7 @@ void Gate::handleCollision(Thief& gameObject)
 	}
 	gameObject.handleCollision(*this);
 }
+
+void Gate::handleCollision(Dwarf& gameObject)
+{
+}

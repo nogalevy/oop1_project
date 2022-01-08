@@ -34,6 +34,11 @@ bool GameObject::checkColisionWith(const GameObject& obj) const
 	return m_icon.getGlobalBounds().intersects(obj.m_icon.getGlobalBounds());
 }
 
+sf::Vector2f GameObject::getPosition() const
+{
+	return m_icon.getPosition();
+}
+
 void GameObject::handleCollision(GameObject& gameObject)
 {
 	if (&gameObject == this) return;

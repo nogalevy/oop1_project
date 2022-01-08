@@ -8,7 +8,7 @@ public:
 	Dwarf(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
 	virtual ~Dwarf();
 
-	void sayHello();
+	void move(sf::Time);
 
 	// Colisions:
 	virtual void handleCollision(GameObject& gameObject) override;
@@ -26,7 +26,8 @@ public:
 	virtual void handleCollision(Throne& gameObject) override;
 	virtual void handleCollision(Wall& gameObject) override;
 
-	//virtual void handleCollision(Dwarf& gameObject) override;
+	virtual void handleCollision(Dwarf& gameObject) override;
 	//virtual void handleCollision(Bonus& gameObject) override;
 private:
+	sf::Vector2f m_direction;
 };

@@ -19,6 +19,7 @@ public:
 	sf::Font* getFont();
 	sf::Font* getDataFont();
 	sf::Texture* getMenuBackground();
+	sf::Texture* getHelpMenu();
 	sf::SoundBuffer* getMusic();
 	sf::SoundBuffer* getColisionSound();
 
@@ -31,6 +32,7 @@ private:
 	void loadImagesForObjects();
 	void loadFonts();
 	void loadMenuBackground();
+	void loadHelpMenu();
 	void loadAudio();
 
 	//Members
@@ -38,6 +40,7 @@ private:
 	sf::Font m_font;
 	sf::Font m_font2;
 	sf::Texture m_menuBackgroundTexture;
+	sf::Texture m_helpMenu;
 	sf::SoundBuffer m_buffer;
 	sf::SoundBuffer m_colisionBuffer;
 

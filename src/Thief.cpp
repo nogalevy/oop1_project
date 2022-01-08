@@ -78,6 +78,10 @@ void Thief::handleCollision(Wall&)
 	moveToPrevPos();
 }
 
+void Thief::handleCollision(Dwarf& gameObject)
+{
+}
+
 bool Thief::getHasKey() const
 {
 	return m_hasKey;
