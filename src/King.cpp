@@ -1,7 +1,8 @@
 #include "King.h"
 
 King::King(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	: Player(symbol, position, mapW, mapH), m_colisionSound(Resources::instance().getColisionSound())
+	: Player(symbol, position, mapW, mapH), m_colisionSound(Resources::instance().getColisionSound()),
+	m_reachThrone(false)
 {
 }
 
@@ -58,7 +59,7 @@ void King::handleCollision(Orc& )
 	moveToPrevPos();
 }
 
-void King::handleCollision(Teleport& ) //more data ? next pos?
+void King::handleCollision(Teleport& )
 {
 	std::cout << "naw\n";
 
@@ -68,7 +69,8 @@ void King::handleCollision(Teleport& ) //more data ? next pos?
 
 void King::handleCollision(Throne& )
 {
-	//m_reachThrone = true;
+	m_reachThrone = true;
+	//audio  ? :)
 	//step on it and end level
 	//nextLevel(); 
 }
@@ -81,5 +83,10 @@ void King::handleCollision(Wall& )
 
 void King::handleCollision(Dwarf& gameObject)
 {
+}
+
+bool King::isReachToThrone() const
+{
+	return m_reachThrone;
 }
 

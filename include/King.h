@@ -30,8 +30,11 @@ public:
 
 
 	virtual void handleCollision(Dwarf& gameObject) override;
+
+	bool isReachToThrone() const;
 	//virtual void handleCollision(Bonus& gameObject) override;
 
 private:
 	Audio m_colisionSound;
+	bool m_reachThrone;
 };

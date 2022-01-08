@@ -10,7 +10,7 @@ Window::Window()
     m_bgTexture(),
     m_image(),
     m_currPage(MENU),
-    m_activePlayer(0/*KING*/),
+    m_activePlayer(KING),
     m_audio(Resources::instance().getMusic())
 {
     m_window.setFramerateLimit(60);
@@ -59,6 +59,19 @@ void Window::startGame()
 }
 
 //-----------------------------------------------------------------
+
+void Window::handleNextLevel()
+{
+    if (!m_board.setLevelNum())
+    {
+        m_currPage = MENU; //we need to update here that the user finished all levels
+    }
+    //m_timer.restart();
+    m_activePlayer = KING;
+    m_dataDisplay.resetClock();
+    m_dataDisplay.setHasKey(false);
+    m_board.loadNextLevel();
+}
 
 void Window::handleBoardEvent(const sf::Event& event)
 {
@@ -157,11 +170,11 @@ void Window::moveDwarfs(sf::Time deltaTime)
 
 void Window::updateGameData()
 {
-    //if (m_dataDisplay.getHasKey() != m_board.getHasKey())  m_dataDisplay.setHasKey(m_board.getHasKey());
     m_dataDisplay.setHasKey(m_board.getHasKey());
-    //if (m_board.getEndLevel())
-    //   startNextLevel();
-    //changeTiles(); // check Orc Key Fire - if we need to replace them (Orc => Key , Key => Space, Fire => Space)
+    if (m_board.getEndlevel())
+    {
+        handleNextLevel();
+    }
 }
 
 //-----------------------------------------------------------------
@@ -235,5 +248,7 @@ void Window::resetClock()
 {
     m_dataDisplay.resetClock();
 }
+
+
 
 

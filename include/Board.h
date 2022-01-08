@@ -60,8 +60,9 @@ public:
 	//Move Functions
 	void move(sf::Vector2f direction, sf::Time timer, int activePlayer);
 	void moveDwarfs(sf::Time);
-
+	bool getEndlevel() const;
 private:
+	bool checkEndLevel() const;
 	void openLevelFile();
 	bool checkHasKey() const;
 	void readLevelSize();

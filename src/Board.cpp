@@ -4,7 +4,9 @@
 Board::Board()
 	: m_height(0), m_width(0),
 	m_bgRectangle(sf::Vector2f(BOARD_W, BOARD_H)),
-	m_levelNum(1)
+	m_levelNum(1),
+	m_endLevel(false),
+	m_hasKey(false)
 {
 	setBgRectangle();
 	openLevelFile();
@@ -68,6 +70,18 @@ int Board::getHeight()
 int Board::getWidth()
 {
 	return m_width;
+}
+
+bool Board::checkEndLevel() const
+{
+	for (auto& movable : m_movingObj)
+	{
+		//auto movingPtr = movable.get();
+		if (auto movablePtr = dynamic_cast<King*>(movable.get()))
+		{
+			return movablePtr->isReachToThrone();
+		}
+	}
 }
 
 void Board::openLevelFile()
@@ -137,6 +151,11 @@ void Board::moveDwarfs(sf::Time deltaTime)
 	}
 }
 
+bool Board::getEndlevel() const
+{
+	return m_endLevel;
+}
+
 bool Board::getHasKey()const
 {
 	return m_hasKey;
@@ -144,7 +163,8 @@ bool Board::getHasKey()const
 
 void Board::loadNextLevel()
 {
-
+	m_hasKey = false;
+	m_endLevel = false;
 	m_levelFile.close();
 	
 	openLevelFile();
@@ -158,7 +178,7 @@ bool Board::setLevelNum()
 		m_levelNum++;
 		return true;
 	}
-	//m_levelNum = 0;
+	m_levelNum = 0;
 	return false;
 
 }
@@ -351,6 +371,11 @@ void Board::handleDwarfCollisions()
 
 void Board::updateBoard()
 {
+	if (checkEndLevel())
+	{
+		m_endLevel = true;
+		return;
+	}
 	m_hasKey = checkHasKey();
 	changeStatic();
 	removeStaticObjects();
