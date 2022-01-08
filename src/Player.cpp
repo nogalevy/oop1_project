@@ -11,6 +11,11 @@ Player::~Player()
 }
 
 
+void Player::setPosition(const sf::Vector2f newPosition)
+{
+	m_icon.setPosition(newPosition);
+}
+
 void Player::move(sf::Vector2f direction, sf::Time deltaTime)
 {
 	m_prevPos = m_icon.getPosition();

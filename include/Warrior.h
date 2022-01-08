@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Player.h"
-//class Window;
+//#include "King.h"
 
 class Warrior : public Player
 {
@@ -15,7 +15,7 @@ public:
 	//// Colisions:
 	virtual void handleCollision(GameObject& ) override;
 	// make them one - dynamic type ? 
-	virtual void handleCollision(King& ) override;
+	virtual void handleCollision(King& gameObject) override;
 	virtual void handleCollision(Warrior& ) override;
 	virtual void handleCollision(Mage& ) override;
 	virtual void handleCollision(Thief& ) override;

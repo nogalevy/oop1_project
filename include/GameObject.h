@@ -37,6 +37,7 @@ public:
 
 	virtual void draw(sf::RenderWindow& window);
 	bool checkColisionWith(const GameObject &obj) const;// = 0;
+	sf::Vector2f getPosition()const;
 
 	virtual void handleCollision(GameObject& gameObject) = 0;
 

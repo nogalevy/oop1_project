@@ -51,6 +51,8 @@ private:
 	//game background
 	sf::Texture m_bgTexture;
 
+	sf::RectangleShape m_helpMenu;
+
 	int m_currPage;
 	int m_activePlayer;
 	sf::Clock m_timer;

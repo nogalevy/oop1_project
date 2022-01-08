@@ -9,7 +9,7 @@ public:
 	Player(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
 	virtual ~Player();
 
-
+	void setPosition(const sf::Vector2f newPosition);
 	void move(sf::Vector2f direction, sf::Time deltaTime);// = 0;
 private:
 };

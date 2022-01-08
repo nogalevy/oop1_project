@@ -11,6 +11,9 @@ public:
 	~Teleport();
 
 
+	//sf::Vector2f getPosition()const;
+	void setPartner(sf::Vector2f partner);
+
 	//// Colisions:
 	virtual void handleCollision(GameObject& gameObject) override;
 	//// make them one - dynamic type ? 
@@ -25,4 +28,7 @@ private:
 	/*
 	Members:
 	*/
+
+	sf::Vector2f m_partner;
+	
 };

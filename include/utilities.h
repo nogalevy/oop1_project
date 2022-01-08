@@ -20,3 +20,7 @@ const std::string PIC_NAMES[NUM_OF_ICONS /* + GAME_BTN_NUM*/] = {"king", "wizard
 
 enum timer_type { TIMER = 0, COUNTDOWN };
 
+struct Partners {
+	sf::Vector2f _partner1,
+			   	 _partner2;
+};

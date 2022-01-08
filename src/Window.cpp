@@ -14,11 +14,18 @@ Window::Window()
     m_audio(Resources::instance().getMusic())
 {
     m_window.setFramerateLimit(60);
+    m_helpMenu = sf::RectangleShape(sf::Vector2f(float(WINDOW_W/2), float(WINDOW_H/2)));
+    m_helpMenu.setTexture(Resources::instance().getHelpMenu());
+    m_helpMenu.setPosition(sf::Vector2f(float(WINDOW_W / 4), float(WINDOW_H / 4)));
 }
+
+//-----------------------------------------------------------------
 
 Window::~Window()
 {
 }
+
+//-----------------------------------------------------------------
 
 void Window::startGame()
 {
@@ -29,9 +36,11 @@ void Window::startGame()
     {
         sf::Vector2f location;
     
-        m_window.clear(sf::Color(sf::Color(14, 45, 32)));
+        m_window.clear(sf::Color(sf::Color(87, 87, 207)));
 
         drawCurrPage();
+
+        //m_window.draw(m_helpMenu);
 
         m_window.display();
 
@@ -50,6 +59,8 @@ void Window::startGame()
     }
 }
 
+//-----------------------------------------------------------------
+
 void Window::handleBoardEvent(const sf::Event& event)
 {
     switch (event.type)
@@ -66,6 +77,8 @@ void Window::handleBoardEvent(const sf::Event& event)
         break;
     }
 }
+
+//-----------------------------------------------------------------
 
 void Window::handleMenuEvent(const sf::Event& event)
 {
@@ -87,6 +100,8 @@ void Window::handleMenuEvent(const sf::Event& event)
     }
 }
 
+//-----------------------------------------------------------------
+
 void Window::handleKeyboardClick()
 {
     sf::Time deltaTime = m_timer.restart();
@@ -100,9 +115,10 @@ void Window::handleKeyboardClick()
     }
 }
 
+//-----------------------------------------------------------------
+
 void Window::movePlayer(sf::Time deltaTime)
 {
-    //sf::Time deltaTime = m_timer.restart();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
         m_board.move(sf::Vector2f(-1, 0), deltaTime, m_activePlayer);
@@ -121,11 +137,14 @@ void Window::movePlayer(sf::Time deltaTime)
     }
 }
 
+//-----------------------------------------------------------------
+
 void Window::moveDwarfs(sf::Time deltaTime)
 {
-    //sf::Time deltaTime = m_timer.restart();
     m_board.moveDwarfs(deltaTime);
 }
+
+//-----------------------------------------------------------------
 
 void Window::updateGameData()
 {
@@ -136,7 +155,7 @@ void Window::updateGameData()
     //changeTiles(); // check Orc Key Fire - if we need to replace them (Orc => Key , Key => Space, Fire => Space)
 }
 
-//#####################################################################################################
+//-----------------------------------------------------------------
 
 void Window::drawCurrPage()
 {
@@ -159,6 +178,8 @@ void Window::drawCurrPage()
     }
 }
 
+//-----------------------------------------------------------------
+
 void Window::handleClick(const sf::Event& event)
 {
     if (1 /*m_currPage == MENU */ )
@@ -167,60 +188,7 @@ void Window::handleClick(const sf::Event& event)
     }
 }
 
-//
-//void Window::isKeyPressed()
-//{
-//    sf::Event event;
-//    sf::Time deltaTime = m_timer.restart();
-//    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-//    {
-//        m_board.move(sf::Vector2f(-1, 0), deltaTime, m_activePlayer);
-//    }
-//    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-//    {
-//        m_board.move(sf::Vector2f(1, 0), deltaTime, m_activePlayer);
-//    }
-//    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-//    {
-//        m_board.move(sf::Vector2f(0, -1), deltaTime, m_activePlayer);
-//    }
-//    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-//    {
-//        m_board.move(sf::Vector2f(0, 1), deltaTime, m_activePlayer);
-//    }
-//
-//    //This Way: movement is not smooth but transition between characters is?
-//    
-//        
-//    else if(event = sf::Event{}; m_window.pollEvent(event))
-//    {
-//        std::cout << m_activePlayer << "\n";
-//        
-//        if(event.type == sf::Event::KeyPressed)
-//            if(event.key.code == sf::Keyboard::P)
-//                m_activePlayer = (m_activePlayer + 1) % 4;
-//
-//        //auto c = _getch();
-//
-//       // if (c == 'p')
-//
-//        std::cout << m_activePlayer << "\n";
-//
-//    }
-//    
-//
-//    //This Way: movement is smooth, transition between characters isnt
-//   /* else if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
-//    {
-//        std::cout << m_activePlayer << "\n";
-//
-//        m_activePlayer = (m_activePlayer + 1) % 4;
-//        return;
-//        std::cout << m_activePlayer << "\n";
-//
-//    }*/
-//
-//}
+//-----------------------------------------------------------------
 
 void Window::handleMenuClick(const sf::Event& event)
 {
@@ -233,8 +201,10 @@ void Window::handleMenuClick(const sf::Event& event)
         m_dataDisplay.resetClock();
         break;
     case HELP:
-        //m_menu.openHelpWindow();
+    {   
+        //m_window.draw(m_helpMenu);
         break;
+    }
     case EXIT:
         m_window.close();
         break;
@@ -243,10 +213,14 @@ void Window::handleMenuClick(const sf::Event& event)
     }
 }
 
+//-----------------------------------------------------------------
+
 void Window::handleHover(const sf::Vector2f location)
 {
     m_menu.handleHover(location, m_window);
 }
+
+//-----------------------------------------------------------------
 
 void Window::resetClock()
 {

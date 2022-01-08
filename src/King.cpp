@@ -30,17 +30,14 @@ void King::handleCollision(King& )
 
 void King::handleCollision(Warrior& )
 {
-	//moveToPrevPos();
 }
 
 void King::handleCollision(Mage& )
 {
-	//moveToPrevPos();
 }
 
 void King::handleCollision(Thief& )
 {
-	//moveToPrevPos();
 }
 
 void King::handleCollision(Fire& )
@@ -63,6 +60,8 @@ void King::handleCollision(Orc& )
 
 void King::handleCollision(Teleport& ) //more data ? next pos?
 {
+	std::cout << "naw\n";
+
 	//move to other teleport
 	//teleportToNewPos(nextPos);
 }
