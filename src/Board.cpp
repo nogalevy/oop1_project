@@ -143,8 +143,8 @@ bool Board::setLevelNum()
 		m_levelNum++;
 		return true;
 	}
-	else
-		return false;
+	//m_levelNum = 0;
+	return false;
 
 }
 
