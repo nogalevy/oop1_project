@@ -22,7 +22,6 @@ Window::~Window()
 
 void Window::startGame()
 {
-
     m_audio.playMusic(true);
 
     while (m_window.isOpen())
@@ -45,7 +44,7 @@ void Window::startGame()
             else
                 handleMenuEvent(event);
         }
-        //Noga: add keyboard function ?
+
         handleKeyboardClick();
     }
 }
@@ -59,6 +58,15 @@ void Window::handleBoardEvent(const sf::Event& event)
         if (event.key.code == sf::Keyboard::P)
         {
             m_activePlayer = (m_activePlayer + 1) % 4;;
+        }
+        //break;
+        else if (event.key.code == sf::Keyboard::Space)
+        {
+            if (!m_board.setLevelNum())
+            {
+                m_currPage = MENU; //we need to update here that the user finished all levels
+            }
+            m_board.loadNextLevel();
         }
         break;
     }
@@ -118,6 +126,7 @@ void Window::movePlayer()
     {
         m_board.move(sf::Vector2f(0, 1), deltaTime, m_activePlayer);
     }
+  
 }
 
 void Window::moveDwarfs()

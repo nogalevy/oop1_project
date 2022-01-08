@@ -3,17 +3,13 @@
 
 Board::Board() 
 	: m_height(0), m_width(0),  
-	m_bgRectangle(sf::Vector2f(BOARD_W, BOARD_H))
+	m_bgRectangle(sf::Vector2f(BOARD_W, BOARD_H)),
+	m_levelNum(1)
 {
 	setBgRectangle();	
-
+	openLevelFile();
 	//const char* fileName = "Level.txt";
-	m_levelFile.open("Level.txt");
-	if (!m_levelFile.is_open())
-		std::cout << "nope\n";
-
-	readLevel();
-	createObjects();
+	
 	//createMat();
 	
 }
@@ -58,6 +54,8 @@ void Board::readLevel()
 
 	m_levelFile.get(c);
 
+	m_boardMat.clear();
+
 	auto line = std::string();
 	for (int row = 0; row < m_height; row++)
 	{
@@ -90,6 +88,18 @@ int Board::getWidth()
 	return m_width;
 }
 
+void Board::openLevelFile()
+{
+	std::string levelName = "Level" + std::to_string(m_levelNum) + ".txt";
+
+	m_levelFile.open(levelName);
+	if (!m_levelFile.is_open())
+		std::cout << "nope\n";
+
+	readLevel();
+	createObjects();
+}
+
 bool Board::checkHasKey() const
 {
 	for(auto &movable : m_movingObj)
@@ -116,6 +126,28 @@ bool Board::getHasKey()const
 	return m_hasKey;
 }
 
+void Board::loadNextLevel()
+{
+	if (m_levelFile)
+	{
+		m_levelFile.close();
+	}
+	openLevelFile();
+}
+
+//return false if finished all levels
+bool Board::setLevelNum()
+{
+	if (m_levelNum < NUM_OF_LEVELS)
+	{
+		m_levelNum++;
+		return true;
+	}
+	else
+		return false;
+
+}
+
 //bool Board::getHasKey() const
 //{
 //	return m_movingObj[THIEF]->getHasKey();
@@ -124,8 +156,9 @@ bool Board::getHasKey()const
 void Board::readLevelSize()
 {
 	m_levelFile.seekg(0);
-	int num;
 
+
+	int num;
 	// reading height
 	m_levelFile >> num;
 	m_height = num;
@@ -139,7 +172,11 @@ void Board::createObjects()
 {
 	sf::Vector2f position;
 	float xPos, yPos;
-	
+
+	m_staticObj.clear();
+	m_movingObj.clear();
+	m_dwarfs.clear();
+
 	for (int row = 0; row < m_height; row++)
 	{
 		for (int col = 0; col < m_width; col++)

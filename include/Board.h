@@ -49,8 +49,11 @@ public:
 
 	void moveDwarfs();
 	bool getHasKey() const;
+	void loadNextLevel();
+	bool setLevelNum();
 
 private:
+	void openLevelFile();
 	bool checkHasKey() const;
 	void readLevelSize();
 	void createObjects();
@@ -81,7 +84,9 @@ private:
 	void initSquare(int row, int col, int square_size);
 	//sf::Vector2f getPosition(int row, int col);
 
+	int m_levelNum;
 
 	//data from players:
 	bool m_hasKey;
+	bool m_endLevel;
 };
