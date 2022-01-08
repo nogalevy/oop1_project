@@ -377,7 +377,7 @@ void Board::changeStatic()
 		//auto movingPtr = movable.get();
 		if (auto staticPtr = dynamic_cast<Orc*>(unmovable.get()))
 		{
-			if (staticPtr->getIsDied())
+			if (staticPtr->isDisposed())
 			{
 				pos = staticPtr->getPosition();
 				m_staticObj.emplace_back(std::make_unique<Key>(KEY, pos, m_width, m_height));

@@ -15,7 +15,6 @@ void Orc::handleCollision(King& gameObject)
 
 void Orc::handleCollision(Warrior& gameObject)
 {
-	m_isDied = true;
 	m_isDisposed = true;
 	gameObject.handleCollision(*this);
 }
@@ -28,11 +27,6 @@ void Orc::handleCollision(Mage& gameObject)
 void Orc::handleCollision(Thief& gameObject)
 {
 	gameObject.handleCollision(*this);
-}
-
-bool Orc::getIsDied() const
-{
-	return m_isDied;
 }
 
 void Orc::handleCollision(Dwarf& gameObject)
