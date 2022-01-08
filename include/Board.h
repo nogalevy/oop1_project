@@ -22,6 +22,9 @@
 #include "Orc.h"
 #include "Key.h"
 #include "AddTimeBonus.h"
+#include "SubTimeBonus.h"
+#include "RmvDwarfsBonus.h"
+
 #include "Dwarf.h"
 
 
@@ -70,6 +73,9 @@ private:
 	void initPartners();
 	sf::Vector2f createPosition(int row, int col);
 	void initTeleportPartners();
+	std::unique_ptr<Bonus> selectRandomBonus(sf::Vector2f position);
+
+
 
 	int m_width;
 	int m_height;

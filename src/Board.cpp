@@ -191,7 +191,7 @@ void Board::createObjects()
 					m_staticObj.emplace_back(std::make_unique<Key>(symbol, position, m_width, m_height));
 					break;
 				case BONUS:
-					m_staticObj.emplace_back(std::make_unique<AddTimeBonus>(symbol, position, m_width, m_height));
+					m_staticObj.emplace_back(selectRandomBonus(position)); 
 					break;
 				default:
 					break;
@@ -410,6 +410,24 @@ void Board::initTeleportPartners()
 			}
 		}
 	}
+}
+
+std::unique_ptr<Bonus> Board::selectRandomBonus(sf::Vector2f position)
+{
+	int bonus = rand() % NUM_OF_BONUS_TYPES;
+
+	switch (bonus)
+	{
+	case 0:
+		return std::make_unique<AddTimeBonus>(BONUS, position, m_width, m_height);
+	case 1:
+		return std::make_unique<SubTimeBonus>(BONUS, position, m_width, m_height);
+	case 2:
+		return std::make_unique<RmvDwarfsBonus>(BONUS, position, m_width, m_height);
+	default:
+		break;
+	}
+	return nullptr;
 }
 
 //-----------------------------------------------------------------

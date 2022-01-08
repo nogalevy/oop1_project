@@ -17,6 +17,8 @@ public:
 	virtual void handleCollision(Mage& gameObject) override;
 	virtual void handleCollision(Thief& gameObject) override;
 
+	virtual void handleCollision(Dwarf& gameObject) override;
+
 
 private:
 
