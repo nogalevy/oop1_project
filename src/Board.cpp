@@ -13,7 +13,6 @@ Board::Board()
 	//const char* fileName = "Level.txt";
 
 	//createMat();
-
 }
 
 //-----------------------------------------------------------------
@@ -214,6 +213,10 @@ void Board::createObjects()
 	m_movingObj.clear();
 	m_dwarfs.clear();
 
+	m_movingObj.resize(NUM_OF_MOVING);
+
+	std::cout << "size : " << m_staticObj.size() << std::endl;
+
 	for (int row = 0; row < m_height; row++)
 	{
 		for (int col = 0; col < m_width; col++)
@@ -267,16 +270,16 @@ void Board::createObjects()
 				switch (symbol)
 				{
 				case KING:
-					m_movingObj.emplace_back(std::make_unique<King>(symbol, position, m_width, m_height));
+					m_movingObj[KING] =std::make_unique<King>(symbol, position, m_width, m_height);
 					break;
 				case WARRIOR:
-					m_movingObj.emplace_back(std::make_unique<Warrior>(symbol, position, m_width, m_height));
+					m_movingObj[WARRIOR] = std::make_unique<Warrior>(symbol, position, m_width, m_height);
 					break;
 				case MAGE:
-					m_movingObj.emplace_back(std::make_unique<Mage>(symbol, position, m_width, m_height));
+					m_movingObj[MAGE] = std::make_unique<Mage>(symbol, position, m_width, m_height);
 					break;
 				case THIEF:
-					m_movingObj.emplace_back(std::make_unique<Thief>(symbol, position, m_width, m_height));
+					m_movingObj[THIEF] = std::make_unique<Thief>(symbol, position, m_width, m_height);
 					break;
 				case DWARF:
 					m_dwarfs.emplace_back(std::make_unique<Dwarf>(symbol, position, m_width, m_height));
@@ -415,6 +418,8 @@ void Board::changeStatic()
 
 void Board::initPartners()
 {
+	m_partners.clear();
+
 	int numOfPartners, row1, col1, row2, col2;
 	sf::Vector2f position1, position2;
 

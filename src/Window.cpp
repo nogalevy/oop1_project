@@ -81,7 +81,8 @@ void Window::handleBoardEvent(const sf::Event& event)
     {
         if (event.key.code == sf::Keyboard::P)
         {
-            m_activePlayer = (m_activePlayer + 1) % 4;;
+            m_activePlayer = (m_activePlayer + 1) % 4;
+            std::cout << "active player : " <<  m_activePlayer << std::endl;
         }
         //break;
         else if (event.key.code == sf::Keyboard::Space)
