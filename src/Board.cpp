@@ -1,16 +1,19 @@
 #include "Board.h"
 
 
-Board::Board() 
-	: m_height(0), m_width(0),  
-	m_bgRectangle(sf::Vector2f(BOARD_W, BOARD_H))
+Board::Board()
+	: m_height(0), m_width(0),
+	m_bgRectangle(sf::Vector2f(BOARD_W, BOARD_H)),
+	m_levelNum(1),
+	m_endLevel(false),
+	m_hasKey(false)
 {
-	setBgRectangle();	
-	readLevel();
-	createObjects();
-	initTeleportPartners();
+	setBgRectangle();
+	openLevelFile();
+	//const char* fileName = "Level.txt";
+
 	//createMat();
-	
+
 }
 
 //-----------------------------------------------------------------
@@ -23,14 +26,13 @@ Board::~Board()
 
 void Board::readLevel()
 {
-	m_levelFile.open("Level.txt");
-	if (!m_levelFile.is_open())
-		std::cout << "nope\n";
 
 	readLevelSize();
 	char c;
 
 	m_levelFile.get(c);
+
+	m_boardMat.clear();
 
 	auto line = std::string();
 	for (int row = 0; row < m_height; row++)
@@ -70,9 +72,32 @@ int Board::getWidth()
 	return m_width;
 }
 
-//-----------------------------------------------------------------
+bool Board::checkEndLevel() const
+{
+	for (auto& movable : m_movingObj)
+	{
+		//auto movingPtr = movable.get();
+		if (auto movablePtr = dynamic_cast<King*>(movable.get()))
+		{
+			return movablePtr->isReachToThrone();
+		}
+	}
+}
 
-bool Board::getHasKey() const
+void Board::openLevelFile()
+{
+	std::string levelName = "Level" + std::to_string(m_levelNum) + ".txt";
+
+	m_levelFile.open(levelName);
+	if (!m_levelFile.is_open())
+		std::cout << "nope\n";
+
+	readLevel();
+	createObjects();
+	initTeleportPartners();
+}
+
+bool Board::checkHasKey() const
 {
 	for(auto &movable : m_movingObj)
 	{
@@ -82,7 +107,6 @@ bool Board::getHasKey() const
 			return playerPtr->getHasKey();	// extract the life member from player before deleting it
 		}
 	}
-
 	return false;
 }
 
@@ -127,13 +151,49 @@ void Board::moveDwarfs(sf::Time deltaTime)
 	}
 }
 
-//-----------------------------------------------------------------
+bool Board::getEndlevel() const
+{
+	return m_endLevel;
+}
+
+bool Board::getHasKey()const
+{
+	return m_hasKey;
+}
+
+void Board::loadNextLevel()
+{
+	m_hasKey = false;
+	m_endLevel = false;
+	m_levelFile.close();
+	
+	openLevelFile();
+}
+
+//return false if finished all levels
+bool Board::setLevelNum()
+{
+	if (m_levelNum < NUM_OF_LEVELS)
+	{
+		m_levelNum++;
+		return true;
+	}
+	m_levelNum = 0;
+	return false;
+
+}
+
+//bool Board::getHasKey() const
+//{
+//	return m_movingObj[THIEF]->getHasKey();
+//}
 
 void Board::readLevelSize()
 {
 	m_levelFile.seekg(0);
-	int num;
 
+
+	int num;
 	// reading height
 	m_levelFile >> num;
 	m_height = num;
@@ -148,7 +208,12 @@ void Board::readLevelSize()
 void Board::createObjects()
 {
 	sf::Vector2f position;
-	
+	float xPos, yPos;
+
+	m_staticObj.clear();
+	m_movingObj.clear();
+	m_dwarfs.clear();
+
 	for (int row = 0; row < m_height; row++)
 	{
 		for (int col = 0; col < m_width; col++)
@@ -161,7 +226,7 @@ void Board::createObjects()
 
 			//Noga: I think we can delete this "if-else" T: you are probably right
 			if (isStaticObj(symbol))
-			{	
+			{
 				switch (symbol)
 				{
 				case WALL:
@@ -179,8 +244,8 @@ void Board::createObjects()
 				case TELEPORT:
 				{
 					m_staticObj.emplace_back(std::make_unique<Teleport>(symbol, position, m_width, m_height));
-					std::cout << "row: " << row << " col: " << col << "\n";
-					std::cout << position.y << " " << position.x << "\n";
+					/*std::cout << "row: " << row << " col: " << col << "\n";
+					std::cout << position.y << " " << position.x << "\n";*/
 
 					break;
 				}
@@ -191,13 +256,13 @@ void Board::createObjects()
 					m_staticObj.emplace_back(std::make_unique<Key>(symbol, position, m_width, m_height));
 					break;
 				case BONUS:
-					m_staticObj.emplace_back(selectRandomBonus(position)); 
+					m_staticObj.emplace_back(selectRandomBonus(position));
 					break;
 				default:
 					break;
 				}
 			}
-			else 
+			else
 			{
 				switch (symbol)
 				{
@@ -273,9 +338,9 @@ void Board::handleCollisions(int activePlayer)
 				}
 			}*/
 
-			m_movingObj[activePlayer]->handleCollision(*unmovable);	
+			m_movingObj[activePlayer]->handleCollision(*unmovable);
 		}
-		
+
 	}
 
 	for (auto& movable : m_movingObj)
@@ -299,13 +364,19 @@ void Board::handleDwarfCollisions()
 				m_dwarfs[i]->handleCollision(*unmovable);
 		}
 	}
-	
+
 }
 
 //-----------------------------------------------------------------
 
 void Board::updateBoard()
 {
+	if (checkEndLevel())
+	{
+		m_endLevel = true;
+		return;
+	}
+	m_hasKey = checkHasKey();
 	changeStatic();
 	removeStaticObjects();
 }
@@ -331,7 +402,7 @@ void Board::changeStatic()
 		//auto movingPtr = movable.get();
 		if (auto staticPtr = dynamic_cast<Orc*>(unmovable.get()))
 		{
-			if (staticPtr->getIsDied())
+			if (staticPtr->isDisposed())
 			{
 				pos = staticPtr->getPosition();
 				m_staticObj.emplace_back(std::make_unique<Key>(KEY, pos, m_width, m_height));
@@ -446,4 +517,3 @@ void Board::initSquare(int row, int col, int square_size)
 	int col_offset = (WINDOW_W - BOARD_H) / 2;
 	m_mat[row][col].setPosition(col * (square_size + 7) + col_offset, row * (square_size + 7) + 15);
 }
-

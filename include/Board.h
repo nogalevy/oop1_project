@@ -38,7 +38,7 @@
 
 
 
-class Board 
+class Board
 {
 public:
 	Board();
@@ -50,16 +50,21 @@ public:
 	Icons getSymbol(int, int);
 	int getHeight();
 	int getWidth();
-	bool getHasKey() const;
 
+	bool getHasKey() const;
+	void loadNextLevel();
+	bool setLevelNum();
 	//Draw Function
 	void draw(sf::RenderWindow& window);
 
 	//Move Functions
 	void move(sf::Vector2f direction, sf::Time timer, int activePlayer);
 	void moveDwarfs(sf::Time);
-
+	bool getEndlevel() const;
 private:
+	bool checkEndLevel() const;
+	void openLevelFile();
+	bool checkHasKey() const;
 	void readLevelSize();
 	void createObjects();
 	bool isStaticObj(Icons symbol);
@@ -98,7 +103,9 @@ private:
 	void initSquare(int row, int col, int square_size);
 	//sf::Vector2f getPosition(int row, int col);
 
+	int m_levelNum;
 
 	//data from players:
 	bool m_hasKey;
+	bool m_endLevel;
 };

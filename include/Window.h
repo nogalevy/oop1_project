@@ -28,7 +28,7 @@ public:
 	void handleHover(const sf::Vector2f location);
 	void resetClock();
 private:
-
+	void handleNextLevel();
 	void handleBoardEvent(const sf::Event& event);
 	void handleMenuEvent(const sf::Event& event);
 	void handleKeyboardClick();

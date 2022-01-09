@@ -2,7 +2,8 @@
 
 DataDisplay::DataDisplay()
 	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
-	m_timeCounter()
+	m_timeCounter(),
+	m_hasKey(false)
 {
 	m_timerTxt.setFont(*(Resources::instance().getDataFont()));
 	m_activePlayerTxt.setFont(*(Resources::instance().getDataFont()));

@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <stdlib.h>
 
+const int NUM_OF_LEVELS = 3;
 //const int NUM_OF_MENU_BTNS = 3;
 const int NUM_OF_MOVING = 5;
 const int NUM_OF_STATIC = 9;
