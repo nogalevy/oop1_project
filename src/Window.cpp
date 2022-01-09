@@ -40,7 +40,7 @@ void Window::startGame()
 
         drawCurrPage();
 
-        //m_window.draw(m_helpMenu);
+        m_window.draw(m_helpMenu);
 
         m_window.display();
 

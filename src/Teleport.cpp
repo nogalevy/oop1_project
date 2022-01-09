@@ -22,8 +22,8 @@ void Teleport::handleCollision(GameObject& gameObject)
 void Teleport::handleCollision(King& gameObject)
 {
 	//std::cout << "yea boiiii\n";
-	//if(gameObject.getPosition() != m_partner)
-		//gameObject.setPosition(m_partner);
+	if(gameObject.getPosition() != m_partner)
+		gameObject.setPosition(m_partner);
 
 	//gameObject.handleCollision(*this); //send more data? next position or somthing?
 }

@@ -10,6 +10,8 @@ Resources::Resources()
 	loadAudio();
 }
 
+//-----------------------------------------------------------------
+
 void Resources::loadImagesForObjects()
 {
 	sf::Texture image;
@@ -26,6 +28,8 @@ void Resources::loadImagesForObjects()
 	}
 }
 
+//-----------------------------------------------------------------
+
 void Resources::loadFonts()
 {
 	if (!m_font.loadFromFile("font3.ttf"))
@@ -38,6 +42,8 @@ void Resources::loadFonts()
 	}
 }
 
+//-----------------------------------------------------------------
+
 void Resources::loadMenuBackground()
 {
 	if (!m_menuBackgroundTexture.loadFromFile("2.jpg"))
@@ -46,6 +52,8 @@ void Resources::loadMenuBackground()
 	}
 }
 
+//-----------------------------------------------------------------
+
 void Resources::loadHelpMenu()
 {
 	if (!m_helpMenu.loadFromFile("halp.png"))
@@ -53,6 +61,8 @@ void Resources::loadHelpMenu()
 		std::cerr << "error load from file";
 	}
 }
+
+//-----------------------------------------------------------------
 
 void Resources::loadAudio()
 {
@@ -67,9 +77,13 @@ void Resources::loadAudio()
 	}
 }
 
+//-----------------------------------------------------------------
+
 Resources::~Resources()
 {
 }
+
+//-----------------------------------------------------------------
 
 Resources& Resources::instance()
 {
@@ -77,35 +91,49 @@ Resources& Resources::instance()
 	return inst;
 }
 
+//-----------------------------------------------------------------
 
 sf::Texture* Resources::getIcon(const Icons symbol)
 {
 	return &m_textures[symbol];
 }
 
+//-----------------------------------------------------------------
+
 sf::Font* Resources::getFont()
 {
 	return &m_font;
 }
+
+//-----------------------------------------------------------------
+
 sf::Font* Resources::getDataFont()
 {
 	return &m_font2;
 }
+
+//-----------------------------------------------------------------
 
 sf::Texture* Resources::getMenuBackground()
 {
 	return &m_menuBackgroundTexture;
 }
 
+//-----------------------------------------------------------------
+
 sf::Texture* Resources::getHelpMenu()
 {
 	return &m_helpMenu;
 }
 
+//-----------------------------------------------------------------
+
 sf::SoundBuffer* Resources::getMusic()
 {
 	return &m_buffer;;
 }
+
+//-----------------------------------------------------------------
 
 sf::SoundBuffer* Resources::getColisionSound()
 {
