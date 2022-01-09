@@ -70,6 +70,7 @@ void Window::handleNextLevel()
     m_activePlayer = KING;
     m_dataDisplay.resetClock();
     m_dataDisplay.setHasKey(false);
+    m_dataDisplay.setLevelNum(m_board.getLevelNum());
     m_board.loadNextLevel();
 }
 
@@ -249,6 +250,8 @@ void Window::resetClock()
 {
     m_dataDisplay.resetClock();
 }
+
+
 
 
 

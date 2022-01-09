@@ -22,7 +22,7 @@ public:
 	void drawLevelNum(sf::RenderWindow& window);
 	void drawActivePlayer(sf::RenderWindow& window, int activePlayer);
 	void setHasKey(bool hasKey);
-
+	void setLevelNum(int levelNum);
 	// hasKey
 	// updaeCurrPlayer ?
 private:

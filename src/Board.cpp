@@ -155,6 +155,11 @@ bool Board::getEndlevel() const
 	return m_endLevel;
 }
 
+int Board::getLevelNum() const
+{
+	return m_levelNum;
+}
+
 bool Board::getHasKey()const
 {
 	return m_hasKey;
