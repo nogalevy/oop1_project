@@ -9,6 +9,7 @@ DataDisplay::DataDisplay()
 	m_activePlayerTxt.setFont(*(Resources::instance().getDataFont()));
 	m_hasKeyTxt.setFont(*(Resources::instance().getDataFont()));
 	m_levelNumTxt.setFont(*(Resources::instance().getDataFont()));
+	setLevelNum(1);
 	setBgRectangle();
 }
 
@@ -73,14 +74,7 @@ void DataDisplay::drawHasKey(sf::RenderWindow& window)
 
 void DataDisplay::drawLevelNum(sf::RenderWindow& window)
 {
-	int levelNum = 1;
-	m_levelNumTxt.setPosition(sf::Vector2f(10, BOARD_H + 10));
-	m_levelNumTxt.setColor(sf::Color::White);
-	m_levelNumTxt.setCharacterSize(20);
-
-	m_levelNumTxt.setString("Level " + std::to_string(levelNum));
 	window.draw(m_levelNumTxt);
-
 }
 
 void DataDisplay::drawActivePlayer(sf::RenderWindow& window, int activePlayer)
@@ -97,6 +91,15 @@ void DataDisplay::drawActivePlayer(sf::RenderWindow& window, int activePlayer)
 void DataDisplay::setHasKey(bool hasKey)
 {
 	m_hasKey = hasKey;
+}
+
+void DataDisplay::setLevelNum(int levelNum)
+{
+	m_levelNumTxt.setPosition(sf::Vector2f(10, BOARD_H + 10));
+	m_levelNumTxt.setColor(sf::Color::White);
+	m_levelNumTxt.setCharacterSize(20);
+
+	m_levelNumTxt.setString("Level " + std::to_string(levelNum));
 }
 
 void DataDisplay::resetClock()

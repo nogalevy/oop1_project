@@ -62,6 +62,8 @@ public:
 	void move(sf::Vector2f direction, sf::Time timer, int activePlayer);
 	void moveDwarfs(sf::Time);
 	bool getEndlevel() const;
+	int getLevelNum()const;
+
 private:
 	bool checkEndLevel() const;
 	void openLevelFile();
