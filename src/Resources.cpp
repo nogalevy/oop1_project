@@ -21,7 +21,7 @@ void Resources::loadImagesForObjects()
 
 	for (int i = 0; i < NUM_OF_ICONS - 1; i++)
 	{
-		if (!image.loadFromFile(PIC_NAMES[i] + ".png"))
+		if (!image.loadFromFile(PIC_NAMES[i]))
 		{
 			std::cerr << "error load from file";
 		}

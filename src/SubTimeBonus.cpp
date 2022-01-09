@@ -16,18 +16,22 @@ void SubTimeBonus::handleCollision(GameObject& gameObject)
 
 void SubTimeBonus::handleCollision(King& gameObject)
 {
+	m_isDisposed = true;
 }
 
 void SubTimeBonus::handleCollision(Warrior& gameObject)
 {
+	m_isDisposed = true;
 }
 
 void SubTimeBonus::handleCollision(Mage& gameObject)
 {
+	m_isDisposed = true;
 }
 
 void SubTimeBonus::handleCollision(Thief& gameObject)
 {
+	m_isDisposed = true;
 }
 
 void SubTimeBonus::handleCollision(Dwarf& gameObject)
