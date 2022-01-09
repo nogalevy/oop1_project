@@ -17,8 +17,8 @@ enum Icons { KING, MAGE, WARRIOR, THIEF, DWARF, WALL, GATE, FIRE, ORC, TELEPORT,
 const char SYMBOLS[NUM_OF_ICONS] = { 'K', 'M', 'W', 'T', '^', '=', '#', '*', '!', 'X', '@', 'F', '$', ' '};
 const std::string PLAYERS_NAMES[NUM_OF_MOVING] = { "King", "Mage", "Warrior", "Thief" };
 
-const std::string PIC_NAMES[NUM_OF_ICONS /* + GAME_BTN_NUM*/] = {"king", "wizard", "warrior", "thief", "dwarf", "wall",
-											"gate", "fire", "orc", "portal", "throne", "key", "gift"/*, "clear", "delete", "save"*/};
+const std::string PIC_NAMES[NUM_OF_ICONS /* + GAME_BTN_NUM*/] = {"king.png", "wizard.png", "warrior.png", "thief.png", "dwarf.png", "wall.png",
+											"gate.png", "fire.png", "orc.png", "portal.png", "throne.png", "key.png", "gift.png"/*, "clear", "delete", "save"*/};
 
 enum timer_type { TIMER = 0, COUNTDOWN };
 
