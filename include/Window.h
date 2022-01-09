@@ -25,6 +25,7 @@ public:
 	void handleClick(const sf::Event& event);
 	void isKeyPressed();
 	void handleMenuClick(const sf::Event& event);
+	void handleBoardClick(const sf::Event& event);
 	void handleHover(const sf::Vector2f location);
 	void resetClock();
 private:
@@ -57,6 +58,7 @@ private:
 	int m_activePlayer;
 	sf::Clock m_timer;
 	
+	bool m_soundOn = true;
 	//#fontexample		
 	//sf::Font m_font;
 

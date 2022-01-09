@@ -20,6 +20,10 @@ const std::string PLAYERS_NAMES[NUM_OF_MOVING] = { "King", "Mage", "Warrior", "T
 const std::string PIC_NAMES[NUM_OF_ICONS /* + GAME_BTN_NUM*/] = {"king", "wizard", "warrior", "thief", "dwarf", "wall",
 											"gate", "fire", "orc", "portal", "throne", "key", "gift"/*, "clear", "delete", "save"*/};
 
+const int VOLUME_ICON_NUM = 2;
+enum volume { OFF = 0, ON = 1 };
+const std::string VOLUME_ICON[VOLUME_ICON_NUM] = { "mute_white.png", "volume_white.png" };
+
 enum timer_type { TIMER = 0, COUNTDOWN };
 
 struct Partners {

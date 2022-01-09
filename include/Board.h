@@ -37,7 +37,6 @@
 //class Mage;
 
 
-
 class Board
 {
 public:

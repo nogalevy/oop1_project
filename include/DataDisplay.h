@@ -8,6 +8,8 @@
 #include "utilities.h"
 #include "Resources.h"
 
+const int NUM_OF_BTNS = 1;
+
 class DataDisplay {
 public:
 	// constructor
@@ -23,16 +25,21 @@ public:
 	void drawActivePlayer(sf::RenderWindow& window, int activePlayer);
 	void setHasKey(bool hasKey);
 	void setLevelNum(int levelNum);
+	int handleClick(sf::Event event)const;
+	void updateVolumeIcon(bool soundOn);
 	// hasKey
 	// updaeCurrPlayer ?
 private:
 	void setBgRectangle();
+	void setVolumeIcon();
+
 	sf::RectangleShape m_bgRectangle;
 
 	sf::Text m_timerTxt;
 	sf::Text m_levelNumTxt;
 	sf::Text m_activePlayerTxt;
 	sf::Text m_hasKeyTxt;
+	sf::Sprite m_volumeIcon;
 
 	timer_type m_timerType; // 
 	Timer m_timeCounter;

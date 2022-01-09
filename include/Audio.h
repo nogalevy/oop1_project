@@ -12,7 +12,7 @@ public:
 
 
 	void playMusic(bool loop = false);
-
+	void stopPlayMusic();
 private:
 	//functions
 	void initMusic(sf::SoundBuffer* soundBuffer);

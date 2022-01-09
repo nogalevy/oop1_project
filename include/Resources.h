@@ -5,7 +5,7 @@
 #include <iostream>
 #include "utilities.h"
 #include <SFML/Audio.hpp>
-
+ 
 
 class Resources
 {
@@ -22,6 +22,7 @@ public:
 	sf::Texture* getHelpMenu();
 	sf::SoundBuffer* getMusic();
 	sf::SoundBuffer* getColisionSound();
+	sf::Texture* getVolumeIcon(bool soundOn);
 
 private:
 	Resources();
@@ -33,6 +34,7 @@ private:
 	void loadFonts();
 	void loadMenuBackground();
 	void loadHelpMenu();
+	void loadVolumeIcons();
 	void loadAudio();
 
 	//Members
@@ -41,6 +43,7 @@ private:
 	sf::Font m_font2;
 	sf::Texture m_menuBackgroundTexture;
 	sf::Texture m_helpMenu;
+	std::vector<sf::Texture> m_volumeTextures;
 	sf::SoundBuffer m_buffer;
 	sf::SoundBuffer m_colisionBuffer;
 

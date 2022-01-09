@@ -9,6 +9,17 @@ Audio::~Audio()
 {
 }
 
+void Audio::stopPlayMusic()
+{
+	m_sound.pause();
+}
+
+void Audio::continuePlayMusic()
+{
+	m_sound.play();
+}
+
+
 void Audio::playMusic(bool loop)
 {
 	m_sound.play();
