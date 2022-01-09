@@ -47,9 +47,10 @@ public:
 	void readLevel();
 
 	//Access Functions
-	Icons getSymbol(int, int);
-	int getHeight();
-	int getWidth();
+	Icons getSymbol(int, int)const;
+	int getHeight()const;
+	int getWidth()const;
+	bool isTimer()const;
 
 	bool getHasKey() const;
 	void loadNextLevel();
@@ -65,6 +66,7 @@ private:
 	bool checkEndLevel() const;
 	void openLevelFile();
 	bool checkHasKey() const;
+	void readTimer();
 	void readLevelSize();
 	void createObjects();
 	bool isStaticObj(Icons symbol);
@@ -108,4 +110,7 @@ private:
 	//data from players:
 	bool m_hasKey;
 	bool m_endLevel;
+
+	bool m_isTimer;
+	int m_timerNum;
 };

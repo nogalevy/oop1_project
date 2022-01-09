@@ -25,7 +25,7 @@ Board::~Board()
 
 void Board::readLevel()
 {
-
+	//readTimer();
 	readLevelSize();
 	char c;
 
@@ -40,11 +40,12 @@ void Board::readLevel()
 		m_boardMat.push_back(line);
 	}
 	initPartners();
+	readTimer();
 }
 
 //-----------------------------------------------------------------
 
-Icons Board::getSymbol(int row, int col)
+Icons Board::getSymbol(int row, int col)const
 {
 	char symbol = m_boardMat[row][col];
 
@@ -59,16 +60,21 @@ Icons Board::getSymbol(int row, int col)
 
 //-----------------------------------------------------------------
 
-int Board::getHeight()
+int Board::getHeight()const
 {
 	return m_height;
 }
 
 //-----------------------------------------------------------------
 
-int Board::getWidth()
+int Board::getWidth()const
 {
 	return m_width;
+}
+
+bool Board::isTimer() const
+{
+	return false;
 }
 
 bool Board::checkEndLevel() const
@@ -107,6 +113,14 @@ bool Board::checkHasKey() const
 		}
 	}
 	return false;
+}
+
+void Board::readTimer()
+{
+	m_levelFile >> m_timerNum;
+
+	m_isTimer = (m_timerNum == -1) ? false : true;
+	std::cout << "Timer Number is: " << m_timerNum << std::endl;
 }
 
 //-----------------------------------------------------------------
@@ -200,6 +214,10 @@ void Board::readLevelSize()
 	// reading width
 	m_levelFile >> num;
 	m_width = num;
+
+	std::cout << "Height: " << m_height << std::endl;
+	std::cout << "Width: " << m_width << std::endl;
+
 }
 
 //-----------------------------------------------------------------
