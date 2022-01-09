@@ -1,8 +1,8 @@
 #include "Audio.h"
 
-Audio::Audio(sf::SoundBuffer* suondBuffer)
+Audio::Audio(sf::SoundBuffer* soundBuffer)
 {
-	initMusic(suondBuffer);
+	initMusic(soundBuffer);
 }
 
 Audio::~Audio()
@@ -16,7 +16,7 @@ void Audio::playMusic(bool loop)
 	m_sound.setVolume(10);
 }
 
-void Audio::initMusic(sf::SoundBuffer* suondBuffer)
+void Audio::initMusic(sf::SoundBuffer* soundBuffer)
 {
-	m_sound.setBuffer(*suondBuffer);
+	m_sound.setBuffer(*soundBuffer);
 }
