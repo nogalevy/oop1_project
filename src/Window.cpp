@@ -31,7 +31,7 @@ void Window::startGame()
 {
     m_audio.playMusic(true);
 
-    if(m_board.isTimer())
+   // if(m_board.isTimer())
         //settimer
 
     while (m_window.isOpen())
