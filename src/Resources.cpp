@@ -9,6 +9,7 @@ Resources::Resources()
 	loadHelpMenu();
 	loadAudio();
 	loadVolumeIcons();
+	loadBoardBackground();
 }
 
 //-----------------------------------------------------------------
@@ -92,6 +93,16 @@ void Resources::loadAudio()
 	}
 }
 
+void Resources::loadBoardBackground()
+{
+	sf::Texture image;
+
+	if (!m_boardBackground.loadFromFile("board_bg.jpg"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
 //-----------------------------------------------------------------
 
 Resources::~Resources()
@@ -158,4 +169,9 @@ sf::SoundBuffer* Resources::getColisionSound()
 sf::Texture* Resources::getVolumeIcon(bool soundOn)
 {
 	return (soundOn ? &m_volumeTextures[ON] : &m_volumeTextures[OFF]);
+}
+
+sf::Texture* Resources::getBoardBackground()
+{
+	return &m_boardBackground;;
 }

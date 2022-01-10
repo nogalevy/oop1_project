@@ -23,7 +23,7 @@ public:
 	sf::SoundBuffer* getMusic();
 	sf::SoundBuffer* getColisionSound();
 	sf::Texture* getVolumeIcon(bool soundOn);
-
+	sf::Texture* getBoardBackground();
 private:
 	Resources();
 	Resources(const Resources&) = default;
@@ -36,6 +36,7 @@ private:
 	void loadHelpMenu();
 	void loadVolumeIcons();
 	void loadAudio();
+	void loadBoardBackground();
 
 	//Members
 	std::vector<sf::Texture> m_textures;
@@ -43,6 +44,7 @@ private:
 	sf::Font m_font2;
 	sf::Texture m_menuBackgroundTexture;
 	sf::Texture m_helpMenu;
+	sf::Texture m_boardBackground;
 	std::vector<sf::Texture> m_volumeTextures;
 	sf::SoundBuffer m_buffer;
 	sf::SoundBuffer m_colisionBuffer;

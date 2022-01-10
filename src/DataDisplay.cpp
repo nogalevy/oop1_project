@@ -129,8 +129,9 @@ void DataDisplay::resetClock()
 
 void DataDisplay::setBgRectangle()
 {
-	m_bgRectangle.setFillColor(sf::Color::Color(41, 54, 37));
+	m_bgRectangle.setFillColor(sf::Color::Color(26, 26, 26));
 	m_bgRectangle.setPosition(sf::Vector2f(0, BOARD_H));
+	m_bgRectangle.setSize(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H));
 }
 
 void DataDisplay::setVolumeIcon()

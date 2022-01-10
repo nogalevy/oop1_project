@@ -38,7 +38,7 @@ void Window::startGame()
     {
         sf::Vector2f location;
     
-        m_window.clear(sf::Color(sf::Color(87, 87, 207)));
+        m_window.clear(sf::Color(sf::Color(26, 26 ,26)));
 
         drawCurrPage();
 

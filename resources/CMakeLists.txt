@@ -17,6 +17,10 @@ configure_file ("images/halp.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/mute_white.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/volume_white.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
+configure_file ("images/board_bg.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/board_bg1.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/board_bg2.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/board_bg3.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 
