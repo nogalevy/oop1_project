@@ -72,10 +72,14 @@ int Board::getWidth()const
 	return m_width;
 }
 
+//-----------------------------------------------------------------
+
 bool Board::isTimer() const
 {
 	return false;
 }
+
+//-----------------------------------------------------------------
 
 bool Board::checkEndLevel() const
 {
@@ -88,6 +92,8 @@ bool Board::checkEndLevel() const
 		}
 	}
 }
+
+//-----------------------------------------------------------------
 
 void Board::openLevelFile()
 {
@@ -102,6 +108,8 @@ void Board::openLevelFile()
 	initTeleportPartners();
 }
 
+//-----------------------------------------------------------------
+
 bool Board::checkHasKey() const
 {
 	for(auto &movable : m_movingObj)
@@ -114,6 +122,8 @@ bool Board::checkHasKey() const
 	}
 	return false;
 }
+
+//-----------------------------------------------------------------
 
 void Board::readTimer()
 {
@@ -164,20 +174,28 @@ void Board::moveDwarfs(sf::Time deltaTime)
 	}
 }
 
+//-----------------------------------------------------------------
+
 bool Board::getEndlevel() const
 {
 	return m_endLevel;
 }
+
+//-----------------------------------------------------------------
 
 int Board::getLevelNum() const
 {
 	return m_levelNum;
 }
 
+//-----------------------------------------------------------------
+
 bool Board::getHasKey()const
 {
 	return m_hasKey;
 }
+
+//-----------------------------------------------------------------
 
 void Board::loadNextLevel()
 {
@@ -187,6 +205,8 @@ void Board::loadNextLevel()
 	
 	openLevelFile();
 }
+
+//-----------------------------------------------------------------
 
 //return false if finished all levels
 bool Board::setLevelNum()
@@ -205,6 +225,8 @@ bool Board::setLevelNum()
 //{
 //	return m_movingObj[THIEF]->getHasKey();
 //}
+
+//-----------------------------------------------------------------
 
 void Board::readLevelSize()
 {
@@ -511,8 +533,13 @@ void Board::initTeleportPartners()
 	}
 }
 
+//-----------------------------------------------------------------
+
 std::unique_ptr<Bonus> Board::selectRandomBonus(sf::Vector2f position)
 {
+	if(!m_isTimer)
+		return std::make_unique<RmvDwarfsBonus>(BONUS, position, m_width, m_height);
+
 	int bonus = rand() % NUM_OF_BONUS_TYPES;
 
 	switch (bonus)
