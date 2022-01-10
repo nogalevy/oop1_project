@@ -99,6 +99,9 @@ void Window::handleBoardEvent(const sf::Event& event)
         }
         break;
     }
+    case sf::Event::MouseButtonReleased:
+        handleBoardClick(event);
+        break;
     default:
         break;
     }
@@ -111,7 +114,7 @@ void Window::handleMenuEvent(const sf::Event& event)
     switch (event.type)
     {
     case sf::Event::MouseButtonReleased:
-        handleClick(event);
+        handleMenuClick(event);
         break;
     case sf::Event::MouseMoved:
     {
@@ -209,10 +212,9 @@ void Window::drawCurrPage()
 
 void Window::handleClick(const sf::Event& event)
 {
-    if (1 /*m_currPage == MENU */ )
-    {
+
         handleMenuClick(event);
-    }
+
 }
 
 //-----------------------------------------------------------------
@@ -235,6 +237,30 @@ void Window::handleMenuClick(const sf::Event& event)
     case EXIT:
         m_window.close();
         break;
+    default:
+        break;
+    }
+}
+
+void Window::handleBoardClick(const sf::Event& event)
+{
+    int btn_num = m_dataDisplay.handleClick(event);
+    switch (btn_num)
+    {
+    case VOLUME:
+        //openGamePage();
+        m_dataDisplay.updateVolumeIcon(!m_soundOn);
+        if (m_soundOn)
+            m_audio.stopPlayMusic();
+        else
+            m_audio.playMusic();
+        m_soundOn = !m_soundOn;
+        break;
+    case HOME:
+    {
+        //m_window.draw(m_helpMenu);
+        break;
+    }
     default:
         break;
     }

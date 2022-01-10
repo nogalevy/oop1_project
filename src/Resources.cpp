@@ -8,6 +8,7 @@ Resources::Resources()
 	loadMenuBackground();
 	loadHelpMenu();
 	loadAudio();
+	loadVolumeIcons();
 }
 
 //-----------------------------------------------------------------
@@ -59,6 +60,20 @@ void Resources::loadHelpMenu()
 	if (!m_helpMenu.loadFromFile("halp.png"))
 	{
 		std::cerr << "error load from file";
+	}
+}
+
+void Resources::loadVolumeIcons()
+{
+	sf::Texture image;
+
+	for (int i = 0; i < VOLUME_ICON_NUM; i++)
+	{
+		if (!image.loadFromFile(VOLUME_ICON[i]))
+		{
+			std::cerr << "error load from file";
+		}
+		m_volumeTextures.push_back(image);
 	}
 }
 
@@ -138,4 +153,9 @@ sf::SoundBuffer* Resources::getMusic()
 sf::SoundBuffer* Resources::getColisionSound()
 {
 	return &m_colisionBuffer;;
+}
+
+sf::Texture* Resources::getVolumeIcon(bool soundOn)
+{
+	return (soundOn ? &m_volumeTextures[ON] : &m_volumeTextures[OFF]);
 }

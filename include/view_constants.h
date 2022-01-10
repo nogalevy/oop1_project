@@ -5,6 +5,7 @@
 #include <string>
 
 enum Menu_buttons { START, HELP, EXIT };
+enum Board_buttons { VOLUME, HOME };
 enum Pages { MENU, BOARD };
 enum Arrows { LEFT, RIGHT, UP, DOWN };
 
