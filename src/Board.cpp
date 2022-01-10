@@ -350,7 +350,7 @@ bool Board::isStaticObj(Icons symbol)
 
 void Board::setBgRectangle()
 {
-	m_bgRectangle.setFillColor(sf::Color::Color(124, 124, 204));
+	m_bgRectangle.setFillColor(sf::Color::Color(68, 57, 81));
 }
 
 //-----------------------------------------------------------------

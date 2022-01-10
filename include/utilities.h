@@ -18,7 +18,7 @@ const char SYMBOLS[NUM_OF_ICONS] = { 'K', 'M', 'W', 'T', '^', '=', '#', '*', '!'
 const std::string PLAYERS_NAMES[NUM_OF_MOVING] = { "King", "Mage", "Warrior", "Thief" };
 
 const std::string PIC_NAMES[NUM_OF_ICONS /* + GAME_BTN_NUM*/] = {"king.png", "wizard.png", "warrior.png", "thief.png", "dwarf.png", "wall.png",
-											"gate.png", "fire.png", "orc.png", "portal.png", "throne.png", "key.png", "gift.png"/*, "clear", "delete", "save"*/};
+											"gate.png", "fire.png", "orc.png", "teleport.png", "throne.png", "key.png", "gift.png"/*, "clear", "delete", "save"*/};
 
 const int VOLUME_ICON_NUM = 2;
 enum volume { OFF = 0, ON = 1 };
