@@ -43,51 +43,64 @@ public:
 	Board();
 	~Board();
 
-	void readLevel();
-
 	//Access Functions
-	Icons getSymbol(int, int)const;
 	int getHeight()const;
 	int getWidth()const;
 	bool isCountdown()const;
 	int getCountdown()const;
-
 	bool getHasKey() const;
-	void loadNextLevel();
-	bool setLevelNum();
+
 	//Draw Function
 	void draw(sf::RenderWindow& window);
 
 	//Move Functions
 	void move(sf::Vector2f direction, sf::Time timer, int activePlayer);
 	void moveDwarfs(sf::Time);
+
+	//Level Functions
+	bool setLevelNum();
+	void loadNextLevel();
 	bool getEndlevel() const;
 	int getLevelNum()const;
 	void resetLevelNum();
+
 private:
+
+	//Access Functions
+	Icons getSymbol(int, int)const;
+
+	//Level Functions
+	void readLevel();
 	bool checkEndLevel() const;
 	void openLevelFile();
-	bool checkHasKey() const;
 	void readCountdown();
 	void readLevelSize();
+	void initPartners();
+
+	//Objects Functions
 	void createObjects();
 	bool isStaticObj(Icons symbol);
+	void removeStaticObjects();
+	void changeStatic();
+	void createMoving(Icons symbol, sf::Vector2f position);
+	void createStatic(Icons symbol, sf::Vector2f position);
+	std::unique_ptr<Bonus> selectRandomBonus(sf::Vector2f position);
+	void initTeleportPartners();
+
+
+	bool checkHasKey() const;
 	void setBgRectangle();
 	void createMat();
 	void handleCollisions(int activePlayer);
 	void handleDwarfCollisions();
 	void updateBoard();
-	void removeStaticObjects();
-	void changeStatic();
-	void initPartners();
 	sf::Vector2f createPosition(int row, int col);
-	void initTeleportPartners();
-	std::unique_ptr<Bonus> selectRandomBonus(sf::Vector2f position);
 
-
+	//======Members==========
 
 	int m_width;
 	int m_height;
+
 	std::ifstream m_levelFile;
 	std::vector<std::string> m_boardMat;
 
@@ -99,20 +112,20 @@ private:
 
 	sf::RectangleShape m_bgRectangle;
 
+	//Level Data Member
+	int m_levelNum;
+
+	//Player Data Members
+	bool m_hasKey;
+	bool m_endLevel;
+
+	//Timer Data Members
+	bool m_isCountdown;
+	int m_countdownTime;
 
 	//Trial
 	std::vector<std::vector<sf::RectangleShape>>m_mat;
 	std::vector<std::vector<sf::RectangleShape>> initMat(int size, int square_size);
 
 	void initSquare(int row, int col, int square_size);
-	//sf::Vector2f getPosition(int row, int col);
-
-	int m_levelNum;
-
-	//data from players:
-	bool m_hasKey;
-	bool m_endLevel;
-
-	bool m_isCountdown;
-	int m_countdownTime;
 };

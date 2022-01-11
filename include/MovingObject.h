@@ -8,7 +8,6 @@ public:
 	virtual ~MovingObject() = default;
 
 	void moveToPrevPos();
-	//make it abstract
 
 protected:
 	sf::Vector2f m_location;

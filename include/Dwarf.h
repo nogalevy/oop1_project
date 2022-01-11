@@ -1,7 +1,5 @@
 #pragma once
 #include "MovingObject.h"
-#include "King.h"
-
 
 class Dwarf : public MovingObject 
 {

@@ -10,7 +10,6 @@ Board::Board()
 {
 	setBgRectangle();
 	openLevelFile();
-	//const char* fileName = "Level.txt";
 
 	//createMat();
 }
@@ -223,25 +222,20 @@ bool Board::setLevelNum()
 	}
 	resetLevelNum();
 	return false;
-
 }
+
+//-----------------------------------------------------------------
 
 void Board::resetLevelNum()
 {
 	m_levelNum = 1;
 }
 
-//bool Board::getHasKey() const
-//{
-//	return m_movingObj[THIEF]->getHasKey();
-//}
-
 //-----------------------------------------------------------------
 
 void Board::readLevelSize()
 {
 	m_levelFile.seekg(0);
-
 
 	int num;
 	// reading height
@@ -251,10 +245,6 @@ void Board::readLevelSize()
 	// reading width
 	m_levelFile >> num;
 	m_width = num;
-
-	std::cout << "Height: " << m_height << std::endl;
-	std::cout << "Width: " << m_width << std::endl;
-
 }
 
 //-----------------------------------------------------------------
@@ -270,8 +260,6 @@ void Board::createObjects()
 
 	m_movingObj.resize(NUM_OF_MOVING);
 
-	std::cout << "size : " << m_staticObj.size() << std::endl;
-
 	for (int row = 0; row < m_height; row++)
 	{
 		for (int col = 0; col < m_width; col++)
@@ -282,70 +270,12 @@ void Board::createObjects()
 
 			position = createPosition(row, col);
 
-			//Noga: I think we can delete this "if-else" T: you are probably right
 			if (isStaticObj(symbol))
-			{
-				switch (symbol)
-				{
-				case WALL:
-					m_staticObj.emplace_back(std::make_unique<Wall>(symbol, position, m_width, m_height));
-					break;
-				case GATE:
-					m_staticObj.emplace_back(std::make_unique<Gate>(symbol, position, m_width, m_height));
-					break;
-				case FIRE:
-					m_staticObj.emplace_back(std::make_unique<Fire>(symbol, position, m_width, m_height));
-					break;
-				case ORC:
-					m_staticObj.emplace_back(std::make_unique<Orc>(symbol, position, m_width, m_height));
-					break;
-				case TELEPORT:
-				{
-					m_staticObj.emplace_back(std::make_unique<Teleport>(symbol, position, m_width, m_height));
-					/*std::cout << "row: " << row << " col: " << col << "\n";
-					std::cout << position.y << " " << position.x << "\n";*/
-
-					break;
-				}
-				case THRONE:
-					m_staticObj.emplace_back(std::make_unique<Throne>(symbol, position, m_width, m_height));
-					break;
-				case KEY:
-					m_staticObj.emplace_back(std::make_unique<Key>(symbol, position, m_width, m_height));
-					break;
-				case BONUS:
-					m_staticObj.emplace_back(selectRandomBonus(position));
-					break;
-				default:
-					break;
-				}
-			}
+				createStatic(symbol, position);
 			else
-			{
-				switch (symbol)
-				{
-				case KING:
-					m_movingObj[KING] =std::make_unique<King>(symbol, position, m_width, m_height);
-					break;
-				case WARRIOR:
-					m_movingObj[WARRIOR] = std::make_unique<Warrior>(symbol, position, m_width, m_height);
-					break;
-				case MAGE:
-					m_movingObj[MAGE] = std::make_unique<Mage>(symbol, position, m_width, m_height);
-					break;
-				case THIEF:
-					m_movingObj[THIEF] = std::make_unique<Thief>(symbol, position, m_width, m_height);
-					break;
-				case DWARF:
-					m_dwarfs.emplace_back(std::make_unique<Dwarf>(symbol, position, m_width, m_height));
-					break;
-				default:
-					break;
-				}
-			}
+				createMoving(symbol, position);
 		}
 	}
-
 }
 
 //-----------------------------------------------------------------
@@ -394,7 +324,6 @@ void Board::handleCollisions(int activePlayer)
 		}
 
 	}
-
 	for (auto& movable : m_movingObj) //Tali: all moving objects in m_movingObj are players. if we dont care for collsioins we dont need this
 	{
 		if (m_movingObj[activePlayer]->checkColisionWith(*movable))
@@ -423,7 +352,6 @@ void Board::handleDwarfCollisions()
 				m_dwarfs[i]->handleCollision(*unmovable);
 		}
 	}
-
 }
 
 //-----------------------------------------------------------------
@@ -458,7 +386,6 @@ void Board::changeStatic()
 
 	for (auto& unmovable : m_staticObj)
 	{
-		//auto movingPtr = movable.get();
 		if (auto staticPtr = dynamic_cast<Orc*>(unmovable.get()))
 		{
 			if (staticPtr->isDisposed())
@@ -474,10 +401,10 @@ void Board::changeStatic()
 
 void Board::initPartners()
 {
-	m_partners.clear();
-
 	int numOfPartners, row1, col1, row2, col2;
 	sf::Vector2f position1, position2;
+
+	m_partners.clear();
 
 	m_levelFile >> numOfPartners;
 
@@ -488,7 +415,6 @@ void Board::initPartners()
 		if (row1 != EOF || col1 != EOF || row2 != EOF || col2 != EOF)
 			m_partners.push_back(Partners(row1, col1, row2, col2));
 	}
-
 }
 
 //-----------------------------------------------------------------
@@ -560,6 +486,67 @@ std::unique_ptr<Bonus> Board::selectRandomBonus(sf::Vector2f position)
 		break;
 	}
 	return nullptr;
+}
+
+//-----------------------------------------------------------------
+
+void Board::createMoving(Icons symbol, sf::Vector2f position)
+{
+	switch (symbol)
+	{
+	case KING:
+		m_movingObj[KING] = std::make_unique<King>(symbol, position, m_width, m_height);
+		break;
+	case WARRIOR:
+		m_movingObj[WARRIOR] = std::make_unique<Warrior>(symbol, position, m_width, m_height);
+		break;
+	case MAGE:
+		m_movingObj[MAGE] = std::make_unique<Mage>(symbol, position, m_width, m_height);
+		break;
+	case THIEF:
+		m_movingObj[THIEF] = std::make_unique<Thief>(symbol, position, m_width, m_height);
+		break;
+	case DWARF:
+		m_dwarfs.emplace_back(std::make_unique<Dwarf>(symbol, position, m_width, m_height));
+		break;
+	default:
+		break;
+	}
+}
+
+//-----------------------------------------------------------------
+
+void Board::createStatic(Icons symbol, sf::Vector2f position)
+{
+	switch (symbol)
+	{
+	case WALL:
+		m_staticObj.emplace_back(std::make_unique<Wall>(symbol, position, m_width, m_height));
+		break;
+	case GATE:
+		m_staticObj.emplace_back(std::make_unique<Gate>(symbol, position, m_width, m_height));
+		break;
+	case FIRE:
+		m_staticObj.emplace_back(std::make_unique<Fire>(symbol, position, m_width, m_height));
+		break;
+	case ORC:
+		m_staticObj.emplace_back(std::make_unique<Orc>(symbol, position, m_width, m_height));
+		break;
+	case TELEPORT:
+		m_staticObj.emplace_back(std::make_unique<Teleport>(symbol, position, m_width, m_height));
+		break;
+	case THRONE:
+		m_staticObj.emplace_back(std::make_unique<Throne>(symbol, position, m_width, m_height));
+		break;
+	case KEY:
+		m_staticObj.emplace_back(std::make_unique<Key>(symbol, position, m_width, m_height));
+		break;
+	case BONUS:
+		m_staticObj.emplace_back(selectRandomBonus(position));
+		break;
+	default:
+		break;
+	}
 }
 
 //-----------------------------------------------------------------
