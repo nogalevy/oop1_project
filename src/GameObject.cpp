@@ -46,3 +46,8 @@ sf::Sprite& GameObject::getIcon()
 {
 	return m_icon;
 }
+
+void GameObject::setIcon(sf::Texture &texture)
+{
+	m_icon.setTexture(texture);
+}

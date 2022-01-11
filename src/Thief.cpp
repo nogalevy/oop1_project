@@ -45,12 +45,14 @@ void Thief::handleCollision(Fire& )
 
 void Thief::handleCollision(Gate& )
 {
+	setIcon(*(Resources::instance().getIcon(THIEF)));
 	if (!m_hasKey)
 		moveToPrevPos();
 }
 
 void Thief::handleCollision(Key& )
 {
+	setIcon(*(Resources::instance().getIcon(THIEF_WITH_KEY)));
 	setHasKey(true);
 }
 

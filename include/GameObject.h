@@ -54,6 +54,7 @@ public:
 
 protected:
 	sf::Sprite& getIcon();
+	void setIcon(sf::Texture &texture);
 
 private:
 	sf::Sprite m_icon;

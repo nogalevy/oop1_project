@@ -21,7 +21,7 @@ void Resources::loadImagesForObjects()
 
 	//m_textures.resize(NUM_OF_ICONS - 1);
 
-	for (int i = 0; i < NUM_OF_ICONS - 1; i++)
+	for (int i = 0; i < NUM_OF_ICONS + 1; i++)
 	{
 		if (!image.loadFromFile(PIC_NAMES[i]))
 		{
@@ -126,7 +126,7 @@ Resources& Resources::instance()
 
 //-----------------------------------------------------------------
 
-sf::Texture* Resources::getIcon(const Icons symbol)
+sf::Texture* Resources::getIcon(const int symbol)
 {
 	return &m_textures[symbol];
 }

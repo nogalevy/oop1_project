@@ -15,7 +15,7 @@ public:
 
 	//Access Functions
 
-	sf::Texture* getIcon(const Icons symbol);
+	sf::Texture* getIcon(const int symbol);
 	sf::Font* getFont();
 	sf::Font* getDataFont();
 	sf::Texture* getMenuBackground();
