@@ -17,6 +17,11 @@ Window::Window()
     m_helpMenu = sf::RectangleShape(sf::Vector2f(float(WINDOW_W/2), float(WINDOW_H/2)));
     m_helpMenu.setTexture(Resources::instance().getHelpMenu());
     m_helpMenu.setPosition(sf::Vector2f(float(WINDOW_W / 4), float(WINDOW_H / 4)));
+    if (m_board.isCountdown())
+    {
+        std::cout << "board has counter" << std::endl;
+        m_dataDisplay.setCountdown(m_board.getCountdown());
+    }
 }
 
 //-----------------------------------------------------------------
@@ -31,8 +36,6 @@ void Window::startGame()
 {
     m_audio.playMusic(true);
 
-   // if(m_board.isTimer())
-        //settimer
 
     while (m_window.isOpen())
     {
@@ -79,6 +82,8 @@ void Window::handleNextLevel()
     m_dataDisplay.setLevelNum(m_board.getLevelNum());
     m_board.loadNextLevel();
 }
+
+//-----------------------------------------------------------------
 
 void Window::handleBoardEvent(const sf::Event& event)
 {

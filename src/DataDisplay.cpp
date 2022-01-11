@@ -125,6 +125,12 @@ void DataDisplay::updateVolumeIcon(bool soundOn)
 	m_volumeBtn.setTexture(*(Resources::instance().getVolumeIcon(soundOn)));
 }
 
+void DataDisplay::setCountdown(int time)
+{
+	std::cout << "set timer" << std::endl;
+	m_timeCounter = Timer(time);
+}
+
 void DataDisplay::resetClock()
 {
 	m_timeCounter.startClock();

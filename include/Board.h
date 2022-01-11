@@ -49,7 +49,8 @@ public:
 	Icons getSymbol(int, int)const;
 	int getHeight()const;
 	int getWidth()const;
-	bool isTimer()const;
+	bool isCountdown()const;
+	int getCountdown()const;
 
 	bool getHasKey() const;
 	void loadNextLevel();
@@ -67,7 +68,7 @@ private:
 	bool checkEndLevel() const;
 	void openLevelFile();
 	bool checkHasKey() const;
-	void readTimer();
+	void readCountdown();
 	void readLevelSize();
 	void createObjects();
 	bool isStaticObj(Icons symbol);
@@ -112,6 +113,6 @@ private:
 	bool m_hasKey;
 	bool m_endLevel;
 
-	bool m_isTimer;
-	int m_timerNum;
+	bool m_isCountdown;
+	int m_countdownTime;
 };

@@ -14,6 +14,7 @@ public:
 	Timer(int time);
 
 	void setTime(int time);
+	//void setCountdown(int time);
 	void startClock();
 	sf::Time getElapsed();
 	void addTime(float time_to_add);

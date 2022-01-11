@@ -13,6 +13,12 @@ void Timer::setTime(int time)
 	m_time = sf::seconds(time);
 }
 
+//void Timer::setCountdown(int time)
+//{
+//	m_timerType;
+//	m_time.
+//}
+
 void Timer::startClock()
 {
 	m_clock.restart();

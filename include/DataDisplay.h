@@ -27,6 +27,8 @@ public:
 	void setLevelNum(int levelNum);
 	int handleClick(sf::Event event)const;
 	void updateVolumeIcon(bool soundOn);
+
+	void setCountdown(int time);
 	// hasKey
 	// updaeCurrPlayer ?
 private:

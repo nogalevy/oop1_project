@@ -25,7 +25,7 @@ Board::~Board()
 
 void Board::readLevel()
 {
-	//readTimer();
+	//readCountdown();
 	readLevelSize();
 	char c;
 
@@ -40,7 +40,7 @@ void Board::readLevel()
 		m_boardMat.push_back(line);
 	}
 	initPartners();
-	readTimer();
+	readCountdown();
 }
 
 //-----------------------------------------------------------------
@@ -74,9 +74,14 @@ int Board::getWidth()const
 
 //-----------------------------------------------------------------
 
-bool Board::isTimer() const
+bool Board::isCountdown() const
 {
 	return false;
+}
+
+int Board::getCountdown() const
+{
+	return m_countdownTime;
 }
 
 //-----------------------------------------------------------------
@@ -125,12 +130,12 @@ bool Board::checkHasKey() const
 
 //-----------------------------------------------------------------
 
-void Board::readTimer()
+void Board::readCountdown()
 {
-	m_levelFile >> m_timerNum;
+	m_levelFile >> m_countdownTime;
 
-	m_isTimer = (m_timerNum == -1) ? false : true;
-	std::cout << "Timer Number is: " << m_timerNum << std::endl;
+	m_isCountdown = (m_countdownTime == -1) ? false : true;
+	std::cout << "Timer Number is: " << m_countdownTime << std::endl;
 }
 
 //-----------------------------------------------------------------
@@ -546,7 +551,7 @@ void Board::initTeleportPartners()
 
 std::unique_ptr<Bonus> Board::selectRandomBonus(sf::Vector2f position)
 {
-	if(!m_isTimer)
+	if(!m_isCountdown)
 		return std::make_unique<RmvDwarfsBonus>(BONUS, position, m_width, m_height);
 
 	int bonus = rand() % NUM_OF_BONUS_TYPES;
