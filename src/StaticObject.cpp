@@ -10,9 +10,9 @@ bool StaticObject::isDisposed() const
 	return m_isDisposed;
 }
 
-sf::Vector2f StaticObject::getPosition() const
+sf::Vector2f StaticObject::getPosition()
 {
-	return m_icon.getPosition();
+	return getIcon().getPosition();
 }
 
 //StaticObject::~StaticObject()

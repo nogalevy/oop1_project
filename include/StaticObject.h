@@ -26,7 +26,7 @@ public:
 	virtual void handleCollision(Wall&) override {};
 
 	bool isDisposed() const;
-	sf::Vector2f getPosition()const;
+	sf::Vector2f getPosition();
 
 protected:
 	bool m_isDisposed;

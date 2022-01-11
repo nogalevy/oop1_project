@@ -6,7 +6,7 @@ Teleport::~Teleport()
 
 //sf::Vector2f Teleport::getPosition() const
 //{
-//	return m_icon.getPosition();
+//	return getIcon().getPosition();
 //}
 
 void Teleport::setPartner(sf::Vector2f partner)

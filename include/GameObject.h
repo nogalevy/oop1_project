@@ -25,12 +25,6 @@ class Key;
 
 class GameObject {
 public:
-	/*
-	- draw
-	- getSymbol
-	- getTexture
-	- getPosition
-	*/
 
 	GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth, int mapHeight);
 	virtual ~GameObject() = default;
@@ -59,16 +53,8 @@ public:
 
 
 protected:
-	/*
-	Members:
-	- position
-	- symbol
-	- texture
-	*/
+	sf::Sprite& getIcon();
 
+private:
 	sf::Sprite m_icon;
-	//sf::RectangleShape m_icon;
-//	sf::Texture m_texture;
-	//sf::Sprite m_icon;
-
 };

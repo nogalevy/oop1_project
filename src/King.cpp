@@ -10,12 +10,6 @@ King::~King()
 {
 }
 
-//void King::move(sf::Vector2f direction, sf::Time deltaTime)
-//{
-//	m_prevPos = m_icon.getPosition();
-//	auto speedPerSecond = 100.f;
-//	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
-//}
 
 void King::handleCollision(GameObject& gameObject)
 {

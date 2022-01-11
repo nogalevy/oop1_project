@@ -17,10 +17,6 @@ GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth,
 }
 
 
-//GameObject::~GameObject()
-//{
-//}
-
 void GameObject::draw(sf::RenderWindow& window)
 {
 	window.draw(m_icon);
@@ -46,3 +42,7 @@ void GameObject::handleCollision(GameObject& gameObject)
 	gameObject.handleCollision(*this);
 }
 
+sf::Sprite& GameObject::getIcon()
+{
+	return m_icon;
+}

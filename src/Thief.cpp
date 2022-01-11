@@ -9,11 +9,6 @@ Thief::~Thief()
 {
 }
 
-//void Thief::move(sf::Vector2f direction, sf::Time deltaTime)
-//{
-//	auto speedPerSecond = 100.f;
-//	m_icon.move(direction * speedPerSecond * deltaTime.asSeconds());
-//}
 
 void Thief::handleCollision(GameObject& gameObject)
 {
