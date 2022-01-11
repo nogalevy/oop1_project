@@ -11,7 +11,7 @@ GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth,
 	//auto yScaleValue = (float)BOARD_W / ((float)ICON_SIZE * (float)mapHeight);
 
 	//m_icon.scale(xScaleValue, yScaleValue);
-	m_icon.scale(0.1, 0.1);
+	m_icon.scale(0.105, 0.105);
 
 	m_icon.setPosition(location);
 }
