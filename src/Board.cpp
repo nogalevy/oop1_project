@@ -216,9 +216,14 @@ bool Board::setLevelNum()
 		m_levelNum++;
 		return true;
 	}
-	m_levelNum = 0;
+	resetLevelNum();
 	return false;
 
+}
+
+void Board::resetLevelNum()
+{
+	m_levelNum = 1;
 }
 
 //bool Board::getHasKey() const
@@ -350,7 +355,9 @@ bool Board::isStaticObj(Icons symbol)
 
 void Board::setBgRectangle()
 {
-	m_bgRectangle.setFillColor(sf::Color::Color(68, 57, 81));
+	m_bgRectangle.setFillColor(sf::Color::Color(51, 51, 51));
+	
+	//m_bgRectangle.setTexture(Resources::instance().getBoardBackground());
 }
 
 //-----------------------------------------------------------------
@@ -491,8 +498,10 @@ sf::Vector2f Board::createPosition(int row, int col)
 {
 	sf::Vector2f position;
 	float xPos, yPos;
+	int size = m_width < m_height ? m_height : m_width;
+	int square_size = ((BOARD_H) / size) - 10; //set 500 to const
 
-	int square_size = ((BOARD_H) / 10) - 10; //set 500 to const
+	
 	int col_offset = (WINDOW_W - BOARD_H) / 2;
 	xPos = (float)(col * (square_size + 7) + col_offset);
 	yPos = (float)(row * (square_size + 7) + 15);

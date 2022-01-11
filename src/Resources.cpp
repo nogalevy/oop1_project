@@ -9,6 +9,8 @@ Resources::Resources()
 	loadHelpMenu();
 	loadAudio();
 	loadVolumeIcons();
+	loadBoardBackground();
+	loadHomeBtnTexture();
 }
 
 //-----------------------------------------------------------------
@@ -92,6 +94,22 @@ void Resources::loadAudio()
 	}
 }
 
+void Resources::loadBoardBackground()
+{
+	if (!m_boardBackground.loadFromFile("board_bg.jpg"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
+void Resources::loadHomeBtnTexture()
+{
+	if (!m_homeBtnTexture.loadFromFile("home.png"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
 //-----------------------------------------------------------------
 
 Resources::~Resources()
@@ -158,4 +176,14 @@ sf::SoundBuffer* Resources::getColisionSound()
 sf::Texture* Resources::getVolumeIcon(bool soundOn)
 {
 	return (soundOn ? &m_volumeTextures[ON] : &m_volumeTextures[OFF]);
+}
+
+sf::Texture* Resources::getBoardBackground()
+{
+	return &m_boardBackground;;
+}
+
+sf::Texture* Resources::getHomeBtnTexture()
+{
+	return &m_homeBtnTexture;
 }

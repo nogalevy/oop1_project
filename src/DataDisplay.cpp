@@ -4,14 +4,16 @@ DataDisplay::DataDisplay()
 	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
 	m_timeCounter(),
 	m_hasKey(false),
-	m_volumeIcon(*(Resources::instance().getVolumeIcon(true)))
+	m_volumeBtn(*(Resources::instance().getVolumeIcon(true))),
+	m_homeBtn(*(Resources::instance().getHomeBtnTexture()))
 {
 	m_timerTxt.setFont(*(Resources::instance().getDataFont()));
 	m_activePlayerTxt.setFont(*(Resources::instance().getDataFont()));
 	m_hasKeyTxt.setFont(*(Resources::instance().getDataFont()));
 	m_levelNumTxt.setFont(*(Resources::instance().getDataFont()));
 
-	setVolumeIcon();
+	setHomeBtn();
+	setVolumeBtn();
 	setLevelNum(1);
 	setBgRectangle();
 }
@@ -30,8 +32,9 @@ void DataDisplay::draw(sf::RenderWindow& window, int activePlayer)
 	drawLevelNum(window);
 	drawActivePlayer(window, activePlayer);
 	drawHasKey(window);
-	//drawVolumeIcon(window);
-	window.draw(m_volumeIcon);
+
+	window.draw(m_volumeBtn);
+	window.draw(m_homeBtn);
 }
 
 void DataDisplay::drawTime(sf::RenderWindow& window )
@@ -109,17 +112,17 @@ void DataDisplay::setLevelNum(int levelNum)
 
 int DataDisplay::handleClick(sf::Event event) const
 {
-	for (int i = 0; i < NUM_OF_BTNS; i++)
-	{
-		if (m_volumeIcon.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
-			return VOLUME;
-	}
+
+	if (m_volumeBtn.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+		return VOLUME;
+	else if (m_homeBtn.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+		return HOME;
 	return -1;
 }
 
 void DataDisplay::updateVolumeIcon(bool soundOn)
 {
-	m_volumeIcon.setTexture(*(Resources::instance().getVolumeIcon(soundOn)));
+	m_volumeBtn.setTexture(*(Resources::instance().getVolumeIcon(soundOn)));
 }
 
 void DataDisplay::resetClock()
@@ -129,19 +132,34 @@ void DataDisplay::resetClock()
 
 void DataDisplay::setBgRectangle()
 {
-	m_bgRectangle.setFillColor(sf::Color::Color(41, 54, 37));
+	m_bgRectangle.setFillColor(sf::Color::Color(26, 26, 26));
 	m_bgRectangle.setPosition(sf::Vector2f(0, BOARD_H));
+	m_bgRectangle.setSize(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H));
 }
 
-void DataDisplay::setVolumeIcon()
+void DataDisplay::setVolumeBtn()
 {
 	float margin = 0, posX = 0;
-	m_volumeIcon.scale(0.1, 0.1);
+	m_volumeBtn.scale(0.1, 0.1);
+
+	margin = 30.f;
+	//posX = WINDOW_W - m_volumeBtn.getGlobalBounds().width - margin;
+
+	posX = WINDOW_W - (m_volumeBtn.getGlobalBounds().width + m_homeBtn.getGlobalBounds().width) - margin;
+
+	m_volumeBtn.setPosition(posX, BOARD_H + 10);
+}
+
+void DataDisplay::setHomeBtn()
+{
+	float margin = 0, posX = 0;
+	m_homeBtn.scale(0.1, 0.1);
 
 	margin = 20.f;
-	posX = WINDOW_W - m_volumeIcon.getGlobalBounds().width - margin;
+	//posX = WINDOW_W - (m_homeBtn.getGlobalBounds().width + m_volumeBtn.getGlobalBounds().width)- margin;
+	posX = WINDOW_W - m_homeBtn.getGlobalBounds().width - margin;
 
-	m_volumeIcon.setPosition(posX, BOARD_H + 10);
+	m_homeBtn.setPosition(posX, BOARD_H + 10);
 }
 
 

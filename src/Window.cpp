@@ -38,7 +38,7 @@ void Window::startGame()
     {
         sf::Vector2f location;
     
-        m_window.clear(sf::Color(sf::Color(87, 87, 207)));
+        m_window.clear(sf::Color(sf::Color(26, 26 ,26)));
 
         drawCurrPage();
 
@@ -67,7 +67,10 @@ void Window::handleNextLevel()
 {
     if (!m_board.setLevelNum())
     {
+        m_board.resetLevelNum();
+        m_activePlayer = KING;
         m_currPage = MENU; //we need to update here that the user finished all levels
+
     }
     //m_timer.restart();
     m_activePlayer = KING;
@@ -258,7 +261,10 @@ void Window::handleBoardClick(const sf::Event& event)
         break;
     case HOME:
     {
-        //m_window.draw(m_helpMenu);
+        //move this to function ? we have the same 3 lines in 'handleNextLevel'
+        m_currPage = MENU;
+        m_activePlayer = KING;
+        m_board.resetLevelNum();
         break;
     }
     default:

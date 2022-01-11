@@ -31,7 +31,8 @@ public:
 	// updaeCurrPlayer ?
 private:
 	void setBgRectangle();
-	void setVolumeIcon();
+	void setVolumeBtn();
+	void setHomeBtn();
 
 	sf::RectangleShape m_bgRectangle;
 
@@ -39,7 +40,8 @@ private:
 	sf::Text m_levelNumTxt;
 	sf::Text m_activePlayerTxt;
 	sf::Text m_hasKeyTxt;
-	sf::Sprite m_volumeIcon;
+	sf::Sprite m_volumeBtn;
+	sf::Sprite m_homeBtn;
 
 	timer_type m_timerType; // 
 	Timer m_timeCounter;

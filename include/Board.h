@@ -62,7 +62,7 @@ public:
 	void moveDwarfs(sf::Time);
 	bool getEndlevel() const;
 	int getLevelNum()const;
-
+	void resetLevelNum();
 private:
 	bool checkEndLevel() const;
 	void openLevelFile();
