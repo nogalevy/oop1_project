@@ -77,6 +77,8 @@ void King::handleCollision(Wall& )
 
 void King::handleCollision(Dwarf& gameObject)
 {
+	//comes straight to here from handcollision from board
+	moveToPrevPos();
 }
 
 bool King::isReachToThrone() const

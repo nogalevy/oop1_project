@@ -33,12 +33,12 @@ void Warrior::handleCollision(Warrior&  )
 
 void Warrior::handleCollision(Mage&  )
 {
-	moveToPrevPos();
+	
 }
 
 void Warrior::handleCollision(Thief&  )
 {
-	moveToPrevPos();
+	
 }
 
 void Warrior::handleCollision(Fire&  )
@@ -81,4 +81,5 @@ void Warrior::handleCollision(Wall&  )
 
 void Warrior::handleCollision(Dwarf& gameObject)
 {
+	moveToPrevPos();
 }

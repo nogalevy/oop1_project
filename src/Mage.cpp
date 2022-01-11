@@ -19,22 +19,22 @@ void Mage::handleCollision(GameObject& gameObject)
 
 void Mage::handleCollision(King& )
 {
-	//moveToPrevPos();
+	
 }
 
 void Mage::handleCollision(Warrior& )
 {
-	//moveToPrevPos();
+	
 }
 
 void Mage::handleCollision(Mage& )
 {
-	//nothing
+	
 }
 
 void Mage::handleCollision(Thief& )
 {
-	//moveToPrevPos();
+	
 }
 
 void Mage::handleCollision(Fire& )
@@ -73,5 +73,6 @@ void Mage::handleCollision(Wall& )
 
 void Mage::handleCollision(Dwarf& gameObject)
 {
+	moveToPrevPos();
 }
 

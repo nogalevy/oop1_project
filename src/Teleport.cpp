@@ -4,11 +4,6 @@ Teleport::~Teleport()
 {
 }
 
-//sf::Vector2f Teleport::getPosition() const
-//{
-//	return getIcon().getPosition();
-//}
-
 void Teleport::setPartner(sf::Vector2f partner)
 {
 	m_partner = partner;
@@ -21,11 +16,7 @@ void Teleport::handleCollision(GameObject& gameObject)
 
 void Teleport::handleCollision(King& gameObject)
 {
-	std::cout << "yea boiiii\n";
-	//if(gameObject.getPosition() != m_partner)
 	gameObject.setPosition(m_partner);
-
-	//gameObject.handleCollision(*this); //send more data? next position or somthing?
 }
 
 void Teleport::handleCollision(Warrior& gameObject)

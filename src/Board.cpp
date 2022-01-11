@@ -390,24 +390,23 @@ void Board::handleCollisions(int activePlayer)
 	{
 		if (m_movingObj[activePlayer]->checkColisionWith(*unmovable))
 		{
-			/*if (auto staticPtr = dynamic_cast<Teleport*>(unmovable.get()))
-			{
-				if (m_movingObj[activePlayer])
-				{
-					pos = staticPtr->getPosition();
-				}
-			}*/
-
 			m_movingObj[activePlayer]->handleCollision(*unmovable);
 		}
 
 	}
 
-	for (auto& movable : m_movingObj)
+	for (auto& movable : m_movingObj) //Tali: all moving objects in m_movingObj are players. if we dont care for collsioins we dont need this
 	{
 		if (m_movingObj[activePlayer]->checkColisionWith(*movable))
 		{
 			m_movingObj[activePlayer]->handleCollision(*movable);
+		}
+	}
+	for (auto& dwarf : m_dwarfs)
+	{
+		if (m_movingObj[activePlayer]->checkColisionWith(*dwarf))
+		{
+			m_movingObj[activePlayer]->handleCollision(*dwarf);
 		}
 	}
 }
@@ -481,12 +480,10 @@ void Board::initPartners()
 	sf::Vector2f position1, position2;
 
 	m_levelFile >> numOfPartners;
-	std::cout << numOfPartners << "\n";
 
 	for (int i = 0; i < numOfPartners; i++)
 	{
 		m_levelFile >> row1 >> col1 >> row2 >> col2;
-		std::cout << row1 << col1 << row2 << col2 << "\n";
 
 		if (row1 != EOF || col1 != EOF || row2 != EOF || col2 != EOF)
 			m_partners.push_back(Partners(row1, col1, row2, col2));

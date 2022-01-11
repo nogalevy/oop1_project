@@ -20,17 +20,17 @@ void Thief::handleCollision(GameObject& gameObject)
 
 void Thief::handleCollision(King& )
 {
-	moveToPrevPos();
+	
 }
 
 void Thief::handleCollision(Warrior& )
 {
-	moveToPrevPos();
+	
 }
 
 void Thief::handleCollision(Mage& )
 {
-	moveToPrevPos();
+	
 }
 
 void Thief::handleCollision(Thief& )
@@ -75,6 +75,7 @@ void Thief::handleCollision(Wall&)
 
 void Thief::handleCollision(Dwarf& gameObject)
 {
+	moveToPrevPos();
 }
 
 bool Thief::getHasKey() const

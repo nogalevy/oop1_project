@@ -18,29 +18,29 @@ void Dwarf::move(sf::Time deltaTime)
 
 
 
-void Dwarf::handleCollision(GameObject& gameobject)
+void Dwarf::handleCollision(GameObject& gameObject)
 {
 	//if (&gameobject == this) return;
 	//double dispatch
-	gameobject.handleCollision(*this);
+	gameObject.handleCollision(*this);
 }
 
-void Dwarf::handleCollision(King& /*gameobject*/)
+void Dwarf::handleCollision(King& /*gameObject*/)
 {
-	//ignore ?
+	//doesnt get here and doesnt need to 
 }
 
-void Dwarf::handleCollision(Warrior& /*gameobject*/)
-{
-	//movetoprevpos();
-}
-
-void Dwarf::handleCollision(Mage& /*gameobject*/)
+void Dwarf::handleCollision(Warrior& /*gameObject*/)
 {
 	//movetoprevpos();
 }
 
-void Dwarf::handleCollision(Thief& /*gameobject*/)
+void Dwarf::handleCollision(Mage& /*gameObject*/)
+{
+	//movetoprevpos();
+}
+
+void Dwarf::handleCollision(Thief& /*gameObject*/)
 {
 	//movetoprevpos();
 }
