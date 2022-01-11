@@ -11,6 +11,7 @@ Resources::Resources()
 	loadVolumeIcons();
 	loadBoardBackground();
 	loadHomeBtnTexture();
+	loadLevelComplete();
 }
 
 //-----------------------------------------------------------------
@@ -25,7 +26,7 @@ void Resources::loadImagesForObjects()
 	{
 		if (!image.loadFromFile(PIC_NAMES[i]))
 		{
-			std::cerr << "error load from file";
+			std::cerr << "error load from icons file, image:" << i;
 		}
 		m_textures.push_back(image);
 	}
@@ -110,6 +111,14 @@ void Resources::loadHomeBtnTexture()
 	}
 }
 
+void Resources::loadLevelComplete()
+{
+	if (!m_levelComplete.loadFromFile("levelcompleted.png"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
 //-----------------------------------------------------------------
 
 Resources::~Resources()
@@ -186,4 +195,9 @@ sf::Texture* Resources::getBoardBackground()
 sf::Texture* Resources::getHomeBtnTexture()
 {
 	return &m_homeBtnTexture;
+}
+
+sf::Texture* Resources::getLevelCompleted()
+{
+	return &m_levelComplete;
 }

@@ -52,7 +52,7 @@ public:
 	BonusType getBonus()const;
 
 	//Draw Function
-	void draw(sf::RenderWindow& window);
+	void draw(sf::RenderWindow& window, int activePlayer);
 
 	//Move Functions
 	void move(sf::Vector2f direction, sf::Time timer, int activePlayer);

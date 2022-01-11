@@ -23,6 +23,10 @@ Window::Window()
         std::cout << "board has counter" << std::endl;
         m_dataDisplay.setCountdown(m_board.getCountdown());
     }
+
+    m_levelComplete = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
+    m_levelComplete.setTexture(Resources::instance().getLevelCompleted());
+   // m_levelComplete.setPosition(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
 }
 
 //-----------------------------------------------------------------
@@ -57,8 +61,10 @@ void Window::startGame()
 
             if (m_currPage == BOARD)
                 handleBoardEvent(event);
-            else
+            else if (m_currPage == MENU)
                 handleMenuEvent(event);
+            else
+                handleLevelComplete(event);
         }
 
         handleKeyboardClick();
@@ -138,6 +144,15 @@ void Window::handleMenuEvent(const sf::Event& event)
     }
 }
 
+void Window::handleLevelComplete(const sf::Event& event)
+{
+    if (event.type == sf::Event::KeyReleased)
+        if (event.key.code == sf::Keyboard::Space)
+        {
+            m_currPage = BOARD;
+        }
+}
+
 //-----------------------------------------------------------------
 
 void Window::handleKeyboardClick()
@@ -191,6 +206,7 @@ void Window::updateGameData()
     if (m_board.getEndlevel())
     {
         handleNextLevel();
+        m_currPage = LEVELCOMPLETE;
     }
     BonusType bonus = m_board.getBonus();
     if (bonus != NONE)
@@ -225,12 +241,14 @@ void Window::drawCurrPage()
     case BOARD:
         //bool key;
         //std::cout << "board page\n";
-        m_board.draw(m_window);
+        m_board.draw(m_window, m_activePlayer);
 
         //key = m_board.getHasKey(); //Noga : not sure (?)
 
         m_dataDisplay.draw(m_window, m_activePlayer);
         break;
+    case LEVELCOMPLETE:
+        m_window.draw(m_levelComplete);
     default:
         break;
     }

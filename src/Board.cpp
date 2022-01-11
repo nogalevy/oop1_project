@@ -142,7 +142,7 @@ void Board::readCountdown()
 //-----------------------------------------------------------------
 
 
-void Board::draw(sf::RenderWindow& window)
+void Board::draw(sf::RenderWindow& window, int activePlayer)
 {
 	window.draw(m_bgRectangle);
 
@@ -150,10 +150,14 @@ void Board::draw(sf::RenderWindow& window)
 	{
 		m_staticObj[i]->draw(window);
 	}
+
 	for (int i = 0; i < m_movingObj.size(); i++)
 	{
-		m_movingObj[i]->draw(window);
+		if(i != activePlayer)
+			m_movingObj[i]->draw(window);
 	}
+	m_movingObj[activePlayer]->draw(window);
+	
 	for (int i = 0; i < m_dwarfs.size(); i++)
 	{
 		m_dwarfs[i]->draw(window);
@@ -200,6 +204,8 @@ bool Board::getHasKey()const
 {
 	return m_hasKey;
 }
+
+//-----------------------------------------------------------------
 
 BonusType Board::getBonus() const
 {

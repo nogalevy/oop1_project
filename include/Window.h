@@ -32,6 +32,7 @@ private:
 	void handleNextLevel();
 	void handleBoardEvent(const sf::Event& event);
 	void handleMenuEvent(const sf::Event& event);
+	void handleLevelComplete(const sf::Event& event);
 	void handleKeyboardClick();
 	void movePlayer(sf::Time);
 	void moveDwarfs(sf::Time);
@@ -53,6 +54,7 @@ private:
 	sf::Texture m_bgTexture;
 
 	sf::RectangleShape m_helpMenu;
+	sf::RectangleShape m_levelComplete;
 
 	int m_currPage;
 	int m_activePlayer;

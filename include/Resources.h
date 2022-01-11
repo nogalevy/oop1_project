@@ -25,6 +25,7 @@ public:
 	sf::Texture* getVolumeIcon(bool soundOn);
 	sf::Texture* getBoardBackground();
 	sf::Texture* getHomeBtnTexture();
+	sf::Texture* getLevelCompleted();
 private:
 	Resources();
 	Resources(const Resources&) = default;
@@ -39,6 +40,7 @@ private:
 	void loadAudio();
 	void loadBoardBackground();
 	void loadHomeBtnTexture();
+	void loadLevelComplete();
 
 	//Members
 	std::vector<sf::Texture> m_textures;
@@ -51,5 +53,6 @@ private:
 	sf::Texture m_homeBtnTexture;
 	sf::SoundBuffer m_buffer;
 	sf::SoundBuffer m_colisionBuffer;
+	sf::Texture m_levelComplete;
 
 };

@@ -6,7 +6,7 @@
 
 enum Menu_buttons { START, HELP, EXIT };
 enum Board_buttons { VOLUME, HOME };
-enum Pages { MENU, BOARD };
+enum Pages { MENU, BOARD, LEVELCOMPLETE };
 enum Arrows { LEFT, RIGHT, UP, DOWN };
 
 const std::string TITLE = "Save The King"; //window title
