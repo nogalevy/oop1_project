@@ -78,6 +78,8 @@ bool Board::isCountdown() const
 	return m_isCountdown;
 }
 
+//-----------------------------------------------------------------
+
 int Board::getCountdown() const
 {
 	return m_countdownTime;
@@ -236,10 +238,14 @@ void Board::resetLevelNum()
 	m_levelNum = 1;
 }
 
+//-----------------------------------------------------------------
+
 void Board::removeDwarfs()
 {
 	m_dwarfs.clear();
 }
+
+//-----------------------------------------------------------------
 
 void Board::setBonus(BonusType type)
 {
