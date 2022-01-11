@@ -10,6 +10,7 @@ Resources::Resources()
 	loadAudio();
 	loadVolumeIcons();
 	loadBoardBackground();
+	loadHomeBtnTexture();
 }
 
 //-----------------------------------------------------------------
@@ -95,9 +96,15 @@ void Resources::loadAudio()
 
 void Resources::loadBoardBackground()
 {
-	sf::Texture image;
-
 	if (!m_boardBackground.loadFromFile("board_bg.jpg"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
+void Resources::loadHomeBtnTexture()
+{
+	if (!m_homeBtnTexture.loadFromFile("home.png"))
 	{
 		std::cerr << "error load from file";
 	}
@@ -174,4 +181,9 @@ sf::Texture* Resources::getVolumeIcon(bool soundOn)
 sf::Texture* Resources::getBoardBackground()
 {
 	return &m_boardBackground;;
+}
+
+sf::Texture* Resources::getHomeBtnTexture()
+{
+	return &m_homeBtnTexture;
 }

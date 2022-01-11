@@ -197,9 +197,14 @@ bool Board::setLevelNum()
 		m_levelNum++;
 		return true;
 	}
-	m_levelNum = 0;
+	resetLevelNum();
 	return false;
 
+}
+
+void Board::resetLevelNum()
+{
+	m_levelNum = 1;
 }
 
 //bool Board::getHasKey() const
