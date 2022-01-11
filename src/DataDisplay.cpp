@@ -67,14 +67,6 @@ void DataDisplay::drawTime(sf::RenderWindow& window )
 	m_timerTxt.setColor(sf::Color::White);
 	m_timerTxt.setCharacterSize(20);
 
-
-
-	//example how to + or - time
-	if (int(m_timeCounter.getTime()) == 0)
-	{
-		m_timeCounter.addTime(10);
-	}
-
 	window.draw(m_timerTxt);
 }
 

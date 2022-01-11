@@ -279,7 +279,7 @@ void Board::readLevelSize()
 void Board::createObjects()
 {
 	sf::Vector2f position;
-	float xPos, yPos;
+	//float xPos, yPos;
 
 	m_staticObj.clear();
 	m_movingObj.clear();
@@ -463,12 +463,14 @@ sf::Vector2f Board::createPosition(int row, int col)
 	sf::Vector2f position;
 	float xPos, yPos;
 	int size = m_width < m_height ? m_height : m_width;
-	int square_size = ((BOARD_H) / size) - 10; //set 500 to const
+	//int square_size = ((BOARD_H) / size) - 10; //set 500 to const
+	float w = float(BOARD_H -30) / size;
+	auto square_size = (w * 512 )/ 550;
 
 	
 	int col_offset = (WINDOW_W - BOARD_H) / 2;
-	xPos = (float)(col * (square_size + 7) + col_offset);
-	yPos = (float)(row * (square_size + 7) + 15);
+	xPos = (float)(col * (square_size) + col_offset);
+	yPos = (float)(row * (square_size) + 15);
 	position = { xPos, yPos };
 
 	return position;

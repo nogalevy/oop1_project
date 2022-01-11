@@ -4,6 +4,11 @@
 GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth, int mapHeight)
 	//: m_icon(sf::Vector2f(40.f, 40.f))
 {
+	int size = mapWidth < mapHeight ? mapHeight : mapWidth;
+
+	float w =  float(BOARD_H - 30) / size;
+	//float h = float(BOARD_H) / mapHeight;
+
 	m_icon.setTexture(*(Resources::instance().getIcon(symbol)));
 
 	//set the correct scale to fill the board according to map size
@@ -11,7 +16,8 @@ GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth,
 	//auto yScaleValue = (float)BOARD_W / ((float)ICON_SIZE * (float)mapHeight);
 
 	//m_icon.scale(xScaleValue, yScaleValue);
-	m_icon.scale(0.105, 0.105);
+	//m_icon.scale(0.105, 0.105);
+	m_icon.scale((w/550), (w/ 550));
 
 	m_icon.setPosition(location);
 }

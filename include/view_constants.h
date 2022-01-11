@@ -11,8 +11,8 @@ enum Arrows { LEFT, RIGHT, UP, DOWN };
 
 const std::string TITLE = "Save The King"; //window title
 
-const int WINDOW_W = 1280; //window width
-const int WINDOW_H = 870;  //window height
+const int WINDOW_W = 1300; //window width
+const int WINDOW_H = 900;  //window height
 
 const int BOARD_W = WINDOW_W;
 const int BOARD_H = WINDOW_H * 4 / 5;

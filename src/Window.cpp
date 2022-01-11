@@ -206,7 +206,8 @@ void Window::updateGameData()
     if (m_board.getEndlevel())
     {
         handleNextLevel();
-        m_currPage = LEVELCOMPLETE;
+        if(m_currPage == BOARD)
+            m_currPage = LEVELCOMPLETE;
     }
     BonusType bonus = m_board.getBonus();
     if (bonus != NONE)
