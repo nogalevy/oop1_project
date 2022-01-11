@@ -76,7 +76,7 @@ int Board::getWidth()const
 
 bool Board::isCountdown() const
 {
-	return false;
+	return m_isCountdown;
 }
 
 int Board::getCountdown() const

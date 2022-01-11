@@ -14,7 +14,7 @@ class DataDisplay {
 public:
 	// constructor
 	DataDisplay();
-	DataDisplay(float time);
+	DataDisplay(int time);
 
 	// draw (key , timer, current player, level num)
 	void draw(sf::RenderWindow& window, int activePlayer);
@@ -29,6 +29,7 @@ public:
 	void updateVolumeIcon(bool soundOn);
 
 	void setCountdown(int time);
+
 	// hasKey
 	// updaeCurrPlayer ?
 private:

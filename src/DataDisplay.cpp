@@ -2,7 +2,7 @@
 
 DataDisplay::DataDisplay()
 	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
-	m_timeCounter(),
+	m_timeCounter(-1),
 	m_hasKey(false),
 	m_volumeBtn(*(Resources::instance().getVolumeIcon(true))),
 	m_homeBtn(*(Resources::instance().getHomeBtnTexture()))
@@ -18,11 +18,21 @@ DataDisplay::DataDisplay()
 	setBgRectangle();
 }
 
-DataDisplay::DataDisplay(float time)
+DataDisplay::DataDisplay(int time)
 	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
-	m_timeCounter(time)
+	m_timeCounter(time),
+	m_hasKey(false),
+	m_volumeBtn(*(Resources::instance().getVolumeIcon(true))),
+	m_homeBtn(*(Resources::instance().getHomeBtnTexture()))
 {
 	m_timerTxt.setFont(*(Resources::instance().getDataFont()));
+	m_activePlayerTxt.setFont(*(Resources::instance().getDataFont()));
+	m_hasKeyTxt.setFont(*(Resources::instance().getDataFont()));
+	m_levelNumTxt.setFont(*(Resources::instance().getDataFont()));
+
+	setHomeBtn();
+	setVolumeBtn();
+	setLevelNum(1);
 	setBgRectangle();
 }
 

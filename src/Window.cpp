@@ -6,7 +6,7 @@ Window::Window()
     : m_window(sf::RenderWindow(sf::VideoMode(WINDOW_W, WINDOW_H), TITLE)),
     m_menu(),
     m_board(),
-    m_dataDisplay(),
+    m_dataDisplay(m_board.getCountdown()),
     m_bgTexture(),
     m_image(),
     m_currPage(MENU),
@@ -17,6 +17,7 @@ Window::Window()
     m_helpMenu = sf::RectangleShape(sf::Vector2f(float(WINDOW_W/2), float(WINDOW_H/2)));
     m_helpMenu.setTexture(Resources::instance().getHelpMenu());
     m_helpMenu.setPosition(sf::Vector2f(float(WINDOW_W / 4), float(WINDOW_H / 4)));
+
     if (m_board.isCountdown())
     {
         std::cout << "board has counter" << std::endl;
@@ -81,6 +82,7 @@ void Window::handleNextLevel()
     m_dataDisplay.setHasKey(false);
     m_dataDisplay.setLevelNum(m_board.getLevelNum());
     m_board.loadNextLevel();
+    m_dataDisplay.setCountdown(m_board.getCountdown());
 }
 
 //-----------------------------------------------------------------
@@ -97,14 +99,14 @@ void Window::handleBoardEvent(const sf::Event& event)
             std::cout << "active player : " <<  m_activePlayer << std::endl;
         }
         //break;
-        else if (event.key.code == sf::Keyboard::Space)
-        {
-            if (!m_board.setLevelNum())
-            {
-                m_currPage = MENU; //we need to update here that the user finished all levels
-            }
-            m_board.loadNextLevel();
-        }
+        //else if (event.key.code == sf::Keyboard::Space)
+        //{
+        //    if (!m_board.setLevelNum())
+        //    {
+        //        m_currPage = MENU; //we need to update here that the user finished all levels
+        //    }
+        //    m_board.loadNextLevel();
+        //}
         break;
     }
     case sf::Event::MouseButtonReleased:
@@ -220,9 +222,7 @@ void Window::drawCurrPage()
 
 void Window::handleClick(const sf::Event& event)
 {
-
-        handleMenuClick(event);
-
+     handleMenuClick(event);
 }
 
 //-----------------------------------------------------------------
@@ -236,6 +236,10 @@ void Window::handleMenuClick(const sf::Event& event)
         //openGamePage();
         m_currPage = BOARD;
         m_dataDisplay.resetClock();
+
+        m_dataDisplay.resetClock();
+        m_dataDisplay.setHasKey(false);
+        m_dataDisplay.setCountdown(m_board.getCountdown());
         break;
     case HELP:
     {   
@@ -269,6 +273,7 @@ void Window::handleBoardClick(const sf::Event& event)
         //move this to function ? we have the same 3 lines in 'handleNextLevel'
         m_currPage = MENU;
         m_activePlayer = KING;
+        //m_board.;
         m_board.resetLevelNum();
         break;
     }
