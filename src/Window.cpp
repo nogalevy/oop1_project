@@ -96,7 +96,6 @@ void Window::handleBoardEvent(const sf::Event& event)
         if (event.key.code == sf::Keyboard::P)
         {
             m_activePlayer = (m_activePlayer + 1) % 4;
-            std::cout << "active player : " <<  m_activePlayer << std::endl;
         }
         //break;
         //else if (event.key.code == sf::Keyboard::Space)
@@ -192,6 +191,25 @@ void Window::updateGameData()
     if (m_board.getEndlevel())
     {
         handleNextLevel();
+    }
+    BonusType bonus = m_board.getBonus();
+    if (bonus != NONE)
+    {
+        switch (bonus)
+        {
+        case ADDTIME:
+            //add 10 seconds?
+            break;
+        case SUBTIME:
+            //remove 10 seconds?
+            break;
+        case RMVDWARFS:
+            m_board.removeDwarfs();
+            break;
+        default:
+            break;
+        }
+        m_board.setBonus(NONE);
     }
 }
 

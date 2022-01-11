@@ -49,6 +49,7 @@ public:
 	bool isCountdown()const;
 	int getCountdown()const;
 	bool getHasKey() const;
+	BonusType getBonus()const;
 
 	//Draw Function
 	void draw(sf::RenderWindow& window);
@@ -63,6 +64,10 @@ public:
 	bool getEndlevel() const;
 	int getLevelNum()const;
 	void resetLevelNum();
+
+	void removeDwarfs();
+
+	void setBonus(BonusType type);
 
 private:
 
@@ -118,6 +123,7 @@ private:
 	//Player Data Members
 	bool m_hasKey;
 	bool m_endLevel;
+	BonusType m_bonusType;
 
 	//Timer Data Members
 	bool m_isCountdown;

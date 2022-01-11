@@ -199,6 +199,11 @@ bool Board::getHasKey()const
 	return m_hasKey;
 }
 
+BonusType Board::getBonus() const
+{
+	return m_bonusType;
+}
+
 //-----------------------------------------------------------------
 
 void Board::loadNextLevel()
@@ -229,6 +234,16 @@ bool Board::setLevelNum()
 void Board::resetLevelNum()
 {
 	m_levelNum = 1;
+}
+
+void Board::removeDwarfs()
+{
+	m_dwarfs.clear();
+}
+
+void Board::setBonus(BonusType type)
+{
+	m_bonusType = type;
 }
 
 //-----------------------------------------------------------------
@@ -392,6 +407,18 @@ void Board::changeStatic()
 			{
 				pos = staticPtr->getPosition();
 				m_staticObj.emplace_back(std::make_unique<Key>(KEY, pos, m_width, m_height));
+			}
+		}
+		if (auto staticPtr = dynamic_cast<Bonus*>(unmovable.get()))
+		{
+			if (staticPtr->isDisposed())
+			{
+				if (typeid(*staticPtr) == typeid(AddTimeBonus))
+					m_bonusType = ADDTIME;
+				else if (typeid(*staticPtr) == typeid(SubTimeBonus))
+					m_bonusType = SUBTIME;
+				else if (typeid(*staticPtr) == typeid(RmvDwarfsBonus))
+					m_bonusType = RMVDWARFS;
 			}
 		}
 	}

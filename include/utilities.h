@@ -28,8 +28,8 @@ const std::string VOLUME_ICON[VOLUME_ICON_NUM] = { "mute_white.png", "volume_whi
 enum timer_type { TIMER = 0, COUNTDOWN };
 
 struct Partners {
-	/*sf::Vector2f _partner1,
-			   	 _partner2;*/
 	int row1, col1,
 		row2, col2;
 };
+
+enum BonusType {ADDTIME, SUBTIME, RMVDWARFS, NONE};

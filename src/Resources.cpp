@@ -39,7 +39,7 @@ void Resources::loadFonts()
 	{
 		std::cerr << "error load from file";
 	}
-	if (!m_font2.loadFromFile("font2.ttf"));
+	if (!m_font2.loadFromFile("font2.ttf"))
 	{
 
 	}
