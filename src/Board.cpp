@@ -489,12 +489,9 @@ void Board::initPartners()
 		std::cout << row1 << col1 << row2 << col2 << "\n";
 
 		if (row1 != EOF || col1 != EOF || row2 != EOF || col2 != EOF)
-		{
-			position1 = createPosition(row1, col1);
-			position2 = createPosition(row2, col2);
-			m_partners.push_back(Partners(position1, position2));
-		}
+			m_partners.push_back(Partners(row1, col1, row2, col2));
 	}
+
 }
 
 //-----------------------------------------------------------------
@@ -519,28 +516,26 @@ sf::Vector2f Board::createPosition(int row, int col)
 
 void Board::initTeleportPartners()
 {
-	sf::Vector2f pos;
+	sf::Vector2f pos, partner1, partner2;
 
 	for (int i = 0; i < m_partners.size(); i++)
 	{
+		partner1 = createPosition(m_partners[i].row1, m_partners[i].col1);
+		partner2 = createPosition(m_partners[i].row2, m_partners[i].col2);
+
 		for (auto& unmovable : m_staticObj)
 		{
 			if (auto staticPtr = dynamic_cast<Teleport*>(unmovable.get()))
 			{
 				pos = staticPtr->getPosition();
 
-				if (pos == m_partners[i]._partner1)
+				if (pos == partner1)
 				{
-					std::cout << "here1\n";
-					std::cout << m_partners[i]._partner2.y << " " << m_partners[i]._partner2.x << "\n";
-					staticPtr->setPartner(m_partners[i]._partner2);
+					staticPtr->setPartner(createPosition(m_partners[i].row2, m_partners[i].col2 + 1));
 				}
-				else if(pos == m_partners[i]._partner2)
+				if (pos == partner2)
 				{
-					std::cout << "here2\n";
-					std::cout << m_partners[i]._partner1.y << " " << m_partners[i]._partner1.x << "\n";
-
-					staticPtr->setPartner(m_partners[i]._partner1);
+					staticPtr->setPartner(createPosition(m_partners[i].row1, m_partners[i].col1 + 1));
 				}
 			}
 		}
