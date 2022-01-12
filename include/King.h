@@ -2,6 +2,9 @@
 
 #include "Player.h"
 #include "Audio.h"
+#include "Mage.h"
+#include "Warrior.h"
+#include "Thief.h"
 
 class King : public Player
 {
