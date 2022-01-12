@@ -295,7 +295,7 @@ void Board::createObjects()
 			if (symbol == SPACE)
 				continue;
 
-			position = createPosition(row, col);
+			position = createPosition(row, col, symbol);
 
 			if (isStaticObj(symbol))
 				createStatic(symbol, position);
@@ -317,9 +317,8 @@ bool Board::isStaticObj(Icons symbol)
 
 void Board::setBgRectangle()
 {
-	m_bgRectangle.setFillColor(sf::Color::Color(51, 51, 51));
-	
-	//m_bgRectangle.setTexture(Resources::instance().getBoardBackground());
+	//m_bgRectangle.setFillColor(sf::Color::Color(51, 51, 51));
+	m_bgRectangle.setTexture(Resources::instance().getBoardBackground());
 }
 
 //-----------------------------------------------------------------
@@ -458,19 +457,21 @@ void Board::initPartners()
 
 //-----------------------------------------------------------------
 
-sf::Vector2f Board::createPosition(int row, int col)
+sf::Vector2f Board::createPosition(int row, int col, int symbol)
 {
 	sf::Vector2f position;
 	float xPos, yPos;
 	int size = m_width < m_height ? m_height : m_width;
 	//int square_size = ((BOARD_H) / size) - 10; //set 500 to const
-	float w = float(BOARD_H -30) / size;
-	auto square_size = (w * 512 )/ 550;
+	int divide_by = symbol == WALL ? 5.5 : 6;
+	float w = (float(BOARD_H -30) / size) / divide_by;
+	auto square_size = (w * 512 )/ 100;
 
 	
-	int col_offset = (WINDOW_W - BOARD_H) / 2;
-	xPos = (float)(col * (square_size) + col_offset);
-	yPos = (float)(row * (square_size) + 15);
+	int col_offsetX = (WINDOW_W - square_size * m_width) / 2;
+	int col_offsetY = (BOARD_H - square_size * m_height) / 2;
+	xPos = (float)(col * (square_size) + col_offsetX);
+	yPos = (float)(row * (square_size) + col_offsetY);
 	position = { xPos, yPos };
 
 	return position;
@@ -484,8 +485,8 @@ void Board::initTeleportPartners()
 
 	for (int i = 0; i < m_partners.size(); i++)
 	{
-		partner1 = createPosition(m_partners[i].row1, m_partners[i].col1);
-		partner2 = createPosition(m_partners[i].row2, m_partners[i].col2);
+		partner1 = createPosition(m_partners[i].row1, m_partners[i].col1, TELEPORT);
+		partner2 = createPosition(m_partners[i].row2, m_partners[i].col2, TELEPORT);
 
 		for (auto& unmovable : m_staticObj)
 		{
@@ -495,11 +496,11 @@ void Board::initTeleportPartners()
 
 				if (pos == partner1)
 				{
-					staticPtr->setPartner(createPosition(m_partners[i].row2, m_partners[i].col2 + 1));
+					staticPtr->setPartner(createPosition(m_partners[i].row2, m_partners[i].col2 + 1, TELEPORT));
 				}
 				if (pos == partner2)
 				{
-					staticPtr->setPartner(createPosition(m_partners[i].row1, m_partners[i].col1 + 1));
+					staticPtr->setPartner(createPosition(m_partners[i].row1, m_partners[i].col1 + 1, TELEPORT));
 				}
 			}
 		}
