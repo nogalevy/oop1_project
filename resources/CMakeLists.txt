@@ -1,5 +1,6 @@
 # images
 configure_file ("images/2.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/menu_bg.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/wall.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/fire.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/gate.png" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -31,6 +32,7 @@ configure_file ("images/board_bg3.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("fonts/font.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("fonts/font2.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("fonts/font3.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("fonts/YatraOne.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 
 # audio
 

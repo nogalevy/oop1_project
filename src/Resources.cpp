@@ -36,13 +36,13 @@ void Resources::loadImagesForObjects()
 
 void Resources::loadFonts()
 {
-	if (!m_font.loadFromFile("font3.ttf"))
+	if (!m_font.loadFromFile("YatraOne.ttf"))
 	{
 		std::cerr << "error load from file";
 	}
 	if (!m_font2.loadFromFile("font2.ttf"))
 	{
-
+		std::cerr << "error load from file";
 	}
 }
 
@@ -50,7 +50,7 @@ void Resources::loadFonts()
 
 void Resources::loadMenuBackground()
 {
-	if (!m_menuBackgroundTexture.loadFromFile("2.jpg"))
+	if (!m_menuBackgroundTexture.loadFromFile("menu_bg.png"))
 	{
 		std::cerr << "error load from file";
 	}

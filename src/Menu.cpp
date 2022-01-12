@@ -11,7 +11,7 @@ Menu::Menu()
     //#fontexample
     //m_font.loadFromFile("font3.ttf");
 
-    m_btns.resize(NUM_OF_MENU_BTNS); //TODO: change to const 
+    m_btns.resize(NUM_OF_MENU_BTNS);
     setBtns();
 }
 
@@ -42,22 +42,15 @@ int Menu::handleClick(const sf::Event& event) const
 
 void Menu::handleHover(const sf::Vector2f& location, sf::RenderWindow& window)
 {
-    sf::Cursor cursor;
-
     for (int i = 0; i < NUM_OF_MENU_BTNS; i++)
     {
         if (this->m_btns[i].getGlobalBounds().contains(location))
         {
-            m_btns[i].setFillColor(sf::Color::Color(55, 67, 87));
-            if (cursor.loadFromSystem(sf::Cursor::Hand))
-                window.setMouseCursor(cursor);
+            m_btns[i].setFillColor(sf::Color::Color(239, 236, 10));
         }
         else
         {
-
-            m_btns[i].setFillColor(sf::Color::Black);
-            if (cursor.loadFromSystem(sf::Cursor::Arrow))
-                window.setMouseCursor(cursor);
+            m_btns[i].setFillColor(sf::Color::Color(252, 252, 252));
         }
     }
 }
@@ -79,10 +72,10 @@ void Menu::setBtns()
     {
         m_btns[i].setFont(*(Resources::instance().getFont()));
         m_btns[i].setString(btn_text[i]);
-        m_btns[i].setCharacterSize(74); // in pixels, not points!
-        m_btns[i].setFillColor(sf::Color::Black);
+        m_btns[i].setCharacterSize(65); // in pixels, not points!
+        m_btns[i].setFillColor(sf::Color::White);
         m_btns[i].setStyle(sf::Text::Bold);
-        m_btns[i].setPosition(sf::Vector2f(70, 100 * (i + 1)));
+        m_btns[i].setPosition(sf::Vector2f((400 * i + 210), (WINDOW_H - 190)));
 
 
         //m_btns[i].setSize(size);
