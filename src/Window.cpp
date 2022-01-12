@@ -215,9 +215,13 @@ void Window::updateGameData()
         switch (bonus)
         {
         case ADDTIME:
+            m_dataDisplay.addTime(10, m_window);
+
             //add 10 seconds?
             break;
         case SUBTIME:
+            m_dataDisplay.addTime(-10, m_window);
+
             //remove 10 seconds?
             break;
         case RMVDWARFS:
