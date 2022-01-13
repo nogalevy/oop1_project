@@ -16,6 +16,7 @@ Window::Window()
     m_window.setFramerateLimit(60);
     m_helpMenu = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
     m_helpMenu.setTexture(Resources::instance().getHelpMenu());
+    setSound();
 
     if (m_board.isCountdown())
     {
@@ -38,7 +39,7 @@ Window::~Window()
 
 void Window::startGame()
 {
-    m_audio.playMusic(true);
+    m_audio.playMusic(DEFAULT_VOLUME ,true);
 
 
     while (m_window.isOpen())
@@ -59,7 +60,6 @@ void Window::startGame()
             if (m_currPage == BOARD)
             {
                 handleBoardEvent(event);
-                checkLoseLevel();
             }
             else if (m_currPage == MENU)
                 handleMenuEvent(event);
@@ -77,6 +77,7 @@ void Window::startGame()
 
 void Window::handleNextLevel()
 {
+    m_levelSounds[END_LEVEL - NUM_OF_COLISION_SOUND].playMusic(15);
     if (!m_board.setLevelNum())
     {
         m_board.resetLevelNum();
@@ -247,9 +248,20 @@ void Window::checkLoseLevel()
 {
     if (m_dataDisplay.isTimeEnd())
     {
+        m_levelSounds[LOSE_LEVEL - NUM_OF_COLISION_SOUND].playMusic(10);
+
         m_board.createLevel();
         resetCurrLevelData();
         m_dataDisplay.setCountdown(m_board.getCountdown());
+
+    }
+}
+
+void Window::setSound()
+{
+    for (size_t i = 0; i < NUM_OF_GAME_SOUND; i++)
+    {
+        m_levelSounds.push_back(Resources::instance().getSoundEffect(NUM_OF_COLISION_SOUND + i));
 
     }
 }
@@ -276,7 +288,9 @@ void Window::drawCurrPage()
     case BOARD:
         //bool key;
         //std::cout << "board page\n";
+
         m_board.draw(m_window, m_activePlayer);
+        checkLoseLevel();
 
         //key = m_board.getHasKey(); //Noga : not sure (?)
 
@@ -337,7 +351,7 @@ void Window::handleBoardClick(const sf::Event& event)
         if (m_soundOn)
             m_audio.stopPlayMusic();
         else
-            m_audio.playMusic();
+            m_audio.playMusic(DEFAULT_VOLUME, true);
         m_soundOn = !m_soundOn;
         break;
     case HOME:

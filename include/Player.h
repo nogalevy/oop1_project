@@ -1,5 +1,6 @@
 #pragma once
 #include "MovingObject.h"
+#include "Audio.h"
 
 
 
@@ -11,5 +12,10 @@ public:
 
 	void setPosition(const sf::Vector2f newPosition);
 	void move(sf::Vector2f direction, sf::Time deltaTime);// = 0;
+
+protected: 
+	void playSound(const int type);
 private:
+	void loadPlayerSoundEffects();
+	std::vector <Audio> m_colisionSounds;
 };

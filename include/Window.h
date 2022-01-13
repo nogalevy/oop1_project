@@ -39,7 +39,7 @@ private:
 	void moveDwarfs(sf::Time);
 	void updateGameData();
 	void checkLoseLevel();
-	
+	void setSound();
 	void resetCurrLevelData();
 	//window
 	sf::RenderWindow m_window;
@@ -64,6 +64,8 @@ private:
 	sf::Clock m_timer;
 	
 	bool m_soundOn = true;
+
+	std::vector <Audio> m_levelSounds;
 	//#fontexample		
 	//sf::Font m_font;
 

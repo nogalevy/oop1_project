@@ -140,7 +140,7 @@ void DataDisplay::addTime(const int time, sf::RenderWindow& window)
 
 bool DataDisplay::isTimeEnd()
 {
-	return m_timeCounter.getTime() == 0;
+	return (m_timeCounter.getType() == COUNTDOWN && int(m_timeCounter.getTime()) == 0);
 }
 
 void DataDisplay::resetClock()

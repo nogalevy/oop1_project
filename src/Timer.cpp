@@ -46,3 +46,8 @@ float Timer::getTime()
 	else if (m_time.asSeconds() - m_clock.getElapsedTime().asSeconds() <= 0) return 0;
 	else return m_time.asSeconds() - m_clock.getElapsedTime().asSeconds();
 }
+
+timer_type Timer::getType() const
+{
+	return timer_type(m_timerType);
+}

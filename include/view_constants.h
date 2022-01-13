@@ -21,3 +21,5 @@ const int DATA_DISPLAY_W = WINDOW_W;
 const int DATA_DISPLAY_H = WINDOW_H / 6;
 
 const float ICON_SIZE = 1048; //before 512
+
+const int DEFAULT_VOLUME = 10;

@@ -8,6 +8,7 @@ Resources::Resources()
 	loadMenuBackground();
 	loadHelpMenu();
 	loadAudio();
+	loadSoundEffects();
 	loadVolumeIcons();
 	loadBoardBackground();
 	loadHomeBtnTexture();
@@ -85,13 +86,23 @@ void Resources::loadVolumeIcons()
 void Resources::loadAudio()
 {
 	std::cout << "hello\n";
-	if (!m_buffer.loadFromFile("toward-the-mountains.ogg"))
+	if (!m_gameMusic.loadFromFile("toward-the-mountains.ogg"))
 	{
 		std::cerr << "error load from file";
 	}
-	if (!m_colisionBuffer.loadFromFile("crash1.ogg"))
+}
+
+void Resources::loadSoundEffects()
+{
+	sf::SoundBuffer buff;
+
+	for (int i = 0; i < NUM_OF_SOUND_EFFECTS; i++)
 	{
-		std::cerr << "error load from file";
+		if (!buff.loadFromFile(SOUND_EFFECTS[i]))
+		{
+			std::cerr << "error load audio from file";
+		}
+		m_soundEffectsBuffer.push_back(buff);
 	}
 }
 
@@ -172,14 +183,14 @@ sf::Texture* Resources::getHelpMenu()
 
 sf::SoundBuffer* Resources::getMusic()
 {
-	return &m_buffer;;
+	return &m_gameMusic;;
 }
 
 //-----------------------------------------------------------------
 
-sf::SoundBuffer* Resources::getColisionSound()
+sf::SoundBuffer* Resources::getSoundEffect(const int type)
 {
-	return &m_colisionBuffer;;
+	return &m_soundEffectsBuffer[type];
 }
 
 sf::Texture* Resources::getVolumeIcon(bool soundOn)

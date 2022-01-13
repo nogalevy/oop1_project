@@ -20,6 +20,7 @@ public:
 	void addTime(float time_to_add);
 	//void draw(sf::RenderWindow& window);
 	float getTime();
+	timer_type getType()const;
 
 private:
 	sf::Clock m_clock;

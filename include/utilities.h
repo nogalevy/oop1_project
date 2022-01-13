@@ -33,3 +33,10 @@ struct Partners {
 };
 
 enum BonusType {ADDTIME, SUBTIME, RMVDWARFS, NONE};
+
+const int NUM_OF_COLISION_SOUND = 4;
+const int NUM_OF_GAME_SOUND = 2;
+const int NUM_OF_SOUND_EFFECTS = NUM_OF_COLISION_SOUND + NUM_OF_GAME_SOUND;
+
+enum Sound_effect_type { DEFAULT_COLISION, WARRIOR_ORC_COLISION, BONUS_COLISION, NO, END_LEVEL, LOSE_LEVEL };
+const std::string SOUND_EFFECTS[NUM_OF_SOUND_EFFECTS] = { "colision.ogg", "sword.ogg", "bonus.ogg", "no.ogg", "win.ogg", "loser.ogg"};

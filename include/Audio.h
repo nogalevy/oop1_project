@@ -2,7 +2,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Resources.h"
-
+#include "view_constants.h"
 
 
 class Audio {
@@ -11,7 +11,7 @@ public:
 	~Audio();
 
 
-	void playMusic(bool loop = false);
+	void playMusic(int volume = DEFAULT_VOLUME, bool loop = false);
 	void stopPlayMusic();
 private:
 	//functions

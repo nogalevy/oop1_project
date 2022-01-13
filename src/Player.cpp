@@ -4,6 +4,7 @@
 Player::Player(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
 	: MovingObject(symbol, position, mapW, mapH)
 {
+	loadPlayerSoundEffects();
 }
 
 Player::~Player()
@@ -21,4 +22,17 @@ void Player::move(sf::Vector2f direction, sf::Time deltaTime)
 	m_prevPos = getIcon().getPosition();
 	auto speedPerSecond = 100.f;
 	getIcon().move(direction * speedPerSecond * deltaTime.asSeconds());
+}
+
+void Player::playSound(const int type)
+{
+	m_colisionSounds[type].playMusic(20);
+}
+
+void Player::loadPlayerSoundEffects()
+{
+	for (int i = 0; i < NUM_OF_COLISION_SOUND; i++)
+	{
+		m_colisionSounds.push_back(Resources::instance().getSoundEffect(i));
+	}
 }

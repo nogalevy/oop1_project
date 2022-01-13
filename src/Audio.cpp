@@ -14,11 +14,11 @@ void Audio::stopPlayMusic()
 	m_sound.pause();
 }
 
-void Audio::playMusic(bool loop)
+void Audio::playMusic(int volume, bool loop)
 {
 	m_sound.play();
 	m_sound.setLoop(loop);
-	m_sound.setVolume(10);
+	m_sound.setVolume(volume);
 }
 
 void Audio::initMusic(sf::SoundBuffer* soundBuffer)
