@@ -14,9 +14,8 @@ Window::Window()
     m_audio(Resources::instance().getMusic())
 {
     m_window.setFramerateLimit(60);
-    m_helpMenu = sf::RectangleShape(sf::Vector2f(float(WINDOW_W/2), float(WINDOW_H/2)));
+    m_helpMenu = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
     m_helpMenu.setTexture(Resources::instance().getHelpMenu());
-    m_helpMenu.setPosition(sf::Vector2f(float(WINDOW_W / 4), float(WINDOW_H / 4)));
 
     if (m_board.isCountdown())
     {
@@ -50,8 +49,6 @@ void Window::startGame()
 
         drawCurrPage();
 
-        //m_window.draw(m_helpMenu);
-
         m_window.display();
 
         if (auto event = sf::Event{}; m_window.pollEvent(event))
@@ -63,6 +60,8 @@ void Window::startGame()
                 handleBoardEvent(event);
             else if (m_currPage == MENU)
                 handleMenuEvent(event);
+            else if (m_currPage == HELPMENU)
+                handleHelpEvent(event);
             else
                 handleLevelComplete(event);
         }
@@ -144,6 +143,15 @@ void Window::handleMenuEvent(const sf::Event& event)
     }
 }
 
+void Window::handleHelpEvent(const sf::Event& event)
+{
+    if (event.type == sf::Event::KeyReleased)
+        if (event.key.code == sf::Keyboard::Space)
+        {
+            m_currPage = MENU;
+        }
+}
+
 void Window::handleLevelComplete(const sf::Event& event)
 {
     if (event.type == sf::Event::KeyReleased)
@@ -159,7 +167,9 @@ void Window::handleKeyboardClick()
 {
     sf::Time deltaTime = m_timer.restart();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
         m_window.close();
+    }
     if (m_currPage == BOARD)
     {
         movePlayer(deltaTime);
@@ -252,8 +262,12 @@ void Window::drawCurrPage()
 
         m_dataDisplay.draw(m_window, m_activePlayer);
         break;
+    case HELPMENU:
+        m_window.draw(m_helpMenu);
+        break;
     case LEVELCOMPLETE:
         m_window.draw(m_levelComplete);
+        break;
     default:
         break;
     }
@@ -283,10 +297,8 @@ void Window::handleMenuClick(const sf::Event& event)
         m_dataDisplay.setCountdown(m_board.getCountdown());
         break;
     case HELP:
-    {   
-        //m_window.draw(m_helpMenu);
+        m_currPage = HELPMENU;
         break;
-    }
     case EXIT:
         m_window.close();
         break;
