@@ -11,7 +11,7 @@ public:
 
 	//// Colisions:
 	virtual void handleCollision(GameObject& gameObject) override;
-	//// make them one - dynamic type ? 
+
 	virtual void handleCollision(King& gameObject) override;
 	virtual void handleCollision(Warrior& gameObject) override;
 	virtual void handleCollision(Mage& gameObject) override;

@@ -43,3 +43,4 @@ const std::string COLISION_SOUND_EFFECTS[NUM_OF_COLISION_SOUND] = { "colision.og
 
 enum Level_sound_effect_type { END_LEVEL, LOSE_LEVEL };
 const std::string LEVEL_SOUND_EFFECTS[NUM_OF_LEVEL_SOUND] = { "win.ogg", "loser.ogg" };
+

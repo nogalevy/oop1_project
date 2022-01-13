@@ -30,16 +30,6 @@
 
 #include "Dwarf.h"
 
-
-//class MovingObject;
-//class StaticObject;
-//class Wall;
-//class King;
-//class Thief;
-//class Warrior;
-//class Mage;
-
-
 class Board
 {
 public:
@@ -75,7 +65,6 @@ public:
 	void createLevel();
 	void setBonus(BonusType type);
 private:
-
 	//Access Functions
 	Icons getSymbol(int, int)const;
 
@@ -98,7 +87,6 @@ private:
 	void initTeleportPartners(float obj_size);
 	bool canAddDwarf(int row, int& col);
 	void addDwarfToRow(int row, int col, float obj_size);
-
 
 	bool checkHasKey() const;
 	void setBgRectangle();
@@ -136,8 +124,4 @@ private:
 	//Timer Data Members
 	bool m_isCountdown;
 	int m_countdownTime;
-
-	//Trial
-	std::vector<std::vector<sf::RectangleShape>>m_mat;
-
 };

@@ -138,7 +138,7 @@ void DataDisplay::addTime(const int time, sf::RenderWindow& window)
 	m_timeCounter.addTime(time);
 }
 
-bool DataDisplay::isTimeEnd()
+bool DataDisplay::isTimeEnd()const
 {
 	return (m_timeCounter.getType() == COUNTDOWN && int(m_timeCounter.getTime()) == 0);
 }

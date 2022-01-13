@@ -6,25 +6,22 @@
 #include "view_constants.h"
 #include "utilities.h"
 
-
 class Timer
 {
 public:
-	Timer();
 	Timer(int time);
 
 	void setTime(int time);
-	//void setCountdown(int time);
 	void startClock();
 	sf::Time getElapsed();
 	void addTime(float time_to_add);
-	//void draw(sf::RenderWindow& window);
-	float getTime();
+
+	float getTime()const;
 	timer_type getType()const;
 
 private:
 	sf::Clock m_clock;
 	sf::Time m_time;
-	timer_type m_timerType; // true = timer | false = countdown
+	timer_type m_timerType;
 };
 
