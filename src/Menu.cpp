@@ -55,7 +55,6 @@ void Menu::setBtns()
     //text.setStyle(sf::Text::Bold);
 
     //calc center:
-    std::vector<std::string> btn_text = { "Start", "Help", "Exit" };
 
     sf::Vector2f size = sf::Vector2f(200.f, 100.f);
     for (int i = 0; i < NUM_OF_MENU_BTNS; i++)
