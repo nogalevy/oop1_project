@@ -36,3 +36,11 @@ void Player::loadPlayerSoundEffects()
 		m_colisionSounds.push_back(Resources::instance().getSoundEffect(i));
 	}
 }
+
+void Player::setActive(bool active)
+{
+	if (active)
+		getIcon().setColor(sf::Color::White);
+	else
+		getIcon().setColor(sf::Color(124, 124, 124));
+}

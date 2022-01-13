@@ -17,14 +17,14 @@ void Mage::handleCollision(GameObject& gameObject)
 	gameObject.handleCollision(*(this));
 }
 
-void Mage::handleCollision(King& )
+void Mage::handleCollision(King& gameObject)
 {
-	
+	gameObject.moveToPrevPos();
 }
 
-void Mage::handleCollision(Warrior& )
+void Mage::handleCollision(Warrior& gameObject)
 {
-	
+	gameObject.moveToPrevPos();
 }
 
 void Mage::handleCollision(Mage& )
@@ -32,9 +32,9 @@ void Mage::handleCollision(Mage& )
 	
 }
 
-void Mage::handleCollision(Thief& )
+void Mage::handleCollision(Thief& gameObject)
 {
-	
+	gameObject.moveToPrevPos();
 }
 
 void Mage::handleCollision(Fire& )

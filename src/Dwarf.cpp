@@ -97,7 +97,7 @@ void Dwarf::increaseSpeed()
 {
 	m_speedPerSecond += 50.f;
 
-	if (m_speedPerSecond > 300.f)
+	if (m_speedPerSecond > 400.f)
 		m_speedPerSecond = 300.f;
 }
 
@@ -105,6 +105,6 @@ void Dwarf::decreaseSpeed()
 {
 	m_speedPerSecond -= 50.f;
 
-	if (m_speedPerSecond < 0.f)
+	if (m_speedPerSecond < 50.f)
 		m_speedPerSecond = 50.f;
 }
