@@ -31,4 +31,7 @@ target_sources (${CMAKE_PROJECT_NAME} PRIVATE "Board.h"
                                               "AddTimeBonus.h"
                                               "SubTimeBonus.h"
                                               "RmvDwarfsBonus.h"
+                                              "SlowDwarfsBonus.h"
+                                              "MoreDwarfsBonus.h"
+                                              "FastDwarfsBonus.h"
                                              )

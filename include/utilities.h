@@ -9,7 +9,7 @@ const int NUM_OF_MOVING = 4;
 const int NUM_OF_STATIC = 8;
 const int NUM_OF_ICONS = NUM_OF_MOVING + NUM_OF_STATIC + 1; //1 = dwarfs
 //const int GAME_BTN_NUM = 3;
-const int NUM_OF_BONUS_TYPES = 3;
+const int NUM_OF_BONUS_TYPES = 6;
 
 //enum GameButtons { CLEAR = 12, DELETE = 13, SAVE = 14 };
 enum Icons { KING, MAGE, WARRIOR, THIEF, DWARF, WALL, GATE, FIRE, ORC, TELEPORT, THRONE, KEY, BONUS, SPACE};
@@ -32,4 +32,4 @@ struct Partners {
 		row2, col2;
 };
 
-enum BonusType {ADDTIME, SUBTIME, RMVDWARFS, NONE};
+enum BonusType {ADDTIME, SUBTIME, RMVDWARFS, MOREDWARFS, SLOWDWARFS, FASTDWARFS, NONE};

@@ -1,7 +1,7 @@
 #include "Dwarf.h"
 
 Dwarf::Dwarf(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	: MovingObject(symbol, position, mapW, mapH), m_direction({ -1,0 })
+	: MovingObject(symbol, position, mapW, mapH), m_direction({ -1,0 }), m_speedPerSecond(100.f)
 {
 }
 
@@ -12,8 +12,8 @@ Dwarf::~Dwarf()
 void Dwarf::move(sf::Time deltaTime)
 {
 	m_prevPos = getIcon().getPosition();
-	auto speedPerSecond = 100.f;
-	getIcon().move(m_direction * speedPerSecond * deltaTime.asSeconds());
+	//auto speedPerSecond = 100.f;
+	getIcon().move(m_direction * m_speedPerSecond * deltaTime.asSeconds());
 }
 
 
@@ -91,4 +91,20 @@ void Dwarf::handleCollision(Wall& /*gameObject*/)
 
 void Dwarf::handleCollision(Dwarf& gameObject)
 {
+}
+
+void Dwarf::increaseSpeed()
+{
+	m_speedPerSecond += 50.f;
+
+	if (m_speedPerSecond > 300.f)
+		m_speedPerSecond = 300.f;
+}
+
+void Dwarf::decreaseSpeed()
+{
+	m_speedPerSecond -= 50.f;
+
+	if (m_speedPerSecond < 0.f)
+		m_speedPerSecond = 50.f;
 }

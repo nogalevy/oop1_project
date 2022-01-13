@@ -146,6 +146,8 @@ void Window::handleMenuEvent(const sf::Event& event)
     }
 }
 
+//-----------------------------------------------------------------
+
 void Window::handleHelpEvent(const sf::Event& event)
 {
     if (event.type == sf::Event::KeyReleased)
@@ -154,6 +156,8 @@ void Window::handleHelpEvent(const sf::Event& event)
             m_currPage = MENU;
         }
 }
+
+//-----------------------------------------------------------------
 
 void Window::handleLevelComplete(const sf::Event& event)
 {
@@ -164,6 +168,8 @@ void Window::handleLevelComplete(const sf::Event& event)
             m_dataDisplay.setCountdown(m_board.getCountdown());
         }
 }
+
+//-----------------------------------------------------------------
 
 void Window::handleCongrats(const sf::Event& event)
 {
@@ -238,17 +244,37 @@ void Window::updateGameData()
         switch (bonus)
         {
         case ADDTIME:
+            std::cout << "ADD TIME BONUS\n";
             m_dataDisplay.addTime(10, m_window);
 
             //add 10 seconds?
             break;
         case SUBTIME:
+            std::cout << "SUB TIME BONUS\n";
+
             m_dataDisplay.addTime(-10, m_window);
 
             //remove 10 seconds?
             break;
         case RMVDWARFS:
+            std::cout << "RMV DWARFS BONUS\n";
+
             m_board.removeDwarfs();
+            break;
+        case MOREDWARFS:
+            std::cout << "MORE DWARFS BONUS\n";
+
+            m_board.moreDwarfs();
+            break;
+        case SLOWDWARFS:
+            std::cout << "SLOW DWARFS BONUS\n";
+
+            m_board.slowDwarfs();
+            break;
+        case FASTDWARFS:
+            std::cout << "FAST DWARFS BONUS\n";
+
+            m_board.fastDwarfs();
             break;
         default:
             break;
@@ -256,6 +282,8 @@ void Window::updateGameData()
         m_board.setBonus(NONE);
     }
 }
+
+//-----------------------------------------------------------------
 
 void Window::checkLoseLevel()
 {
@@ -267,6 +295,8 @@ void Window::checkLoseLevel()
 
     }
 }
+
+//-----------------------------------------------------------------
 
 void Window::resetCurrLevelData()
 {
@@ -342,6 +372,8 @@ void Window::handleMenuClick(const sf::Event& event)
         break;
     }
 }
+
+//-----------------------------------------------------------------
 
 void Window::handleBoardClick(const sf::Event& event)
 {
