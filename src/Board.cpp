@@ -323,6 +323,7 @@ void Board::createObjects()
 	sf::Vector2f position;
 	//float xPos, yPos;
 
+	float obj_size = getObjSizeOnBoard();
 	m_staticObj.clear();
 	m_players.clear();
 	m_dwarfs.clear();
@@ -504,6 +505,11 @@ void Board::initPartners()
 }
 
 //-----------------------------------------------------------------
+
+float Board::getObjSizeOnBoard()
+{
+	return 0.0f;
+}
 
 sf::Vector2f Board::createPosition(int row, int col, int symbol)
 {

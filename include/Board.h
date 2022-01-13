@@ -106,6 +106,8 @@ private:
 	void handleCollisions(int activePlayer);
 	void handleDwarfCollisions();
 	void updateBoard();
+
+	float getObjSizeOnBoard();
 	sf::Vector2f createPosition(int row, int col, int symbol);
 
 	//======Members==========
