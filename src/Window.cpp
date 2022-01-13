@@ -27,6 +27,9 @@ Window::Window()
     m_levelComplete = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
     m_levelComplete.setTexture(Resources::instance().getLevelCompleted());
    // m_levelComplete.setPosition(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
+
+    m_congrats = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
+    m_congrats.setTexture(Resources::instance().getCongrats());
 }
 
 //-----------------------------------------------------------------
@@ -45,13 +48,13 @@ void Window::startGame()
     while (m_window.isOpen())
     {
         sf::Vector2f location;
-    
+
         m_window.clear(sf::Color(sf::Color(26, 26 ,26)));
 
         drawCurrPage();
 
         m_window.display();
-        
+
         if (auto event = sf::Event{}; m_window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
@@ -65,8 +68,10 @@ void Window::startGame()
                 handleMenuEvent(event);
             else if (m_currPage == HELPMENU)
                 handleHelpEvent(event);
-            else
+            else if (m_currPage == LEVELCOMPLETE)
                 handleLevelComplete(event);
+            else
+                handleCongrats(event);
         }
 
         handleKeyboardClick();
@@ -82,7 +87,7 @@ void Window::handleNextLevel()
     {
         m_board.resetLevelNum();
         m_activePlayer = KING;
-        m_currPage = MENU; //we need to update here that the user finished all levels
+        m_currPage = CONGRATS; //we need to update here that the user finished all levels
 
     }
     m_board.loadLevel();
@@ -142,6 +147,8 @@ void Window::handleMenuEvent(const sf::Event& event)
     }
 }
 
+//-----------------------------------------------------------------
+
 void Window::handleHelpEvent(const sf::Event& event)
 {
     if (event.type == sf::Event::KeyReleased)
@@ -151,6 +158,8 @@ void Window::handleHelpEvent(const sf::Event& event)
         }
 }
 
+//-----------------------------------------------------------------
+
 void Window::handleLevelComplete(const sf::Event& event)
 {
     if (event.type == sf::Event::KeyReleased)
@@ -158,6 +167,17 @@ void Window::handleLevelComplete(const sf::Event& event)
         {
             m_currPage = BOARD;
             m_dataDisplay.setCountdown(m_board.getCountdown());
+        }
+}
+
+//-----------------------------------------------------------------
+
+void Window::handleCongrats(const sf::Event& event)
+{
+    if (event.type == sf::Event::KeyReleased)
+        if (event.key.code == sf::Keyboard::Space)
+        {
+            m_currPage = MENU;
         }
 }
 
@@ -198,7 +218,7 @@ void Window::movePlayer(sf::Time deltaTime)
     {
         m_board.move(sf::Vector2f(0, 1), deltaTime, m_activePlayer);
     }
-  
+
 }
 
 //-----------------------------------------------------------------
@@ -225,17 +245,37 @@ void Window::updateGameData()
         switch (bonus)
         {
         case ADDTIME:
+            std::cout << "ADD TIME BONUS\n";
             m_dataDisplay.addTime(10, m_window);
 
             //add 10 seconds?
             break;
         case SUBTIME:
+            std::cout << "SUB TIME BONUS\n";
+
             m_dataDisplay.addTime(-10, m_window);
 
             //remove 10 seconds?
             break;
         case RMVDWARFS:
+            std::cout << "RMV DWARFS BONUS\n";
+
             m_board.removeDwarfs();
+            break;
+        case MOREDWARFS:
+            std::cout << "MORE DWARFS BONUS\n";
+
+            m_board.moreDwarfs();
+            break;
+        case SLOWDWARFS:
+            std::cout << "SLOW DWARFS BONUS\n";
+
+            m_board.slowDwarfs();
+            break;
+        case FASTDWARFS:
+            std::cout << "FAST DWARFS BONUS\n";
+
+            m_board.fastDwarfs();
             break;
         default:
             break;
@@ -243,6 +283,8 @@ void Window::updateGameData()
         m_board.setBonus(NONE);
     }
 }
+
+//-----------------------------------------------------------------
 
 void Window::checkLoseLevel()
 {
@@ -302,6 +344,9 @@ void Window::drawCurrPage()
     case LEVELCOMPLETE:
         m_window.draw(m_levelComplete);
         break;
+    case CONGRATS:
+        m_window.draw(m_congrats);
+        break;
     default:
         break;
     }
@@ -339,6 +384,8 @@ void Window::handleMenuClick(const sf::Event& event)
         break;
     }
 }
+
+//-----------------------------------------------------------------
 
 void Window::handleBoardClick(const sf::Event& event)
 {
@@ -381,9 +428,3 @@ void Window::resetClock()
 {
     m_dataDisplay.resetClock();
 }
-
-
-
-
-
-

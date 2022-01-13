@@ -27,6 +27,10 @@ public:
 
 	virtual void handleCollision(Dwarf& gameObject) override;
 	//virtual void handleCollision(Bonus& gameObject) override;
+
+	void increaseSpeed();
+	void decreaseSpeed();
 private:
 	sf::Vector2f m_direction;
+	float m_speedPerSecond = 100.f;
 };

@@ -13,6 +13,7 @@ Resources::Resources()
 	loadBoardBackground();
 	loadHomeBtnTexture();
 	loadLevelComplete();
+	loadCongrats();
 }
 
 //-----------------------------------------------------------------
@@ -130,6 +131,14 @@ void Resources::loadLevelComplete()
 	}
 }
 
+void Resources::loadCongrats()
+{
+	if (!m_congrats.loadFromFile("congrats.jpg"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
 //-----------------------------------------------------------------
 
 Resources::~Resources()
@@ -211,4 +220,9 @@ sf::Texture* Resources::getHomeBtnTexture()
 sf::Texture* Resources::getLevelCompleted()
 {
 	return &m_levelComplete;
+}
+
+sf::Texture* Resources::getCongrats()
+{
+	return &m_congrats;
 }

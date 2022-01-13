@@ -24,6 +24,9 @@
 #include "AddTimeBonus.h"
 #include "SubTimeBonus.h"
 #include "RmvDwarfsBonus.h"
+#include "MoreDwarfsBonus.h"
+#include "SlowDwarfsBonus.h"
+#include "FastDwarfsBonus.h"
 
 #include "Dwarf.h"
 
@@ -65,6 +68,9 @@ public:
 	int getLevelNum()const;
 	void resetLevelNum();
 	void removeDwarfs();
+	void moreDwarfs();
+	void fastDwarfs();
+	void slowDwarfs();
 
 	void createLevel();
 	void setBonus(BonusType type);
@@ -90,6 +96,8 @@ private:
 	void createStatic(Icons symbol, sf::Vector2f position);
 	std::unique_ptr<Bonus> selectRandomBonus(sf::Vector2f position);
 	void initTeleportPartners();
+	bool canAddDwarf(int row, int& col);
+	void addDwarfToRow(int row, int col);
 
 
 	bool checkHasKey() const;
@@ -108,7 +116,7 @@ private:
 	std::ifstream m_levelFile;
 	std::vector<std::string> m_boardMat;
 
-	std::vector<std::unique_ptr<Player>> m_movingObj;
+	std::vector<std::unique_ptr<Player>> m_players;
 	std::vector<std::unique_ptr<StaticObject>> m_staticObj;
 	std::vector<std::unique_ptr<Dwarf>> m_dwarfs;
 

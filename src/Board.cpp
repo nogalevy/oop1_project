@@ -89,7 +89,7 @@ int Board::getCountdown() const
 
 bool Board::checkEndLevel() const
 {
-	for (auto& movable : m_movingObj)
+	for (auto& movable : m_players)
 	{
 		//auto movingPtr = movable.get();
 		if (auto movablePtr = dynamic_cast<King*>(movable.get()))
@@ -107,7 +107,7 @@ void Board::openLevelFile()
 
 	m_levelFile.open(levelName);
 	if (!m_levelFile.is_open())
-		std::cout << "nope\n";
+		std::cout << "Couldn't open file\n";
 
 	createLevel();
 }
@@ -116,7 +116,7 @@ void Board::openLevelFile()
 
 bool Board::checkHasKey() const
 {
-	for(auto &movable : m_movingObj)
+	for(auto &movable : m_players)
 	{
 		//auto movingPtr = movable.get();
 		if (auto playerPtr = dynamic_cast<Thief*>(movable.get()))
@@ -149,12 +149,12 @@ void Board::draw(sf::RenderWindow& window, int activePlayer)
 		m_staticObj[i]->draw(window);
 	}
 
-	for (int i = 0; i < m_movingObj.size(); i++)
+	for (int i = 0; i < m_players.size(); i++)
 	{
 		if(i != activePlayer)
-			m_movingObj[i]->draw(window);
+			m_players[i]->draw(window);
 	}
-	m_movingObj[activePlayer]->draw(window);
+	m_players[activePlayer]->draw(window);
 	
 	for (int i = 0; i < m_dwarfs.size(); i++)
 	{
@@ -166,7 +166,7 @@ void Board::draw(sf::RenderWindow& window, int activePlayer)
 
 void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
 {
-	m_movingObj[activePlayer]->move(direction, deltaTime);
+	m_players[activePlayer]->move(direction, deltaTime);
 	handleCollisions(activePlayer);
 	updateBoard();
 }
@@ -249,6 +249,39 @@ void Board::removeDwarfs()
 	m_dwarfs.clear();
 }
 
+void Board::moreDwarfs()
+{
+	bool added = false;
+	
+	while (!added)
+	{
+		int row = rand() % m_height;
+		int col = 1;
+
+		if(canAddDwarf(row, col))
+		{
+			addDwarfToRow(row, col);
+			added = true;
+		}
+	}
+}
+
+void Board::fastDwarfs()
+{
+	for (int i = 0; i < m_dwarfs.size(); i++)
+	{
+		m_dwarfs[i]->increaseSpeed();
+	}
+}
+
+void Board::slowDwarfs()
+{
+	for (int i = 0; i < m_dwarfs.size(); i++)
+	{
+		m_dwarfs[i]->decreaseSpeed();
+	}
+}
+
 //-----------------------------------------------------------------
 
 void Board::createLevel()
@@ -287,10 +320,10 @@ void Board::createObjects()
 	//float xPos, yPos;
 
 	m_staticObj.clear();
-	m_movingObj.clear();
+	m_players.clear();
 	m_dwarfs.clear();
 
-	m_movingObj.resize(NUM_OF_MOVING);
+	m_players.resize(NUM_OF_MOVING);
 
 	for (int row = 0; row < m_height; row++)
 	{
@@ -349,24 +382,24 @@ void Board::handleCollisions(int activePlayer)
 {
 	for (auto& unmovable : m_staticObj)
 	{
-		if (m_movingObj[activePlayer]->checkColisionWith(*unmovable))
+		if (m_players[activePlayer]->checkColisionWith(*unmovable))
 		{
-			m_movingObj[activePlayer]->handleCollision(*unmovable);
+			m_players[activePlayer]->handleCollision(*unmovable);
 		}
 
 	}
-	for (auto& movable : m_movingObj) //Tali: all moving objects in m_movingObj are players. if we dont care for collsioins we dont need this
+	for (auto& movable : m_players) //Tali: all moving objects in m_players are players. if we dont care for collsioins we dont need this
 	{
-		if (m_movingObj[activePlayer]->checkColisionWith(*movable))
+		if (m_players[activePlayer]->checkColisionWith(*movable))
 		{
-			m_movingObj[activePlayer]->handleCollision(*movable);
+			m_players[activePlayer]->handleCollision(*movable);
 		}
 	}
 	for (auto& dwarf : m_dwarfs)
 	{
-		if (m_movingObj[activePlayer]->checkColisionWith(*dwarf))
+		if (m_players[activePlayer]->checkColisionWith(*dwarf))
 		{
-			m_movingObj[activePlayer]->handleCollision(*dwarf);
+			m_players[activePlayer]->handleCollision(*dwarf);
 		}
 	}
 }
@@ -435,6 +468,12 @@ void Board::changeStatic()
 					m_bonusType = SUBTIME;
 				else if (typeid(*staticPtr) == typeid(RmvDwarfsBonus))
 					m_bonusType = RMVDWARFS;
+				else if (typeid(*staticPtr) == typeid(MoreDwarfsBonus))
+					m_bonusType = MOREDWARFS;
+				else if (typeid(*staticPtr) == typeid(SlowDwarfsBonus))
+					m_bonusType = SLOWDWARFS;
+				else if (typeid(*staticPtr) == typeid(FastDwarfsBonus))
+					m_bonusType = FASTDWARFS;
 			}
 		}
 	}
@@ -512,23 +551,57 @@ void Board::initTeleportPartners()
 	}
 }
 
+bool Board::canAddDwarf(int row, int& newcol)
+{
+	bool assigned = false;
+
+	for (int col = 0; col < m_width; col++)
+	{
+		Icons symbol = getSymbol(row, col);
+		if (symbol == DWARF)
+			return false;
+		if (symbol != WALL and !assigned)
+		{
+			newcol = col;
+			assigned = true;
+		}
+	}
+	return true;
+}
+
+void Board::addDwarfToRow(int row, int col)
+{
+	sf::Vector2f position = createPosition(row, col , DWARF);
+
+	createMoving(DWARF, position);
+}
+
 //-----------------------------------------------------------------
 
 std::unique_ptr<Bonus> Board::selectRandomBonus(sf::Vector2f position)
 {
-	if(!m_isCountdown)
-		return std::make_unique<RmvDwarfsBonus>(BONUS, position, m_width, m_height);
+	int bonus;
 
-	int bonus = rand() % NUM_OF_BONUS_TYPES;
+	if (!m_isCountdown)
+		bonus = rand() % (NUM_OF_BONUS_TYPES - 2) + 2;
+
+	else
+		bonus = rand() % NUM_OF_BONUS_TYPES;
 
 	switch (bonus)
 	{
-	case 0:
+	case ADDTIME:
 		return std::make_unique<AddTimeBonus>(BONUS, position, m_width, m_height);
-	case 1:
+	case SUBTIME:
 		return std::make_unique<SubTimeBonus>(BONUS, position, m_width, m_height);
-	case 2:
+	case RMVDWARFS:
 		return std::make_unique<RmvDwarfsBonus>(BONUS, position, m_width, m_height);
+	case MOREDWARFS:
+		return std::make_unique<MoreDwarfsBonus>(BONUS, position, m_width, m_height);
+	case SLOWDWARFS:
+		return std::make_unique<SlowDwarfsBonus>(BONUS, position, m_width, m_height);
+	case FASTDWARFS:
+		return std::make_unique<FastDwarfsBonus>(BONUS, position, m_width, m_height);
 	default:
 		break;
 	}
@@ -542,16 +615,16 @@ void Board::createMoving(Icons symbol, sf::Vector2f position)
 	switch (symbol)
 	{
 	case KING:
-		m_movingObj[KING] = std::make_unique<King>(symbol, position, m_width, m_height);
+		m_players[KING] = std::make_unique<King>(symbol, position, m_width, m_height);
 		break;
 	case WARRIOR:
-		m_movingObj[WARRIOR] = std::make_unique<Warrior>(symbol, position, m_width, m_height);
+		m_players[WARRIOR] = std::make_unique<Warrior>(symbol, position, m_width, m_height);
 		break;
 	case MAGE:
-		m_movingObj[MAGE] = std::make_unique<Mage>(symbol, position, m_width, m_height);
+		m_players[MAGE] = std::make_unique<Mage>(symbol, position, m_width, m_height);
 		break;
 	case THIEF:
-		m_movingObj[THIEF] = std::make_unique<Thief>(symbol, position, m_width, m_height);
+		m_players[THIEF] = std::make_unique<Thief>(symbol, position, m_width, m_height);
 		break;
 	case DWARF:
 		m_dwarfs.emplace_back(std::make_unique<Dwarf>(symbol, position, m_width, m_height));

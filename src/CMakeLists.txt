@@ -28,5 +28,8 @@
                                               "AddTimeBonus.cpp"
                                               "SubTimeBonus.cpp"
                                               "RmvDwarfsBonus.cpp"
+                                              "SlowDwarfsBonus.cpp"
+                                              "FastDwarfsBonus.cpp"
+                                              "MoreDwarfsBonus.cpp"
                                               "Dwarf.cpp"
                                              )
