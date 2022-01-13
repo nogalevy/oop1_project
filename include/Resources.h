@@ -26,6 +26,7 @@ public:
 	sf::Texture* getBoardBackground();
 	sf::Texture* getHomeBtnTexture();
 	sf::Texture* getLevelCompleted();
+	sf::Texture* getCongrats();
 private:
 	Resources();
 	Resources(const Resources&) = default;
@@ -41,6 +42,7 @@ private:
 	void loadBoardBackground();
 	void loadHomeBtnTexture();
 	void loadLevelComplete();
+	void loadCongrats();
 
 	//Members
 	std::vector<sf::Texture> m_textures;
@@ -54,5 +56,6 @@ private:
 	sf::SoundBuffer m_buffer;
 	sf::SoundBuffer m_colisionBuffer;
 	sf::Texture m_levelComplete;
+	sf::Texture m_congrats;
 
 };

@@ -26,6 +26,9 @@ Window::Window()
     m_levelComplete = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
     m_levelComplete.setTexture(Resources::instance().getLevelCompleted());
    // m_levelComplete.setPosition(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
+
+    m_congrats = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
+    m_congrats.setTexture(Resources::instance().getCongrats());
 }
 
 //-----------------------------------------------------------------
@@ -65,8 +68,10 @@ void Window::startGame()
                 handleMenuEvent(event);
             else if (m_currPage == HELPMENU)
                 handleHelpEvent(event);
-            else
+            else if (m_currPage == LEVELCOMPLETE)
                 handleLevelComplete(event);
+            else
+                handleCongrats(event);
         }
 
         handleKeyboardClick();
@@ -81,7 +86,7 @@ void Window::handleNextLevel()
     {
         m_board.resetLevelNum();
         m_activePlayer = KING;
-        m_currPage = MENU; //we need to update here that the user finished all levels
+        m_currPage = CONGRATS; //we need to update here that the user finished all levels
 
     }
     m_board.loadLevel();
@@ -157,6 +162,15 @@ void Window::handleLevelComplete(const sf::Event& event)
         {
             m_currPage = BOARD;
             m_dataDisplay.setCountdown(m_board.getCountdown());
+        }
+}
+
+void Window::handleCongrats(const sf::Event& event)
+{
+    if (event.type == sf::Event::KeyReleased)
+        if (event.key.code == sf::Keyboard::Space)
+        {
+            m_currPage = MENU;
         }
 }
 
@@ -287,6 +301,9 @@ void Window::drawCurrPage()
         break;
     case LEVELCOMPLETE:
         m_window.draw(m_levelComplete);
+        break;
+    case CONGRATS:
+        m_window.draw(m_congrats);
         break;
     default:
         break;

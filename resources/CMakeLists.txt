@@ -17,6 +17,8 @@ configure_file ("images/dwarf.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/gift.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/halp.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/levelcompleted.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/congrats.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+
 
 
 configure_file ("images/mute_white.png" ${CMAKE_BINARY_DIR} COPYONLY)
