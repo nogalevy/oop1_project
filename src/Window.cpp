@@ -249,6 +249,8 @@ void Window::checkLoseLevel()
     {
         m_board.createLevel();
         resetCurrLevelData();
+        m_dataDisplay.setCountdown(m_board.getCountdown());
+
     }
 }
 
