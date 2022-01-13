@@ -7,7 +7,7 @@
 class Thief: public Player 
 {
 public:
-	Thief(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	Thief(Icons symbol, const sf::Vector2f& position,  float objSize);
 	virtual ~Thief();
 
 	//virtual void move(sf::Vector2f direction, sf::Time deltaTime) override;

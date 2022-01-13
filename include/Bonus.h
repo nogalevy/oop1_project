@@ -7,7 +7,7 @@ class Bonus : public StaticObject
 {
 public:
 	//using StaticObject::StaticObject;
-	Bonus(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	Bonus(Icons symbol, const sf::Vector2f& position,  float objSize);
 	~Bonus();
 
 	//// Colisions:

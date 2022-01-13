@@ -10,7 +10,7 @@
 class Warrior : public Player
 {
 public:
-	Warrior(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	Warrior(Icons symbol, const sf::Vector2f& position,  float objSize);
 	~Warrior();
 
 	//virtual void move(sf::Vector2f direction, sf::Time deltaTime) override;

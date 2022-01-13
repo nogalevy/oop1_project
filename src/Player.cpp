@@ -1,8 +1,8 @@
 #include "Player.h"
 
 
-Player::Player(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	: MovingObject(symbol, position, mapW, mapH)
+Player::Player(Icons symbol, const sf::Vector2f& position,  float objSize)
+	: MovingObject(symbol, position,  objSize)
 {
 	loadPlayerSoundEffects();
 }

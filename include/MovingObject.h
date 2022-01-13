@@ -4,7 +4,7 @@
 class MovingObject : public GameObject
 {
 public:
-	MovingObject(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	MovingObject(Icons symbol, const sf::Vector2f& position,  float objSize);
 	virtual ~MovingObject() = default;
 
 	void moveToPrevPos();

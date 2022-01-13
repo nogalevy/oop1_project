@@ -5,7 +5,7 @@
 class AddTimeBonus : public Bonus
 {
 public:
-	AddTimeBonus(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	AddTimeBonus(Icons symbol, const sf::Vector2f& position, float objSize);
 	~AddTimeBonus();
 
 

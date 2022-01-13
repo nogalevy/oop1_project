@@ -1,20 +1,11 @@
 #include "GameObject.h"
 
 
-GameObject::GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth, int mapHeight)
+GameObject::GameObject(Icons symbol, const sf::Vector2f& location, float objSize)
 	//: m_icon(sf::Vector2f(40.f, 40.f))
 {
-	int size = mapWidth < mapHeight ? mapHeight : mapWidth;
-
-	int divide_by = symbol == WALL ? 5.5 : 6;
-	float w =  (float(BOARD_H - 30) / size) / divide_by;
-	//float h = float(BOARD_H) / mapHeight;
-
-	m_icon.setTexture(*(Resources::instance().getIcon(symbol)));
-
-	
-	m_icon.scale((w/100), (w/ 100));
-
+	m_icon.setTexture(*(Resources::instance().getIcon(symbol)));	
+	m_icon.scale((objSize /512), (objSize / 512));
 	m_icon.setPosition(location);
 }
 

@@ -4,7 +4,7 @@
 class Dwarf : public MovingObject 
 {
 public:
-	Dwarf(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	Dwarf(Icons symbol, const sf::Vector2f& position,  float objSize);
 	virtual ~Dwarf();
 
 	void move(sf::Time);

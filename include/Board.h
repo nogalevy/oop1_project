@@ -88,27 +88,26 @@ private:
 	void initPartners();
 
 	//Objects Functions
-	void createObjects();
+	void createObjects(float obj_size);
 	bool isStaticObj(Icons symbol);
 	void removeStaticObjects();
 	void changeStatic();
-	void createMoving(Icons symbol, sf::Vector2f position);
-	void createStatic(Icons symbol, sf::Vector2f position);
-	std::unique_ptr<Bonus> selectRandomBonus(sf::Vector2f position);
-	void initTeleportPartners();
+	void createMoving(Icons symbol, sf::Vector2f position, float obj_size);
+	void createStatic(Icons symbol, sf::Vector2f position, float obj_size);
+	std::unique_ptr<Bonus> selectRandomBonus(sf::Vector2f position, float obj_size);
+	void initTeleportPartners(float obj_size);
 	bool canAddDwarf(int row, int& col);
-	void addDwarfToRow(int row, int col);
+	void addDwarfToRow(int row, int col, float obj_size);
 
 
 	bool checkHasKey() const;
 	void setBgRectangle();
-	void createMat();
 	void handleCollisions(int activePlayer);
 	void handleDwarfCollisions();
 	void updateBoard();
 
 	float getObjSizeOnBoard();
-	sf::Vector2f createPosition(int row, int col, int symbol);
+	sf::Vector2f createPosition(int row, int col, int symbol, float square_size);
 
 	//======Members==========
 
@@ -140,7 +139,5 @@ private:
 
 	//Trial
 	std::vector<std::vector<sf::RectangleShape>>m_mat;
-	std::vector<std::vector<sf::RectangleShape>> initMat(int size, int square_size);
 
-	void initSquare(int row, int col, int square_size);
 };

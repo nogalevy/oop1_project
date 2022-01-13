@@ -5,7 +5,7 @@
 class RmvDwarfsBonus : public Bonus
 {
 public:
-	RmvDwarfsBonus(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	RmvDwarfsBonus(Icons symbol, const sf::Vector2f& position,  float objSize);
 	~RmvDwarfsBonus();
 
 

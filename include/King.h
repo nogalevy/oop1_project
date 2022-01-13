@@ -9,7 +9,7 @@
 class King : public Player
 {
 public:
-	King(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	King(Icons symbol, const sf::Vector2f& position,  float objSize);
 	~King();
 
 	//virtual void move(sf::Vector2f direction, sf::Time deltaTime) override;

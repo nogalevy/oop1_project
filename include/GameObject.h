@@ -26,7 +26,7 @@ class Key;
 class GameObject {
 public:
 
-	GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth, int mapHeight);
+	GameObject(Icons symbol, const sf::Vector2f& location, float objSize);
 	virtual ~GameObject() = default;
 
 	virtual void draw(sf::RenderWindow& window);

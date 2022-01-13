@@ -1,7 +1,7 @@
 #include "FastDwarfsBonus.h"
 
-FastDwarfsBonus::FastDwarfsBonus(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	:Bonus(symbol, position, mapW, mapH)
+FastDwarfsBonus::FastDwarfsBonus(Icons symbol, const sf::Vector2f& position,  float objSize)
+	:Bonus(symbol, position,  objSize)
 {
 }
 

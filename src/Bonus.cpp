@@ -4,8 +4,8 @@
 //{
 //}
 
-Bonus::Bonus(Icons symbol, const sf::Vector2f& position, int mapW, int mapH) 
-	: StaticObject(symbol, position, mapW, mapH),
+Bonus::Bonus(Icons symbol, const sf::Vector2f& position,  float objSize)
+	: StaticObject(symbol, position,  objSize),
 	m_audio(Resources::instance().getBonusSound())
 {
 }

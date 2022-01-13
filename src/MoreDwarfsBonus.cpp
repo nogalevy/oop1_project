@@ -1,7 +1,7 @@
 #include "MoreDwarfsBonus.h"
 
-MoreDwarfsBonus::MoreDwarfsBonus(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	:Bonus(symbol, position, mapW, mapH)
+MoreDwarfsBonus::MoreDwarfsBonus(Icons symbol, const sf::Vector2f& position,  float objSize)
+	:Bonus(symbol, position,  objSize)
 {
 }
 
