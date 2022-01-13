@@ -7,10 +7,10 @@ DataDisplay::DataDisplay()
 	m_volumeBtn(*(Resources::instance().getVolumeIcon(true))),
 	m_homeBtn(*(Resources::instance().getHomeBtnTexture()))
 {
-	m_timerTxt.setFont(*(Resources::instance().getDataFont()));
-	m_activePlayerTxt.setFont(*(Resources::instance().getDataFont()));
-	m_hasKeyTxt.setFont(*(Resources::instance().getDataFont()));
-	m_levelNumTxt.setFont(*(Resources::instance().getDataFont()));
+	m_timerTxt.setFont(*(Resources::instance().getFont()));
+	m_activePlayerTxt.setFont(*(Resources::instance().getFont()));
+	m_hasKeyTxt.setFont(*(Resources::instance().getFont()));
+	m_levelNumTxt.setFont(*(Resources::instance().getFont()));
 
 	setHomeBtn();
 	setVolumeBtn();
@@ -25,10 +25,10 @@ DataDisplay::DataDisplay(int time)
 	m_volumeBtn(*(Resources::instance().getVolumeIcon(true))),
 	m_homeBtn(*(Resources::instance().getHomeBtnTexture()))
 {
-	m_timerTxt.setFont(*(Resources::instance().getDataFont()));
-	m_activePlayerTxt.setFont(*(Resources::instance().getDataFont()));
-	m_hasKeyTxt.setFont(*(Resources::instance().getDataFont()));
-	m_levelNumTxt.setFont(*(Resources::instance().getDataFont()));
+	m_timerTxt.setFont(*(Resources::instance().getFont()));
+	m_activePlayerTxt.setFont(*(Resources::instance().getFont()));
+	m_hasKeyTxt.setFont(*(Resources::instance().getFont()));
+	m_levelNumTxt.setFont(*(Resources::instance().getFont()));
 
 	setHomeBtn();
 	setVolumeBtn();
@@ -65,7 +65,7 @@ void DataDisplay::drawTime(sf::RenderWindow& window )
 	//m_timerTxt.setPosition(sf::Vector2f(WINDOW_W - m_timerTxt.getGlobalBounds().width - 10, BOARD_H + 10)); //option #2 bottom right
 	m_timerTxt.setPosition(sf::Vector2f(WINDOW_W - m_timerTxt.getGlobalBounds().width - 10,10)); //option #3 top right
 	m_timerTxt.setColor(sf::Color::White);
-	m_timerTxt.setCharacterSize(20);
+	m_timerTxt.setCharacterSize(FONT_SIZE);
 
 	window.draw(m_timerTxt);
 }
@@ -76,7 +76,7 @@ void DataDisplay::drawHasKey(sf::RenderWindow& window)
 	int posX = m_activePlayerTxt.getPosition().x + 370;
 	m_hasKeyTxt.setPosition(sf::Vector2f(posX, BOARD_H + 10));
 	m_hasKeyTxt.setColor(sf::Color::White);
-	m_hasKeyTxt.setCharacterSize(20);
+	m_hasKeyTxt.setCharacterSize(FONT_SIZE);
 
 	m_hasKeyTxt.setString(m_hasKey ? "Key Found" : "Key Not Found");
 	window.draw(m_hasKeyTxt);
@@ -92,7 +92,7 @@ void DataDisplay::drawActivePlayer(sf::RenderWindow& window, int activePlayer)
 	int posX = m_levelNumTxt.getPosition().x + m_levelNumTxt.getGlobalBounds().width + 65;
 	m_activePlayerTxt.setPosition(sf::Vector2f(posX, BOARD_H + 10));
 	m_activePlayerTxt.setColor(sf::Color::White);
-	m_activePlayerTxt.setCharacterSize(20);
+	m_activePlayerTxt.setCharacterSize(FONT_SIZE);
 
 	m_activePlayerTxt.setString("Player: " + PLAYERS_NAMES[activePlayer]);
 	window.draw(m_activePlayerTxt);
@@ -107,7 +107,7 @@ void DataDisplay::setLevelNum(int levelNum)
 {
 	m_levelNumTxt.setPosition(sf::Vector2f(10, BOARD_H + 10));
 	m_levelNumTxt.setColor(sf::Color::White);
-	m_levelNumTxt.setCharacterSize(20);
+	m_levelNumTxt.setCharacterSize(FONT_SIZE);
 
 	m_levelNumTxt.setString("Level " + std::to_string(levelNum));
 }
@@ -133,6 +133,11 @@ void DataDisplay::setCountdown(int time)
 	m_timeCounter = Timer(time);
 }
 
+void DataDisplay::addTime(const int time, sf::RenderWindow& window)
+{
+	m_timeCounter.addTime(time);
+}
+
 void DataDisplay::resetClock()
 {
 	m_timeCounter.startClock();
@@ -148,9 +153,9 @@ void DataDisplay::setBgRectangle()
 void DataDisplay::setVolumeBtn()
 {
 	float margin = 0, posX = 0;
-	m_volumeBtn.scale(0.1, 0.1);
+	m_volumeBtn.scale(0.07, 0.07);
 
-	margin = 30.f;
+	margin = 40.f;
 	//posX = WINDOW_W - m_volumeBtn.getGlobalBounds().width - margin;
 
 	posX = WINDOW_W - (m_volumeBtn.getGlobalBounds().width + m_homeBtn.getGlobalBounds().width) - margin;
@@ -161,7 +166,7 @@ void DataDisplay::setVolumeBtn()
 void DataDisplay::setHomeBtn()
 {
 	float margin = 0, posX = 0;
-	m_homeBtn.scale(0.1, 0.1);
+	m_homeBtn.scale(0.07, 0.07);
 
 	margin = 20.f;
 	//posX = WINDOW_W - (m_homeBtn.getGlobalBounds().width + m_volumeBtn.getGlobalBounds().width)- margin;
@@ -169,5 +174,6 @@ void DataDisplay::setHomeBtn()
 
 	m_homeBtn.setPosition(posX, BOARD_H + 10);
 }
+
 
 

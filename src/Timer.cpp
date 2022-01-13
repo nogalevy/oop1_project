@@ -36,11 +36,13 @@ sf::Time Timer::getElapsed()
 void Timer::addTime(float time_to_add)
 {
 	sf::Time t = sf::seconds(time_to_add);
-	m_time = sf::seconds(m_time.asSeconds() + t.asSeconds());
+	auto sumSec = m_time.asSeconds() + t.asSeconds();
+	m_time = sf::seconds(sumSec < 0 ? 0 : sumSec);
 }
 
 float Timer::getTime()
 {
+	//if (m_clock.getElapsedTime().asSeconds() < 0) return 0;
 	return m_timerType == TIMER ? m_clock.getElapsedTime().asSeconds() :
 		(m_time.asSeconds() - m_clock.getElapsedTime().asSeconds())  ;
 }

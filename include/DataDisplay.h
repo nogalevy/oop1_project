@@ -9,7 +9,7 @@
 #include "Resources.h"
 
 const int NUM_OF_BTNS = 1;
-
+const int FONT_SIZE = 30;
 class DataDisplay {
 public:
 	// constructor
@@ -30,13 +30,13 @@ public:
 
 	void setCountdown(int time);
 
+	void addTime(const int time, sf::RenderWindow& window);
 	// hasKey
 	// updaeCurrPlayer ?
 private:
 	void setBgRectangle();
 	void setVolumeBtn();
 	void setHomeBtn();
-
 	sf::RectangleShape m_bgRectangle;
 
 	sf::Text m_timerTxt;
