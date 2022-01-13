@@ -8,6 +8,7 @@ Resources::Resources()
 	loadMenuBackground();
 	loadHelpMenu();
 	loadAudio();
+	loadBonusAudio();
 	loadSoundEffects();
 	loadVolumeIcons();
 	loadBoardBackground();
@@ -93,17 +94,34 @@ void Resources::loadAudio()
 	}
 }
 
+void Resources::loadBonusAudio()
+{
+	if (!m_bonusBuffer.loadFromFile("bonus.ogg"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
 void Resources::loadSoundEffects()
 {
 	sf::SoundBuffer buff;
 
-	for (int i = 0; i < NUM_OF_SOUND_EFFECTS; i++)
+	for (int i = 0; i < NUM_OF_COLISION_SOUND; i++)
 	{
-		if (!buff.loadFromFile(SOUND_EFFECTS[i]))
+		if (!buff.loadFromFile(COLISION_SOUND_EFFECTS[i]))
 		{
 			std::cerr << "error load audio from file";
 		}
-		m_soundEffectsBuffer.push_back(buff);
+		m_colisionSoundEffectsBuffer.push_back(buff);
+	}
+
+	for (int i = 0; i < NUM_OF_LEVEL_SOUND; i++)
+	{
+		if (!buff.loadFromFile(LEVEL_SOUND_EFFECTS[i]))
+		{
+			std::cerr << "error load audio from file";
+		}
+		m_levelSoundEffectsBuffer.push_back(buff);
 	}
 }
 
@@ -195,11 +213,21 @@ sf::SoundBuffer* Resources::getMusic()
 	return &m_gameMusic;;
 }
 
+sf::SoundBuffer* Resources::getBonusSound()
+{
+	return &m_bonusBuffer;
+}
+
 //-----------------------------------------------------------------
 
-sf::SoundBuffer* Resources::getSoundEffect(const int type)
+sf::SoundBuffer* Resources::getColisionSoundEffect(const int type)
 {
-	return &m_soundEffectsBuffer[type];
+	return &m_colisionSoundEffectsBuffer[type];
+}
+
+sf::SoundBuffer* Resources::getLevelSoundEffect(const int type)
+{
+	return &m_levelSoundEffectsBuffer[type];
 }
 
 sf::Texture* Resources::getVolumeIcon(bool soundOn)

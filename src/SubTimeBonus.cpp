@@ -16,6 +16,7 @@ void SubTimeBonus::handleCollision(GameObject& gameObject)
 
 void SubTimeBonus::handleCollision(King& gameObject)
 {
+	playAudio();
 	m_isDisposed = true;
 }
 

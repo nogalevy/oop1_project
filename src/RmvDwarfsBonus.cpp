@@ -16,6 +16,7 @@ void RmvDwarfsBonus::handleCollision(GameObject& gameObject)
 
 void RmvDwarfsBonus::handleCollision(King& gameObject)
 {
+
 	m_isDisposed = true;
 }
 

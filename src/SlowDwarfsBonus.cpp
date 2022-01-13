@@ -16,6 +16,7 @@ void SlowDwarfsBonus::handleCollision(GameObject& gameObject)
 
 void SlowDwarfsBonus::handleCollision(King& gameObject)
 {
+
 	m_isDisposed = true;
 }
 

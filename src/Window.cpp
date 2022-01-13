@@ -82,7 +82,7 @@ void Window::startGame()
 
 void Window::handleNextLevel()
 {
-    m_levelSounds[END_LEVEL - NUM_OF_COLISION_SOUND].playMusic(15);
+    m_levelSounds[END_LEVEL].playMusic(15);
     if (!m_board.setLevelNum())
     {
         m_board.resetLevelNum();
@@ -290,7 +290,7 @@ void Window::checkLoseLevel()
 {
     if (m_dataDisplay.isTimeEnd())
     {
-        m_levelSounds[LOSE_LEVEL - NUM_OF_COLISION_SOUND].playMusic(10);
+        m_levelSounds[LOSE_LEVEL].playMusic(10);
 
         m_board.createLevel();
         resetCurrLevelData();
@@ -301,9 +301,9 @@ void Window::checkLoseLevel()
 
 void Window::setSound()
 {
-    for (size_t i = 0; i < NUM_OF_GAME_SOUND; i++)
+    for (size_t i = 0; i < NUM_OF_LEVEL_SOUND; i++)
     {
-        m_levelSounds.push_back(Resources::instance().getSoundEffect(NUM_OF_COLISION_SOUND + i));
+        m_levelSounds.push_back(Resources::instance().getLevelSoundEffect(i));
 
     }
 }

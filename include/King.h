@@ -38,6 +38,5 @@ public:
 	//virtual void handleCollision(Bonus& gameObject) override;
 
 private:
-	Audio m_colisionSound;
 	bool m_reachThrone;
 };

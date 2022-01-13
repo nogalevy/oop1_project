@@ -16,9 +16,9 @@ void Audio::stopPlayMusic()
 
 void Audio::playMusic(int volume, bool loop)
 {
-	m_sound.play();
 	m_sound.setLoop(loop);
 	m_sound.setVolume(volume);
+	m_sound.play();
 }
 
 void Audio::initMusic(sf::SoundBuffer* soundBuffer)

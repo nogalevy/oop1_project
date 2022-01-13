@@ -33,7 +33,7 @@ void Player::loadPlayerSoundEffects()
 {
 	for (int i = 0; i < NUM_OF_COLISION_SOUND; i++)
 	{
-		m_colisionSounds.push_back(Resources::instance().getSoundEffect(i));
+		m_colisionSounds.push_back(Resources::instance().getColisionSoundEffect(i));
 	}
 }
 
