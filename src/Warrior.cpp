@@ -23,22 +23,25 @@ void Warrior::handleCollision(King& gameObject)
 {
 	//If we want for the characters not to go over eachother this works:
 	// (have to include "king.h")
-	//gameObject.moveToPrevPos(); 
+	gameObject.moveToPrevPos(); 
 }
 
-void Warrior::handleCollision(Warrior&  )
+void Warrior::handleCollision(Warrior& gameObject)
 {
 	//nothing
+	gameObject.moveToPrevPos();
 }
 
-void Warrior::handleCollision(Mage&  )
+void Warrior::handleCollision(Mage& gameObject)
 {
-	
+	gameObject.moveToPrevPos();
+
 }
 
-void Warrior::handleCollision(Thief&  )
+void Warrior::handleCollision(Thief& gameObject)
 {
-	
+	gameObject.moveToPrevPos();
+
 }
 
 void Warrior::handleCollision(Fire&  )

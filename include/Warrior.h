@@ -1,7 +1,11 @@
 #pragma once
 
 #include "Player.h"
-//#include "King.h"
+#include "King.h"
+#include "Mage.h"
+#include "Thief.h"
+
+
 
 class Warrior : public Player
 {

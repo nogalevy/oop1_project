@@ -23,16 +23,22 @@ void King::handleCollision(King& )
 	//ignore ?
 }
 
-void King::handleCollision(Warrior& )
+void King::handleCollision(Warrior& gameObject)
 {
+	gameObject.moveToPrevPos();
+
 }
 
-void King::handleCollision(Mage& )
+void King::handleCollision(Mage& gameObject)
 {
+	gameObject.moveToPrevPos();
+
 }
 
-void King::handleCollision(Thief& )
+void King::handleCollision(Thief& gameObject)
 {
+	gameObject.moveToPrevPos();
+
 }
 
 void King::handleCollision(Fire& )
