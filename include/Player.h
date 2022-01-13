@@ -1,8 +1,6 @@
 #pragma once
 #include "MovingObject.h"
 
-
-
 class Player : public MovingObject
 {
 public:
@@ -11,5 +9,7 @@ public:
 
 	void setPosition(const sf::Vector2f newPosition);
 	void move(sf::Vector2f direction, sf::Time deltaTime);// = 0;
+
+	void setActive(bool active);
 private:
 };

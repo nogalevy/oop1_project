@@ -151,9 +151,13 @@ void Board::draw(sf::RenderWindow& window, int activePlayer)
 
 	for (int i = 0; i < m_players.size(); i++)
 	{
-		if(i != activePlayer)
+		if (i != activePlayer)
+		{
+			m_players[i]->setActive(false);
 			m_players[i]->draw(window);
+		}
 	}
+	m_players[activePlayer]->setActive(true);
 	m_players[activePlayer]->draw(window);
 	
 	for (int i = 0; i < m_dwarfs.size(); i++)

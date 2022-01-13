@@ -22,3 +22,11 @@ void Player::move(sf::Vector2f direction, sf::Time deltaTime)
 	auto speedPerSecond = 100.f;
 	getIcon().move(direction * speedPerSecond * deltaTime.asSeconds());
 }
+
+void Player::setActive(bool active)
+{
+	if (active)
+		getIcon().setColor(sf::Color::White);
+	else
+		getIcon().setColor(sf::Color(124, 124, 124));
+}

@@ -29,7 +29,7 @@ void Warrior::handleCollision(King& gameObject)
 void Warrior::handleCollision(Warrior& gameObject)
 {
 	//nothing
-	gameObject.moveToPrevPos();
+	//gameObject.moveToPrevPos();
 }
 
 void Warrior::handleCollision(Mage& gameObject)

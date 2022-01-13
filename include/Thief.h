@@ -1,6 +1,8 @@
 #pragma once
 #include "Player.h"
-
+#include "King.h"
+#include "Mage.h"
+#include "Warrior.h"
 
 class Thief: public Player 
 {

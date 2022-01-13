@@ -18,19 +18,22 @@ void Thief::handleCollision(GameObject& gameObject)
 	//window.
 }
 
-void Thief::handleCollision(King& )
+void Thief::handleCollision(King& gameObject)
 {
-	
+	gameObject.moveToPrevPos();
+
 }
 
-void Thief::handleCollision(Warrior& )
+void Thief::handleCollision(Warrior& gameObject)
 {
-	
+	gameObject.moveToPrevPos();
+
 }
 
-void Thief::handleCollision(Mage& )
+void Thief::handleCollision(Mage& gameObject)
 {
-	
+	gameObject.moveToPrevPos();
+
 }
 
 void Thief::handleCollision(Thief& )
