@@ -138,6 +138,11 @@ void DataDisplay::addTime(const int time, sf::RenderWindow& window)
 	m_timeCounter.addTime(time);
 }
 
+bool DataDisplay::isTimeEnd()
+{
+	return m_timeCounter.getTime() == 0;
+}
+
 void DataDisplay::resetClock()
 {
 	m_timeCounter.startClock();

@@ -109,9 +109,7 @@ void Board::openLevelFile()
 	if (!m_levelFile.is_open())
 		std::cout << "nope\n";
 
-	readLevel();
-	createObjects();
-	initTeleportPartners();
+	createLevel();
 }
 
 //-----------------------------------------------------------------
@@ -214,7 +212,7 @@ BonusType Board::getBonus() const
 
 //-----------------------------------------------------------------
 
-void Board::loadNextLevel()
+void Board::loadLevel()
 {
 	m_hasKey = false;
 	m_endLevel = false;
@@ -252,6 +250,13 @@ void Board::removeDwarfs()
 }
 
 //-----------------------------------------------------------------
+
+void Board::createLevel()
+{
+	readLevel();
+	createObjects();
+	initTeleportPartners();
+}
 
 void Board::setBonus(BonusType type)
 {

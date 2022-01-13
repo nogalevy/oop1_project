@@ -31,6 +31,8 @@ public:
 	void setCountdown(int time);
 
 	void addTime(const int time, sf::RenderWindow& window);
+
+	bool isTimeEnd();
 	// hasKey
 	// updaeCurrPlayer ?
 private:

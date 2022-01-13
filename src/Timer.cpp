@@ -42,7 +42,7 @@ void Timer::addTime(float time_to_add)
 
 float Timer::getTime()
 {
-	//if (m_clock.getElapsedTime().asSeconds() < 0) return 0;
-	return m_timerType == TIMER ? m_clock.getElapsedTime().asSeconds() :
-		(m_time.asSeconds() - m_clock.getElapsedTime().asSeconds())  ;
+	if (m_timerType == TIMER) m_clock.getElapsedTime().asSeconds();
+	else if (m_time.asSeconds() - m_clock.getElapsedTime().asSeconds() <= 0) return 0;
+	else return m_time.asSeconds() - m_clock.getElapsedTime().asSeconds();
 }

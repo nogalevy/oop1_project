@@ -60,15 +60,14 @@ public:
 
 	//Level Functions
 	bool setLevelNum();
-	void loadNextLevel();
+	void loadLevel();
 	bool getEndlevel() const;
 	int getLevelNum()const;
 	void resetLevelNum();
-
 	void removeDwarfs();
 
+	void createLevel();
 	void setBonus(BonusType type);
-
 private:
 
 	//Access Functions

@@ -53,14 +53,17 @@ void Window::startGame()
         //m_window.draw(m_helpMenu);
 
         m_window.display();
-
+        
         if (auto event = sf::Event{}; m_window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 m_window.close();
 
             if (m_currPage == BOARD)
+            {
                 handleBoardEvent(event);
+                checkLoseLevel();
+            }
             else if (m_currPage == MENU)
                 handleMenuEvent(event);
             else
@@ -82,13 +85,8 @@ void Window::handleNextLevel()
         m_currPage = MENU; //we need to update here that the user finished all levels
 
     }
-    //m_timer.restart();
-    m_activePlayer = KING;
-    m_dataDisplay.resetClock();
-    m_dataDisplay.setHasKey(false);
-    m_dataDisplay.setLevelNum(m_board.getLevelNum());
-    m_board.loadNextLevel();
-    m_dataDisplay.setCountdown(m_board.getCountdown());
+    m_board.loadLevel();
+    resetCurrLevelData();
 }
 
 //-----------------------------------------------------------------
@@ -150,6 +148,7 @@ void Window::handleLevelComplete(const sf::Event& event)
         if (event.key.code == sf::Keyboard::Space)
         {
             m_currPage = BOARD;
+            m_dataDisplay.setCountdown(m_board.getCountdown());
         }
 }
 
@@ -234,6 +233,25 @@ void Window::updateGameData()
     }
 }
 
+void Window::checkLoseLevel()
+{
+    if (m_dataDisplay.isTimeEnd())
+    {
+        m_board.createLevel();
+        resetCurrLevelData();
+    }
+}
+
+void Window::resetCurrLevelData()
+{
+    m_activePlayer = KING;
+    m_dataDisplay.setHasKey(false);
+    m_dataDisplay.setLevelNum(m_board.getLevelNum());
+    //m_board.loadLevel();
+    //resetClock();
+    //m_dataDisplay.setCountdown(m_board.getCountdown());
+}
+
 //-----------------------------------------------------------------
 
 void Window::drawCurrPage()
@@ -276,9 +294,8 @@ void Window::handleMenuClick(const sf::Event& event)
     case START:
         //openGamePage();
         m_currPage = BOARD;
-        m_dataDisplay.resetClock();
+        resetClock();
 
-        m_dataDisplay.resetClock();
         m_dataDisplay.setHasKey(false);
         m_dataDisplay.setCountdown(m_board.getCountdown());
         break;

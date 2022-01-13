@@ -37,7 +37,9 @@ private:
 	void movePlayer(sf::Time);
 	void moveDwarfs(sf::Time);
 	void updateGameData();
-
+	void checkLoseLevel();
+	
+	void resetCurrLevelData();
 	//window
 	sf::RenderWindow m_window;
 
