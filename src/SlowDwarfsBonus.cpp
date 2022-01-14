@@ -1,7 +1,7 @@
 #include "SlowDwarfsBonus.h"
 
-SlowDwarfsBonus::SlowDwarfsBonus(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	:Bonus(symbol, position, mapW, mapH)
+SlowDwarfsBonus::SlowDwarfsBonus(Icons symbol, const sf::Vector2f& position,  float objSize)
+	:Bonus(symbol, position,  objSize)
 {
 }
 
@@ -16,6 +16,7 @@ void SlowDwarfsBonus::handleCollision(GameObject& gameObject)
 
 void SlowDwarfsBonus::handleCollision(King& gameObject)
 {
+
 	m_isDisposed = true;
 }
 

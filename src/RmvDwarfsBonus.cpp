@@ -1,7 +1,7 @@
 #include "RmvDwarfsBonus.h"
 
-RmvDwarfsBonus::RmvDwarfsBonus(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	:Bonus(symbol, position, mapW, mapH)
+RmvDwarfsBonus::RmvDwarfsBonus(Icons symbol, const sf::Vector2f& position,  float objSize)
+	:Bonus(symbol, position,  objSize)
 {
 }
 
@@ -16,6 +16,7 @@ void RmvDwarfsBonus::handleCollision(GameObject& gameObject)
 
 void RmvDwarfsBonus::handleCollision(King& gameObject)
 {
+
 	m_isDisposed = true;
 }
 

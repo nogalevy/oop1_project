@@ -19,18 +19,15 @@ class Throne;
 class Orc;
 class Key;
 
-//class Dwarf;
-//class Bonus;
-
 
 class GameObject {
 public:
 
-	GameObject(Icons symbol, const sf::Vector2f& location, int mapWidth, int mapHeight);
+	GameObject(Icons symbol, const sf::Vector2f& location, float objSize);
 	virtual ~GameObject() = default;
 
 	virtual void draw(sf::RenderWindow& window);
-	bool checkColisionWith(const GameObject &obj) const;// = 0;
+	bool checkColisionWith(const GameObject &obj) const;
 	sf::Vector2f getPosition()const;
 
 	virtual void handleCollision(GameObject& gameObject) = 0;

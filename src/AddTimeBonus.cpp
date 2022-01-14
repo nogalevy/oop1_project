@@ -1,7 +1,7 @@
 #include "AddTimeBonus.h"
 
-AddTimeBonus::AddTimeBonus(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	:Bonus(symbol, position, mapW, mapH)
+AddTimeBonus::AddTimeBonus(Icons symbol, const sf::Vector2f& position,  float objSize)
+	:Bonus(symbol, position,  objSize)
 {
 }
 
@@ -16,6 +16,7 @@ void AddTimeBonus::handleCollision(GameObject& gameObject)
 
 void AddTimeBonus::handleCollision(King& gameObject)
 {
+	playAudio();
 	m_isDisposed = true;
 }
 

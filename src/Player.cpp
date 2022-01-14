@@ -1,8 +1,8 @@
 #include "Player.h"
 
 
-Player::Player(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	: MovingObject(symbol, position, mapW, mapH)
+Player::Player(Icons symbol, const sf::Vector2f& position,  float objSize)
+	: MovingObject(symbol, position,  objSize)
 {
 	loadPlayerSoundEffects();
 }
@@ -33,7 +33,7 @@ void Player::loadPlayerSoundEffects()
 {
 	for (int i = 0; i < NUM_OF_COLISION_SOUND; i++)
 	{
-		m_colisionSounds.push_back(Resources::instance().getSoundEffect(i));
+		m_colisionSounds.push_back(Resources::instance().getColisionSoundEffect(i));
 	}
 }
 

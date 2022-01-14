@@ -15,10 +15,10 @@ const int WINDOW_W = 1300; //window width
 const int WINDOW_H = 900;  //window height
 
 const int BOARD_W = WINDOW_W;
-const int BOARD_H = WINDOW_H * 5 / 6;
+const int BOARD_H = WINDOW_H * 6 / 7;
 
 const int DATA_DISPLAY_W = WINDOW_W;
-const int DATA_DISPLAY_H = WINDOW_H / 6;
+const int DATA_DISPLAY_H = WINDOW_H / 7;
 
 const float ICON_SIZE = 1048; //before 512
 

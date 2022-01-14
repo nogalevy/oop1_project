@@ -44,15 +44,12 @@ void Window::startGame()
 {
     m_audio.playMusic(DEFAULT_VOLUME ,true);
 
-
     while (m_window.isOpen())
     {
         sf::Vector2f location;
-
         m_window.clear(sf::Color(sf::Color(26, 26 ,26)));
 
         drawCurrPage();
-
         m_window.display();
 
         if (auto event = sf::Event{}; m_window.pollEvent(event))
@@ -61,9 +58,7 @@ void Window::startGame()
                 m_window.close();
 
             if (m_currPage == BOARD)
-            {
                 handleBoardEvent(event);
-            }
             else if (m_currPage == MENU)
                 handleMenuEvent(event);
             else if (m_currPage == HELPMENU)
@@ -82,7 +77,7 @@ void Window::startGame()
 
 void Window::handleNextLevel()
 {
-    m_levelSounds[END_LEVEL - NUM_OF_COLISION_SOUND].playMusic(15);
+    m_levelSounds[END_LEVEL].playMusic(15);
     if (!m_board.setLevelNum())
     {
         m_board.resetLevelNum();
@@ -106,15 +101,6 @@ void Window::handleBoardEvent(const sf::Event& event)
         {
             m_activePlayer = (m_activePlayer + 1) % 4;
         }
-        //break;
-        //else if (event.key.code == sf::Keyboard::Space)
-        //{
-        //    if (!m_board.setLevelNum())
-        //    {
-        //        m_currPage = MENU; //we need to update here that the user finished all levels
-        //    }
-        //    m_board.loadNextLevel();
-        //}
         break;
     }
     case sf::Event::MouseButtonReleased:
@@ -290,7 +276,7 @@ void Window::checkLoseLevel()
 {
     if (m_dataDisplay.isTimeEnd())
     {
-        m_levelSounds[LOSE_LEVEL - NUM_OF_COLISION_SOUND].playMusic(10);
+        m_levelSounds[LOSE_LEVEL].playMusic(10);
 
         m_board.createLevel();
         resetCurrLevelData();
@@ -301,9 +287,9 @@ void Window::checkLoseLevel()
 
 void Window::setSound()
 {
-    for (size_t i = 0; i < NUM_OF_GAME_SOUND; i++)
+    for (size_t i = 0; i < NUM_OF_LEVEL_SOUND; i++)
     {
-        m_levelSounds.push_back(Resources::instance().getSoundEffect(NUM_OF_COLISION_SOUND + i));
+        m_levelSounds.push_back(Resources::instance().getLevelSoundEffect(i));
 
     }
 }
@@ -369,6 +355,8 @@ void Window::handleMenuClick(const sf::Event& event)
     case START:
         //openGamePage();
         m_currPage = BOARD;
+        m_board.resetLevelNum();
+        m_board.loadLevel();
         resetClock();
 
         m_dataDisplay.setHasKey(false);

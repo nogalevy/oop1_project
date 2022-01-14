@@ -13,7 +13,7 @@
 class StaticObject : public GameObject
 {
 public:
-	StaticObject(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	StaticObject(Icons symbol, const sf::Vector2f& position,  float objSize);
 	~StaticObject() = default;
 
 	//no meaning of colision with two static objects

@@ -257,6 +257,7 @@ void Board::moreDwarfs()
 {
 	bool added = false;
 	
+	float obj_size = getObjSizeOnBoard();
 	while (!added)
 	{
 		int row = rand() % m_height;
@@ -264,7 +265,7 @@ void Board::moreDwarfs()
 
 		if(canAddDwarf(row, col))
 		{
-			addDwarfToRow(row, col);
+			addDwarfToRow(row, col, obj_size);
 			added = true;
 		}
 	}
@@ -291,8 +292,10 @@ void Board::slowDwarfs()
 void Board::createLevel()
 {
 	readLevel();
-	createObjects();
-	initTeleportPartners();
+
+	float obj_size = getObjSizeOnBoard();
+	createObjects(obj_size);
+	initTeleportPartners(obj_size);
 }
 
 void Board::setBonus(BonusType type)
@@ -318,11 +321,12 @@ void Board::readLevelSize()
 
 //-----------------------------------------------------------------
 
-void Board::createObjects()
+void Board::createObjects(float obj_size)
 {
 	sf::Vector2f position;
 	//float xPos, yPos;
 
+	
 	m_staticObj.clear();
 	m_players.clear();
 	m_dwarfs.clear();
@@ -337,12 +341,12 @@ void Board::createObjects()
 			if (symbol == SPACE)
 				continue;
 
-			position = createPosition(row, col, symbol);
+			position = createPosition(row, col, symbol, obj_size);
 
 			if (isStaticObj(symbol))
-				createStatic(symbol, position);
+				createStatic(symbol, position, obj_size);
 			else
-				createMoving(symbol, position);
+				createMoving(symbol, position, obj_size);
 		}
 	}
 }
@@ -363,22 +367,6 @@ void Board::setBgRectangle()
 	m_bgRectangle.setTexture(Resources::instance().getBoardBackground());
 }
 
-//-----------------------------------------------------------------
-
-void Board::createMat()
-{
-	int square_size = ((BOARD_H) / 10) - 10; //set 500 to const
-	m_mat = initMat(10, square_size);
-	for (int i = 0; i < 10; i++)
-	{
-		for (int j = 0; j < 10; j++)
-		{
-			initSquare(i, j, square_size);
-			m_mat[i][j].setTexture(NULL);
-			m_mat[i][j].setFillColor(sf::Color::White);
-		}
-	}
-}
 
 //-----------------------------------------------------------------
 
@@ -459,7 +447,7 @@ void Board::changeStatic()
 			if (staticPtr->isDisposed())
 			{
 				pos = staticPtr->getPosition();
-				m_staticObj.emplace_back(std::make_unique<Key>(KEY, pos, m_width, m_height));
+				m_staticObj.emplace_back(std::make_unique<Key>(KEY, pos , getObjSizeOnBoard()));
 			}
 		}
 		if (auto staticPtr = dynamic_cast<Bonus*>(unmovable.get()))
@@ -505,19 +493,36 @@ void Board::initPartners()
 
 //-----------------------------------------------------------------
 
-sf::Vector2f Board::createPosition(int row, int col, int symbol)
+float Board::getObjSizeOnBoard()
+{
+	auto divide_by = m_width < m_height ? m_height : m_width;
+		
+	return (BOARD_H - 20) / divide_by;
+}
+
+sf::Vector2f Board::createPosition(int row, int col, int symbol, float square_size)
 {
 	sf::Vector2f position;
 	float xPos, yPos;
-	int size = m_width < m_height ? m_height : m_width;
-	//int square_size = ((BOARD_H) / size) - 10; //set 500 to const
-	int divide_by = symbol == WALL ? 5.5 : 6;
-	float w = (float(BOARD_H -30) / size) / divide_by;
-	auto square_size = (w * 512 )/ 100;
+	//int size = m_width < m_height ? m_height : m_width;
+	////int square_size = ((BOARD_H) / size) - 10; //set 500 to const
+	//int divide_by = symbol == WALL ? 5.5 : 6;
+	//float w = (float(BOARD_H -30) / size) / divide_by;
+	//auto square_size = (w * 512 )/ 100;
 
-	
+	//
+	//int col_offsetX = (WINDOW_W - square_size * m_width) / 2;
+	//int col_offsetY = (BOARD_H - square_size * m_height) / 2;
+	//xPos = (float)(col * (square_size) + col_offsetX);
+	//yPos = (float)(row * (square_size) + col_offsetY);
+	//position = { xPos, yPos };
+
+	//return position;
+
+
 	int col_offsetX = (WINDOW_W - square_size * m_width) / 2;
 	int col_offsetY = (BOARD_H - square_size * m_height) / 2;
+	
 	xPos = (float)(col * (square_size) + col_offsetX);
 	yPos = (float)(row * (square_size) + col_offsetY);
 	position = { xPos, yPos };
@@ -527,14 +532,14 @@ sf::Vector2f Board::createPosition(int row, int col, int symbol)
 
 //-----------------------------------------------------------------
 
-void Board::initTeleportPartners()
+void Board::initTeleportPartners(float obj_size)
 {
 	sf::Vector2f pos, partner1, partner2;
 
 	for (int i = 0; i < m_partners.size(); i++)
 	{
-		partner1 = createPosition(m_partners[i].row1, m_partners[i].col1, TELEPORT);
-		partner2 = createPosition(m_partners[i].row2, m_partners[i].col2, TELEPORT);
+		partner1 = createPosition(m_partners[i].row1, m_partners[i].col1, TELEPORT, obj_size);
+		partner2 = createPosition(m_partners[i].row2, m_partners[i].col2, TELEPORT, obj_size);
 
 		for (auto& unmovable : m_staticObj)
 		{
@@ -544,11 +549,11 @@ void Board::initTeleportPartners()
 
 				if (pos == partner1)
 				{
-					staticPtr->setPartner(createPosition(m_partners[i].row2, m_partners[i].col2 + 1, TELEPORT));
+					staticPtr->setPartner(createPosition(m_partners[i].row2, m_partners[i].col2 + 1, TELEPORT, obj_size));
 				}
 				if (pos == partner2)
 				{
-					staticPtr->setPartner(createPosition(m_partners[i].row1, m_partners[i].col1 + 1, TELEPORT));
+					staticPtr->setPartner(createPosition(m_partners[i].row1, m_partners[i].col1 + 1, TELEPORT, obj_size));
 				}
 			}
 		}
@@ -573,16 +578,16 @@ bool Board::canAddDwarf(int row, int& newcol)
 	return true;
 }
 
-void Board::addDwarfToRow(int row, int col)
+void Board::addDwarfToRow(int row, int col, float obj_size)
 {
-	sf::Vector2f position = createPosition(row, col , DWARF);
+	sf::Vector2f position = createPosition(row, col , DWARF, obj_size);
 
-	createMoving(DWARF, position);
+	createMoving(DWARF, position, obj_size);
 }
 
 //-----------------------------------------------------------------
 
-std::unique_ptr<Bonus> Board::selectRandomBonus(sf::Vector2f position)
+std::unique_ptr<Bonus> Board::selectRandomBonus(sf::Vector2f position, float obj_size)
 {
 	int bonus;
 
@@ -595,17 +600,17 @@ std::unique_ptr<Bonus> Board::selectRandomBonus(sf::Vector2f position)
 	switch (bonus)
 	{
 	case ADDTIME:
-		return std::make_unique<AddTimeBonus>(BONUS, position, m_width, m_height);
+		return std::make_unique<AddTimeBonus>(BONUS, position, obj_size);
 	case SUBTIME:
-		return std::make_unique<SubTimeBonus>(BONUS, position, m_width, m_height);
+		return std::make_unique<SubTimeBonus>(BONUS, position, obj_size);
 	case RMVDWARFS:
-		return std::make_unique<RmvDwarfsBonus>(BONUS, position, m_width, m_height);
+		return std::make_unique<RmvDwarfsBonus>(BONUS, position, obj_size);
 	case MOREDWARFS:
-		return std::make_unique<MoreDwarfsBonus>(BONUS, position, m_width, m_height);
+		return std::make_unique<MoreDwarfsBonus>(BONUS, position, obj_size);
 	case SLOWDWARFS:
-		return std::make_unique<SlowDwarfsBonus>(BONUS, position, m_width, m_height);
+		return std::make_unique<SlowDwarfsBonus>(BONUS, position, obj_size);
 	case FASTDWARFS:
-		return std::make_unique<FastDwarfsBonus>(BONUS, position, m_width, m_height);
+		return std::make_unique<FastDwarfsBonus>(BONUS, position, obj_size);
 	default:
 		break;
 	}
@@ -614,24 +619,24 @@ std::unique_ptr<Bonus> Board::selectRandomBonus(sf::Vector2f position)
 
 //-----------------------------------------------------------------
 
-void Board::createMoving(Icons symbol, sf::Vector2f position)
+void Board::createMoving(Icons symbol, sf::Vector2f position, float obj_size)
 {
 	switch (symbol)
 	{
 	case KING:
-		m_players[KING] = std::make_unique<King>(symbol, position, m_width, m_height);
+		m_players[KING] = std::make_unique<King>(symbol, position , obj_size);
 		break;
 	case WARRIOR:
-		m_players[WARRIOR] = std::make_unique<Warrior>(symbol, position, m_width, m_height);
+		m_players[WARRIOR] = std::make_unique<Warrior>(symbol, position , obj_size);
 		break;
 	case MAGE:
-		m_players[MAGE] = std::make_unique<Mage>(symbol, position, m_width, m_height);
+		m_players[MAGE] = std::make_unique<Mage>(symbol, position , obj_size);
 		break;
 	case THIEF:
-		m_players[THIEF] = std::make_unique<Thief>(symbol, position, m_width, m_height);
+		m_players[THIEF] = std::make_unique<Thief>(symbol, position , obj_size);
 		break;
 	case DWARF:
-		m_dwarfs.emplace_back(std::make_unique<Dwarf>(symbol, position, m_width, m_height));
+		m_dwarfs.emplace_back(std::make_unique<Dwarf>(symbol, position , obj_size));
 		break;
 	default:
 		break;
@@ -640,52 +645,35 @@ void Board::createMoving(Icons symbol, sf::Vector2f position)
 
 //-----------------------------------------------------------------
 
-void Board::createStatic(Icons symbol, sf::Vector2f position)
+void Board::createStatic(Icons symbol, sf::Vector2f position, float obj_size)
 {
 	switch (symbol)
 	{
 	case WALL:
-		m_staticObj.emplace_back(std::make_unique<Wall>(symbol, position, m_width, m_height));
+		m_staticObj.emplace_back(std::make_unique<Wall>(symbol, position , obj_size));
 		break;
 	case GATE:
-		m_staticObj.emplace_back(std::make_unique<Gate>(symbol, position, m_width, m_height));
+		m_staticObj.emplace_back(std::make_unique<Gate>(symbol, position , obj_size));
 		break;
 	case FIRE:
-		m_staticObj.emplace_back(std::make_unique<Fire>(symbol, position, m_width, m_height));
+		m_staticObj.emplace_back(std::make_unique<Fire>(symbol, position , obj_size));
 		break;
 	case ORC:
-		m_staticObj.emplace_back(std::make_unique<Orc>(symbol, position, m_width, m_height));
+		m_staticObj.emplace_back(std::make_unique<Orc>(symbol, position , obj_size));
 		break;
 	case TELEPORT:
-		m_staticObj.emplace_back(std::make_unique<Teleport>(symbol, position, m_width, m_height));
+		m_staticObj.emplace_back(std::make_unique<Teleport>(symbol, position , obj_size));
 		break;
 	case THRONE:
-		m_staticObj.emplace_back(std::make_unique<Throne>(symbol, position, m_width, m_height));
+		m_staticObj.emplace_back(std::make_unique<Throne>(symbol, position , obj_size));
 		break;
 	case KEY:
-		m_staticObj.emplace_back(std::make_unique<Key>(symbol, position, m_width, m_height));
+		m_staticObj.emplace_back(std::make_unique<Key>(symbol, position , obj_size));
 		break;
 	case BONUS:
-		m_staticObj.emplace_back(selectRandomBonus(position));
+		m_staticObj.emplace_back(selectRandomBonus(position, obj_size));
 		break;
 	default:
 		break;
 	}
-}
-
-//-----------------------------------------------------------------
-
-std::vector<std::vector<sf::RectangleShape>> Board::initMat(int size, int square_size)
-{
-	sf::RectangleShape rect1(sf::Vector2f(square_size, square_size));
-	std::vector<std::vector<sf::RectangleShape>> mat(size, std::vector<sf::RectangleShape>(size, rect1));
-	return mat;
-}
-
-//-----------------------------------------------------------------
-
-void Board::initSquare(int row, int col, int square_size)
-{
-	int col_offset = (WINDOW_W - BOARD_H) / 2;
-	m_mat[row][col].setPosition(col * (square_size + 7) + col_offset, row * (square_size + 7) + 15);
 }

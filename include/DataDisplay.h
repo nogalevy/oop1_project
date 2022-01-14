@@ -8,15 +8,14 @@
 #include "utilities.h"
 #include "Resources.h"
 
-const int NUM_OF_BTNS = 1;
 const int FONT_SIZE = 30;
+
 class DataDisplay {
 public:
 	// constructor
-	DataDisplay();
+	DataDisplay(); //delete?
 	DataDisplay(int time);
 
-	// draw (key , timer, current player, level num)
 	void draw(sf::RenderWindow& window, int activePlayer);
 	void resetClock();
 	void drawTime(sf::RenderWindow& window);
@@ -31,10 +30,7 @@ public:
 	void setCountdown(int time);
 
 	void addTime(const int time, sf::RenderWindow& window);
-
-	bool isTimeEnd();
-	// hasKey
-	// updaeCurrPlayer ?
+	bool isTimeEnd()const;
 private:
 	void setBgRectangle();
 	void setVolumeBtn();

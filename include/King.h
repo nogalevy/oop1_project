@@ -9,7 +9,7 @@
 class King : public Player
 {
 public:
-	King(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	King(Icons symbol, const sf::Vector2f& position,  float objSize);
 	~King();
 
 	//virtual void move(sf::Vector2f direction, sf::Time deltaTime) override;
@@ -17,7 +17,7 @@ public:
 
 	// Colisions:
 	virtual void handleCollision(GameObject& ) override;
-	// make them one - dynamic type ? 
+	
 	virtual void handleCollision(King& ) override;
 	virtual void handleCollision(Warrior& ) override;
 	virtual void handleCollision(Mage& ) override;
@@ -38,6 +38,5 @@ public:
 	//virtual void handleCollision(Bonus& gameObject) override;
 
 private:
-	Audio m_colisionSound;
 	bool m_reachThrone;
 };

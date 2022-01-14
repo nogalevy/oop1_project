@@ -1,7 +1,7 @@
 #include "King.h"
 
-King::King(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)
-	: Player(symbol, position, mapW, mapH), m_colisionSound(Resources::instance().getSoundEffect(DEFAULT_COLISION)),
+King::King(Icons symbol, const sf::Vector2f& position,  float objSize)
+	: Player(symbol, position,  objSize),
 	m_reachThrone(false)
 {
 }

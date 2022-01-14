@@ -21,7 +21,9 @@ public:
 	sf::Texture* getMenuBackground();
 	sf::Texture* getHelpMenu();
 	sf::SoundBuffer* getMusic();
-	sf::SoundBuffer* getSoundEffect(const int type);
+	sf::SoundBuffer* getBonusSound();
+	sf::SoundBuffer* getColisionSoundEffect(const int type);
+	sf::SoundBuffer* getLevelSoundEffect(const int type);
 	sf::Texture* getVolumeIcon(bool soundOn);
 	sf::Texture* getBoardBackground();
 	sf::Texture* getHomeBtnTexture();
@@ -39,6 +41,7 @@ private:
 	void loadHelpMenu();
 	void loadVolumeIcons();
 	void loadAudio();
+	void loadBonusAudio();
 	void loadSoundEffects();
 	void loadBoardBackground();
 	void loadHomeBtnTexture();
@@ -56,7 +59,9 @@ private:
 	sf::Texture m_homeBtnTexture;
 	
 	sf::SoundBuffer m_gameMusic;
-	std::vector<sf::SoundBuffer> m_soundEffectsBuffer;
+	sf::SoundBuffer m_bonusBuffer;
+	std::vector<sf::SoundBuffer> m_colisionSoundEffectsBuffer;
+	std::vector<sf::SoundBuffer> m_levelSoundEffectsBuffer;
 	
 	sf::Texture m_levelComplete;
 	sf::Texture m_congrats;

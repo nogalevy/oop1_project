@@ -5,7 +5,7 @@
 class Player : public MovingObject
 {
 public:
-	Player(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	Player(Icons symbol, const sf::Vector2f& position,  float objSize);
 	virtual ~Player();
 
 	void setPosition(const sf::Vector2f newPosition);

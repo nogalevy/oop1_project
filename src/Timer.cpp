@@ -1,10 +1,6 @@
 #include "Timer.h"
 
-//create timer
-//Timer::Timer() 
-//	: m_time(), m_clock(), m_timerType(TIMER) {}
-
-//create countdown
+//create timer if time == -1 and else countdown
 Timer::Timer(int time)
 	: m_time(sf::seconds(time)), m_clock(), m_timerType(TIMER) 
 {
@@ -16,12 +12,6 @@ void Timer::setTime(int time)
 {
 	m_time = sf::seconds(time);
 }
-
-//void Timer::setCountdown(int time)
-//{
-//	m_timerType;
-//	m_time.
-//}
 
 void Timer::startClock()
 {
@@ -40,7 +30,7 @@ void Timer::addTime(float time_to_add)
 	m_time = sf::seconds(sumSec < 0 ? 0 : sumSec);
 }
 
-float Timer::getTime()
+float Timer::getTime()const
 {
 	if (m_timerType == TIMER) m_clock.getElapsedTime().asSeconds();
 	else if (m_time.asSeconds() - m_clock.getElapsedTime().asSeconds() <= 0) return 0;

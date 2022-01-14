@@ -5,7 +5,7 @@
 class SubTimeBonus : public Bonus
 {
 public:
-	SubTimeBonus(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	SubTimeBonus(Icons symbol, const sf::Vector2f& position,  float objSize);
 	~SubTimeBonus();
 
 

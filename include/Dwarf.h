@@ -4,14 +4,14 @@
 class Dwarf : public MovingObject 
 {
 public:
-	Dwarf(Icons symbol, const sf::Vector2f& position, int mapW, int mapH);
+	Dwarf(Icons symbol, const sf::Vector2f& position,  float objSize);
 	virtual ~Dwarf();
 
 	void move(sf::Time);
 
 	// Colisions:
 	virtual void handleCollision(GameObject& gameObject) override;
-	// make them one - dynamic type ? 
+	
 	virtual void handleCollision(King& gameObject) override;
 	virtual void handleCollision(Warrior& gameObject) override;
 	virtual void handleCollision(Mage& gameObject) override;

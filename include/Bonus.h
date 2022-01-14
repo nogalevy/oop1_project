@@ -1,16 +1,18 @@
 #pragma once
 
 #include "StaticObject.h"
+#include "Audio.h"
 
 class Bonus : public StaticObject
 {
 public:
-	using StaticObject::StaticObject;
+	//using StaticObject::StaticObject;
+	Bonus(Icons symbol, const sf::Vector2f& position,  float objSize);
 	~Bonus();
 
 	//// Colisions:
 	//virtual void handleCollision(GameObject& gameObject) override;
-	//// make them one - dynamic type ? 
+	//
 	//virtual void handleCollision(King& gameObject) override;
 	//virtual void handleCollision(Warrior& gameObject) override;
 	//virtual void handleCollision(Mage& gameObject) override;
@@ -27,5 +29,7 @@ public:
 	//virtual void handleCollision(Dwarf& gameObject) override;
 	//virtual void handleCollision(Bonus& gameObject) override;
 protected:
-
+	void playAudio();
+private:
+	Audio m_audio;
 };
