@@ -18,7 +18,7 @@ class Teleport;
 class Throne;
 class Orc;
 class Key;
-
+class Bonus;
 
 class GameObject {
 public:
@@ -46,7 +46,7 @@ public:
 	virtual void handleCollision(Wall& gameObject) = 0;
 
 	virtual void handleCollision(Dwarf& gameObject) = 0;
-	//virtual void handleCollision(Bonus& gameObject) = 0;
+	virtual void handleCollision(Bonus& gameObject) = 0;
 
 
 protected:

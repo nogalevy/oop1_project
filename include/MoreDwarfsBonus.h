@@ -19,7 +19,6 @@ public:
 
 	virtual void handleCollision(Dwarf& gameObject) override;
 
-
 private:
 
 };

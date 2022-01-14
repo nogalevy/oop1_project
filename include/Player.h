@@ -12,8 +12,10 @@ public:
 	void move(sf::Vector2f direction, sf::Time deltaTime);// = 0;
 	void setActive(bool active);
 
+
+
 protected:
-	void playSound(const int type);
+	void playSound(const Colision_sound_effect_type type);
 private:
 	void loadPlayerSoundEffects();
 	std::vector <Audio> m_colisionSounds;

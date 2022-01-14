@@ -31,7 +31,7 @@ public:
 	virtual void handleCollision(Wall& ) override;
 
 	virtual void handleCollision(Dwarf& gameObject) override;
-	//virtual void handleCollision(Bonus& gameObject) override;
+	virtual void handleCollision(Bonus& gameObject) override;
 private:
 
 };

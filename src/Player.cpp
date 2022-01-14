@@ -24,7 +24,7 @@ void Player::move(sf::Vector2f direction, sf::Time deltaTime)
 	getIcon().move(direction * speedPerSecond * deltaTime.asSeconds());
 }
 
-void Player::playSound(const int type)
+void Player::playSound(const Colision_sound_effect_type type)
 {
 	m_colisionSounds[type].playMusic(20);
 }
@@ -33,7 +33,7 @@ void Player::loadPlayerSoundEffects()
 {
 	for (int i = 0; i < NUM_OF_COLISION_SOUND; i++)
 	{
-		m_colisionSounds.push_back(Resources::instance().getColisionSoundEffect(i));
+		m_colisionSounds.push_back(Resources::instance().getColisionSoundEffect(Colision_sound_effect_type(i)));
 	}
 }
 

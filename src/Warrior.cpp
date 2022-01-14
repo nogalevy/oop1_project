@@ -46,11 +46,13 @@ void Warrior::handleCollision(Thief& gameObject)
 
 void Warrior::handleCollision(Fire&  )
 {
+	playSound(DEFAULT_COLISION);
 	moveToPrevPos();
 }
 
 void Warrior::handleCollision(Gate&  )
 {
+	playSound(DEFAULT_COLISION);
 	moveToPrevPos();
 }
 
@@ -74,15 +76,22 @@ void Warrior::handleCollision(Teleport&  )
 
 void Warrior::handleCollision(Throne&  )
 {
+	playSound(DEFAULT_COLISION);
 	moveToPrevPos();
 }
 
 void Warrior::handleCollision(Wall&  )
 {
+	playSound(DEFAULT_COLISION);
 	moveToPrevPos();
 }
 
 void Warrior::handleCollision(Dwarf& gameObject)
 {
 	moveToPrevPos();
+}
+
+void Warrior::handleCollision(Bonus& gameObject)
+{
+	playSound(BONUS_COLISION);
 }

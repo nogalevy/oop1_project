@@ -87,6 +87,11 @@ void King::handleCollision(Dwarf& gameObject)
 	moveToPrevPos();
 }
 
+void King::handleCollision(Bonus& gameObject)
+{
+	playSound(BONUS_COLISION);
+}
+
 bool King::isReachToThrone() const
 {
 	return m_reachThrone;

@@ -16,22 +16,25 @@ void AddTimeBonus::handleCollision(GameObject& gameObject)
 
 void AddTimeBonus::handleCollision(King& gameObject)
 {
-	playAudio();
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 
 void AddTimeBonus::handleCollision(Warrior& gameObject)
 {
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 
 void AddTimeBonus::handleCollision(Mage& gameObject)
 {
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 
 void AddTimeBonus::handleCollision(Thief& gameObject)
 {
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 

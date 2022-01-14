@@ -289,7 +289,7 @@ void Window::setSound()
 {
     for (size_t i = 0; i < NUM_OF_LEVEL_SOUND; i++)
     {
-        m_levelSounds.push_back(Resources::instance().getLevelSoundEffect(i));
+        m_levelSounds.push_back(Resources::instance().getLevelSoundEffect(Level_sound_effect_type(i)));
 
     }
 }
