@@ -134,7 +134,6 @@ void Board::readCountdown()
 	m_levelFile >> m_countdownTime;
 
 	m_isCountdown = (m_countdownTime == -1) ? false : true;
-	std::cout << "Timer Number is: " << m_countdownTime << std::endl;
 }
 
 //-----------------------------------------------------------------

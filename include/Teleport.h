@@ -1,7 +1,7 @@
 #pragma once
 #include "StaticObject.h"
 
-//class Window;
+//class Controller;
 
 //NEED TO CHANGE TO INHERIT FROM STATIC CLASS
 class Teleport : public StaticObject

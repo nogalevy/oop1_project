@@ -42,5 +42,5 @@ void Player::setActive(bool active)
 	if (active)
 		getIcon().setColor(sf::Color::White);
 	else
-		getIcon().setColor(sf::Color(124, 124, 124));
+		getIcon().setColor(sf::Color(196, 194, 194));
 }

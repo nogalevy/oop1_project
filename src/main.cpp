@@ -1,14 +1,14 @@
 #include <stdlib.h>
 #include <iostream>
-#include "window.h"
+#include "Controller.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
 
 
 int main()
 {
-    auto my_window = Window();
-    my_window.startGame();
+    auto my_controller = Controller();
+    my_controller.startGame();
 
     return EXIT_SUCCESS;
 }
@@ -22,7 +22,7 @@ int main()
     
 
     //------ fullscreen option ---------------
-    // App.create(sf::VideoMode(800, 600, 32), "SFML Window", sf::Style::Fullscreen);
+    // App.create(sf::VideoMode(800, 600, 32), "SFML Controller", sf::Style::Fullscreen);
    
     //----- create window ----------------
     auto window = sf::RenderWindow(window_sizee, "AHHHHHHHHHHHHHHHHHHHH" , sf::Style::Titlebar | sf::Style::Fullscreen | sf::Style::Close) );
