@@ -63,15 +63,11 @@ void Warrior::handleCollision(Key&  )
 
 void Warrior::handleCollision(Orc&  )
 {
-
-	//kills orc. orc drops key!!
-	//killOrc();
 }
 
 void Warrior::handleCollision(Teleport&  )
 {
-	//move to other teleport
-	//teleportToNewPos(nextPos);
+	playSound(TELEPORT_COLISION);
 }
 
 void Warrior::handleCollision(Throne&  )
