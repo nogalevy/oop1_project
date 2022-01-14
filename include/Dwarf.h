@@ -26,7 +26,7 @@ public:
 	virtual void handleCollision(Wall& gameObject) override;
 
 	virtual void handleCollision(Dwarf& gameObject) override;
-	//virtual void handleCollision(Bonus& gameObject) override;
+	virtual void handleCollision(Bonus& gameObject) override;
 
 	void increaseSpeed();
 	void decreaseSpeed();

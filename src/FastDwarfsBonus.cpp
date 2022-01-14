@@ -16,25 +16,25 @@ void FastDwarfsBonus::handleCollision(GameObject& gameObject)
 
 void FastDwarfsBonus::handleCollision(King& gameObject)
 {
-	playAudio();
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 
 void FastDwarfsBonus::handleCollision(Warrior& gameObject)
 {
-	playAudio();
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 
 void FastDwarfsBonus::handleCollision(Mage& gameObject)
 {
-	playAudio();
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 
 void FastDwarfsBonus::handleCollision(Thief& gameObject)
 {
-	playAudio();
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 

@@ -8,7 +8,6 @@ Resources::Resources()
 	loadMenuBackground();
 	loadHelpMenu();
 	loadAudio();
-	loadBonusAudio();
 	loadSoundEffects();
 	loadVolumeIcons();
 	loadBoardBackground();
@@ -89,14 +88,6 @@ void Resources::loadAudio()
 {
 	std::cout << "hello\n";
 	if (!m_gameMusic.loadFromFile("toward-the-mountains.ogg"))
-	{
-		std::cerr << "error load from file";
-	}
-}
-
-void Resources::loadBonusAudio()
-{
-	if (!m_bonusBuffer.loadFromFile("bonus.ogg"))
 	{
 		std::cerr << "error load from file";
 	}
@@ -213,19 +204,14 @@ sf::SoundBuffer* Resources::getMusic()
 	return &m_gameMusic;;
 }
 
-sf::SoundBuffer* Resources::getBonusSound()
-{
-	return &m_bonusBuffer;
-}
-
 //-----------------------------------------------------------------
 
-sf::SoundBuffer* Resources::getColisionSoundEffect(const int type)
+sf::SoundBuffer* Resources::getColisionSoundEffect(const Colision_sound_effect_type type)
 {
 	return &m_colisionSoundEffectsBuffer[type];
 }
 
-sf::SoundBuffer* Resources::getLevelSoundEffect(const int type)
+sf::SoundBuffer* Resources::getLevelSoundEffect(const Level_sound_effect_type type)
 {
 	return &m_levelSoundEffectsBuffer[type];
 }

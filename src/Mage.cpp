@@ -43,6 +43,7 @@ void Mage::handleCollision(Fire& )
 
 void Mage::handleCollision(Gate& )
 {
+	playSound(DEFAULT_COLISION);
 	moveToPrevPos();
 }
 
@@ -53,6 +54,7 @@ void Mage::handleCollision(Key& )
 
 void Mage::handleCollision(Orc& )
 {
+	playSound(DEFAULT_COLISION);
 	moveToPrevPos();
 }
 
@@ -63,16 +65,23 @@ void Mage::handleCollision(Teleport& )
 
 void Mage::handleCollision(Throne& )
 {
+	playSound(DEFAULT_COLISION);
 	moveToPrevPos();
 }
 
 void Mage::handleCollision(Wall& )
 {
+	playSound(DEFAULT_COLISION);
 	moveToPrevPos();
 }
 
 void Mage::handleCollision(Dwarf& gameObject)
 {
 	moveToPrevPos();
+}
+
+void Mage::handleCollision(Bonus& gameObject)
+{
+	playSound(BONUS_COLISION);
 }
 

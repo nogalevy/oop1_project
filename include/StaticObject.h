@@ -24,10 +24,11 @@ public:
 	virtual void handleCollision(Teleport&) override {};
 	virtual void handleCollision(Throne&) override {};
 	virtual void handleCollision(Wall&) override {};
+	virtual void handleCollision(Bonus&) override {};
 
 	bool isDisposed() const;
 	sf::Vector2f getPosition();
 
 protected:
-	bool m_isDisposed;
+	bool m_isDisposed; //TODO: change to private
 };

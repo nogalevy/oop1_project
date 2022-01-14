@@ -93,6 +93,10 @@ void Dwarf::handleCollision(Dwarf& gameObject)
 {
 }
 
+void Dwarf::handleCollision(Bonus& gameObject)
+{
+}
+
 void Dwarf::increaseSpeed()
 {
 	m_speedPerSecond += 50.f;

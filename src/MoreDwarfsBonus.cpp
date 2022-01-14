@@ -16,21 +16,25 @@ void MoreDwarfsBonus::handleCollision(GameObject& gameObject)
 
 void MoreDwarfsBonus::handleCollision(King& gameObject)
 {
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 
 void MoreDwarfsBonus::handleCollision(Warrior& gameObject)
 {
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 
 void MoreDwarfsBonus::handleCollision(Mage& gameObject)
 {
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 
 void MoreDwarfsBonus::handleCollision(Thief& gameObject)
 {
+	gameObject.handleCollision(*this);
 	m_isDisposed = true;
 }
 

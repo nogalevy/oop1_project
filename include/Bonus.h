@@ -28,8 +28,6 @@ public:
 
 	//virtual void handleCollision(Dwarf& gameObject) override;
 	//virtual void handleCollision(Bonus& gameObject) override;
-protected:
-	void playAudio();
 private:
-	Audio m_audio;
+
 };
