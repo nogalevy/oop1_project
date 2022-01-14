@@ -359,8 +359,8 @@ void Window::handleMenuClick(const sf::Event& event)
         m_board.loadLevel();
         resetClock();
 
-        m_dataDisplay.setHasKey(false);
         m_dataDisplay.setCountdown(m_board.getCountdown());
+        resetCurrLevelData();
         break;
     case HELP:
         m_currPage = HELPMENU;
