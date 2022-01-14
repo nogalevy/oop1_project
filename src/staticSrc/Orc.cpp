@@ -1,4 +1,4 @@
-#include "Orc.h"
+#include "staticInclude/Orc.h"
 
 Orc::~Orc()
 {

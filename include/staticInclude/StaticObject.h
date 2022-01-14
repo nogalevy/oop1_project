@@ -3,11 +3,11 @@
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
 
-#include "King.h"
-#include "Mage.h"
-#include "Warrior.h"
-#include "Thief.h"
-#include "Dwarf.h"
+#include "movingInclude/King.h"
+#include "movingInclude/Mage.h"
+#include "movingInclude/Warrior.h"
+#include "movingInclude/Thief.h"
+#include "movingInclude/Dwarf.h"
 
 
 class StaticObject : public GameObject

@@ -1,4 +1,4 @@
-#include "MovingObject.h"
+#include "movingInclude/MovingObject.h"
 
 
 MovingObject::MovingObject(Icons symbol, const sf::Vector2f& position,  float objSize)

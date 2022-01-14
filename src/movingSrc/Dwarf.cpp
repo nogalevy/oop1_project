@@ -1,4 +1,4 @@
-#include "Dwarf.h"
+#include "movingInclude/Dwarf.h"
 
 Dwarf::Dwarf(Icons symbol, const sf::Vector2f& position,  float objSize)
 	: MovingObject(symbol, position,  objSize), m_direction({ -1,0 }), m_speedPerSecond(100.f)

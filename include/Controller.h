@@ -20,10 +20,10 @@ public:
 	Controller();
 	~Controller();
 	void startGame();
-	void draw() const;
+	//void draw() const;
 	void drawCurrPage();
 	void handleClick(const sf::Event& event);
-	void isKeyPressed();
+	//void isKeyPressed();
 	void handleMenuClick(const sf::Event& event);
 	void handleBoardClick(const sf::Event& event);
 	void handleHover(const sf::Vector2f location);

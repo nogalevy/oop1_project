@@ -1,4 +1,4 @@
-#include "Fire.h"
+#include "staticInclude/Fire.h"
 
 Fire::~Fire()
 {

@@ -1,4 +1,4 @@
-#include "Gate.h"
+#include "staticInclude/Gate.h"
 
 Gate::~Gate()
 {

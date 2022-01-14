@@ -1,4 +1,4 @@
-#include "Teleport.h"
+#include "staticInclude/Teleport.h"
 
 Teleport::~Teleport()
 {

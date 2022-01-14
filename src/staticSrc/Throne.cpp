@@ -1,4 +1,4 @@
-#include "Throne.h"
+#include "staticInclude/Throne.h"
 
 Throne::~Throne()
 {

@@ -1,4 +1,4 @@
-#include "Wall.h"
+#include "staticInclude/Wall.h"
 
 /*
 Wall::Wall(Icons symbol, const sf::Vector2f& position, int mapW, int mapH)

@@ -1,4 +1,4 @@
-#include "SubTimeBonus.h"
+#include "staticInclude/SubTimeBonus.h"
 
 SubTimeBonus::SubTimeBonus(Icons symbol, const sf::Vector2f& position,  float objSize)
 	:Bonus(symbol, position,  objSize)

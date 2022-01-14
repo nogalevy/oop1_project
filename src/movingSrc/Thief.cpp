@@ -1,4 +1,4 @@
-#include "Thief.h"
+#include "movingInclude/Thief.h"
 
 Thief::Thief(Icons symbol, const sf::Vector2f& position,  float objSize)
 	: Player(symbol, position,  objSize), m_hasKey(false)

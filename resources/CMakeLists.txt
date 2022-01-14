@@ -47,3 +47,8 @@ configure_file ("audio/bonus.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/win.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/loser.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 
+# levels
+
+configure_file("levels/Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file("levels/Level2.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file("levels/Level3.txt" ${CMAKE_BINARY_DIR} COPYONLY)

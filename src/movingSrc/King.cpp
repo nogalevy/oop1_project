@@ -1,4 +1,4 @@
-#include "King.h"
+#include "movingInclude/King.h"
 
 King::King(Icons symbol, const sf::Vector2f& position,  float objSize)
 	: Player(symbol, position,  objSize),

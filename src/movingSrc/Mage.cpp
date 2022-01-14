@@ -1,4 +1,4 @@
-#include "Mage.h"
+#include "movingInclude/Mage.h"
 
 Mage::Mage(Icons symbol, const sf::Vector2f& position,  float objSize)
 	: Player(symbol, position,  objSize)
