@@ -28,7 +28,7 @@ void Key::handleCollision(Thief& gameObject)
 {
 	if (!gameObject.getHasKey())
 	{
-		m_isDisposed = true; //setIsDisposed ?
+		setIsDisposed(true);
 		gameObject.handleCollision(*this);
 	}
 }

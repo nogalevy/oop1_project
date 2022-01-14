@@ -15,7 +15,8 @@ void Orc::handleCollision(King& gameObject)
 
 void Orc::handleCollision(Warrior& gameObject)
 {
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 	gameObject.handleCollision(*this);
 }
 

@@ -10,6 +10,7 @@ public:
 	void moveToPrevPos();
 
 protected:
-	sf::Vector2f m_location;
+	sf::Vector2f& getPrevPos();
+private:
 	sf::Vector2f m_prevPos;
 };

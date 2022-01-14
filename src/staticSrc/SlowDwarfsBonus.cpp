@@ -17,25 +17,29 @@ void SlowDwarfsBonus::handleCollision(GameObject& gameObject)
 void SlowDwarfsBonus::handleCollision(King& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void SlowDwarfsBonus::handleCollision(Warrior& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void SlowDwarfsBonus::handleCollision(Mage& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void SlowDwarfsBonus::handleCollision(Thief& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void SlowDwarfsBonus::handleCollision(Dwarf& gameObject)

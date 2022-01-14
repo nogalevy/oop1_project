@@ -15,6 +15,11 @@ sf::Vector2f StaticObject::getPosition()
 	return getIcon().getPosition();
 }
 
+void StaticObject::setIsDisposed(bool isDisposed)
+{
+	m_isDisposed = (isDisposed) ? true : false;
+}
+
 //StaticObject::~StaticObject()
 //{
 //}

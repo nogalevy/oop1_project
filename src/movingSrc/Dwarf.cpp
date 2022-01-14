@@ -11,7 +11,7 @@ Dwarf::~Dwarf()
 
 void Dwarf::move(sf::Time deltaTime)
 {
-	m_prevPos = getIcon().getPosition();
+	getPrevPos() = getIcon().getPosition();
 	//auto speedPerSecond = 100.f;
 	getIcon().move(m_direction * m_speedPerSecond * deltaTime.asSeconds());
 }

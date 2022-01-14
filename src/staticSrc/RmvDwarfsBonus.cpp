@@ -17,25 +17,29 @@ void RmvDwarfsBonus::handleCollision(GameObject& gameObject)
 void RmvDwarfsBonus::handleCollision(King& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void RmvDwarfsBonus::handleCollision(Warrior& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void RmvDwarfsBonus::handleCollision(Mage& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void RmvDwarfsBonus::handleCollision(Thief& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void RmvDwarfsBonus::handleCollision(Dwarf& gameObject)

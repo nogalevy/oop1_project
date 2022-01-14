@@ -30,5 +30,7 @@ public:
 	sf::Vector2f getPosition();
 
 protected:
-	bool m_isDisposed; //TODO: change to private
+	void setIsDisposed(bool isDisposed);
+private:
+	bool m_isDisposed; 
 };

@@ -17,25 +17,29 @@ void AddTimeBonus::handleCollision(GameObject& gameObject)
 void AddTimeBonus::handleCollision(King& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void AddTimeBonus::handleCollision(Warrior& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void AddTimeBonus::handleCollision(Mage& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void AddTimeBonus::handleCollision(Thief& gameObject)
 {
 	gameObject.handleCollision(*this);
-	m_isDisposed = true;
+	//m_isDisposed = true;
+	setIsDisposed(true);
 }
 
 void AddTimeBonus::handleCollision(Dwarf& gameObject)
