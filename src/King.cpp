@@ -60,10 +60,7 @@ void King::handleCollision(Orc& )
 
 void King::handleCollision(Teleport& )
 {
-	std::cout << "naw\n";
-
-	//move to other teleport
-	//teleportToNewPos(nextPos);
+	playSound(TELEPORT_COLISION);
 }
 
 void King::handleCollision(Throne& )

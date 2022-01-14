@@ -16,6 +16,7 @@ void Teleport::handleCollision(GameObject& gameObject)
 
 void Teleport::handleCollision(King& gameObject)
 {
+	gameObject.handleCollision(*this);
 	gameObject.setPosition(m_partner);
 }
 

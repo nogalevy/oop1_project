@@ -34,12 +34,13 @@ struct Partners {
 
 enum BonusType {ADDTIME, SUBTIME, RMVDWARFS, MOREDWARFS, SLOWDWARFS, FASTDWARFS, NONE};
 
-const int NUM_OF_COLISION_SOUND = 4;
+const int NUM_OF_COLISION_SOUND = 5;
 const int NUM_OF_LEVEL_SOUND = 2;
 //const int NUM_OF_SOUND_EFFECTS = NUM_OF_COLISION_SOUND + NUM_OF_GAME_SOUND;
 
-enum Colision_sound_effect_type { DEFAULT_COLISION, WARRIOR_ORC_COLISION, BONUS_COLISION, NO };
-const std::string COLISION_SOUND_EFFECTS[NUM_OF_COLISION_SOUND] = { "colision.ogg", "sword.ogg", "bonus.ogg" ,"no.ogg"};
+enum Colision_sound_effect_type { DEFAULT_COLISION, WARRIOR_ORC_COLISION, BONUS_COLISION, TELEPORT_COLISION , NO };
+const std::string COLISION_SOUND_EFFECTS[NUM_OF_COLISION_SOUND] = { "colision.ogg", "sword.ogg",
+																	 "bonus.ogg" ,"teleport.ogg" ,"no.ogg"};
 
 enum Level_sound_effect_type { END_LEVEL, LOSE_LEVEL };
 const std::string LEVEL_SOUND_EFFECTS[NUM_OF_LEVEL_SOUND] = { "win.ogg", "loser.ogg" };
