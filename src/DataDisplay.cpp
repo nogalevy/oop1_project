@@ -11,7 +11,6 @@ DataDisplay::DataDisplay(int time)
 	setText();
 	setHomeBtn();
 	setVolumeBtn();
-
 	setLevelNum(1);
 	setBgRectangle();
 }
@@ -154,12 +153,9 @@ void DataDisplay::setText()
 
 void DataDisplay::setTimerText()
 {
-
 	m_timerTxt.setFont(*(Resources::instance().getFont()));
-	
 	m_timerTxt.setString("Time: 00:00");
-
-	m_timerTxt.setPosition(sf::Vector2f(WINDOW_W - m_timerTxt.getGlobalBounds().width - 10, 10)); // top right
+	m_timerTxt.setPosition(sf::Vector2f(WINDOW_W - m_timerTxt.getGlobalBounds().width - MARGIN, MARGIN)); // top right
 	m_timerTxt.setColor(sf::Color::White);
 	m_timerTxt.setCharacterSize(DATA_DISPLAY_FONT_SIZE);
 }
@@ -169,7 +165,7 @@ void DataDisplay::setTimerText()
 void DataDisplay::setLevelNumText()
 {
 	m_levelNumTxt.setFont(*(Resources::instance().getFont()));
-	m_levelNumTxt.setPosition(sf::Vector2f(10, BOARD_H + 10));
+	m_levelNumTxt.setPosition(sf::Vector2f(MARGIN, DATA_DISPLAY_POS_Y));
 	m_levelNumTxt.setColor(sf::Color::White);
 	m_levelNumTxt.setCharacterSize(DATA_DISPLAY_FONT_SIZE);
 	setLevelNum(0);
@@ -182,7 +178,7 @@ void DataDisplay::setActivePlayerText()
 	int posX = m_levelNumTxt.getPosition().x + m_levelNumTxt.getGlobalBounds().width + 65;
 
 	m_activePlayerTxt.setFont(*(Resources::instance().getFont()));
-	m_activePlayerTxt.setPosition(sf::Vector2f(posX, BOARD_H + 10));
+	m_activePlayerTxt.setPosition(sf::Vector2f(posX, DATA_DISPLAY_POS_Y));
 	m_activePlayerTxt.setColor(sf::Color::White);
 	m_activePlayerTxt.setCharacterSize(DATA_DISPLAY_FONT_SIZE);
 }
@@ -194,7 +190,7 @@ void DataDisplay::setHasKeyText()
 	int posX = m_activePlayerTxt.getPosition().x + 370;
 
 	m_hasKeyTxt.setFont(*(Resources::instance().getFont()));
-	m_hasKeyTxt.setPosition(sf::Vector2f(posX, BOARD_H + 10));
+	m_hasKeyTxt.setPosition(sf::Vector2f(posX, DATA_DISPLAY_POS_Y));
 	m_hasKeyTxt.setColor(sf::Color::White);
 	m_hasKeyTxt.setCharacterSize(DATA_DISPLAY_FONT_SIZE);
 }
@@ -218,7 +214,7 @@ void DataDisplay::setVolumeBtn()
 	margin = 40.f;
 	posX = WINDOW_W - (m_volumeBtn.getGlobalBounds().width + m_homeBtn.getGlobalBounds().width) - margin;
 
-	m_volumeBtn.setPosition(posX, BOARD_H + 10);
+	m_volumeBtn.setPosition(posX, DATA_DISPLAY_POS_Y);
 }
 
 //-----------------------------------------------------------------
@@ -231,7 +227,7 @@ void DataDisplay::setHomeBtn()
 	margin = 20.f;
 	posX = WINDOW_W - m_homeBtn.getGlobalBounds().width - margin;
 
-	m_homeBtn.setPosition(posX, BOARD_H + 10);
+	m_homeBtn.setPosition(posX, DATA_DISPLAY_POS_Y);
 }
 
 
