@@ -28,6 +28,8 @@ public:
 	sf::Texture* getLevelCompleted();
 	sf::Texture* getCongrats();
 
+	sf::Image* getGameIcon();
+
 private:
 	Resources();
 	Resources(const Resources&) = default;
@@ -45,6 +47,7 @@ private:
 	void loadHomeBtnTexture();
 	void loadLevelComplete();
 	void loadCongrats();
+	void loadGameIcon();
 
 	//======Members==========
 
@@ -67,5 +70,5 @@ private:
 	std::vector<sf::SoundBuffer> m_colisionSoundEffectsBuffer;
 	std::vector<sf::SoundBuffer> m_levelSoundEffectsBuffer;
 	
-
+	sf::Image m_gameIcon;
 };

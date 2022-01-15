@@ -13,6 +13,7 @@ Resources::Resources()
 	loadHomeBtnTexture();
 	loadLevelComplete();
 	loadCongrats();
+	loadGameIcon();
 }
 
 //-----------------------------------------------------------------
@@ -172,6 +173,14 @@ void Resources::loadCongrats()
 	}
 }
 
+void Resources::loadGameIcon()
+{
+	if (!m_gameIcon.loadFromFile("gameIcon.jpg"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
 //-----------------------------------------------------------------
 
 sf::Texture* Resources::getIcon(const int symbol)
@@ -261,4 +270,9 @@ sf::Texture* Resources::getLevelCompleted()
 sf::Texture* Resources::getCongrats()
 {
 	return &m_congrats;
+}
+
+sf::Image* Resources::getGameIcon()
+{
+	return &m_gameIcon;
 }

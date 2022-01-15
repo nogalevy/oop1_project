@@ -11,22 +11,15 @@ Controller::Controller()
     m_activePlayer(KING),
     m_audio(Resources::instance().getMusic())
 {
+    setGameIcon();
     m_window.setFramerateLimit(60);
     setSound();
-
-    if (m_board.isCountdown())
-    {
-        m_dataDisplay.setCountdown(m_board.getCountdown());
-    }
     initPages();
-    
 }
 
 //-----------------------------------------------------------------
 
-Controller::~Controller()
-{
-}
+Controller::~Controller() {}
 
 //-----------------------------------------------------------------
 
@@ -58,9 +51,16 @@ void Controller::startGame()
             else
                 handleCongrats(event);
         }
-
         handleKeyboardClick();
     }
+}
+
+//-----------------------------------------------------------------
+
+void Controller::setGameIcon()
+{
+    sf::Image image = (*Resources::instance().getGameIcon());
+    m_window.setIcon(image.getSize().x,image.getSize().y, image.getPixelsPtr());
 }
 
 //-----------------------------------------------------------------
@@ -84,8 +84,7 @@ void Controller::handleNextLevel()
     {
         m_board.resetLevelNum();
         m_activePlayer = KING;
-        m_currPage = CONGRATS; //we need to update here that the user finished all levels
-
+        m_currPage = CONGRATS; 
     }
     m_board.loadLevel();
     resetCurrLevelData();
@@ -278,7 +277,6 @@ void Controller::checkLoseLevel()
         m_board.createLevel();
         resetCurrLevelData();
         m_dataDisplay.setCountdown(m_board.getCountdown());
-
     }
 }
 
@@ -289,7 +287,6 @@ void Controller::setSound()
     for (size_t i = 0; i < NUM_OF_LEVEL_SOUND; i++)
     {
         m_levelSounds.push_back(Resources::instance().getLevelSoundEffect(Level_sound_effect_type(i)));
-
     }
 }
 
@@ -300,9 +297,6 @@ void Controller::resetCurrLevelData()
     m_activePlayer = KING;
     m_dataDisplay.setHasKey(false);
     m_dataDisplay.setLevelNum(m_board.getLevelNum());
-    //m_board.loadLevel();
-    //resetClock();
-    //m_dataDisplay.setCountdown(m_board.getCountdown());
 }
 
 //-----------------------------------------------------------------
@@ -317,9 +311,6 @@ void Controller::drawCurrPage()
     case BOARD:
         m_board.draw(m_window, m_activePlayer);
         checkLoseLevel();
-
-        //key = m_board.getHasKey(); //Noga : not sure (?)
-
         m_dataDisplay.draw(m_window, m_activePlayer);
         break;
     case HELPMENU:
@@ -355,9 +346,7 @@ void Controller::handleMenuClick(const sf::Event& event)
         m_board.resetLevelNum();
         m_board.loadLevel();
         resetClock();
-
         resetCurrLevelData();
-        //m_dataDisplay.setHasKey(false);
         m_dataDisplay.setCountdown(m_board.getCountdown());
         break;
     case HELP:
@@ -388,10 +377,7 @@ void Controller::handleBoardClick(const sf::Event& event)
         break;
     case HOME:
     {
-        //move this to function ? we have the same 3 lines in 'handleNextLevel'
         m_currPage = MENU;
-        m_activePlayer = KING;
-        //m_board.;
         m_board.resetLevelNum();
         break;
     }

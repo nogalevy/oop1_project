@@ -37,6 +37,7 @@ private:
 	void resetCurrLevelData();
 
 	//Init Functions
+	void setGameIcon();
 	void initPages();
 	void setSound();
 
