@@ -6,10 +6,12 @@ DataDisplay::DataDisplay(int time)
 	m_timeCounter(time),
 	m_hasKey(false),
 	m_volumeBtn(*(Resources::instance().getVolumeIcon(true))),
-	m_homeBtn(*(Resources::instance().getHomeBtnTexture()))
+	m_homeBtn(*(Resources::instance().getHomeBtnTexture())),
+	m_retryLevelBtn(*(Resources::instance().getRetryBtnTexture()))
 {
 	setText();
 	setHomeBtn();
+	setRetryLevelBtn();
 	setVolumeBtn();
 	setLevelNum(1);
 	setBgRectangle();
@@ -27,6 +29,7 @@ void DataDisplay::draw(sf::RenderWindow& window, int activePlayer)
 	drawHasKey(window);
 
 	window.draw(m_volumeBtn);
+	window.draw(m_retryLevelBtn);
 	window.draw(m_homeBtn);
 }
 
@@ -101,6 +104,8 @@ int DataDisplay::handleClick(const sf::Event &event) const
 		return VOLUME;
 	else if (m_homeBtn.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
 		return HOME;
+	else if (m_retryLevelBtn.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
+		return RETRY;
 	return MINUS_ONE;
 }
 
@@ -214,8 +219,8 @@ void DataDisplay::setVolumeBtn()
 	float margin = 0, posX = 0, scale_val = 0.07f;
 	m_volumeBtn.scale(scale_val, scale_val);
 
-	margin = 40.f;
-	posX = WINDOW_W - (m_volumeBtn.getGlobalBounds().width + m_homeBtn.getGlobalBounds().width) - margin;
+	margin = 30.f;
+	posX = m_retryLevelBtn.getPosition().x - m_volumeBtn.getGlobalBounds().width - margin;
 
 	m_volumeBtn.setPosition(posX, DATA_DISPLAY_POS_Y);
 }
@@ -228,10 +233,21 @@ void DataDisplay::setHomeBtn()
 
 	m_homeBtn.scale(scale_val, scale_val);
 
-	margin = 20.f;
+	margin = 30.f;
 	posX = WINDOW_W - m_homeBtn.getGlobalBounds().width - margin;
 
 	m_homeBtn.setPosition(posX, DATA_DISPLAY_POS_Y);
+}
+
+void DataDisplay::setRetryLevelBtn()
+{
+	float margin = 0, posX = 0, scale_val = 0.07f;
+	m_retryLevelBtn.scale(scale_val, scale_val);
+
+	margin = 50.f;
+	posX = WINDOW_W - (m_retryLevelBtn.getGlobalBounds().width + m_homeBtn.getGlobalBounds().width) - margin;
+
+	m_retryLevelBtn.setPosition(posX, DATA_DISPLAY_POS_Y);
 }
 
 

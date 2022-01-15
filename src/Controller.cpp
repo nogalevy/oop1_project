@@ -279,10 +279,17 @@ void Controller::checkLoseLevel()
     {
         m_levelSounds[LOSE_LEVEL].playMusic(SOUND_EFFECTS_VOLUME);
 
-        m_board.createLevel();
-        resetCurrLevelData();
-        m_dataDisplay.setCountdown(m_board.getCountdown());
+        retryLevel();
     }
+}
+
+//-----------------------------------------------------------------
+
+void Controller::retryLevel()
+{
+    m_board.createLevel();
+    resetCurrLevelData();
+    m_dataDisplay.setCountdown(m_board.getCountdown());
 }
 
 //-----------------------------------------------------------------
@@ -389,6 +396,12 @@ void Controller::handleBoardClick(const sf::Event& event)
         playClickSound();
         m_currPage = MENU;
         m_board.resetLevelNum();
+        break;
+    }
+    case RETRY:
+    {
+        playClickSound();
+        retryLevel();
         break;
     }
     default:

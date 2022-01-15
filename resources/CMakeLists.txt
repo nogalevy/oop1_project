@@ -20,6 +20,7 @@ configure_file ("images/congrats.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/mute_white.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/volume_white.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/home.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("images/retry.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/board_bg.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/gameIcon.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 

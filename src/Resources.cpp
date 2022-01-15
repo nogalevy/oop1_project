@@ -12,6 +12,7 @@ Resources::Resources()
 	loadVolumeIcons();
 	loadBoardBackground();
 	loadHomeBtnTexture();
+	loadRetryBtnTexture();
 	loadLevelComplete();
 	loadCongrats();
 	loadGameIcon();
@@ -160,6 +161,14 @@ void Resources::loadHomeBtnTexture()
 	}
 }
 
+void Resources::loadRetryBtnTexture()
+{
+	if (!m_retryBtnTexture.loadFromFile("retry.png"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
 //-----------------------------------------------------------------
 
 void Resources::loadLevelComplete()
@@ -261,6 +270,11 @@ sf::Texture* Resources::getBoardBackground()
 sf::Texture* Resources::getHomeBtnTexture()
 {
 	return &m_homeBtnTexture;
+}
+
+sf::Texture* Resources::getRetryBtnTexture()
+{
+	return &m_retryBtnTexture;
 }
 
 //-----------------------------------------------------------------

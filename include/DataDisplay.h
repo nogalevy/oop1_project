@@ -42,6 +42,7 @@ private:
 	void setBgRectangle();
 	void setVolumeBtn();
 	void setHomeBtn();
+	void setRetryLevelBtn();
 
 	//Draw Functions
 	void drawTime(sf::RenderWindow& window);
@@ -65,6 +66,7 @@ private:
 	//Buttons
 	sf::Sprite m_volumeBtn;
 	sf::Sprite m_homeBtn;
+	sf::Sprite m_retryLevelBtn;
 
 	//Time Members
 	Timer m_timeCounter;

@@ -49,6 +49,7 @@ private:
 	void updateGameData();
 	void applyBonus();
 	void checkLoseLevel();
+	void retryLevel();
 
 	//======Members==========
 

@@ -5,7 +5,7 @@
 
 //ENUMS
 enum Menu_buttons { START, HELP, EXIT };
-enum Board_buttons { VOLUME, HOME };
+enum Board_buttons { VOLUME, HOME, RETRY};
 enum Pages { MENU, BOARD, HELPMENU, LEVELCOMPLETE, CONGRATS };
 enum Arrows { LEFT, RIGHT, UP, DOWN };
 

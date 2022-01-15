@@ -25,6 +25,7 @@ public:
 	sf::Texture* getVolumeIcon(bool soundOn);
 	sf::Texture* getBoardBackground();
 	sf::Texture* getHomeBtnTexture();
+	sf::Texture* getRetryBtnTexture();
 	sf::Texture* getLevelCompleted();
 	sf::Texture* getCongrats();
 
@@ -46,6 +47,7 @@ private:
 	void loadClickSoundEffect();
 	void loadBoardBackground();
 	void loadHomeBtnTexture();
+	void loadRetryBtnTexture();
 	void loadLevelComplete();
 	void loadCongrats();
 	void loadGameIcon();
@@ -62,6 +64,7 @@ private:
 	sf::Texture m_boardBackground;
 	std::vector<sf::Texture> m_volumeTextures;
 	sf::Texture m_homeBtnTexture;
+	sf::Texture m_retryBtnTexture;
 	sf::Texture m_levelComplete;
 	sf::Texture m_congrats;
 	
