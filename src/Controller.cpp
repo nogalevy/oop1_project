@@ -356,7 +356,8 @@ void Controller::handleMenuClick(const sf::Event& event)
         m_board.loadLevel();
         resetClock();
 
-        m_dataDisplay.setHasKey(false);
+        resetCurrLevelData();
+        //m_dataDisplay.setHasKey(false);
         m_dataDisplay.setCountdown(m_board.getCountdown());
         break;
     case HELP:

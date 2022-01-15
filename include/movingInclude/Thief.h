@@ -26,7 +26,7 @@ public:
 	virtual void handleCollision(Gate& ) override;
 	virtual void handleCollision(Key& ) override;
 	virtual void handleCollision(Orc& ) override;
-	virtual void handleCollision(Teleport&) override {};
+	virtual void handleCollision(Teleport&) override;
 	virtual void handleCollision(Throne& ) override;
 	virtual void handleCollision(Wall& ) override;
 	virtual void handleCollision(Bonus& ) override;
