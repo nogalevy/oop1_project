@@ -242,10 +242,10 @@ void Controller::applyBonus()
         switch (bonus)
         {
         case ADDTIME:
-            m_dataDisplay.addTime(10, m_window);
+            m_dataDisplay.addTime(10);
             break;
         case SUBTIME:
-            m_dataDisplay.addTime(-10, m_window);
+            m_dataDisplay.addTime(-10);
             break;
         case RMVDWARFS:
             m_board.removeDwarfs();

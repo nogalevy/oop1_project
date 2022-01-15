@@ -129,7 +129,7 @@ void Board::readCountdown()
 {
 	m_levelFile >> m_countdownTime;
 
-	m_isCountdown = (m_countdownTime == -1) ? false : true;
+	m_isCountdown = (m_countdownTime == MINUS_ONE) ? false : true;
 }
 
 //-----------------------------------------------------------------

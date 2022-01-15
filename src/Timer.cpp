@@ -5,7 +5,7 @@ Timer::Timer(int time)
 	: m_time(sf::seconds(time)), m_clock(), m_timerType(TIMER) 
 {
 	setTime(time);
-	m_timerType = time == -1 ? TIMER : COUNTDOWN;
+	m_timerType = time == MINUS_ONE ? TIMER : COUNTDOWN;
 }
 
 //-----------------------------------------------------------------

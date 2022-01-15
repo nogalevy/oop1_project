@@ -32,7 +32,7 @@ int Menu::handleClick(const sf::Event& event) const
         if (this->m_btns[i].getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y))
             return i;
     }
-    return -1;
+    return MINUS_ONE;
 }
 
 //-----------------------------------------------------------------

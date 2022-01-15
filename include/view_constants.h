@@ -28,8 +28,14 @@ const int DATA_DISPLAY_H = WINDOW_H / 7;
 
 const float ICON_SIZE = 512;
 const int MENU_FONT_SIZE = 65; 
+const int DATA_DISPLAY_FONT_SIZE = 30;
+
 
 //-----------------------------------------------------------------
 
 //CONST INT: DEFAULT
 const int DEFAULT_VOLUME = 10;
+
+//-----------------------------------------------------------------
+
+const int MINUS_ONE = -1;
