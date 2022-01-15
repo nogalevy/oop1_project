@@ -37,6 +37,7 @@ void Thief::handleCollision(Mage& gameObject)
 
 void Thief::handleCollision(Dwarf& )
 {
+	playSound(DWARF_COLISION);
 	moveToPrevPos();
 }
 
@@ -52,10 +53,10 @@ void Thief::handleCollision(Fire& )
 
 void Thief::handleCollision(Gate& )
 {
+	playSound(THIEF_GATE_COLISION);
 	setIcon(*(Resources::instance().getIcon(THIEF)));
 	if (!m_hasKey)
 	{
-		playSound(DEFAULT_COLISION);
 		moveToPrevPos();
 	}
 }
@@ -65,6 +66,7 @@ void Thief::handleCollision(Gate& )
 void Thief::handleCollision(Key& )
 {
 	setIcon(*(Resources::instance().getIcon(THIEF_WITH_KEY)));
+	playSound(MAGE_FIRE_COLISION);
 	setHasKey(true);
 }
 

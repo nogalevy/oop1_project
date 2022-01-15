@@ -22,8 +22,9 @@ void Fire::handleCollision(Warrior& gameObject)
 
 //-----------------------------------------------------------------
 
-void Fire::handleCollision(Mage& )
+void Fire::handleCollision(Mage& gameObject)
 {
+	gameObject.handleCollision(*this);
 	setIsDisposed(true);
 }
 

@@ -42,7 +42,7 @@ void King::handleCollision(Thief& gameObject)
 
 void King::handleCollision(Dwarf& )
 {
-	playSound(NO);
+	playSound(DWARF_COLISION);
 	moveToPrevPos();
 }
 

@@ -23,7 +23,7 @@ public:
 	virtual void handleCollision(Dwarf& ) override;
 
 	//Static Object
-	virtual void handleCollision(Fire&) override {};
+	virtual void handleCollision(Fire&) override;
 	virtual void handleCollision(Gate& ) override;
 	virtual void handleCollision(Key&) override {};
 	virtual void handleCollision(Orc& ) override;

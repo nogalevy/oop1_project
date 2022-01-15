@@ -37,10 +37,16 @@ void Mage::handleCollision(Thief& gameObject)
 
 void Mage::handleCollision(Dwarf& )
 {
+	playSound(DWARF_COLISION);
 	moveToPrevPos();
 }
 
 //-----------------------------------------------------------------
+
+void Mage::handleCollision(Fire&)
+{
+	playSound(MAGE_FIRE_COLISION);
+}
 
 void Mage::handleCollision(Gate& )
 {

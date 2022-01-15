@@ -28,11 +28,13 @@ configure_file ("fonts/YatraOne.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 
 # audio
 configure_file ("toward-the-mountains.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("audio/no.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("audio/dwarf.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/colision.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/sword.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/bonus.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/teleport.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("audio/fire.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("audio/gate.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/click.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("audio/win.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
