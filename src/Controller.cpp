@@ -7,28 +7,19 @@ Controller::Controller()
     m_menu(),
     m_board(),
     m_dataDisplay(m_board.getCountdown()),
-    m_bgTexture(),
-    m_image(),
     m_currPage(MENU),
     m_activePlayer(KING),
     m_audio(Resources::instance().getMusic())
 {
     m_window.setFramerateLimit(60);
-    m_helpMenu = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
-    m_helpMenu.setTexture(Resources::instance().getHelpMenu());
     setSound();
 
     if (m_board.isCountdown())
     {
         m_dataDisplay.setCountdown(m_board.getCountdown());
     }
-
-    m_levelComplete = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
-    m_levelComplete.setTexture(Resources::instance().getLevelCompleted());
-   // m_levelComplete.setPosition(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
-
-    m_congrats = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
-    m_congrats.setTexture(Resources::instance().getCongrats());
+    initPages();
+    
 }
 
 //-----------------------------------------------------------------
@@ -70,6 +61,18 @@ void Controller::startGame()
 
         handleKeyboardClick();
     }
+}
+
+//-----------------------------------------------------------------
+
+void Controller::initPages()
+{
+    m_helpMenu = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
+    m_helpMenu.setTexture(Resources::instance().getHelpMenu());
+    m_levelComplete = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
+    m_levelComplete.setTexture(Resources::instance().getLevelCompleted());
+    m_congrats = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));
+    m_congrats.setTexture(Resources::instance().getCongrats());
 }
 
 //-----------------------------------------------------------------
@@ -225,42 +228,36 @@ void Controller::updateGameData()
         if(m_currPage == BOARD)
             m_currPage = LEVELCOMPLETE;
     }
+
+    applyBonus();
+}
+
+//-----------------------------------------------------------------
+
+void Controller::applyBonus()
+{
+
     BonusType bonus = m_board.getBonus();
     if (bonus != NONE)
     {
         switch (bonus)
         {
         case ADDTIME:
-            std::cout << "ADD TIME BONUS\n";
             m_dataDisplay.addTime(10, m_window);
-
-            //add 10 seconds?
             break;
         case SUBTIME:
-            std::cout << "SUB TIME BONUS\n";
-
             m_dataDisplay.addTime(-10, m_window);
-
-            //remove 10 seconds?
             break;
         case RMVDWARFS:
-            std::cout << "RMV DWARFS BONUS\n";
-
             m_board.removeDwarfs();
             break;
         case MOREDWARFS:
-            std::cout << "MORE DWARFS BONUS\n";
-
             m_board.moreDwarfs();
             break;
         case SLOWDWARFS:
-            std::cout << "SLOW DWARFS BONUS\n";
-
             m_board.slowDwarfs();
             break;
         case FASTDWARFS:
-            std::cout << "FAST DWARFS BONUS\n";
-
             m_board.fastDwarfs();
             break;
         default:
@@ -285,6 +282,8 @@ void Controller::checkLoseLevel()
     }
 }
 
+//-----------------------------------------------------------------
+
 void Controller::setSound()
 {
     for (size_t i = 0; i < NUM_OF_LEVEL_SOUND; i++)
@@ -293,6 +292,8 @@ void Controller::setSound()
 
     }
 }
+
+//-----------------------------------------------------------------
 
 void Controller::resetCurrLevelData()
 {
@@ -314,9 +315,6 @@ void Controller::drawCurrPage()
         m_menu.draw(m_window);
         break;
     case BOARD:
-        //bool key;
-        //std::cout << "board page\n";
-
         m_board.draw(m_window, m_activePlayer);
         checkLoseLevel();
 
@@ -353,7 +351,6 @@ void Controller::handleMenuClick(const sf::Event& event)
     switch (btn_num)
     {
     case START:
-        //openGamePage();
         m_currPage = BOARD;
         m_board.resetLevelNum();
         m_board.loadLevel();
@@ -381,7 +378,6 @@ void Controller::handleBoardClick(const sf::Event& event)
     switch (btn_num)
     {
     case VOLUME:
-        //openGamePage();
         m_dataDisplay.updateVolumeIcon(!m_soundOn);
         if (m_soundOn)
             m_audio.stopPlayMusic();

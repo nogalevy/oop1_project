@@ -18,6 +18,8 @@ DataDisplay::DataDisplay()
 	setBgRectangle();
 }
 
+//-----------------------------------------------------------------
+
 DataDisplay::DataDisplay(int time)
 	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
 	m_timeCounter(time),
@@ -36,6 +38,8 @@ DataDisplay::DataDisplay(int time)
 	setBgRectangle();
 }
 
+//-----------------------------------------------------------------
+
 void DataDisplay::draw(sf::RenderWindow& window, int activePlayer)
 {	
 	drawTime(window);
@@ -46,6 +50,8 @@ void DataDisplay::draw(sf::RenderWindow& window, int activePlayer)
 	window.draw(m_volumeBtn);
 	window.draw(m_homeBtn);
 }
+
+//-----------------------------------------------------------------
 
 void DataDisplay::drawTime(sf::RenderWindow& window )
 {
@@ -70,6 +76,8 @@ void DataDisplay::drawTime(sf::RenderWindow& window )
 	window.draw(m_timerTxt);
 }
 
+//-----------------------------------------------------------------
+
 void DataDisplay::drawHasKey(sf::RenderWindow& window)
 {
 	//int posX = m_activePlayerTxt.getPosition().x + m_activePlayerTxt.getGlobalBounds().width + 65;
@@ -82,10 +90,14 @@ void DataDisplay::drawHasKey(sf::RenderWindow& window)
 	window.draw(m_hasKeyTxt);
 }
 
+//-----------------------------------------------------------------
+
 void DataDisplay::drawLevelNum(sf::RenderWindow& window)
 {
 	window.draw(m_levelNumTxt);
 }
+
+//-----------------------------------------------------------------
 
 void DataDisplay::drawActivePlayer(sf::RenderWindow& window, int activePlayer)
 {
@@ -98,10 +110,14 @@ void DataDisplay::drawActivePlayer(sf::RenderWindow& window, int activePlayer)
 	window.draw(m_activePlayerTxt);
 }
 
+//-----------------------------------------------------------------
+
 void DataDisplay::setHasKey(bool hasKey)
 {
 	m_hasKey = hasKey;
 }
+
+//-----------------------------------------------------------------
 
 void DataDisplay::setLevelNum(int levelNum)
 {
@@ -111,6 +127,8 @@ void DataDisplay::setLevelNum(int levelNum)
 
 	m_levelNumTxt.setString("Level " + std::to_string(levelNum));
 }
+
+//-----------------------------------------------------------------
 
 int DataDisplay::handleClick(sf::Event event) const
 {
@@ -122,30 +140,42 @@ int DataDisplay::handleClick(sf::Event event) const
 	return -1;
 }
 
+//-----------------------------------------------------------------
+
 void DataDisplay::updateVolumeIcon(bool soundOn)
 {
 	m_volumeBtn.setTexture(*(Resources::instance().getVolumeIcon(soundOn)));
 }
+
+//-----------------------------------------------------------------
 
 void DataDisplay::setCountdown(int time)
 {
 	m_timeCounter = Timer(time);
 }
 
+//-----------------------------------------------------------------
+
 void DataDisplay::addTime(const int time, sf::RenderWindow& window)
 {
-	m_timeCounter.addTime(time);
+	m_timeCounter.addTime((float)time);
 }
+
+//-----------------------------------------------------------------
 
 bool DataDisplay::isTimeEnd()const
 {
 	return (m_timeCounter.getType() == COUNTDOWN && int(m_timeCounter.getTime()) == 0);
 }
 
+//-----------------------------------------------------------------
+
 void DataDisplay::resetClock()
 {
 	m_timeCounter.startClock();
 }
+
+//-----------------------------------------------------------------
 
 void DataDisplay::setBgRectangle()
 {
@@ -153,6 +183,8 @@ void DataDisplay::setBgRectangle()
 	m_bgRectangle.setPosition(sf::Vector2f(0, BOARD_H));
 	m_bgRectangle.setSize(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H));
 }
+
+//-----------------------------------------------------------------
 
 void DataDisplay::setVolumeBtn()
 {
@@ -166,6 +198,8 @@ void DataDisplay::setVolumeBtn()
 
 	m_volumeBtn.setPosition(posX, BOARD_H + 10);
 }
+
+//-----------------------------------------------------------------
 
 void DataDisplay::setHomeBtn()
 {

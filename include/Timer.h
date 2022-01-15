@@ -10,12 +10,15 @@ class Timer
 {
 public:
 	Timer(int time);
+	~Timer() = default;
 
+	//Set Functions
 	void setTime(int time);
 	void startClock();
-	sf::Time getElapsed();
 	void addTime(float time_to_add);
 
+	//Access Functions
+	sf::Time getElapsed()const;
 	float getTime()const;
 	timer_type getType()const;
 

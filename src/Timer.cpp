@@ -8,20 +8,28 @@ Timer::Timer(int time)
 	m_timerType = time == -1 ? TIMER : COUNTDOWN;
 }
 
+//-----------------------------------------------------------------
+
 void Timer::setTime(int time)
 {
-	m_time = sf::seconds(time);
+	m_time = sf::seconds((float)time);
 }
+
+//-----------------------------------------------------------------
 
 void Timer::startClock()
 {
 	m_clock.restart();
 }
 
-sf::Time Timer::getElapsed()
+//-----------------------------------------------------------------
+
+sf::Time Timer::getElapsed()const
 {
 	return m_clock.getElapsedTime();
 }
+
+//-----------------------------------------------------------------
 
 void Timer::addTime(float time_to_add)
 {
@@ -30,12 +38,16 @@ void Timer::addTime(float time_to_add)
 	m_time = sf::seconds(sumSec < 0 ? 0 : sumSec);
 }
 
+//-----------------------------------------------------------------
+
 float Timer::getTime()const
 {
 	if (m_timerType == TIMER) m_clock.getElapsedTime().asSeconds();
 	else if (m_time.asSeconds() - m_clock.getElapsedTime().asSeconds() <= 0) return 0;
-	else return m_time.asSeconds() - m_clock.getElapsedTime().asSeconds();
+	return m_time.asSeconds() - m_clock.getElapsedTime().asSeconds();
 }
+
+//-----------------------------------------------------------------
 
 timer_type Timer::getType() const
 {

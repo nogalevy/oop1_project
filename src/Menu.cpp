@@ -10,6 +10,8 @@ Menu::Menu()
     setBtns();
 }
 
+//-----------------------------------------------------------------
+
 void Menu::draw(sf::RenderWindow& window) const
 {
     window.draw(m_bgRect);
@@ -19,6 +21,8 @@ void Menu::draw(sf::RenderWindow& window) const
         window.draw(m_btns[i]);
     }
 }
+
+//-----------------------------------------------------------------
 
 int Menu::handleClick(const sf::Event& event) const
 {
@@ -30,7 +34,9 @@ int Menu::handleClick(const sf::Event& event) const
     return -1;
 }
 
-void Menu::handleHover(const sf::Vector2f& location, sf::RenderWindow& window)
+//-----------------------------------------------------------------
+
+void Menu::handleHover(const sf::Vector2f& location, sf::RenderWindow& window) //Tali: window is not used here
 {
     for (int i = 0; i < NUM_OF_MENU_BTNS; i++)
     {
@@ -45,6 +51,7 @@ void Menu::handleHover(const sf::Vector2f& location, sf::RenderWindow& window)
     }
 }
 
+//-----------------------------------------------------------------
 
 void Menu::setBtns()
 {

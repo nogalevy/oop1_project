@@ -8,33 +8,45 @@
 #include "utilities.h"
 #include "Resources.h"
 
-const int FONT_SIZE = 30;
+const int FONT_SIZE = 30; //need to put this somewhere else??
 
-class DataDisplay {
+class DataDisplay 
+{
 public:
-	// constructor
-	DataDisplay(); //delete?
+	DataDisplay(); //delete? T: why?
 	DataDisplay(int time);
+	~DataDisplay() = default;
 
 	void draw(sf::RenderWindow& window, int activePlayer);
+	int handleClick(sf::Event event)const;
+
+	void updateVolumeIcon(bool soundOn);
+
+	//Time Functions
 	void resetClock();
+	bool isTimeEnd()const;
+	void addTime(const int time, sf::RenderWindow& window);
+	
+	//Set Functions
+	void setLevelNum(int levelNum);
+	void setHasKey(bool hasKey);
+	void setCountdown(int time);
+
+private:
+	//Set Functions
+	void setBgRectangle();
+	void setVolumeBtn();
+	void setHomeBtn();
+
+	//Draw Functions
 	void drawTime(sf::RenderWindow& window);
 	void drawHasKey(sf::RenderWindow& window);
 	void drawLevelNum(sf::RenderWindow& window);
 	void drawActivePlayer(sf::RenderWindow& window, int activePlayer);
-	void setHasKey(bool hasKey);
-	void setLevelNum(int levelNum);
-	int handleClick(sf::Event event)const;
-	void updateVolumeIcon(bool soundOn);
 
-	void setCountdown(int time);
 
-	void addTime(const int time, sf::RenderWindow& window);
-	bool isTimeEnd()const;
-private:
-	void setBgRectangle();
-	void setVolumeBtn();
-	void setHomeBtn();
+	//======Members==========
+
 	sf::RectangleShape m_bgRectangle;
 
 	sf::Text m_timerTxt;
@@ -44,10 +56,9 @@ private:
 	sf::Sprite m_volumeBtn;
 	sf::Sprite m_homeBtn;
 
-	timer_type m_timerType; // 
+	timer_type m_timerType;
 	Timer m_timeCounter;
 
 	bool m_hasKey;
-	// key ?
-	// current player ? or get this data from board? 
+
 };
