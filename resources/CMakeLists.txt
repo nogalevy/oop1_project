@@ -1,5 +1,4 @@
 # images
-configure_file ("images/2.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/menu_bg.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/wall.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/fire.png" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -22,9 +21,6 @@ configure_file ("images/mute_white.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/volume_white.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/home.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/board_bg.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("images/board_bg1.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("images/board_bg2.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("images/board_bg3.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/gameIcon.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 
 # fonts
