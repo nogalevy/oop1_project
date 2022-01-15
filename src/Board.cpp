@@ -491,9 +491,39 @@ void Board::initPartners()
 
 float Board::getObjSizeOnBoard()const
 {
-	auto divide_by = m_width < m_height ? m_height : m_width;
-		
-	return (float)(BOARD_H - 20) / divide_by;
+	const int margin = 60;
+	auto divide_by = 1;
+	auto total = BOARD_H;
+
+	if (m_height >= m_width)
+	{
+		divide_by = m_height;
+		total = BOARD_H;
+	}
+	else
+	{
+		if (((BOARD_H - margin) / m_height) * m_width <= BOARD_W)
+		{
+			divide_by = m_height;
+			total = BOARD_H;
+		}
+		else if (((BOARD_W - margin) / m_width) * m_height <= BOARD_H)
+		{
+			divide_by = m_width;
+			total = BOARD_W;
+		}
+		else if(((BOARD_H - margin) / m_width) * m_height <= BOARD_W)
+		{
+			divide_by = m_width;
+			total = BOARD_H;
+		}
+		else
+		{
+			divide_by = m_height;
+			total = BOARD_W;
+		}
+	}
+	return float((total - margin) / divide_by);
 }
 
 //-----------------------------------------------------------------
