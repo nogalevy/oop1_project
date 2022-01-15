@@ -13,7 +13,6 @@ const int FONT_SIZE = 30; //need to put this somewhere else??
 class DataDisplay 
 {
 public:
-	DataDisplay(); //delete? T: why?
 	DataDisplay(int time);
 	~DataDisplay() = default;
 

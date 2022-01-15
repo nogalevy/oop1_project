@@ -390,7 +390,7 @@ void Controller::handleBoardClick(const sf::Event& event)
 
 void Controller::handleHover(const sf::Vector2f location)
 {
-    m_menu.handleHover(location, m_window);
+    m_menu.handleHover(location);
 }
 
 //-----------------------------------------------------------------

@@ -1,4 +1,3 @@
-//#include <SFML/Graphics.hpp>
 #pragma once 
 
 #include <iostream>
@@ -27,7 +26,8 @@ const int BOARD_H = WINDOW_H * 6 / 7;
 const int DATA_DISPLAY_W = WINDOW_W;
 const int DATA_DISPLAY_H = WINDOW_H / 7;
 
-const float ICON_SIZE = 1048; //before 512
+const float ICON_SIZE = 512;
+const int MENU_FONT_SIZE = 65; 
 
 //-----------------------------------------------------------------
 

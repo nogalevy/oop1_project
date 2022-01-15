@@ -11,6 +11,7 @@ const int NUM_OF_ICONS = NUM_OF_MOVING + NUM_OF_STATIC + 1; //1 = dwarfs
 const int NUM_OF_BONUS_TYPES = 6;
 const int NUM_OF_COLISION_SOUND = 5;
 const int NUM_OF_LEVEL_SOUND = 2;
+const int NUM_OF_MENU_BTNS = 3;
 const int VOLUME_ICON_NUM = 2;
 
 //-----------------------------------------------------------------
@@ -29,6 +30,7 @@ enum Level_sound_effect_type { END_LEVEL, LOSE_LEVEL };
 //OBJECT NAMES AND FILE SYMBOLS
 const char SYMBOLS[NUM_OF_ICONS + 1] = { 'K', 'M', 'W', 'T', '^', '=', '#', '*', '!', 'X', '@', 'F', '$', ' '};
 const std::string PLAYERS_NAMES[NUM_OF_MOVING] = { "King", "Mage", "Warrior", "Thief" };
+const std::string BTN_TEXT[NUM_OF_MENU_BTNS] = { "Start", "Help", "Exit" }; //menu buttons text
 
 //-----------------------------------------------------------------
 

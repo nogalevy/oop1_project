@@ -1,24 +1,5 @@
 #include "DataDisplay.h"
 
-DataDisplay::DataDisplay()
-	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),
-	m_timeCounter(-1),
-	m_hasKey(false),
-	m_volumeBtn(*(Resources::instance().getVolumeIcon(true))),
-	m_homeBtn(*(Resources::instance().getHomeBtnTexture()))
-{
-	m_timerTxt.setFont(*(Resources::instance().getFont()));
-	m_activePlayerTxt.setFont(*(Resources::instance().getFont()));
-	m_hasKeyTxt.setFont(*(Resources::instance().getFont()));
-	m_levelNumTxt.setFont(*(Resources::instance().getFont()));
-
-	setHomeBtn();
-	setVolumeBtn();
-	setLevelNum(1);
-	setBgRectangle();
-}
-
-//-----------------------------------------------------------------
 
 DataDisplay::DataDisplay(int time)
 	: m_bgRectangle(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H)),

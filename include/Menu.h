@@ -8,8 +8,6 @@
 #include "view_constants.h"
 #include "utilities.h"
 
-const int NUM_OF_MENU_BTNS = 3; //Tali: you want to leave these here?
-const std::string BTN_TEXT[NUM_OF_MENU_BTNS] = { "Start", "Help", "Exit" };
 
 class Menu 
 {
@@ -17,12 +15,20 @@ public:
     Menu();
     ~Menu() = default;
 
+    //Draw Functions
     void draw(sf::RenderWindow& window) const;
+    void drawBtns(sf::RenderWindow& window) const;
+
+    //Events Functions
     int handleClick(const sf::Event& event) const;
-    void handleHover(const sf::Vector2f& location, sf::RenderWindow& window);
+    void handleHover(const sf::Vector2f& location);
 
 private:
+    //Set Functions
     void setBtns();
+    void setBackground();
+
+    //======Members==========
 
     sf::RectangleShape m_bgRect;
     sf::Texture m_bgTexture;
