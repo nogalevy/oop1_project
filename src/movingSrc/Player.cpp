@@ -7,35 +7,23 @@ Player::Player(Icons symbol, const sf::Vector2f& position,  float objSize)
 	loadPlayerSoundEffects();
 }
 
-Player::~Player()
-{
-}
-
+//-----------------------------------------------------------------
 
 void Player::setPosition(const sf::Vector2f newPosition)
 {
 	getIcon().setPosition(newPosition);
 }
 
+//-----------------------------------------------------------------
+
 void Player::move(sf::Vector2f direction, sf::Time deltaTime)
 {
-	getPrevPos() = getIcon().getPosition();
+	getPrevPos() = getPosition();
 	auto speedPerSecond = 100.f;
 	getIcon().move(direction * speedPerSecond * deltaTime.asSeconds());
 }
 
-void Player::playSound(const Colision_sound_effect_type type)
-{
-	m_colisionSounds[type].playMusic(20);
-}
-
-void Player::loadPlayerSoundEffects()
-{
-	for (int i = 0; i < NUM_OF_COLISION_SOUND; i++)
-	{
-		m_colisionSounds.push_back(Resources::instance().getColisionSoundEffect(Colision_sound_effect_type(i)));
-	}
-}
+//-----------------------------------------------------------------
 
 void Player::setActive(bool active)
 {
@@ -43,4 +31,21 @@ void Player::setActive(bool active)
 		getIcon().setColor(sf::Color::White);
 	else
 		getIcon().setColor(sf::Color(196, 194, 194));
+}
+
+//-----------------------------------------------------------------
+
+void Player::playSound(const Colision_sound_effect_type type)
+{
+	m_colisionSounds[type].playMusic(20);
+}
+
+//-----------------------------------------------------------------
+
+void Player::loadPlayerSoundEffects()
+{
+	for (int i = 0; i < NUM_OF_COLISION_SOUND; i++)
+	{
+		m_colisionSounds.push_back(Resources::instance().getColisionSoundEffect(Colision_sound_effect_type(i)));
+	}
 }

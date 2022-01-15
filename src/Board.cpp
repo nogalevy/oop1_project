@@ -10,8 +10,6 @@ Board::Board()
 {
 	setBgRectangle();
 	openLevelFile();
-
-	//createMat();
 }
 
 //-----------------------------------------------------------------
@@ -24,7 +22,6 @@ Board::~Board()
 
 void Board::readLevel()
 {
-	//readCountdown();
 	readLevelSize();
 	char c;
 
@@ -44,7 +41,7 @@ void Board::readLevel()
 
 //-----------------------------------------------------------------
 
-Icons Board::getSymbol(int row, int col)const
+Icons Board::getSymbol(const int row,const int col)const
 {
 	char symbol = m_boardMat[row][col];
 
@@ -91,12 +88,12 @@ bool Board::checkEndLevel() const
 {
 	for (auto& movable : m_players)
 	{
-		//auto movingPtr = movable.get();
 		if (auto movablePtr = dynamic_cast<King*>(movable.get()))
 		{
 			return movablePtr->isReachToThrone();
 		}
 	}
+	return false;
 }
 
 //-----------------------------------------------------------------
@@ -118,7 +115,6 @@ bool Board::checkHasKey() const
 {
 	for(auto &movable : m_players)
 	{
-		//auto movingPtr = movable.get();
 		if (auto playerPtr = dynamic_cast<Thief*>(movable.get()))
 		{
 			return playerPtr->getHasKey();	// extract the life member from player before deleting it
@@ -139,7 +135,7 @@ void Board::readCountdown()
 //-----------------------------------------------------------------
 
 
-void Board::draw(sf::RenderWindow& window, int activePlayer)
+void Board::draw(sf::RenderWindow& window, const int activePlayer)
 {
 	window.draw(m_bgRectangle);
 
@@ -167,7 +163,7 @@ void Board::draw(sf::RenderWindow& window, int activePlayer)
 
 //-----------------------------------------------------------------
 
-void Board::move(sf::Vector2f direction, sf::Time deltaTime, int activePlayer)
+void Board::move(sf::Vector2f direction, sf::Time deltaTime,const int activePlayer)
 {
 	m_players[activePlayer]->move(direction, deltaTime);
 	handleCollisions(activePlayer);
@@ -270,6 +266,8 @@ void Board::moreDwarfs()
 	}
 }
 
+//-----------------------------------------------------------------
+
 void Board::fastDwarfs()
 {
 	for (int i = 0; i < m_dwarfs.size(); i++)
@@ -277,6 +275,8 @@ void Board::fastDwarfs()
 		m_dwarfs[i]->increaseSpeed();
 	}
 }
+
+//-----------------------------------------------------------------
 
 void Board::slowDwarfs()
 {
@@ -297,6 +297,8 @@ void Board::createLevel()
 	initTeleportPartners(obj_size);
 }
 
+//-----------------------------------------------------------------
+
 void Board::setBonus(BonusType type)
 {
 	m_bonusType = type;
@@ -307,8 +309,8 @@ void Board::setBonus(BonusType type)
 void Board::readLevelSize()
 {
 	m_levelFile.seekg(0);
-
 	int num;
+
 	// reading height
 	m_levelFile >> num;
 	m_height = num;
@@ -323,8 +325,6 @@ void Board::readLevelSize()
 void Board::createObjects(float obj_size)
 {
 	sf::Vector2f position;
-	//float xPos, yPos;
-
 	
 	m_staticObj.clear();
 	m_players.clear();
@@ -352,24 +352,21 @@ void Board::createObjects(float obj_size)
 
 //-----------------------------------------------------------------
 
-bool Board::isStaticObj(Icons symbol)
+bool Board::isStaticObj(const Icons symbol)const
 {
 	return (symbol > 4 && symbol < NUM_OF_ICONS);
 }
 
 //-----------------------------------------------------------------
 
-
 void Board::setBgRectangle()
 {
-	//m_bgRectangle.setFillColor(sf::Color::Color(51, 51, 51));
 	m_bgRectangle.setTexture(Resources::instance().getBoardBackground());
 }
 
-
 //-----------------------------------------------------------------
 
-void Board::handleCollisions(int activePlayer)
+void Board::handleCollisions(const int activePlayer)
 {
 	for (auto& unmovable : m_staticObj)
 	{
@@ -379,7 +376,7 @@ void Board::handleCollisions(int activePlayer)
 		}
 
 	}
-	for (auto& movable : m_players) //Tali: all moving objects in m_players are players. if we dont care for collsioins we dont need this
+	for (auto& movable : m_players)
 	{
 		if (m_players[activePlayer]->checkColisionWith(*movable))
 		{
@@ -492,12 +489,14 @@ void Board::initPartners()
 
 //-----------------------------------------------------------------
 
-float Board::getObjSizeOnBoard()
+float Board::getObjSizeOnBoard()const
 {
 	auto divide_by = m_width < m_height ? m_height : m_width;
 		
-	return (BOARD_H - 20) / divide_by;
+	return (float)(BOARD_H - 20) / divide_by;
 }
+
+//-----------------------------------------------------------------
 
 sf::Vector2f Board::createPosition(int row, int col, int symbol, float square_size)
 {
@@ -519,8 +518,8 @@ sf::Vector2f Board::createPosition(int row, int col, int symbol, float square_si
 	//return position;
 
 
-	int col_offsetX = (WINDOW_W - square_size * m_width) / 2;
-	int col_offsetY = (BOARD_H - square_size * m_height) / 2;
+	float col_offsetX = (WINDOW_W - square_size * m_width) / 2;
+	float col_offsetY = (BOARD_H - square_size * m_height) / 2;
 	
 	xPos = (float)(col * (square_size) + col_offsetX);
 	yPos = (float)(row * (square_size) + col_offsetY);
@@ -559,7 +558,9 @@ void Board::initTeleportPartners(float obj_size)
 	}
 }
 
-bool Board::canAddDwarf(int row, int& newcol)
+//-----------------------------------------------------------------
+
+bool Board::canAddDwarf(const int row, int& newcol)const
 {
 	bool assigned = false;
 
@@ -577,7 +578,9 @@ bool Board::canAddDwarf(int row, int& newcol)
 	return true;
 }
 
-void Board::addDwarfToRow(int row, int col, float obj_size)
+//-----------------------------------------------------------------
+
+void Board::addDwarfToRow(const int row,const int col, float obj_size)
 {
 	sf::Vector2f position = createPosition(row, col , DWARF, obj_size);
 

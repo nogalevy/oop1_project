@@ -5,18 +5,16 @@ Dwarf::Dwarf(Icons symbol, const sf::Vector2f& position,  float objSize)
 {
 }
 
-Dwarf::~Dwarf()
-{
-}
+//-----------------------------------------------------------------
 
 void Dwarf::move(sf::Time deltaTime)
 {
-	getPrevPos() = getIcon().getPosition();
-	//auto speedPerSecond = 100.f;
+	getPrevPos() = getPosition();
+
 	getIcon().move(m_direction * m_speedPerSecond * deltaTime.asSeconds());
 }
 
-
+//-----------------------------------------------------------------
 
 void Dwarf::handleCollision(GameObject& gameObject)
 {
@@ -25,61 +23,9 @@ void Dwarf::handleCollision(GameObject& gameObject)
 	gameObject.handleCollision(*this);
 }
 
-void Dwarf::handleCollision(King& /*gameObject*/)
-{
-	//doesnt get here and doesnt need to 
-}
+//-----------------------------------------------------------------
 
-void Dwarf::handleCollision(Warrior& /*gameObject*/)
-{
-	//movetoprevpos();
-}
-
-void Dwarf::handleCollision(Mage& /*gameObject*/)
-{
-	//movetoprevpos();
-}
-
-void Dwarf::handleCollision(Thief& /*gameObject*/)
-{
-	//movetoprevpos();
-}
-
-void Dwarf::handleCollision(Fire& /*gameObject*/)
-{
-	//m_colisionSound.playMusic();
-	//moveToPrevPos();
-}
-
-void Dwarf::handleCollision(Gate& /*gameObject*/)
-{
-	//m_colisionSound.playMusic();
-	//moveToPrevPos();
-}
-
-void Dwarf::handleCollision(Key& /*gameObject*/)
-{
-}
-
-void Dwarf::handleCollision(Orc& /*gameObject*/)
-{
-	//m_colisionSound.playMusic();
-	//moveToPrevPos();
-}
-
-void Dwarf::handleCollision(Teleport& /*gameObject*/) //more data ? next pos?
-{
-	//move to other teleport
-	//teleportToNewPos(nextPos);
-}
-
-void Dwarf::handleCollision(Throne& /*gameObject*/)
-{
-	//step on it and end level
-	//nextLevel(); //howwwwww???
-}
-
-void Dwarf::handleCollision(Wall& /*gameObject*/)
+void Dwarf::handleCollision(Wall& )
 {
 	//m_colisionSound.playMusic();
 	moveToPrevPos();
@@ -89,13 +35,7 @@ void Dwarf::handleCollision(Wall& /*gameObject*/)
 		m_direction.x = -1;
 }
 
-void Dwarf::handleCollision(Dwarf& gameObject)
-{
-}
-
-void Dwarf::handleCollision(Bonus& gameObject)
-{
-}
+//-----------------------------------------------------------------
 
 void Dwarf::increaseSpeed()
 {
@@ -104,6 +44,8 @@ void Dwarf::increaseSpeed()
 	if (m_speedPerSecond > 400.f)
 		m_speedPerSecond = 300.f;
 }
+
+//-----------------------------------------------------------------
 
 void Dwarf::decreaseSpeed()
 {

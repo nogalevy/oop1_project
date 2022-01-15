@@ -5,32 +5,34 @@ class Dwarf : public MovingObject
 {
 public:
 	Dwarf(Icons symbol, const sf::Vector2f& position,  float objSize);
-	virtual ~Dwarf();
+	virtual ~Dwarf() = default;
 
 	void move(sf::Time);
 
 	// Colisions:
 	virtual void handleCollision(GameObject& gameObject) override;
-	
-	virtual void handleCollision(King& gameObject) override;
-	virtual void handleCollision(Warrior& gameObject) override;
-	virtual void handleCollision(Mage& gameObject) override;
-	virtual void handleCollision(Thief& gameObject) override;
 
-	virtual void handleCollision(Fire& gameObject) override;
-	virtual void handleCollision(Gate& gameObject) override;
-	virtual void handleCollision(Key& gameObject) override;
-	virtual void handleCollision(Orc& gameObject) override;
-	virtual void handleCollision(Teleport& gameObject) override;
-	virtual void handleCollision(Throne& gameObject) override;
-	virtual void handleCollision(Wall& gameObject) override;
+	//Moving Objects
+	virtual void handleCollision(King& ) override {};
+	virtual void handleCollision(Warrior& ) override {};
+	virtual void handleCollision(Mage& ) override {};
+	virtual void handleCollision(Thief& ) override {};
+	virtual void handleCollision(Dwarf& ) override {};
 
-	virtual void handleCollision(Dwarf& gameObject) override;
-	virtual void handleCollision(Bonus& gameObject) override;
+	//Static Objects
+	virtual void handleCollision(Fire& ) override {};
+	virtual void handleCollision(Gate& ) override {};
+	virtual void handleCollision(Key& ) override {};
+	virtual void handleCollision(Orc& ) override {};
+	virtual void handleCollision(Teleport& ) override {};
+	virtual void handleCollision(Throne& ) override {};
+	virtual void handleCollision(Wall& ) override;
+	virtual void handleCollision(Bonus& ) override {};
 
+	//Speed Adjustments Functions
 	void increaseSpeed();
 	void decreaseSpeed();
 private:
 	sf::Vector2f m_direction;
-	float m_speedPerSecond = 100.f;
+	float m_speedPerSecond; 
 };

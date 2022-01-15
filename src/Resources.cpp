@@ -2,7 +2,6 @@
 
 Resources::Resources()
 {
-	//load evvverrryyythinngggg
 	loadImagesForObjects();
 	loadFonts();
 	loadMenuBackground();
@@ -14,6 +13,20 @@ Resources::Resources()
 	loadHomeBtnTexture();
 	loadLevelComplete();
 	loadCongrats();
+}
+
+//-----------------------------------------------------------------
+
+Resources::~Resources()
+{
+}
+
+//-----------------------------------------------------------------
+
+Resources& Resources::instance()
+{
+	static Resources inst;
+	return inst;
 }
 
 //-----------------------------------------------------------------
@@ -68,6 +81,8 @@ void Resources::loadHelpMenu()
 	}
 }
 
+//-----------------------------------------------------------------
+
 void Resources::loadVolumeIcons()
 {
 	sf::Texture image;
@@ -86,12 +101,13 @@ void Resources::loadVolumeIcons()
 
 void Resources::loadAudio()
 {
-	std::cout << "hello\n";
 	if (!m_gameMusic.loadFromFile("toward-the-mountains.ogg"))
 	{
 		std::cerr << "error load from file";
 	}
 }
+
+//-----------------------------------------------------------------
 
 void Resources::loadSoundEffects()
 {
@@ -116,6 +132,8 @@ void Resources::loadSoundEffects()
 	}
 }
 
+//-----------------------------------------------------------------
+
 void Resources::loadBoardBackground()
 {
 	if (!m_boardBackground.loadFromFile("board_bg.jpg"))
@@ -123,6 +141,8 @@ void Resources::loadBoardBackground()
 		std::cerr << "error load from file";
 	}
 }
+
+//-----------------------------------------------------------------
 
 void Resources::loadHomeBtnTexture()
 {
@@ -132,6 +152,8 @@ void Resources::loadHomeBtnTexture()
 	}
 }
 
+//-----------------------------------------------------------------
+
 void Resources::loadLevelComplete()
 {
 	if (!m_levelComplete.loadFromFile("levelcompleted.png"))
@@ -140,26 +162,14 @@ void Resources::loadLevelComplete()
 	}
 }
 
+//-----------------------------------------------------------------
+
 void Resources::loadCongrats()
 {
 	if (!m_congrats.loadFromFile("congrats.jpg"))
 	{
 		std::cerr << "error load from file";
 	}
-}
-
-//-----------------------------------------------------------------
-
-Resources::~Resources()
-{
-}
-
-//-----------------------------------------------------------------
-
-Resources& Resources::instance()
-{
-	static Resources inst;
-	return inst;
 }
 
 //-----------------------------------------------------------------
@@ -211,30 +221,42 @@ sf::SoundBuffer* Resources::getColisionSoundEffect(const Colision_sound_effect_t
 	return &m_colisionSoundEffectsBuffer[type];
 }
 
+//-----------------------------------------------------------------
+
 sf::SoundBuffer* Resources::getLevelSoundEffect(const Level_sound_effect_type type)
 {
 	return &m_levelSoundEffectsBuffer[type];
 }
+
+//-----------------------------------------------------------------
 
 sf::Texture* Resources::getVolumeIcon(bool soundOn)
 {
 	return (soundOn ? &m_volumeTextures[ON] : &m_volumeTextures[OFF]);
 }
 
+//-----------------------------------------------------------------
+
 sf::Texture* Resources::getBoardBackground()
 {
 	return &m_boardBackground;;
 }
+
+//-----------------------------------------------------------------
 
 sf::Texture* Resources::getHomeBtnTexture()
 {
 	return &m_homeBtnTexture;
 }
 
+//-----------------------------------------------------------------
+
 sf::Texture* Resources::getLevelCompleted()
 {
 	return &m_levelComplete;
 }
+
+//-----------------------------------------------------------------
 
 sf::Texture* Resources::getCongrats()
 {

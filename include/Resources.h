@@ -14,7 +14,6 @@ public:
 	static Resources& instance();
 
 	//Access Functions
-
 	sf::Texture* getIcon(const int symbol);
 	sf::Font* getFont();
 	sf::Font* getDataFont();
@@ -28,6 +27,7 @@ public:
 	sf::Texture* getHomeBtnTexture();
 	sf::Texture* getLevelCompleted();
 	sf::Texture* getCongrats();
+
 private:
 	Resources();
 	Resources(const Resources&) = default;
@@ -46,21 +46,26 @@ private:
 	void loadLevelComplete();
 	void loadCongrats();
 
-	//Members
-	std::vector<sf::Texture> m_textures;
+	//======Members==========
+
+	//Fonts
 	sf::Font m_font;
 	sf::Font m_font2;
+
+	//Textures
+	std::vector<sf::Texture> m_textures;
 	sf::Texture m_menuBackgroundTexture;
 	sf::Texture m_helpMenu;
 	sf::Texture m_boardBackground;
 	std::vector<sf::Texture> m_volumeTextures;
 	sf::Texture m_homeBtnTexture;
+	sf::Texture m_levelComplete;
+	sf::Texture m_congrats;
 	
+	//Audio
 	sf::SoundBuffer m_gameMusic;
 	std::vector<sf::SoundBuffer> m_colisionSoundEffectsBuffer;
 	std::vector<sf::SoundBuffer> m_levelSoundEffectsBuffer;
 	
-	sf::Texture m_levelComplete;
-	sf::Texture m_congrats;
 
 };

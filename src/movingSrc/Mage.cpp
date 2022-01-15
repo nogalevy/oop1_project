@@ -5,41 +5,42 @@ Mage::Mage(Icons symbol, const sf::Vector2f& position,  float objSize)
 {
 }
 
-Mage::~Mage()
-{
-}
-
+//-----------------------------------------------------------------
 
 void Mage::handleCollision(GameObject& gameObject)
 {
-	//if (&gameObject == this) return;
-	//double dispatch
 	gameObject.handleCollision(*(this));
 }
+
+//-----------------------------------------------------------------
 
 void Mage::handleCollision(King& gameObject)
 {
 	gameObject.moveToPrevPos();
 }
 
+//-----------------------------------------------------------------
+
 void Mage::handleCollision(Warrior& gameObject)
 {
 	gameObject.moveToPrevPos();
 }
 
-void Mage::handleCollision(Mage& )
-{
-	
-}
+//-----------------------------------------------------------------
 
 void Mage::handleCollision(Thief& gameObject)
 {
 	gameObject.moveToPrevPos();
 }
 
-void Mage::handleCollision(Fire& )
+//-----------------------------------------------------------------
+
+void Mage::handleCollision(Dwarf& )
 {
+	moveToPrevPos();
 }
+
+//-----------------------------------------------------------------
 
 void Mage::handleCollision(Gate& )
 {
@@ -47,10 +48,7 @@ void Mage::handleCollision(Gate& )
 	moveToPrevPos();
 }
 
-void Mage::handleCollision(Key& )
-{
-	//nothing
-}
+//-----------------------------------------------------------------
 
 void Mage::handleCollision(Orc& )
 {
@@ -58,10 +56,7 @@ void Mage::handleCollision(Orc& )
 	moveToPrevPos();
 }
 
-void Mage::handleCollision(Teleport& )
-{
-	//nothing
-}
+//-----------------------------------------------------------------
 
 void Mage::handleCollision(Throne& )
 {
@@ -69,18 +64,17 @@ void Mage::handleCollision(Throne& )
 	moveToPrevPos();
 }
 
+//-----------------------------------------------------------------
+
 void Mage::handleCollision(Wall& )
 {
 	playSound(DEFAULT_COLISION);
 	moveToPrevPos();
 }
 
-void Mage::handleCollision(Dwarf& gameObject)
-{
-	moveToPrevPos();
-}
+//-----------------------------------------------------------------
 
-void Mage::handleCollision(Bonus& gameObject)
+void Mage::handleCollision(Bonus& )
 {
 	playSound(BONUS_COLISION);
 }

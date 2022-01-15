@@ -20,7 +20,6 @@ Controller::Controller()
 
     if (m_board.isCountdown())
     {
-        std::cout << "board has counter" << std::endl;
         m_dataDisplay.setCountdown(m_board.getCountdown());
     }
 
@@ -164,6 +163,7 @@ void Controller::handleCongrats(const sf::Event& event)
         if (event.key.code == sf::Keyboard::Space)
         {
             m_currPage = MENU;
+            m_audio.playMusic(DEFAULT_VOLUME, true);
         }
 }
 

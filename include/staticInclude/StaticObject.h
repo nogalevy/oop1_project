@@ -16,7 +16,7 @@ public:
 	StaticObject(Icons symbol, const sf::Vector2f& position,  float objSize);
 	~StaticObject() = default;
 
-	//no meaning of colision with two static objects
+	//No meaning to two static objects colliding
 	virtual void handleCollision(Fire&) override {};
 	virtual void handleCollision(Gate&) override {};
 	virtual void handleCollision(Key&) override {};
@@ -31,6 +31,7 @@ public:
 
 protected:
 	void setIsDisposed(bool isDisposed);
+
 private:
 	bool m_isDisposed; 
 };

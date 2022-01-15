@@ -27,16 +27,19 @@ public:
 	virtual ~GameObject() = default;
 
 	virtual void draw(sf::RenderWindow& window);
-	bool checkColisionWith(const GameObject &obj) const;
 	sf::Vector2f getPosition()const;
 
+	bool checkColisionWith(const GameObject &obj) const;
 	virtual void handleCollision(GameObject& gameObject) = 0;
 
+	//Moving Objects
 	virtual void handleCollision(King& gameObject) = 0;
 	virtual void handleCollision(Warrior& gameObject) = 0;
 	virtual void handleCollision(Mage& gameObject) = 0;
 	virtual void handleCollision(Thief& gameObject) = 0;
+	virtual void handleCollision(Dwarf& gameObject) = 0;
 
+	//Static Objects
 	virtual void handleCollision(Fire& gameObject) = 0;
 	virtual void handleCollision(Gate& gameObject) = 0;
 	virtual void handleCollision(Key& gameObject) = 0;
@@ -44,10 +47,7 @@ public:
 	virtual void handleCollision(Teleport& gameObject) = 0;
 	virtual void handleCollision(Throne& gameObject) = 0;
 	virtual void handleCollision(Wall& gameObject) = 0;
-
-	virtual void handleCollision(Dwarf& gameObject) = 0;
 	virtual void handleCollision(Bonus& gameObject) = 0;
-
 
 protected:
 	sf::Sprite& getIcon();

@@ -5,43 +5,34 @@ MoreDwarfsBonus::MoreDwarfsBonus(Icons symbol, const sf::Vector2f& position,  fl
 {
 }
 
-MoreDwarfsBonus::~MoreDwarfsBonus()
-{
-}
-
-
-void MoreDwarfsBonus::handleCollision(GameObject& gameObject)
-{
-}
+//-----------------------------------------------------------------
 
 void MoreDwarfsBonus::handleCollision(King& gameObject)
 {
 	gameObject.handleCollision(*this);
-	//m_isDisposed = true;
 	setIsDisposed(true);
 }
+
+//-----------------------------------------------------------------
 
 void MoreDwarfsBonus::handleCollision(Warrior& gameObject)
 {
 	gameObject.handleCollision(*this);
-	//m_isDisposed = true;
 	setIsDisposed(true);
 }
+
+//-----------------------------------------------------------------
 
 void MoreDwarfsBonus::handleCollision(Mage& gameObject)
 {
 	gameObject.handleCollision(*this);
-	//m_isDisposed = true;
 	setIsDisposed(true);
 }
+
+//-----------------------------------------------------------------
 
 void MoreDwarfsBonus::handleCollision(Thief& gameObject)
 {
 	gameObject.handleCollision(*this);
-	//m_isDisposed = true;
 	setIsDisposed(true);
-}
-
-void MoreDwarfsBonus::handleCollision(Dwarf& gameObject)
-{
 }

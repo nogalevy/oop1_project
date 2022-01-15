@@ -6,11 +6,14 @@ MovingObject::MovingObject(Icons symbol, const sf::Vector2f& position,  float ob
 {
 }
 
+//-----------------------------------------------------------------
 
 void MovingObject::moveToPrevPos()
 {
 	getIcon().setPosition(m_prevPos);
 }
+
+//-----------------------------------------------------------------
 
 sf::Vector2f &MovingObject::getPrevPos()
 {

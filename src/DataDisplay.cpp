@@ -129,7 +129,6 @@ void DataDisplay::updateVolumeIcon(bool soundOn)
 
 void DataDisplay::setCountdown(int time)
 {
-	std::cout << "set timer" << std::endl;
 	m_timeCounter = Timer(time);
 }
 

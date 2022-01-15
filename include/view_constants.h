@@ -4,13 +4,20 @@
 #include <iostream>
 #include <string>
 
+//ENUMS
 enum Menu_buttons { START, HELP, EXIT };
 enum Board_buttons { VOLUME, HOME };
 enum Pages { MENU, BOARD, HELPMENU, LEVELCOMPLETE, CONGRATS };
 enum Arrows { LEFT, RIGHT, UP, DOWN };
 
+//-----------------------------------------------------------------
+
+//OBJECT NAME
 const std::string TITLE = "Save The King"; //window title
 
+//-----------------------------------------------------------------
+
+//CONST INT: SIZES
 const int WINDOW_W = 1300; //window width
 const int WINDOW_H = 900;  //window height
 
@@ -22,4 +29,7 @@ const int DATA_DISPLAY_H = WINDOW_H / 7;
 
 const float ICON_SIZE = 1048; //before 512
 
+//-----------------------------------------------------------------
+
+//CONST INT: DEFAULT
 const int DEFAULT_VOLUME = 10;

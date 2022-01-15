@@ -18,13 +18,9 @@ configure_file ("images/gift.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/halp.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/levelcompleted.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/congrats.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
-
-
-
 configure_file ("images/mute_white.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/volume_white.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/home.png" ${CMAKE_BINARY_DIR} COPYONLY)
-
 configure_file ("images/board_bg.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/board_bg1.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/board_bg2.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -37,10 +33,8 @@ configure_file ("fonts/font3.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("fonts/YatraOne.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 
 # audio
-
 configure_file ("toward-the-mountains.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/no.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
-
 configure_file ("audio/colision.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/sword.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/bonus.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
@@ -48,7 +42,6 @@ configure_file ("audio/win.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/loser.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 
 # levels
-
 configure_file("levels/Level1.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file("levels/Level2.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file("levels/Level3.txt" ${CMAKE_BINARY_DIR} COPYONLY)
