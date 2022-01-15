@@ -16,6 +16,7 @@ void Teleport::handleCollision(GameObject& gameObject)
 
 void Teleport::handleCollision(King& gameObject)
 {
+	gameObject.handleCollision(*this);
 	gameObject.setPosition(m_partner);
 }
 
@@ -23,6 +24,7 @@ void Teleport::handleCollision(King& gameObject)
 
 void Teleport::handleCollision(Warrior& gameObject)
 {
+	gameObject.handleCollision(*this);
 	gameObject.setPosition(m_partner);
 }
 
@@ -30,12 +32,13 @@ void Teleport::handleCollision(Warrior& gameObject)
 
 void Teleport::handleCollision(Mage& gameObject)
 {
-	gameObject.handleCollision(*this);
+	//gameObject.handleCollision(*this);
 }
 
 //-----------------------------------------------------------------
 
 void Teleport::handleCollision(Thief& gameObject)
 {
+	gameObject.handleCollision(*this);
 	gameObject.setPosition(m_partner);
 }

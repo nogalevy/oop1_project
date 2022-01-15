@@ -9,7 +9,7 @@ const int NUM_OF_MOVING = 4;
 const int NUM_OF_STATIC = 8;
 const int NUM_OF_ICONS = NUM_OF_MOVING + NUM_OF_STATIC + 1; //1 = dwarfs
 const int NUM_OF_BONUS_TYPES = 6;
-const int NUM_OF_COLISION_SOUND = 4;
+const int NUM_OF_COLISION_SOUND = 5;
 const int NUM_OF_LEVEL_SOUND = 2;
 const int VOLUME_ICON_NUM = 2;
 
@@ -21,7 +21,7 @@ enum Additional_icons { THIEF_WITH_KEY = NUM_OF_ICONS};
 enum volume { OFF = 0, ON = 1 };
 enum timer_type { TIMER = 0, COUNTDOWN };
 enum BonusType {ADDTIME, SUBTIME, RMVDWARFS, MOREDWARFS, SLOWDWARFS, FASTDWARFS, NONE};
-enum Colision_sound_effect_type { DEFAULT_COLISION, WARRIOR_ORC_COLISION, BONUS_COLISION, NO };
+enum Colision_sound_effect_type { DEFAULT_COLISION, WARRIOR_ORC_COLISION, BONUS_COLISION, TELEPORT_COLISION, NO };
 enum Level_sound_effect_type { END_LEVEL, LOSE_LEVEL };
 
 //-----------------------------------------------------------------
@@ -37,7 +37,7 @@ const std::string PIC_NAMES[NUM_OF_ICONS + 1] = { "king.png", "wizard.png", "war
 											"gate.png", "fire.png", "orc.png", "teleport.png", "throne.png", "key.png", "gift.png",
 											"thief_with_key.png" };
 const std::string VOLUME_ICON[VOLUME_ICON_NUM] = { "mute_white.png", "volume_white.png" };
-const std::string COLISION_SOUND_EFFECTS[NUM_OF_COLISION_SOUND] = { "colision.ogg", "sword.ogg", "bonus.ogg" ,"no.ogg"};
+const std::string COLISION_SOUND_EFFECTS[NUM_OF_COLISION_SOUND] = { "colision.ogg", "sword.ogg", "bonus.ogg" ,"teleport.ogg", "no.ogg"};
 const std::string LEVEL_SOUND_EFFECTS[NUM_OF_LEVEL_SOUND] = { "win.ogg", "loser.ogg" };
 
 //-----------------------------------------------------------------

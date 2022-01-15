@@ -76,7 +76,10 @@ void Thief::handleCollision(Orc& )
 	moveToPrevPos();
 }
 
-//-----------------------------------------------------------------
+void Thief::handleCollision(Teleport& )
+{
+	playSound(TELEPORT_COLISION);
+}
 
 void Thief::handleCollision(Throne& )
 {

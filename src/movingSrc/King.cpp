@@ -70,7 +70,10 @@ void King::handleCollision(Orc& )
 	moveToPrevPos();
 }
 
-//-----------------------------------------------------------------
+void King::handleCollision(Teleport& )
+{
+	playSound(TELEPORT_COLISION);
+}
 
 void King::handleCollision(Throne& )
 {

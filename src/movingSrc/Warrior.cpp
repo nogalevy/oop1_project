@@ -58,7 +58,10 @@ void Warrior::handleCollision(Gate&  )
 	moveToPrevPos();
 }
 
-//-----------------------------------------------------------------
+void Warrior::handleCollision(Teleport&  )
+{
+	playSound(TELEPORT_COLISION);
+}
 
 void Warrior::handleCollision(Throne&  )
 {
