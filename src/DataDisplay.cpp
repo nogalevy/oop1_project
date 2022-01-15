@@ -156,7 +156,7 @@ void DataDisplay::setTimerText()
 	m_timerTxt.setFont(*(Resources::instance().getFont()));
 	m_timerTxt.setString("Time: 00:00");
 	m_timerTxt.setPosition(sf::Vector2f(WINDOW_W - m_timerTxt.getGlobalBounds().width - MARGIN, MARGIN)); // top right
-	m_timerTxt.setFillColor(sf::Color::White);
+	m_timerTxt.setFillColor(WHITE_COLOR);
 	m_timerTxt.setCharacterSize(DATA_DISPLAY_FONT_SIZE);
 }
 
@@ -166,7 +166,7 @@ void DataDisplay::setLevelNumText()
 {
 	m_levelNumTxt.setFont(*(Resources::instance().getFont()));
 	m_levelNumTxt.setPosition(sf::Vector2f(MARGIN, DATA_DISPLAY_POS_Y));
-	m_levelNumTxt.setFillColor(sf::Color::White);
+	m_levelNumTxt.setFillColor(WHITE_COLOR);
 	m_levelNumTxt.setCharacterSize(DATA_DISPLAY_FONT_SIZE);
 	setLevelNum(0);
 }
@@ -179,7 +179,7 @@ void DataDisplay::setActivePlayerText()
 
 	m_activePlayerTxt.setFont(*(Resources::instance().getFont()));
 	m_activePlayerTxt.setPosition(sf::Vector2f(posX, DATA_DISPLAY_POS_Y));
-	m_activePlayerTxt.setFillColor(sf::Color::White);
+	m_activePlayerTxt.setFillColor(WHITE_COLOR);
 	m_activePlayerTxt.setCharacterSize(DATA_DISPLAY_FONT_SIZE);
 }
 
@@ -191,7 +191,7 @@ void DataDisplay::setHasKeyText()
 
 	m_hasKeyTxt.setFont(*(Resources::instance().getFont()));
 	m_hasKeyTxt.setPosition(sf::Vector2f(posX, DATA_DISPLAY_POS_Y));
-	m_hasKeyTxt.setFillColor(sf::Color::White);
+	m_hasKeyTxt.setFillColor(WHITE_COLOR);
 	m_hasKeyTxt.setCharacterSize(DATA_DISPLAY_FONT_SIZE);
 }
 
@@ -199,7 +199,7 @@ void DataDisplay::setHasKeyText()
 
 void DataDisplay::setBgRectangle()
 {
-	m_bgRectangle.setFillColor(sf::Color::Color(26, 26, 26));
+	m_bgRectangle.setFillColor(DATA_DISPLAY_BACKGROUMD_COLOR);
 	m_bgRectangle.setPosition(sf::Vector2f(0, BOARD_H));
 	m_bgRectangle.setSize(sf::Vector2f(DATA_DISPLAY_W, DATA_DISPLAY_H));
 }

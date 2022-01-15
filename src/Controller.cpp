@@ -30,7 +30,7 @@ void Controller::startGame()
     while (m_window.isOpen())
     {
         sf::Vector2f location;
-        m_window.clear(sf::Color(sf::Color(26, 26 ,26)));
+        m_window.clear();
 
         drawCurrPage();
         m_window.display();

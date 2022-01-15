@@ -28,7 +28,7 @@ void Player::move(sf::Vector2f direction, sf::Time deltaTime)
 void Player::setActive(bool active)
 {
 	if (active)
-		getIcon().setColor(sf::Color::White);
+		getIcon().setColor(WHITE_COLOR);
 	else
 		getIcon().setColor(sf::Color(196, 194, 194));
 }

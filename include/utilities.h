@@ -54,12 +54,10 @@ struct Partners {
 //-----------------------------------------------------------------
 //CONST COLORS
 
-//menu
-const sf::Color MENU_COLOR = sf::Color::Color(56, 56, 56);
+const sf::Color WHITE_COLOR = sf::Color::Color(252, 252, 252);
+const sf::Color HOVER_MENU_BTN_COLOR = sf::Color::Color(239, 236, 10);
+const sf::Color DATA_DISPLAY_BACKGROUMD_COLOR = sf::Color::Color(26, 26, 26);
 
-//data display 
-
-//text color
 
 
 

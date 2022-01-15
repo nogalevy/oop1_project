@@ -43,11 +43,11 @@ void Menu::handleHover(const sf::Vector2f& location) //Tali: window is not used 
     {
         if (this->m_btns[i].getGlobalBounds().contains(location))
         {
-            m_btns[i].setFillColor(sf::Color::Color(239, 236, 10));
+            m_btns[i].setFillColor(HOVER_MENU_BTN_COLOR);
         }
         else
         {
-            m_btns[i].setFillColor(sf::Color::Color(252, 252, 252));
+            m_btns[i].setFillColor(WHITE_COLOR);
         }
     }
 }
@@ -64,7 +64,7 @@ void Menu::setBtns()
         m_btns[i].setFont(*(Resources::instance().getFont()));
         m_btns[i].setString(BTN_TEXT[i]);
         m_btns[i].setCharacterSize(MENU_FONT_SIZE);
-        m_btns[i].setFillColor(sf::Color::White);
+        m_btns[i].setFillColor(WHITE_COLOR);
         m_btns[i].setStyle(sf::Text::Bold);
         m_btns[i].setPosition(sf::Vector2f((400 * i + 210), (WINDOW_H - 190)));
     }
