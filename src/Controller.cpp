@@ -79,7 +79,7 @@ void Controller::initPages()
 
 void Controller::handleNextLevel()
 {
-    m_levelSounds[END_LEVEL].playMusic(15);
+    m_levelSounds[END_LEVEL].playMusic(SOUND_EFFECTS_VOLUME);
     if (!m_board.setLevelNum())
     {
         m_board.resetLevelNum();
@@ -188,7 +188,7 @@ void Controller::handleKeyboardClick()
 
 void Controller::playClickSound()
 {
-    m_clickAudio.playMusic(15);
+    m_clickAudio.playMusic(SOUND_EFFECTS_VOLUME);
 }
 
 //-----------------------------------------------------------------
@@ -277,7 +277,7 @@ void Controller::checkLoseLevel()
 {
     if (m_dataDisplay.isTimeEnd())
     {
-        m_levelSounds[LOSE_LEVEL].playMusic(10);
+        m_levelSounds[LOSE_LEVEL].playMusic(SOUND_EFFECTS_VOLUME);
 
         m_board.createLevel();
         resetCurrLevelData();

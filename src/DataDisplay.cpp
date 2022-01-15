@@ -143,19 +143,21 @@ void DataDisplay::resetClock()
 
 void DataDisplay::setText()
 {
-	setTimerText();
 	setLevelNumText();
 	setActivePlayerText();
 	setHasKeyText();
+	setTimerText();
 }
 
 //-----------------------------------------------------------------
 
 void DataDisplay::setTimerText()
 {
+	auto posX = m_hasKeyTxt.getPosition().x + m_hasKeyTxt.getGlobalBounds().width + 65;
+
 	m_timerTxt.setFont(*(Resources::instance().getFont()));
 	m_timerTxt.setString("Time: 00:00");
-	m_timerTxt.setPosition(sf::Vector2f(WINDOW_W - m_timerTxt.getGlobalBounds().width - MARGIN, MARGIN)); // top right
+	m_timerTxt.setPosition(sf::Vector2f(posX ,DATA_DISPLAY_POS_Y)); // top right
 	m_timerTxt.setFillColor(WHITE_COLOR);
 	m_timerTxt.setCharacterSize(DATA_DISPLAY_FONT_SIZE);
 }
@@ -187,12 +189,13 @@ void DataDisplay::setActivePlayerText()
 
 void DataDisplay::setHasKeyText()
 {
-	auto posX = m_activePlayerTxt.getPosition().x + 370;
+	auto posX = m_activePlayerTxt.getPosition().x + 320;
 
 	m_hasKeyTxt.setFont(*(Resources::instance().getFont()));
 	m_hasKeyTxt.setPosition(sf::Vector2f(posX, DATA_DISPLAY_POS_Y));
 	m_hasKeyTxt.setFillColor(WHITE_COLOR);
 	m_hasKeyTxt.setCharacterSize(DATA_DISPLAY_FONT_SIZE);
+	m_hasKeyTxt.setString("Key Not Found");
 }
 
 //-----------------------------------------------------------------

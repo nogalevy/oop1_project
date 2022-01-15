@@ -27,7 +27,6 @@ void Dwarf::handleCollision(GameObject& gameObject)
 
 void Dwarf::handleCollision(Wall& )
 {
-	//m_colisionSound.playMusic();
 	moveToPrevPos();
 	if (m_direction.x == -1)
 		m_direction.x = 1;

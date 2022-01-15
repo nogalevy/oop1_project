@@ -37,7 +37,7 @@ void Player::setActive(bool active)
 
 void Player::playSound(const Colision_sound_effect_type type)
 {
-	m_colisionSounds[type].playMusic(20);
+	m_colisionSounds[type].playMusic(SOUND_EFFECTS_VOLUME);
 }
 
 //-----------------------------------------------------------------
