@@ -3,7 +3,7 @@
 Resources::Resources()
 {
 	loadImagesForObjects();
-	loadFonts();
+	loadFont();
 	loadMenuBackground();
 	loadHelpMenu();
 	loadAudio();
@@ -51,13 +51,9 @@ void Resources::loadImagesForObjects()
 
 //-----------------------------------------------------------------
 
-void Resources::loadFonts()
+void Resources::loadFont()
 {
 	if (!m_font.loadFromFile("YatraOne.ttf"))
-	{
-		std::cerr << "error load from file";
-	}
-	if (!m_font2.loadFromFile("font2.ttf"))
 	{
 		std::cerr << "error load from file";
 	}
@@ -204,13 +200,6 @@ sf::Texture* Resources::getIcon(const int symbol)
 sf::Font* Resources::getFont()
 {
 	return &m_font;
-}
-
-//-----------------------------------------------------------------
-
-sf::Font* Resources::getDataFont()
-{
-	return &m_font2;
 }
 
 //-----------------------------------------------------------------

@@ -24,9 +24,6 @@ configure_file ("images/board_bg.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("images/gameIcon.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 
 # fonts
-configure_file ("fonts/font.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("fonts/font2.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
-configure_file ("fonts/font3.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("fonts/YatraOne.ttf" ${CMAKE_BINARY_DIR} COPYONLY)
 
 # audio

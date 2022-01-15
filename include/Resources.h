@@ -16,7 +16,6 @@ public:
 	//Access Functions
 	sf::Texture* getIcon(const int symbol);
 	sf::Font* getFont();
-	sf::Font* getDataFont();
 	sf::Texture* getMenuBackground();
 	sf::Texture* getHelpMenu();
 	sf::SoundBuffer* getMusic();
@@ -38,7 +37,7 @@ private:
 
 	//Load Functions
 	void loadImagesForObjects();
-	void loadFonts();
+	void loadFont();
 	void loadMenuBackground();
 	void loadHelpMenu();
 	void loadVolumeIcons();
@@ -55,7 +54,6 @@ private:
 
 	//Fonts
 	sf::Font m_font;
-	sf::Font m_font2;
 
 	//Textures
 	std::vector<sf::Texture> m_textures;
