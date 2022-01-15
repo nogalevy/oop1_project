@@ -532,21 +532,6 @@ sf::Vector2f Board::createPosition(int row, int col, int symbol, float square_si
 {
 	sf::Vector2f position;
 	float xPos, yPos;
-	//int size = m_width < m_height ? m_height : m_width;
-	////int square_size = ((BOARD_H) / size) - 10; //set 500 to const
-	//int divide_by = symbol == WALL ? 5.5 : 6;
-	//float w = (float(BOARD_H -30) / size) / divide_by;
-	//auto square_size = (w * 512 )/ 100;
-
-	//
-	//int col_offsetX = (WINDOW_W - square_size * m_width) / 2;
-	//int col_offsetY = (BOARD_H - square_size * m_height) / 2;
-	//xPos = (float)(col * (square_size) + col_offsetX);
-	//yPos = (float)(row * (square_size) + col_offsetY);
-	//position = { xPos, yPos };
-
-	//return position;
-
 
 	float col_offsetX = (WINDOW_W - square_size * m_width) / 2;
 	float col_offsetY = (BOARD_H - square_size * m_height) / 2;
