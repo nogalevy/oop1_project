@@ -8,6 +8,7 @@ Resources::Resources()
 	loadHelpMenu();
 	loadAudio();
 	loadSoundEffects();
+	loadClickSoundEffect();
 	loadVolumeIcons();
 	loadBoardBackground();
 	loadHomeBtnTexture();
@@ -135,6 +136,16 @@ void Resources::loadSoundEffects()
 
 //-----------------------------------------------------------------
 
+void Resources::loadClickSoundEffect()
+{
+	if (!m_clickSoundEffect.loadFromFile("click.wav"))
+	{
+		std::cerr << "error load from file";
+	}
+}
+
+//-----------------------------------------------------------------
+
 void Resources::loadBoardBackground()
 {
 	if (!m_boardBackground.loadFromFile("board_bg.jpg"))
@@ -235,6 +246,11 @@ sf::SoundBuffer* Resources::getColisionSoundEffect(const Colision_sound_effect_t
 sf::SoundBuffer* Resources::getLevelSoundEffect(const Level_sound_effect_type type)
 {
 	return &m_levelSoundEffectsBuffer[type];
+}
+
+sf::SoundBuffer* Resources::getClickSoundEffect()
+{
+	return &m_clickSoundEffect;
 }
 
 //-----------------------------------------------------------------

@@ -8,7 +8,8 @@ Controller::Controller()
     m_dataDisplay(m_board.getCountdown()),
     m_currPage(MENU),
     m_activePlayer(KING),
-    m_audio(Resources::instance().getMusic())
+    m_audio(Resources::instance().getMusic()),
+    m_clickAudio(Resources::instance().getClickSoundEffect())
 {
     setGameIcon();
     m_window.setFramerateLimit(60);
@@ -185,6 +186,11 @@ void Controller::handleKeyboardClick()
     }
 }
 
+void Controller::playClickSound()
+{
+    m_clickAudio.playMusic(15);
+}
+
 //-----------------------------------------------------------------
 
 void Controller::movePlayer(sf::Time deltaTime)
@@ -341,6 +347,7 @@ void Controller::handleMenuClick(const sf::Event& event)
     switch (btn_num)
     {
     case START:
+        playClickSound();
         m_currPage = BOARD;
         m_board.resetLevelNum();
         m_board.loadLevel();
@@ -349,9 +356,11 @@ void Controller::handleMenuClick(const sf::Event& event)
         m_dataDisplay.setCountdown(m_board.getCountdown());
         break;
     case HELP:
+        playClickSound();
         m_currPage = HELPMENU;
         break;
     case EXIT:
+        playClickSound();
         m_window.close();
         break;
     default:
@@ -367,6 +376,7 @@ void Controller::handleBoardClick(const sf::Event& event)
     switch (btn_num)
     {
     case VOLUME:
+        playClickSound();
         m_dataDisplay.updateVolumeIcon(!m_soundOn);
         if (m_soundOn)
             m_audio.stopPlayMusic();
@@ -376,6 +386,7 @@ void Controller::handleBoardClick(const sf::Event& event)
         break;
     case HOME:
     {
+        playClickSound();
         m_currPage = MENU;
         m_board.resetLevelNum();
         break;

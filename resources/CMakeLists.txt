@@ -40,6 +40,7 @@ configure_file ("audio/colision.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/sword.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/bonus.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/teleport.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("audio/click.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("audio/win.ogg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("audio/loser.ogg" ${CMAKE_BINARY_DIR} COPYONLY)

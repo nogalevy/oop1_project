@@ -31,6 +31,8 @@ private:
 	void handleLevelComplete(const sf::Event& event);
 	void handleCongrats(const sf::Event& event);
 	void handleKeyboardClick();
+	void playClickSound();
+	
 
 	//Reset Functions
 	void resetClock();
@@ -70,4 +72,5 @@ private:
 	//Other
 	sf::Clock m_timer;
 	std::vector <Audio> m_levelSounds;
+	Audio m_clickAudio;
 };

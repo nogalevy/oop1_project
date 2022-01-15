@@ -22,6 +22,7 @@ public:
 	sf::SoundBuffer* getMusic();
 	sf::SoundBuffer* getColisionSoundEffect(const Colision_sound_effect_type type);
 	sf::SoundBuffer* getLevelSoundEffect(const Level_sound_effect_type type);
+	sf::SoundBuffer* getClickSoundEffect();
 	sf::Texture* getVolumeIcon(bool soundOn);
 	sf::Texture* getBoardBackground();
 	sf::Texture* getHomeBtnTexture();
@@ -43,6 +44,7 @@ private:
 	void loadVolumeIcons();
 	void loadAudio();
 	void loadSoundEffects();
+	void loadClickSoundEffect();
 	void loadBoardBackground();
 	void loadHomeBtnTexture();
 	void loadLevelComplete();
@@ -69,6 +71,7 @@ private:
 	sf::SoundBuffer m_gameMusic;
 	std::vector<sf::SoundBuffer> m_colisionSoundEffectsBuffer;
 	std::vector<sf::SoundBuffer> m_levelSoundEffectsBuffer;
+	sf::SoundBuffer m_clickSoundEffect;
 	
 	sf::Image m_gameIcon;
 };
