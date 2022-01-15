@@ -35,7 +35,13 @@ const int DATA_DISPLAY_POS_Y = BOARD_H + MARGIN;
 //-----------------------------------------------------------------
 
 //CONST INT: DEFAULT
+//sound
 const int DEFAULT_VOLUME = 10;
+const int SOUND_EFFECTS_VOLUME = 20;
+
+//bonus
+const int ADD_TIME_SEC = 20;
+const int SUB_TIME_SEC = -10;
 
 //-----------------------------------------------------------------
 
