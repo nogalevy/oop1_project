@@ -1,9 +1,8 @@
 #include "Controller.h"
 
-sf::VideoMode window_size = sf::VideoMode(1280, 870);
 
 Controller::Controller()
-    : m_window(sf::RenderWindow(sf::VideoMode(WINDOW_W, WINDOW_H), TITLE)),
+    : m_window(sf::RenderWindow(sf::VideoMode(WINDOW_W, WINDOW_H), TITLE,  sf::Style::Close)),
     m_menu(),
     m_board(),
     m_dataDisplay(m_board.getCountdown()),
