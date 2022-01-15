@@ -51,6 +51,15 @@ struct Partners {
 };
 
 
+//-----------------------------------------------------------------
+//CONST COLORS
+
+//menu
+const sf::Color MENU_COLOR = sf::Color::Color(56, 56, 56);
+
+//data display 
+
+//text color
 
 
 
