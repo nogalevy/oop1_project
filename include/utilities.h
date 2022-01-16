@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 //CONST INT: NUM OF
-const int NUM_OF_LEVELS = 4;
+const int NUM_OF_LEVELS = 3;
 const int NUM_OF_MOVING = 4;
 const int NUM_OF_STATIC = 8;
 const int NUM_OF_ICONS = NUM_OF_MOVING + NUM_OF_STATIC + 1; //1 = dwarfs
