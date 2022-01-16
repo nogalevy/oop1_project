@@ -91,14 +91,14 @@ private:
 	void initTeleportPartners(float obj_size);
 	bool canAddDwarf(const int row, int& col)const;
 	void addDwarfToRow(const int row, const int col, float obj_size);
+	sf::Vector2f createPosition(int row, int col, float square_size);
 
+	//Other
 	bool checkHasKey() const;
 	void setBgRectangle();
 	void handleCollisions(const int activePlayer);
 	void handleDwarfCollisions();
 	void updateBoard();
-
-	sf::Vector2f createPosition(int row, int col, int symbol, float square_size);
 
 	//======Members==========
 

@@ -340,7 +340,7 @@ void Board::createObjects(float obj_size)
 			if (symbol == SPACE)
 				continue;
 
-			position = createPosition(row, col, symbol, obj_size);
+			position = createPosition(row, col, obj_size);
 
 			if (isStaticObj(symbol))
 				createStatic(symbol, position, obj_size);
@@ -528,7 +528,7 @@ float Board::getObjSizeOnBoard()const
 
 //-----------------------------------------------------------------
 
-sf::Vector2f Board::createPosition(int row, int col, int symbol, float square_size)
+sf::Vector2f Board::createPosition(int row, int col, float square_size)
 {
 	sf::Vector2f position;
 	float xPos, yPos;
@@ -551,8 +551,8 @@ void Board::initTeleportPartners(float obj_size)
 
 	for (int i = 0; i < m_partners.size(); i++)
 	{
-		partner1 = createPosition(m_partners[i].row1, m_partners[i].col1, TELEPORT, obj_size);
-		partner2 = createPosition(m_partners[i].row2, m_partners[i].col2, TELEPORT, obj_size);
+		partner1 = createPosition(m_partners[i].row1, m_partners[i].col1, obj_size);
+		partner2 = createPosition(m_partners[i].row2, m_partners[i].col2, obj_size);
 
 		for (auto& unmovable : m_staticObj)
 		{
@@ -562,11 +562,11 @@ void Board::initTeleportPartners(float obj_size)
 
 				if (pos == partner1)
 				{
-					staticPtr->setPartner(createPosition(m_partners[i].row2, m_partners[i].col2 + 1, TELEPORT, obj_size));
+					staticPtr->setPartner(createPosition(m_partners[i].row2, m_partners[i].col2 + 1, obj_size));
 				}
 				if (pos == partner2)
 				{
-					staticPtr->setPartner(createPosition(m_partners[i].row1, m_partners[i].col1 + 1, TELEPORT, obj_size));
+					staticPtr->setPartner(createPosition(m_partners[i].row1, m_partners[i].col1 + 1, obj_size));
 				}
 			}
 		}
@@ -597,7 +597,7 @@ bool Board::canAddDwarf(const int row, int& newcol)const
 
 void Board::addDwarfToRow(const int row,const int col, float obj_size)
 {
-	sf::Vector2f position = createPosition(row, col , DWARF, obj_size);
+	sf::Vector2f position = createPosition(row, col, obj_size);
 
 	createMoving(DWARF, position, obj_size);
 }
