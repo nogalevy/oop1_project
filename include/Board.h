@@ -53,8 +53,8 @@ public:
 	void draw(sf::RenderWindow& window,const int activePlayer);
 
 	//Move Functions
-	void move(sf::Vector2f direction, sf::Time timer,const int activePlayer);
-	void moveDwarfs(sf::Time);
+	void move(sf::Vector2f direction, sf::Time& timer,const int activePlayer);
+	void moveDwarfs(sf::Time&);
 
 	//Level Functions
 	bool setLevelNum();

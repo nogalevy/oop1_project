@@ -193,7 +193,7 @@ void Controller::playClickSound()
 
 //-----------------------------------------------------------------
 
-void Controller::movePlayer(sf::Time deltaTime)
+void Controller::movePlayer(sf::Time& deltaTime)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
@@ -216,7 +216,7 @@ void Controller::movePlayer(sf::Time deltaTime)
 
 //-----------------------------------------------------------------
 
-void Controller::moveDwarfs(sf::Time deltaTime)
+void Controller::moveDwarfs(sf::Time &deltaTime)
 {
     m_board.moveDwarfs(deltaTime);
 }
