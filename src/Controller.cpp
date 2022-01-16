@@ -100,7 +100,7 @@ void Controller::handleBoardEvent(const sf::Event& event)
     {
         if (event.key.code == sf::Keyboard::P)
         {
-            m_activePlayer = (m_activePlayer + 1) % 4;
+            m_activePlayer = (m_activePlayer + 1) % NUM_OF_MOVING;
         }
         break;
     }

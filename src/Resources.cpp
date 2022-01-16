@@ -54,7 +54,7 @@ void Resources::loadFont()
 {
 	if (!m_font.loadFromFile("YatraOne.ttf"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading font from file";
 	}
 }
 
@@ -64,7 +64,7 @@ void Resources::loadMenuBackground()
 {
 	if (!m_menuBackgroundTexture.loadFromFile("menu_bg.png"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading menu background from file";
 	}
 }
 
@@ -74,7 +74,7 @@ void Resources::loadHelpMenu()
 {
 	if (!m_helpMenu.loadFromFile("halp.png"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading help menu from file";
 	}
 }
 
@@ -88,7 +88,7 @@ void Resources::loadVolumeIcons()
 	{
 		if (!image.loadFromFile(VOLUME_ICON[i]))
 		{
-			std::cerr << "error load from file";
+			std::cerr << "error loading volume icon from file";
 		}
 		m_volumeTextures.push_back(image);
 	}
@@ -100,7 +100,7 @@ void Resources::loadAudio()
 {
 	if (!m_gameMusic.loadFromFile("toward-the-mountains.ogg"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading game music from file";
 	}
 }
 
@@ -135,7 +135,7 @@ void Resources::loadClickSoundEffect()
 {
 	if (!m_clickSoundEffect.loadFromFile("click.wav"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading click sound from file";
 	}
 }
 
@@ -145,7 +145,7 @@ void Resources::loadBoardBackground()
 {
 	if (!m_boardBackground.loadFromFile("board_bg.jpg"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading board background from file";
 	}
 }
 
@@ -155,7 +155,7 @@ void Resources::loadHomeBtnTexture()
 {
 	if (!m_homeBtnTexture.loadFromFile("home.png"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading home button textures from file";
 	}
 }
 
@@ -165,7 +165,7 @@ void Resources::loadRetryBtnTexture()
 {
 	if (!m_retryBtnTexture.loadFromFile("retry.png"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading retry from file";
 	}
 }
 
@@ -175,7 +175,7 @@ void Resources::loadLevelComplete()
 {
 	if (!m_levelComplete.loadFromFile("levelcompleted.png"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading level complete from file";
 	}
 }
 
@@ -185,7 +185,7 @@ void Resources::loadCongrats()
 {
 	if (!m_congrats.loadFromFile("congrats.jpg"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading congrats from file";
 	}
 }
 
@@ -195,7 +195,7 @@ void Resources::loadGameIcon()
 {
 	if (!m_gameIcon.loadFromFile("gameIcon.jpg"))
 	{
-		std::cerr << "error load from file";
+		std::cerr << "error loading game icon from file";
 	}
 }
 

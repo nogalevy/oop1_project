@@ -26,28 +26,28 @@ void Dwarf::handleCollision(GameObject& gameObject)
 void Dwarf::handleCollision(Wall& )
 {
 	moveToPrevPos();
-	if (m_direction.x == -1)
-		m_direction.x = 1;
+	if (m_direction.x == LEFTD)
+		m_direction.x = RIGHTD;
 	else
-		m_direction.x = -1;
+		m_direction.x = LEFTD;
 }
 
 //-----------------------------------------------------------------
 
 void Dwarf::increaseSpeed()
 {
-	m_speedPerSecond += 50.f;
+	m_speedPerSecond += MIN_SPEED;
 
-	if (m_speedPerSecond > 400.f)
-		m_speedPerSecond = 300.f;
+	if (m_speedPerSecond > MAX_SPEED)
+		m_speedPerSecond = MAX_SPEED;
 }
 
 //-----------------------------------------------------------------
 
 void Dwarf::decreaseSpeed()
 {
-	m_speedPerSecond -= 50.f;
+	m_speedPerSecond -= MIN_SPEED;
 
-	if (m_speedPerSecond < 50.f)
-		m_speedPerSecond = 50.f;
+	if (m_speedPerSecond < MIN_SPEED)
+		m_speedPerSecond = MIN_SPEED;
 }

@@ -354,7 +354,7 @@ void Board::createObjects(float obj_size)
 
 bool Board::isStaticObj(const Icons symbol)const
 {
-	return (symbol > 4 && symbol < NUM_OF_ICONS);
+	return (symbol > NUM_OF_MOVING && symbol < NUM_OF_ICONS);
 }
 
 //-----------------------------------------------------------------
