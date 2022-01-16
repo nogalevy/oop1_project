@@ -19,8 +19,7 @@ void Player::setPosition(const sf::Vector2f newPosition)
 void Player::move(sf::Vector2f direction, sf::Time deltaTime)
 {
 	getPrevPos() = getPosition();
-	auto speedPerSecond = 100.f;
-	getIcon().move(direction * speedPerSecond * deltaTime.asSeconds());
+	getIcon().move(direction *SPEED_PER_SEC * deltaTime.asSeconds());
 }
 
 //-----------------------------------------------------------------

@@ -43,6 +43,9 @@ const int SOUND_EFFECTS_VOLUME = 20;
 const int ADD_TIME_SEC = 20;
 const int SUB_TIME_SEC = -10;
 
+//speed
+const float SPEED_PER_SEC = 100.f;
+
 //-----------------------------------------------------------------
 
 const int MINUS_ONE = -1;
