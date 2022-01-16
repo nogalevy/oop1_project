@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.20)
 
-project (Tali_and_Noga_cool_project_omg)
+project (Tali_and_Noga_Cool_Project)
 
 if (MSVC AND CMAKE_VERSION VERSION_GREATER_EQUAL 3.21)
     set(CMAKE_CXX_STANDARD 23)
