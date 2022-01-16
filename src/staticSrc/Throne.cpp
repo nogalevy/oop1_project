@@ -10,7 +10,6 @@ void Throne::handleCollision(GameObject& gameObject)
 
 void Throne::handleCollision(King& gameObject)
 {
-	gameObject.setPosition(getIcon().getPosition());
 	gameObject.handleCollision(*this);
 }
 
