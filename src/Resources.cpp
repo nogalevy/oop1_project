@@ -38,8 +38,6 @@ void Resources::loadImagesForObjects()
 {
 	sf::Texture image;
 
-	//m_textures.resize(NUM_OF_ICONS - 1);
-
 	for (int i = 0; i < NUM_OF_ICONS + 1; i++)
 	{
 		if (!image.loadFromFile(PIC_NAMES[i]))
@@ -161,6 +159,8 @@ void Resources::loadHomeBtnTexture()
 	}
 }
 
+//-----------------------------------------------------------------
+
 void Resources::loadRetryBtnTexture()
 {
 	if (!m_retryBtnTexture.loadFromFile("retry.png"))
@@ -188,6 +188,8 @@ void Resources::loadCongrats()
 		std::cerr << "error load from file";
 	}
 }
+
+//-----------------------------------------------------------------
 
 void Resources::loadGameIcon()
 {
@@ -246,6 +248,8 @@ sf::SoundBuffer* Resources::getLevelSoundEffect(const Level_sound_effect_type ty
 	return &m_levelSoundEffectsBuffer[type];
 }
 
+//-----------------------------------------------------------------
+
 sf::SoundBuffer* Resources::getClickSoundEffect()
 {
 	return &m_clickSoundEffect;
@@ -272,6 +276,8 @@ sf::Texture* Resources::getHomeBtnTexture()
 	return &m_homeBtnTexture;
 }
 
+//-----------------------------------------------------------------
+
 sf::Texture* Resources::getRetryBtnTexture()
 {
 	return &m_retryBtnTexture;
@@ -290,6 +296,8 @@ sf::Texture* Resources::getCongrats()
 {
 	return &m_congrats;
 }
+
+//-----------------------------------------------------------------
 
 sf::Image* Resources::getGameIcon()
 {

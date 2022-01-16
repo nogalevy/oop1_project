@@ -239,6 +239,8 @@ void DataDisplay::setHomeBtn()
 	m_homeBtn.setPosition(posX, DATA_DISPLAY_POS_Y);
 }
 
+//-----------------------------------------------------------------
+
 void DataDisplay::setRetryLevelBtn()
 {
 	float margin = 0, posX = 0, scale_val = 0.07f;

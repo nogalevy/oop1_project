@@ -10,8 +10,6 @@ King::King(Icons symbol, const sf::Vector2f& position,  float objSize)
 
 void King::handleCollision(GameObject& gameObject)
 {
-	if (&gameObject == this) return;
-	//double dispatch
 	gameObject.handleCollision(*this);
 }
 

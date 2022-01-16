@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 #include "Resources.h"
-#include "view_constants.h"
+#include "macros.h"
 #include "utilities.h"
 
 

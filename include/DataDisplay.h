@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include "Timer.h"
-#include "view_constants.h"
+#include "macros.h"
 #include "utilities.h"
 #include "Resources.h"
 

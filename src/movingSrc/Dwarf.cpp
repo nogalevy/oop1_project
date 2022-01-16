@@ -18,8 +18,6 @@ void Dwarf::move(sf::Time deltaTime)
 
 void Dwarf::handleCollision(GameObject& gameObject)
 {
-	//if (&gameobject == this) return;
-	//double dispatch
 	gameObject.handleCollision(*this);
 }
 

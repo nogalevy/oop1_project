@@ -2,7 +2,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Resources.h"
-#include "view_constants.h"
+#include "macros.h"
 
 
 class Audio {

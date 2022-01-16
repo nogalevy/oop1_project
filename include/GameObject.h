@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "utilities.h"
-#include "view_constants.h"
+#include "macros.h"
 #include "Resources.h"
 
 class King;
