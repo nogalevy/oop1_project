@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string.h>
-#include "view_constants.h"
+#include "macros.h"
 #include "utilities.h"
 
 class Timer

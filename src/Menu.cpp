@@ -70,6 +70,8 @@ void Menu::setBtns()
     }
 }
 
+//-----------------------------------------------------------------
+
 void Menu::setBackground()
 {
     m_bgRect = sf::RectangleShape(sf::Vector2f(float(WINDOW_W), float(WINDOW_H)));

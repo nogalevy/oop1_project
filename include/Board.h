@@ -6,7 +6,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "view_constants.h"
+#include "macros.h"
 #include "utilities.h"
 
 #include "movingInclude/MovingObject.h"
