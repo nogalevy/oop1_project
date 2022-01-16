@@ -163,7 +163,7 @@ void Board::draw(sf::RenderWindow& window, const int activePlayer)
 
 //-----------------------------------------------------------------
 
-void Board::move(sf::Vector2f direction, sf::Time deltaTime,const int activePlayer)
+void Board::move(sf::Vector2f direction, sf::Time& deltaTime,const int activePlayer)
 {
 	m_players[activePlayer]->move(direction, deltaTime);
 	handleCollisions(activePlayer);
@@ -172,7 +172,7 @@ void Board::move(sf::Vector2f direction, sf::Time deltaTime,const int activePlay
 
 //-----------------------------------------------------------------
 
-void Board::moveDwarfs(sf::Time deltaTime)
+void Board::moveDwarfs(sf::Time &deltaTime)
 {
 	for (auto& dwarf : m_dwarfs)
 	{

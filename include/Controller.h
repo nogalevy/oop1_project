@@ -44,8 +44,8 @@ private:
 	void setSound();
 
 	//Game Functions
-	void movePlayer(sf::Time);
-	void moveDwarfs(sf::Time);
+	void movePlayer(sf::Time&);
+	void moveDwarfs(sf::Time&);
 	void updateGameData();
 	void applyBonus();
 	void checkLoseLevel();

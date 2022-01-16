@@ -10,8 +10,9 @@ public:
 	virtual ~Player() = default;
 
 	void setPosition(const sf::Vector2f newPosition);
-	void move(sf::Vector2f direction, sf::Time deltaTime);
 	void setActive(bool active);
+
+	void move(sf::Vector2f direction, sf::Time deltaTime);
 
 protected:
 	void playSound(const Colision_sound_effect_type type);
