@@ -186,6 +186,8 @@ void Controller::handleKeyboardClick()
     }
 }
 
+//-----------------------------------------------------------------
+
 void Controller::playClickSound()
 {
     m_clickAudio.playMusic(SOUND_EFFECTS_VOLUME);

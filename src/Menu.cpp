@@ -37,7 +37,7 @@ int Menu::handleClick(const sf::Event& event) const
 
 //-----------------------------------------------------------------
 
-void Menu::handleHover(const sf::Vector2f& location) 
+void Menu::handleHover(const sf::Vector2f& location)
 {
     for (int i = 0; i < NUM_OF_MENU_BTNS; i++)
     {
